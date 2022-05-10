@@ -1,0 +1,123 @@
+.ports_map {
+  position: relative;
+}
+.the_map {
+  width: 100%;
+  height: auto;
+}
+.port_box {
+  border-radius: 5px;
+  background-color: #fff;
+  width: fit-content;
+  position: absolute;
+  box-shadow: 0 10px 15px #21273733;
+  text-align: center;
+  padding: 10px 29px;
+  z-index: 1000;
+}
+.port_box h5 {
+  font-size: 18px;
+  color: #073a64;
+}
+.port_box p {
+  margin-bottom: 15px !important;
+}
+.port_box .circle {
+  width: 32px;
+  height: 32px;
+  background-color: #fff;
+  border-radius: 50%;
+  position: absolute;
+  top: -25px;
+  left: 50%;
+  transform: translateX(-50%);
+  box-shadow: 0px 10px 15px #21273723;
+}
+.port_box .circle img {
+  transition: 0.4s;
+}
+.port_box:hover .circle img {
+  transform: rotate(360deg);
+}
+
+/* ports position */
+.ports .port_box:nth-child(1) {
+  top: 12%;
+  right: 40%;
+}
+.ports .port_box:nth-child(2) {
+  top: 26%;
+  right: 49%;
+}
+.ports .port_box:nth-child(3) {
+  top: 36%;
+  right: 28%;
+}
+.ports .port_box:nth-child(4) {
+  top: 40%;
+  right: 39%;
+}
+.ports .port_box:nth-child(5) {
+  bottom: 27%;
+  right: 42%;
+}
+.ports .port_box:nth-child(6) {
+  bottom: 18%;
+  right: 17%;
+}
+
+@media screen and (max-width: 800px) {
+  .ports .port_box:nth-child(1) {
+    top: 8%;
+    right: 32%;
+  }
+  .ports .port_box:nth-child(2) {
+    top: 20%;
+    right: 53%;
+  }
+  .ports .port_box:nth-child(3) {
+    top: 36%;
+    right: 22%;
+  }
+  .ports .port_box:nth-child(4) {
+    top: 40%;
+    right: 39%;
+  }
+  .ports .port_box:nth-child(5) {
+    bottom: 13%;
+    right: 42%;
+  }
+  .ports .port_box:nth-child(6) {
+    bottom: 18%;
+    right: 17%;
+  }
+}
+@media screen and (max-width: 600px) {
+  .port_box h5 {
+    font-size: 12px;
+  }
+  .ports .port_box:nth-child(1) {
+    top: 5%;
+    right: 27%;
+  }
+  .ports .port_box:nth-child(2) {
+    top: 18%;
+    right: 62%;
+  }
+  .ports .port_box:nth-child(3) {
+    top: 36%;
+    right: 4%;
+  }
+  .ports .port_box:nth-child(4) {
+    top: 42%;
+    right: 35%;
+  }
+  .ports .port_box:nth-child(5) {
+    bottom: -4%;
+    right: 46%;
+  }
+  .ports .port_box:nth-child(6) {
+    bottom: 0%;
+    right: 11%;
+  }
+}

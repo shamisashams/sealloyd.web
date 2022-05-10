@@ -1,0 +1,116 @@
+.stator_grid {
+    display: grid;
+    grid-template-columns: repeat(5, 1fr);
+    grid-gap: 12px 11px;
+    width: 100%;
+}
+
+.stator_grid .first_box {
+    background: url('/assets/images/stators/bg2.png') no-repeat;
+    background-position: center;
+    background-size: cover;
+    color: #fff;
+    margin-right: 5px;
+    border-radius: 10px;
+    overflow: hidden;
+    width: 338px;
+    grid-row: span 2;
+    padding: 20px;
+}
+
+.stator_grid .first_box h6 {
+    font-size: 20px;
+    margin-bottom: 100px;
+}
+
+.stator_box {
+    position: relative;
+    border-radius: 5px;
+    overflow: hidden;
+    box-shadow: 0 3px 6px rgba(0, 0, 0, 0.164);
+    height: 138px;
+    background-color: #eef2f9;
+}
+
+.stator_box .bg {
+    position: absolute;
+    width: 100%;
+    height: 100%;
+    left: 0;
+    top: 0;
+    transform: translateX(-100%);
+    transition: 0.4s;
+}
+
+.stator_box:hover .bg {
+    transform: translateX(0);
+}
+
+.stator_name {
+    position: absolute;
+    left: 50%;
+    top: 50%;
+    transform: translate(-50%, -50%);
+    font-size: 20px;
+    color: #073a64;
+    transition: all 0.4s;
+    white-space: nowrap;
+}
+
+.stator_grid a:nth-child(5) .stator_name {
+    white-space: normal;
+}
+
+.stator_box:hover .stator_name {
+    left: 16px;
+    transform: translate(0, -50%);
+    color: #fff;
+}
+
+.stator_box .more {
+    position: absolute;
+    left: 16px;
+    bottom: 12px;
+    color: #fff;
+    opacity: 0;
+    transition: all 0.4s;
+}
+
+.stator_box:hover .more {
+    opacity: 1;
+}
+
+@media screen and (max-width: 1450px) {
+    .stator_name {
+        font-size: 18px;
+    }
+
+    .stator_grid a:nth-child(5) .stator_name {
+        width: 114px;
+    }
+}
+
+@media screen and (max-width: 1200px) {
+    .stator_grid .first_box {
+        width: 100%;
+        grid-column: span 2;
+        margin: 0;
+        border-radius: 5px;
+    }
+
+    .stator_grid {
+        grid-template-columns: repeat(4, 1fr);
+    }
+}
+
+@media screen and (max-width: 750px) {
+    .stator_grid {
+        grid-template-columns: repeat(3, 1fr);
+    }
+}
+
+@media screen and (max-width: 500px) {
+    .stator_grid {
+        grid-template-columns: repeat(2, 1fr);
+    }
+}
