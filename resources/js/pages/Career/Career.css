@@ -1,43 +1,50 @@
 .careerPage {
-  background: url(../../assets/images/bgs/4.png) no-repeat;
-  background-position: center;
-  background-size: cover;
-  background-attachment: fixed;
+    background: url('/assets/images/bgs/4.png') no-repeat;
+    background-position: center;
+    background-size: cover;
+    background-attachment: fixed;
 }
+
 .career_grid {
-  display: grid;
-  grid-template-columns: repeat(2, 1fr);
-  grid-gap: 18px;
-  padding-top: 20px;
+    display: grid;
+    grid-template-columns: repeat(2, 1fr);
+    grid-gap: 18px;
+    padding-top: 20px;
 }
+
 .other_vacancies {
-  position: relative;
+    position: relative;
 }
+
 .other_vacancies h4 {
-  position: absolute;
-  right: 0;
-  top: -30px;
+    position: absolute;
+    right: 0;
+    top: -30px;
 }
+
 .other_vacancies .vacancy_box {
-  margin-bottom: 18px;
+    margin-bottom: 18px;
 }
+
 .career_grid.details {
-  grid-gap: 35px;
+    grid-gap: 35px;
 }
 
 @media screen and (max-width: 1200px) {
-  .career_grid {
-    grid-template-columns: 1fr;
-    max-width: 700px;
-  }
-  .career_grid.details {
-    margin: auto;
-    grid-gap: 50px;
-  }
-  .other_vacancies h4 {
-    position: relative;
-    right: auto;
-    top: auto;
-    margin-bottom: 20px;
-  }
+    .career_grid {
+        grid-template-columns: 1fr;
+        max-width: 700px;
+    }
+
+    .career_grid.details {
+        margin: auto;
+        grid-gap: 50px;
+    }
+
+    .other_vacancies h4 {
+        position: relative;
+        right: auto;
+        top: auto;
+        margin-bottom: 20px;
+    }
 }

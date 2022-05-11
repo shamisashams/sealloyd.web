@@ -69,7 +69,7 @@ const Header = () => {
                     </div>
                     <Link
                         className={pathname_ === "/login" ? "nav_link active" : "nav_link"}
-                        href="/login"
+                        href={route('client.login')}
                     >
                         <span>კაბინეტი</span>
                     </Link>

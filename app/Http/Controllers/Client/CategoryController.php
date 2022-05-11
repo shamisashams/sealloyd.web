@@ -28,39 +28,38 @@ class CategoryController extends Controller
     {
 
         $page = Page::where('key', 'products')->firstOrFail();
-//        return 1;
+        //        return 1;
         $category = Category::where(['status' => 1, 'slug' => $slug])->firstOrFail();
         //dd($category->getAncestors());
         $products = Product::where(['status' => 1, 'product_categories.category_id' => $category->id])
             ->leftJoin('product_categories', 'product_categories.product_id', '=', 'products.id')->with('latestImage')
-            ->orderby('updated_at','desc')
+            ->orderby('updated_at', 'desc')
             ->paginate(16);
 
         $images = [];
-        foreach ($page->sections as $sections){
-            if($sections->file){
+        foreach ($page->sections as $sections) {
+            if ($sections->file) {
                 $images[] = asset($sections->file->getFileUrlAttribute());
             } else {
                 $images[] = null;
             }
-
         }
 
         //dd($products);
 
         //dd($products);
-        return Inertia::render('Products/Products',[
+        return Inertia::render('Products/Products', [
             'products' => $products,
             'category' => $category,
             'images' => $images,
             "seo" => [
-                "title"=>$page->meta_title,
-                "description"=>$page->meta_description,
-                "keywords"=>$page->meta_keyword,
-                "og_title"=>$page->meta_og_title,
-                "og_description"=>$page->meta_og_description,
-//            "image" => "imgg",
-//            "locale" => App::getLocale()
+                "title" => $page->meta_title,
+                "description" => $page->meta_description,
+                "keywords" => $page->meta_keyword,
+                "og_title" => $page->meta_og_title,
+                "og_description" => $page->meta_og_description,
+                //            "image" => "imgg",
+                //            "locale" => App::getLocale()
             ]
         ])->withViewData([
             'meta_title' => $page->meta_title,
@@ -73,35 +72,35 @@ class CategoryController extends Controller
     }
 
 
-    public function popular(){
+    public function popular()
+    {
         $page = Page::where('key', 'products')->firstOrFail();
 
         $images = [];
-        foreach ($page->sections as $sections){
-            if($sections->file){
+        foreach ($page->sections as $sections) {
+            if ($sections->file) {
                 $images[] = asset($sections->file->getFileUrlAttribute());
             } else {
                 $images[] = null;
             }
-
         }
 
         $products = Product::where(['products.status' => 1, 'products.popular' => 1])->with('latestImage')
-            ->orderby('updated_at','desc')
+            ->orderby('updated_at', 'desc')
             ->paginate(16);
 
-        return Inertia::render('Products/Products',[
+        return Inertia::render('Products/Products', [
             'products' => $products,
             'category' => null,
             'images' => $images,
             "seo" => [
-                "title"=>$page->meta_title,
-                "description"=>$page->meta_description,
-                "keywords"=>$page->meta_keyword,
-                "og_title"=>$page->meta_og_title,
-                "og_description"=>$page->meta_og_description,
-//            "image" => "imgg",
-//            "locale" => App::getLocale()
+                "title" => $page->meta_title,
+                "description" => $page->meta_description,
+                "keywords" => $page->meta_keyword,
+                "og_title" => $page->meta_og_title,
+                "og_description" => $page->meta_og_description,
+                //            "image" => "imgg",
+                //            "locale" => App::getLocale()
             ]
         ])->withViewData([
             'meta_title' => $page->meta_title,

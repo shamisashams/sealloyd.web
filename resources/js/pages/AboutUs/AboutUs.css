@@ -1,49 +1,60 @@
 .aboutPage {
-  padding-bottom: 70px;
+    padding-bottom: 70px;
 }
+
 .aboutPage .font45 {
-  margin-top: 30px;
+    margin-top: 30px;
 }
+
 .aboutPage .showcase {
-  height: 256px;
-  padding-top: 30px;
-  margin-bottom: 40px;
+    height: 256px;
+    padding-top: 30px;
+    margin-bottom: 40px;
 }
+
 .aboutPage p {
-  margin-bottom: 20px;
+    margin-bottom: 20px;
 }
+
 .aboutPage .content {
-  margin-top: 40px;
+    margin-top: 40px;
 }
+
 .aboutPage .country {
-  display: inline-block;
-  margin-right: 30px;
-  margin-top: 30px;
-  vertical-align: top;
+    display: inline-block;
+    margin-right: 30px;
+    margin-top: 30px;
+    vertical-align: top;
 }
+
 .aboutPage h5 {
-  font-size: 16px;
+    font-size: 16px;
 }
+
 .aboutPage .country h6 {
-  font-size: 15px;
+    font-size: 15px;
 }
+
 .aboutPage .country span {
-  font-size: 8px;
+    font-size: 8px;
 }
 
 @media screen and (max-width: 700px) {
-  .aboutPage {
-    font-size: 14px;
-  }
-  .aboutPage .showcase {
-    height: 173px;
-    padding-top: 9px;
-    margin-bottom: 22px;
-  }
-  .aboutPage p {
-    margin-bottom: 11px;
-  }
-  .aboutPage .content {
-    margin-top: 20px;
-  }
+    .aboutPage {
+        font-size: 14px;
+    }
+
+    .aboutPage .showcase {
+        height: 173px;
+        padding-top: 9px;
+        margin-bottom: 22px;
+    }
+
+    .aboutPage p {
+        margin-bottom: 11px;
+    }
+
+    .aboutPage .content {
+        margin-top: 20px;
+    }
 }

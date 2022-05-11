@@ -1,4 +1,5 @@
 <?php
+
 /**
  *  routes/web.php
  *
@@ -19,6 +20,14 @@ use App\Http\Controllers\Client\HomeController;
 use App\Http\Controllers\Client\ContactController;
 use App\Http\Controllers\Client\AboutUsController;
 use Illuminate\Support\Facades\Route;
+
+use App\Http\Controllers\Client\ServiceController;
+use App\Http\Controllers\Client\DocumentationController;
+use App\Http\Controllers\Client\OurTeamController;
+use App\Http\Controllers\Client\LoginPageController;
+
+
+
 
 Route::post('ckeditor/image_upload', [CKEditorController::class, 'upload'])->name('upload');
 
@@ -46,11 +55,11 @@ Route::prefix('{locale?}')
                 // Category
                 Route::resource('category', \App\Http\Controllers\Admin\CategoryController::class);
                 Route::get('category/{category}/destroy', [\App\Http\Controllers\Admin\CategoryController::class, 'destroy'])->name('category.destroy');
-//
+                //
                 // Product
                 Route::resource('product', \App\Http\Controllers\Admin\ProductController::class);
                 Route::get('product/{product}/destroy', [\App\Http\Controllers\Admin\ProductController::class, 'destroy'])->name('product.destroy');
-//                // Gallery
+                //                // Gallery
                 Route::resource('gallery', GalleryController::class);
                 Route::get('gallery/{gallery}/destroy', [GalleryController::class, 'destroy'])->name('gallery.destroy');
 
@@ -65,7 +74,7 @@ Route::prefix('{locale?}')
                 Route::get('page/{page}/destroy', [PageController::class, 'destroy'])->name('page.destroy');
 
 
-                Route::get('setting/active',[SettingController::class,'setActive'])->name('setting.active');
+                Route::get('setting/active', [SettingController::class, 'setActive'])->name('setting.active');
                 // Setting
                 Route::resource('setting', SettingController::class);
                 Route::get('setting/{setting}/destroy', [SettingController::class, 'destroy'])->name('setting.destroy');
@@ -75,9 +84,6 @@ Route::prefix('{locale?}')
                 // Password
                 Route::get('password', [\App\Http\Controllers\Admin\PasswordController::class, 'index'])->name('password.index');
                 Route::post('password', [\App\Http\Controllers\Admin\PasswordController::class, 'update'])->name('password.update');
-
-
-
             });
         });
         Route::middleware(['active'])->group(function () {
@@ -85,26 +91,44 @@ Route::prefix('{locale?}')
             // Home Page
             Route::get('', [HomeController::class, 'index'])->name('client.home.index');
 
+            //services
+            Route::get('/services', [ServiceController::class, 'index'])->name('client.services.index');
+            Route::get('/stators/', [ServiceController::class, 'stators'])->name('client.services.stators');
+            Route::get('/certification', [ServiceController::class, 'Certification'])->name('client.services.certifications');
+            Route::get('/comprecognition', [ServiceController::class, 'Comprecognition'])->name('client.services.comprecognition');
 
+
+            // documentation
+            Route::get('/owner-application', [DocumentationController::class, 'index'])->name('client.services.ownerapplication');
+            Route::get('/evaluation', [DocumentationController::class, 'evaluation'])->name('client.services.evaluation');
+            Route::get('/circulars', [DocumentationController::class, 'circulars'])->name('client.services.circulars');
+
+
+            // our team
+            Route::get('/office', [OurTeamController::class, 'index'])->name('client.services.office');
+            Route::get('/inspectors', [OurTeamController::class, 'inspectors'])->name('client.services.inspectors');
+            Route::get('/career', [OurTeamController::class, 'career'])->name('client.services.career');
+
+
+            // cabinet
+            Route::get('/login', [LoginPageController::class, 'Login'])->name('client.login');
 
             // Contact Page
             Route::get('/contact', [ContactController::class, 'index'])->name('client.contact.index');
             Route::post('/contact-us', [ContactController::class, 'mail'])->name('client.contact.mail');
 
-
             // About Page
-            Route::get('about', [AboutUsController::class, 'index'])->name('client.about.index');
+            Route::get('purpose', [LoginPageController::class, 'purpose'])->name('client.aboutus.purpose');
+            Route::get('ethics', [LoginPageController::class, 'ethics'])->name('client.aboutus.ethics');
+            Route::get('politics', [LoginPageController::class, 'politics'])->name('client.aboutus.politics');
+            Route::get('management', [LoginPageController::class, 'management'])->name('client.aboutus.management');
+            Route::get('recognition', [LoginPageController::class, 'recognition'])->name('client.aboutus.recognition');
 
             // Product Page
             Route::get('products', [\App\Http\Controllers\Client\ProductController::class, 'index'])->name('client.product.index');
-           Route::get('product/{product}', [\App\Http\Controllers\Client\ProductController::class, 'show'])->name('client.product.show');
+            Route::get('product/{product}', [\App\Http\Controllers\Client\ProductController::class, 'show'])->name('client.product.show');
 
-           Route::get('category/{category}',[\App\Http\Controllers\Client\CategoryController::class,'show'])->name('client.category.show');
-            Route::get('popular',[\App\Http\Controllers\Client\CategoryController::class,'popular'])->name('client.category.popular');
-
-
-
+            Route::get('category/{category}', [\App\Http\Controllers\Client\CategoryController::class, 'show'])->name('client.category.show');
+            Route::get('popular', [\App\Http\Controllers\Client\CategoryController::class, 'popular'])->name('client.category.popular');
         });
     });
-
-
