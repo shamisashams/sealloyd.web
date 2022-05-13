@@ -22,7 +22,7 @@ const Home = ({ page, seo }) => {
                     <img src='/assets/images/home/1.png' alt="" className="beach_bg" />
                     <div className="scroll_down">
                         <p>scroll down for more</p>
-                        <img src='/assets/images/home/1.png' alt="" />
+                        <img src='/assets/images/icons/other/down.png' alt="" />
                     </div>
                 </div>
                 <div className="wrapper">

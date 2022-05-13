@@ -6,6 +6,9 @@ import "./StatorBoxes.css";
 // import Bg from "../../assets/images/stators/bg.png";
 
 export const StatorBoxes = () => {
+    let baseUrl = window.location.origin;
+    let link = window.location.pathname;
+    let a = link.split('/');
     const stators = [
         "Solas",
         "Marpol",
@@ -27,7 +30,7 @@ export const StatorBoxes = () => {
             </div>
             {stators.map((stator, index) => {
                 return (
-                    <Link href={`/stators/${index + 1}`} key={index}>
+                    <Link href={`${baseUrl}/${a[1]}/stators/${++index}`} key={index} >
                         <div className="stator_box" data-aos="flip-right">
                             <div className="bg img">
                                 <img src='/assets/images/stators/bg.png' alt="" />
@@ -38,6 +41,6 @@ export const StatorBoxes = () => {
                     </Link>
                 );
             })}
-        </div>
+        </div >
     );
 };

@@ -19,13 +19,14 @@ const Header = () => {
     };
     // const { pathname } = useLocation();
     let solid = false;
-    if (pathname_ === "/" || pathname_ === "/login") {
+    if (pathname == route('client.home.index')) {
         solid = true;
     }
     return (
-        <div className={solid ? "header solid" : "header"}>
+        // <div className={solid ? "header solid" : "header"}>
+        <div className={"header solid"}>
             <div className="wrapper flex">
-                <Link href="/">
+                <Link href={route('client.home.index')}>
                     <img src='/assets/images/logo/1.png' alt="" />
                 </Link>
                 <div className="flex right">
@@ -35,14 +36,14 @@ const Header = () => {
                             return (
                                 <div
                                     className={
-                                        pathname_ === nav.link ? "nav_link active" : "nav_link"
+                                        pathname === nav.link ? "nav_link active" : "nav_link"
                                     }
                                     key={i}
                                 >
                                     <Link
                                         className={drop ? "" : "link"}
                                         href={nav.link}
-                                        onClick={drop ? (e) => e.preventDefault() : ""}
+                                        onClick={drop ? (e) => { e.preventDefault() } : (e) => { return "" }}
                                     >
                                         <span>{nav.name}</span>
                                     </Link>
@@ -68,7 +69,7 @@ const Header = () => {
                         })}
                     </div>
                     <Link
-                        className={pathname_ === "/login" ? "nav_link active" : "nav_link"}
+                        className={pathname === route('client.login') ? "nav_link active" : "nav_link"}
                         href={route('client.login')}
                     >
                         <span>კაბინეტი</span>

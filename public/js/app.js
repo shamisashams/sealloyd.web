@@ -3485,14 +3485,17 @@ __webpack_require__.r(__webpack_exports__);
 /* harmony import */ var _OurTeam_OurTeam_css__WEBPACK_IMPORTED_MODULE_1__ = __webpack_require__(/*! ../OurTeam/OurTeam.css */ "./resources/js/Pages/OurTeam/OurTeam.css");
 /* harmony import */ var _components_SmallComps_SmallComps__WEBPACK_IMPORTED_MODULE_2__ = __webpack_require__(/*! ../../components/SmallComps/SmallComps */ "./resources/js/components/SmallComps/SmallComps.js");
 /* harmony import */ var _components_VacancyBox_VacancyBox__WEBPACK_IMPORTED_MODULE_3__ = __webpack_require__(/*! ../../components/VacancyBox/VacancyBox */ "./resources/js/components/VacancyBox/VacancyBox.js");
-/* harmony import */ var _Career_css__WEBPACK_IMPORTED_MODULE_4__ = __webpack_require__(/*! ./Career.css */ "./resources/js/Pages/Career/Career.css");
+/* harmony import */ var _Layouts_Layout__WEBPACK_IMPORTED_MODULE_4__ = __webpack_require__(/*! ../../Layouts/Layout */ "./resources/js/Layouts/Layout.js");
+/* harmony import */ var _Career_css__WEBPACK_IMPORTED_MODULE_5__ = __webpack_require__(/*! ./Career.css */ "./resources/js/Pages/Career/Career.css");
 
 
 
 
 
 
-var Career = function Career() {
+
+var Career = function Career(_ref) {
+  var seo = _ref.seo;
   var vacancies = [{
     title: "HR სპეციალისტი",
     subtitle: "ადამიანური რესურსების მართვა",
@@ -3512,7 +3515,9 @@ var Career = function Career() {
     date: "15/06/2021",
     link: "/career-detail1"
   }];
-  return /*#__PURE__*/react__WEBPACK_IMPORTED_MODULE_0__.createElement("div", {
+  return /*#__PURE__*/react__WEBPACK_IMPORTED_MODULE_0__.createElement(_Layouts_Layout__WEBPACK_IMPORTED_MODULE_4__["default"], {
+    seo: seo
+  }, /*#__PURE__*/react__WEBPACK_IMPORTED_MODULE_0__.createElement("div", {
     className: "teamPage careerPage"
   }, /*#__PURE__*/react__WEBPACK_IMPORTED_MODULE_0__.createElement("div", {
     className: "wrapper"
@@ -3533,7 +3538,7 @@ var Career = function Career() {
       date: box.date,
       link: box.link
     });
-  }))));
+  })))));
 };
 
 /* harmony default export */ const __WEBPACK_DEFAULT_EXPORT__ = (Career);
@@ -3638,6 +3643,7 @@ __webpack_require__.r(__webpack_exports__);
 /* harmony import */ var _AboutUs_AboutUs_css__WEBPACK_IMPORTED_MODULE_2__ = __webpack_require__(/*! ../AboutUs/AboutUs.css */ "./resources/js/Pages/AboutUs/AboutUs.css");
 /* harmony import */ var _Contact_css__WEBPACK_IMPORTED_MODULE_3__ = __webpack_require__(/*! ./Contact.css */ "./resources/js/Pages/Contact/Contact.css");
 /* harmony import */ var _Layouts_Layout__WEBPACK_IMPORTED_MODULE_4__ = __webpack_require__(/*! ../../Layouts/Layout */ "./resources/js/Layouts/Layout.js");
+/* harmony import */ var _inertiajs_inertia_react__WEBPACK_IMPORTED_MODULE_5__ = __webpack_require__(/*! @inertiajs/inertia-react */ "./node_modules/@inertiajs/inertia-react/dist/index.js");
 
  // import Img1 from "../../assets/images/ports/6.png";
 
@@ -3648,8 +3654,28 @@ __webpack_require__.r(__webpack_exports__);
 
 
 
+
 var Contact = function Contact(_ref) {
   var seo = _ref.seo;
+
+  var _useForm = (0,_inertiajs_inertia_react__WEBPACK_IMPORTED_MODULE_5__.useForm)({
+    name: '',
+    lastname: '',
+    mail: '',
+    phone: '',
+    message: ''
+  }),
+      data = _useForm.data,
+      setData = _useForm.setData,
+      post = _useForm.post,
+      processing = _useForm.processing,
+      errors = _useForm.errors;
+
+  function submit(e) {
+    e.preventDefault();
+    post(route('client.contact.mail'));
+  }
+
   return /*#__PURE__*/react__WEBPACK_IMPORTED_MODULE_0__.createElement(_Layouts_Layout__WEBPACK_IMPORTED_MODULE_4__["default"], {
     seo: seo
   }, /*#__PURE__*/react__WEBPACK_IMPORTED_MODULE_0__.createElement("div", {
@@ -3690,28 +3716,50 @@ var Contact = function Contact(_ref) {
   }, /*#__PURE__*/react__WEBPACK_IMPORTED_MODULE_0__.createElement("img", {
     src: "/assets/images/icons/contact/mail.svg",
     alt: ""
-  }), /*#__PURE__*/react__WEBPACK_IMPORTED_MODULE_0__.createElement("span", null, "+995 032 2 22 22 22"))), /*#__PURE__*/react__WEBPACK_IMPORTED_MODULE_0__.createElement("form", {
-    action: ""
+  }), /*#__PURE__*/react__WEBPACK_IMPORTED_MODULE_0__.createElement("span", null, "+995 032 2 22 22 22"))), /*#__PURE__*/react__WEBPACK_IMPORTED_MODULE_0__.createElement("div", {
+    className: "form"
+  }, /*#__PURE__*/react__WEBPACK_IMPORTED_MODULE_0__.createElement("form", {
+    onSubmit: submit
   }, /*#__PURE__*/react__WEBPACK_IMPORTED_MODULE_0__.createElement("input", {
+    placeholder: "\u10E1\u10D0\u10EE\u10D4\u10DA\u10D8",
     type: "text",
-    placeholder: "\u10E1\u10D0\u10EE\u10D4\u10DA\u10D8"
+    value: data.name,
+    onChange: function onChange(e) {
+      return setData('name', e.target.value);
+    }
   }), /*#__PURE__*/react__WEBPACK_IMPORTED_MODULE_0__.createElement("input", {
+    placeholder: "\u10D2\u10D5\u10D0\u10E0\u10D8",
     type: "text",
-    placeholder: "\u10D2\u10D5\u10D0\u10E0\u10D8"
+    value: data.lastname,
+    onChange: function onChange(e) {
+      return setData('lastname', e.target.value);
+    }
   }), /*#__PURE__*/react__WEBPACK_IMPORTED_MODULE_0__.createElement("input", {
-    type: "text",
-    placeholder: "\u10D4\u10DA.\u10E4\u10DD\u10E1\u10E2\u10D0"
+    placeholder: "\u10D4\u10DA.\u10E4\u10DD\u10E1\u10E2\u10D0",
+    type: "mail",
+    value: data.mail,
+    onChange: function onChange(e) {
+      return setData('mail', e.target.value);
+    }
   }), /*#__PURE__*/react__WEBPACK_IMPORTED_MODULE_0__.createElement("input", {
-    type: "tel",
-    placeholder: "\u10E2\u10D4\u10DA\u10D4\u10E4\u10DD\u10DC\u10D8"
+    placeholder: "\u10E2\u10D4\u10DA\u10D4\u10E4\u10DD\u10DC\u10D8",
+    type: "number",
+    value: data.phone,
+    onChange: function onChange(e) {
+      return setData('phone', e.target.value);
+    }
   }), /*#__PURE__*/react__WEBPACK_IMPORTED_MODULE_0__.createElement("textarea", {
-    placeholder: "\u10E8\u10D4\u10E2\u10E7\u10DD\u10D1\u10D8\u10DC\u10D4\u10D1\u10D0"
+    placeholder: "\u10E8\u10D4\u10E2\u10E7\u10DD\u10D1\u10D8\u10DC\u10D4\u10D1\u10D0",
+    value: data.message,
+    onChange: function onChange(e) {
+      return setData('message', e.target.value);
+    }
   }), /*#__PURE__*/react__WEBPACK_IMPORTED_MODULE_0__.createElement(_components_SmallComps_SmallComps__WEBPACK_IMPORTED_MODULE_1__.SendButton, {
     text: "\u10D2\u10D0\u10D2\u10D6\u10D0\u10D5\u10DC\u10D0",
     onClick: function onClick() {
       return console.log();
     }
-  }))))));
+  })))))));
 };
 
 /* harmony default export */ const __WEBPACK_DEFAULT_EXPORT__ = (Contact);
@@ -4311,7 +4359,7 @@ var Home = function Home(_ref) {
   }), /*#__PURE__*/react__WEBPACK_IMPORTED_MODULE_0__.createElement("div", {
     className: "scroll_down"
   }, /*#__PURE__*/react__WEBPACK_IMPORTED_MODULE_0__.createElement("p", null, "scroll down for more"), /*#__PURE__*/react__WEBPACK_IMPORTED_MODULE_0__.createElement("img", {
-    src: "/assets/images/home/1.png",
+    src: "/assets/images/icons/other/down.png",
     alt: ""
   }))), /*#__PURE__*/react__WEBPACK_IMPORTED_MODULE_0__.createElement("div", {
     className: "wrapper"
@@ -4416,12 +4464,17 @@ __webpack_require__.r(__webpack_exports__);
 /* harmony export */ });
 /* harmony import */ var react__WEBPACK_IMPORTED_MODULE_0__ = __webpack_require__(/*! react */ "./node_modules/react/index.js");
 /* harmony import */ var _Login_css__WEBPACK_IMPORTED_MODULE_1__ = __webpack_require__(/*! ./Login.css */ "./resources/js/Pages/Login/Login.css");
+/* harmony import */ var _Layouts_Layout__WEBPACK_IMPORTED_MODULE_2__ = __webpack_require__(/*! ../../Layouts/Layout */ "./resources/js/Layouts/Layout.js");
  // import Arrow from "../../assets/images/icons/other/arr.svg";
 
 
 
-var Login = function Login() {
-  return /*#__PURE__*/react__WEBPACK_IMPORTED_MODULE_0__.createElement("div", {
+
+var Login = function Login(_ref) {
+  var seo = _ref.seo;
+  return /*#__PURE__*/react__WEBPACK_IMPORTED_MODULE_0__.createElement(_Layouts_Layout__WEBPACK_IMPORTED_MODULE_2__["default"], {
+    src: seo
+  }, /*#__PURE__*/react__WEBPACK_IMPORTED_MODULE_0__.createElement("div", {
     className: "loginPage"
   }, /*#__PURE__*/react__WEBPACK_IMPORTED_MODULE_0__.createElement("div", {
     className: "login_box"
@@ -4434,7 +4487,7 @@ var Login = function Login() {
   }), /*#__PURE__*/react__WEBPACK_IMPORTED_MODULE_0__.createElement("button", null, "\u10D0\u10D5\u10E2\u10DD\u10E0\u10D8\u10D6\u10D0\u10EA\u10D8\u10D0", /*#__PURE__*/react__WEBPACK_IMPORTED_MODULE_0__.createElement("img", {
     src: "/assets/images/icons/other/arr.svg",
     alt: ""
-  }))));
+  })))));
 };
 
 /* harmony default export */ const __WEBPACK_DEFAULT_EXPORT__ = (Login);
@@ -5143,7 +5196,9 @@ var Footer = function Footer() {
       href: nav.link,
       onClick: drop ? function (e) {
         return e.preventDefault();
-      } : ""
+      } : function (e) {
+        return "";
+      }
     }, /*#__PURE__*/react__WEBPACK_IMPORTED_MODULE_0__.createElement("span", null, nav.name)), drop ? /*#__PURE__*/react__WEBPACK_IMPORTED_MODULE_0__.createElement("div", {
       className: "dropdown"
     }, drop.map(function (drop, i) {
@@ -5177,39 +5232,90 @@ __webpack_require__.r(__webpack_exports__);
 /* harmony export */ });
 /* harmony import */ var react__WEBPACK_IMPORTED_MODULE_0__ = __webpack_require__(/*! react */ "./node_modules/react/index.js");
 /* harmony import */ var _Form_css__WEBPACK_IMPORTED_MODULE_1__ = __webpack_require__(/*! ./Form.css */ "./resources/js/components/Form/Form.css");
+/* harmony import */ var _inertiajs_inertia_react__WEBPACK_IMPORTED_MODULE_2__ = __webpack_require__(/*! @inertiajs/inertia-react */ "./node_modules/@inertiajs/inertia-react/dist/index.js");
  // import Arrow from "../../assets/images/icons/other/arr.svg";
 
 
+
+
 var Form = function Form() {
+  var _useForm = (0,_inertiajs_inertia_react__WEBPACK_IMPORTED_MODULE_2__.useForm)({
+    name: '',
+    lastname: '',
+    mail: '',
+    phone: '',
+    message: ''
+  }),
+      data = _useForm.data,
+      setData = _useForm.setData,
+      post = _useForm.post,
+      processing = _useForm.processing,
+      errors = _useForm.errors;
+
+  function submit(e) {
+    e.preventDefault();
+    post(route('client.contact.mail'));
+  }
+
   var inputs = [{
     type: "text",
-    placeholder: "სახელი"
+    placeholder: "სახელი",
+    data: 'name'
   }, {
     type: "text",
-    placeholder: "გვარი"
+    placeholder: "გვარი",
+    data: 'lastname'
   }, {
     type: "text",
-    placeholder: "ელ.ფოსტა"
+    placeholder: "ელ.ფოსტა",
+    data: "mail"
   }, {
     type: "tel",
-    placeholder: "ტელეფონი"
+    placeholder: "ტელეფონი",
+    data: "phone"
   }];
   return /*#__PURE__*/react__WEBPACK_IMPORTED_MODULE_0__.createElement("div", {
     className: "form"
   }, /*#__PURE__*/react__WEBPACK_IMPORTED_MODULE_0__.createElement("h5", {
     "data-aos": "fade-right"
   }, "\u10D9\u10D8\u10D7\u10EE\u10D5\u10D4\u10D1\u10D8\u10E1 \u10E8\u10D4\u10DB\u10D7\u10EE\u10D5\u10D4\u10D5\u10D0\u10E8\u10D8 \u10DB\u10DD\u10D2\u10D5\u10EC\u10D4\u10E0\u10D4\u10D7"), /*#__PURE__*/react__WEBPACK_IMPORTED_MODULE_0__.createElement("form", {
-    action: "",
-    "data-aos": "fade-up"
-  }, inputs.map(function (input, index) {
-    return /*#__PURE__*/react__WEBPACK_IMPORTED_MODULE_0__.createElement("input", {
-      key: index,
-      type: input.type,
-      placeholder: input.placeholder
-    });
+    onSubmit: submit
+  }, /*#__PURE__*/react__WEBPACK_IMPORTED_MODULE_0__.createElement("input", {
+    placeholder: "\u10E1\u10D0\u10EE\u10D4\u10DA\u10D8",
+    type: "text",
+    value: data.name,
+    onChange: function onChange(e) {
+      return setData('name', e.target.value);
+    }
+  }), /*#__PURE__*/react__WEBPACK_IMPORTED_MODULE_0__.createElement("input", {
+    placeholder: "\u10D2\u10D5\u10D0\u10E0\u10D8",
+    type: "text",
+    value: data.lastname,
+    onChange: function onChange(e) {
+      return setData('lastname', e.target.value);
+    }
+  }), /*#__PURE__*/react__WEBPACK_IMPORTED_MODULE_0__.createElement("input", {
+    placeholder: "\u10D4\u10DA.\u10E4\u10DD\u10E1\u10E2\u10D0",
+    type: "mail",
+    value: data.mail,
+    onChange: function onChange(e) {
+      return setData('mail', e.target.value);
+    }
+  }), /*#__PURE__*/react__WEBPACK_IMPORTED_MODULE_0__.createElement("input", {
+    placeholder: "\u10E2\u10D4\u10DA\u10D4\u10E4\u10DD\u10DC\u10D8",
+    type: "number",
+    value: data.phone,
+    onChange: function onChange(e) {
+      return setData('phone', e.target.value);
+    }
   }), /*#__PURE__*/react__WEBPACK_IMPORTED_MODULE_0__.createElement("textarea", {
-    placeholder: "\u10E8\u10D4\u10E2\u10E7\u10DD\u10D1\u10D8\u10DC\u10D4\u10D1\u10D0"
+    placeholder: "\u10E8\u10D4\u10E2\u10E7\u10DD\u10D1\u10D8\u10DC\u10D4\u10D1\u10D0",
+    value: data.message,
+    onChange: function onChange(e) {
+      return setData('message', e.target.value);
+    }
   }), /*#__PURE__*/react__WEBPACK_IMPORTED_MODULE_0__.createElement("button", {
+    type: "submit",
     className: "flex"
   }, /*#__PURE__*/react__WEBPACK_IMPORTED_MODULE_0__.createElement("span", null, "\u10D2\u10D0\u10D2\u10D6\u10D0\u10D5\u10DC\u10D0"), /*#__PURE__*/react__WEBPACK_IMPORTED_MODULE_0__.createElement("div", {
     className: "flex centered"
@@ -5282,74 +5388,80 @@ var Header = function Header() {
 
   var solid = false;
 
-  if (pathname_ === "/" || pathname_ === "/login") {
+  if (pathname == route('client.home.index')) {
     solid = true;
   }
 
-  return /*#__PURE__*/react__WEBPACK_IMPORTED_MODULE_0__.createElement("div", {
-    className: solid ? "header solid" : "header"
-  }, /*#__PURE__*/react__WEBPACK_IMPORTED_MODULE_0__.createElement("div", {
-    className: "wrapper flex"
-  }, /*#__PURE__*/react__WEBPACK_IMPORTED_MODULE_0__.createElement(_inertiajs_inertia_react__WEBPACK_IMPORTED_MODULE_1__.Link, {
-    href: "/"
-  }, /*#__PURE__*/react__WEBPACK_IMPORTED_MODULE_0__.createElement("img", {
-    src: "/assets/images/logo/1.png",
-    alt: ""
-  })), /*#__PURE__*/react__WEBPACK_IMPORTED_MODULE_0__.createElement("div", {
-    className: "flex right"
-  }, /*#__PURE__*/react__WEBPACK_IMPORTED_MODULE_0__.createElement("div", {
-    className: menu ? "navbar open" : "navbar"
-  }, _NavList__WEBPACK_IMPORTED_MODULE_3__.navList.map(function (nav, i) {
-    var drop = nav.dropdown;
-    return /*#__PURE__*/react__WEBPACK_IMPORTED_MODULE_0__.createElement("div", {
-      className: pathname_ === nav.link ? "nav_link active" : "nav_link",
-      key: i
+  return (
+    /*#__PURE__*/
+    // <div className={solid ? "header solid" : "header"}>
+    react__WEBPACK_IMPORTED_MODULE_0__.createElement("div", {
+      className: "header solid"
+    }, /*#__PURE__*/react__WEBPACK_IMPORTED_MODULE_0__.createElement("div", {
+      className: "wrapper flex"
     }, /*#__PURE__*/react__WEBPACK_IMPORTED_MODULE_0__.createElement(_inertiajs_inertia_react__WEBPACK_IMPORTED_MODULE_1__.Link, {
-      className: drop ? "" : "link",
-      href: nav.link,
-      onClick: drop ? function (e) {
-        return e.preventDefault();
-      } : ""
-    }, /*#__PURE__*/react__WEBPACK_IMPORTED_MODULE_0__.createElement("span", null, nav.name)), drop ? /*#__PURE__*/react__WEBPACK_IMPORTED_MODULE_0__.createElement("div", {
-      className: "dropdown"
-    }, drop.map(function (drop, i) {
-      if (drop) {
-        return /*#__PURE__*/react__WEBPACK_IMPORTED_MODULE_0__.createElement("div", {
-          key: i,
-          className: "link"
-        }, /*#__PURE__*/react__WEBPACK_IMPORTED_MODULE_0__.createElement(_inertiajs_inertia_react__WEBPACK_IMPORTED_MODULE_1__.Link, {
-          className: " nux",
-          href: drop.link
-        }, drop.name));
-      }
-    })) : "");
-  })), /*#__PURE__*/react__WEBPACK_IMPORTED_MODULE_0__.createElement(_inertiajs_inertia_react__WEBPACK_IMPORTED_MODULE_1__.Link, {
-    className: pathname_ === "/login" ? "nav_link active" : "nav_link",
-    href: route('client.login')
-  }, /*#__PURE__*/react__WEBPACK_IMPORTED_MODULE_0__.createElement("span", null, "\u10D9\u10D0\u10D1\u10D8\u10DC\u10D4\u10E2\u10D8")), /*#__PURE__*/react__WEBPACK_IMPORTED_MODULE_0__.createElement("div", {
-    className: "languages"
-  }, /*#__PURE__*/react__WEBPACK_IMPORTED_MODULE_0__.createElement("div", {
-    className: "on"
-  }, /*#__PURE__*/react__WEBPACK_IMPORTED_MODULE_0__.createElement("img", {
-    src: "/assets/images/icons/langs/ge.png",
-    alt: ""
-  })), /*#__PURE__*/react__WEBPACK_IMPORTED_MODULE_0__.createElement("div", {
-    className: "drop"
-  }, /*#__PURE__*/react__WEBPACK_IMPORTED_MODULE_0__.createElement(_inertiajs_inertia_react__WEBPACK_IMPORTED_MODULE_1__.Link, {
-    to: "/"
-  }, /*#__PURE__*/react__WEBPACK_IMPORTED_MODULE_0__.createElement("img", {
-    src: "/assets/images/icons/langs/ge.png",
-    alt: ""
-  })))), /*#__PURE__*/react__WEBPACK_IMPORTED_MODULE_0__.createElement("button", {
-    onClick: function onClick() {
-      return toggleMenu();
-    },
-    className: menu ? "menu_btn clicked" : "menu_btn"
-  }, /*#__PURE__*/react__WEBPACK_IMPORTED_MODULE_0__.createElement("div", {
-    className: "span"
-  }), /*#__PURE__*/react__WEBPACK_IMPORTED_MODULE_0__.createElement("div", {
-    className: "span"
-  })))));
+      href: route('client.home.index')
+    }, /*#__PURE__*/react__WEBPACK_IMPORTED_MODULE_0__.createElement("img", {
+      src: "/assets/images/logo/1.png",
+      alt: ""
+    })), /*#__PURE__*/react__WEBPACK_IMPORTED_MODULE_0__.createElement("div", {
+      className: "flex right"
+    }, /*#__PURE__*/react__WEBPACK_IMPORTED_MODULE_0__.createElement("div", {
+      className: menu ? "navbar open" : "navbar"
+    }, _NavList__WEBPACK_IMPORTED_MODULE_3__.navList.map(function (nav, i) {
+      var drop = nav.dropdown;
+      return /*#__PURE__*/react__WEBPACK_IMPORTED_MODULE_0__.createElement("div", {
+        className: pathname === nav.link ? "nav_link active" : "nav_link",
+        key: i
+      }, /*#__PURE__*/react__WEBPACK_IMPORTED_MODULE_0__.createElement(_inertiajs_inertia_react__WEBPACK_IMPORTED_MODULE_1__.Link, {
+        className: drop ? "" : "link",
+        href: nav.link,
+        onClick: drop ? function (e) {
+          e.preventDefault();
+        } : function (e) {
+          return "";
+        }
+      }, /*#__PURE__*/react__WEBPACK_IMPORTED_MODULE_0__.createElement("span", null, nav.name)), drop ? /*#__PURE__*/react__WEBPACK_IMPORTED_MODULE_0__.createElement("div", {
+        className: "dropdown"
+      }, drop.map(function (drop, i) {
+        if (drop) {
+          return /*#__PURE__*/react__WEBPACK_IMPORTED_MODULE_0__.createElement("div", {
+            key: i,
+            className: "link"
+          }, /*#__PURE__*/react__WEBPACK_IMPORTED_MODULE_0__.createElement(_inertiajs_inertia_react__WEBPACK_IMPORTED_MODULE_1__.Link, {
+            className: " nux",
+            href: drop.link
+          }, drop.name));
+        }
+      })) : "");
+    })), /*#__PURE__*/react__WEBPACK_IMPORTED_MODULE_0__.createElement(_inertiajs_inertia_react__WEBPACK_IMPORTED_MODULE_1__.Link, {
+      className: pathname === route('client.login') ? "nav_link active" : "nav_link",
+      href: route('client.login')
+    }, /*#__PURE__*/react__WEBPACK_IMPORTED_MODULE_0__.createElement("span", null, "\u10D9\u10D0\u10D1\u10D8\u10DC\u10D4\u10E2\u10D8")), /*#__PURE__*/react__WEBPACK_IMPORTED_MODULE_0__.createElement("div", {
+      className: "languages"
+    }, /*#__PURE__*/react__WEBPACK_IMPORTED_MODULE_0__.createElement("div", {
+      className: "on"
+    }, /*#__PURE__*/react__WEBPACK_IMPORTED_MODULE_0__.createElement("img", {
+      src: "/assets/images/icons/langs/ge.png",
+      alt: ""
+    })), /*#__PURE__*/react__WEBPACK_IMPORTED_MODULE_0__.createElement("div", {
+      className: "drop"
+    }, /*#__PURE__*/react__WEBPACK_IMPORTED_MODULE_0__.createElement(_inertiajs_inertia_react__WEBPACK_IMPORTED_MODULE_1__.Link, {
+      to: "/"
+    }, /*#__PURE__*/react__WEBPACK_IMPORTED_MODULE_0__.createElement("img", {
+      src: "/assets/images/icons/langs/ge.png",
+      alt: ""
+    })))), /*#__PURE__*/react__WEBPACK_IMPORTED_MODULE_0__.createElement("button", {
+      onClick: function onClick() {
+        return toggleMenu();
+      },
+      className: menu ? "menu_btn clicked" : "menu_btn"
+    }, /*#__PURE__*/react__WEBPACK_IMPORTED_MODULE_0__.createElement("div", {
+      className: "span"
+    }), /*#__PURE__*/react__WEBPACK_IMPORTED_MODULE_0__.createElement("div", {
+      className: "span"
+    })))))
+  );
 };
 
 /* harmony default export */ const __WEBPACK_DEFAULT_EXPORT__ = (Header);
@@ -5456,7 +5568,7 @@ __webpack_require__.r(__webpack_exports__);
 
  // import Flag1 from "../../assets/images/icons/flags/6.png";
 // import Flag2 from "../../assets/images/icons/flags/7.png";
-// import Flag3 from "../../assets/images/icons/flags/8.png";
+// import Flag3 from "../../assets/images/icons/flags/7.png";
 // import Flag4 from "../../assets/images/icons/flags/9.png";
 // import Flag5 from "../../assets/images/icons/flags/10.png";
 // import Flag6 from "../../assets/images/icons/flags/11.png";
@@ -5466,25 +5578,25 @@ var PortsMap = function PortsMap() {
     flag: '/assets/images/icons/flags/6.png',
     name: "Ukraine"
   }, {
-    flag: '/assets/images/icons/flags/6.png',
+    flag: '/assets/images/icons/flags/7.png',
     name: "Romania"
   }, {
-    flag: '/assets/images/icons/flags/6.png',
+    flag: '/assets/images/icons/flags/8.png',
     name: "Georgia"
   }, {
-    flag: '/assets/images/icons/flags/6.png',
+    flag: '/assets/images/icons/flags/9.png',
     name: "Turkey"
   }, {
-    flag: '/assets/images/icons/flags/6.png',
+    flag: '/assets/images/icons/flags/10.png',
     name: "Egypt"
   }, {
-    flag: '/assets/images/icons/flags/6.png',
+    flag: '/assets/images/icons/flags/11.png',
     name: "UAE"
   }];
   return /*#__PURE__*/react__WEBPACK_IMPORTED_MODULE_0__.createElement("div", {
     className: "ports_map"
   }, /*#__PURE__*/react__WEBPACK_IMPORTED_MODULE_0__.createElement("img", {
-    src: "/assets/images/icons/flags/6.png",
+    src: "/assets/images/bgs/map.png",
     className: "the_map",
     alt: ""
   }), /*#__PURE__*/react__WEBPACK_IMPORTED_MODULE_0__.createElement("div", {
@@ -5497,10 +5609,10 @@ var PortsMap = function PortsMap() {
     }, /*#__PURE__*/react__WEBPACK_IMPORTED_MODULE_0__.createElement("div", {
       className: "flex centered circle"
     }, /*#__PURE__*/react__WEBPACK_IMPORTED_MODULE_0__.createElement("img", {
-      src: "/assets/images/icons/flags/6.png",
+      src: "/assets/images/icons/other/circle.png",
       alt: ""
     })), /*#__PURE__*/react__WEBPACK_IMPORTED_MODULE_0__.createElement("img", {
-      src: "/assets/images/icons/flags/6.png",
+      src: ports[index].flag,
       alt: ""
     }), /*#__PURE__*/react__WEBPACK_IMPORTED_MODULE_0__.createElement("div", {
       className: "det"
@@ -5611,6 +5723,9 @@ __webpack_require__.r(__webpack_exports__);
  // import Bg from "../../assets/images/stators/bg.png";
 
 var StatorBoxes = function StatorBoxes() {
+  var baseUrl = window.location.origin;
+  var link = window.location.pathname;
+  var a = link.split('/');
   var stators = ["Solas", "Marpol", "ISM code", "Ballast Water management", "ISPS Code", "ILO MLC, 2006", "Energy efficiency", "HazMat"];
   return /*#__PURE__*/react__WEBPACK_IMPORTED_MODULE_0__.createElement("div", {
     className: "stator_grid"
@@ -5619,7 +5734,7 @@ var StatorBoxes = function StatorBoxes() {
     "data-aos": "zoom-in"
   }, /*#__PURE__*/react__WEBPACK_IMPORTED_MODULE_0__.createElement("h6", null, "\u10E1\u10E2\u10D0\u10E2\u10E3\u10E2\u10DD\u10E0\u10D8"), /*#__PURE__*/react__WEBPACK_IMPORTED_MODULE_0__.createElement("p", null, "Founded in Norway in 1861, Wilhelmsen is now a comprehensive global maritime group providing essential products and services to")), stators.map(function (stator, index) {
     return /*#__PURE__*/react__WEBPACK_IMPORTED_MODULE_0__.createElement(_inertiajs_inertia_react__WEBPACK_IMPORTED_MODULE_2__.Link, {
-      href: "/stators/".concat(index + 1),
+      href: "".concat(baseUrl, "/").concat(a[1], "/stators/").concat(++index),
       key: index
     }, /*#__PURE__*/react__WEBPACK_IMPORTED_MODULE_0__.createElement("div", {
       className: "stator_box",

@@ -7,8 +7,21 @@ import "../AboutUs/AboutUs.css";
 // import tel from "../../assets/images/icons/contact/tel.svg";
 import "./Contact.css";
 import Layout from "../../Layouts/Layout";
+import { useForm } from '@inertiajs/inertia-react'
 
 const Contact = ({ seo }) => {
+    const { data, setData, post, processing, errors } = useForm({
+        name: '',
+        lastname: '',
+        mail: '',
+        phone: '',
+        message: '',
+    })
+
+    function submit(e) {
+        e.preventDefault()
+        post(route('client.contact.mail'))
+    }
     return (
         <Layout seo={seo}>
             <div className="aboutPage contactPage servicesPage">
@@ -41,14 +54,25 @@ const Contact = ({ seo }) => {
                                 <span>+995 032 2 22 22 22</span>
                             </a>
                         </div>
-                        <form action="">
+                        {/* <form action="">
                             <input type="text" placeholder="სახელი" />
                             <input type="text" placeholder="გვარი" />
                             <input type="text" placeholder="ელ.ფოსტა" />
                             <input type="tel" placeholder="ტელეფონი" />
                             <textarea placeholder="შეტყობინება"></textarea>
                             <SendButton text="გაგზავნა" onClick={() => console.log()} />
-                        </form>
+                        </form> */}
+                        <div className="form">
+                            <form onSubmit={submit}>
+
+                                <input placeholder="სახელი" type="text" value={data.name} onChange={e => setData('name', e.target.value)} />
+                                <input placeholder="გვარი" type="text" value={data.lastname} onChange={e => setData('lastname', e.target.value)} />
+                                <input placeholder="ელ.ფოსტა" type="mail" value={data.mail} onChange={e => setData('mail', e.target.value)} />
+                                <input placeholder="ტელეფონი" type="number" value={data.phone} onChange={e => setData('phone', e.target.value)} />
+                                <textarea placeholder="შეტყობინება" value={data.message} onChange={e => setData('message', e.target.value)}></textarea>
+                                <SendButton text="გაგზავნა" onClick={() => console.log()} />
+                            </form>
+                        </div>
                     </div>
                 </div>
             </div>

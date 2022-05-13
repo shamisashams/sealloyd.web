@@ -30,7 +30,7 @@ const Footer = () => {
                             <Link
                                 className={drop ? "" : "link"}
                                 href={nav.link}
-                                onClick={drop ? (e) => e.preventDefault() : ""}
+                                onClick={drop ? (e) => e.preventDefault() : (e) => { return "" }}
                             >
                                 <span>{nav.name}</span>
                             </Link>

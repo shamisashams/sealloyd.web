@@ -93,9 +93,12 @@ Route::prefix('{locale?}')
 
             //services
             Route::get('/services', [ServiceController::class, 'index'])->name('client.services.index');
-            Route::get('/stators/', [ServiceController::class, 'stators'])->name('client.services.stators');
+            Route::get('stators', [ServiceController::class, 'stators'])->name('client.services.stators');
             Route::get('/certification', [ServiceController::class, 'Certification'])->name('client.services.certifications');
             Route::get('/comprecognition', [ServiceController::class, 'Comprecognition'])->name('client.services.comprecognition');
+
+            // stators
+            Route::get('/stators/{id?}', [ServiceController::class, 'statorsId'])->name('client.services.stators');
 
 
             // documentation
@@ -116,6 +119,8 @@ Route::prefix('{locale?}')
             // Contact Page
             Route::get('/contact', [ContactController::class, 'index'])->name('client.contact.index');
             Route::post('/contact-us', [ContactController::class, 'mail'])->name('client.contact.mail');
+            // contact us from navbar
+            Route::post('/contactus', [ContactController::class, 'ContactMail'])->name('client.contact.contactmail');
 
             // About Page
             Route::get('purpose', [LoginPageController::class, 'purpose'])->name('client.aboutus.purpose');
