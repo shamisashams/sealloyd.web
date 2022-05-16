@@ -1,10 +1,13 @@
 import React from "react";
 import { PagePath } from "../../components/SmallComps/SmallComps";
 import Layout from "../../Layouts/Layout";
+import { Link, usePage } from "@inertiajs/inertia-react";
 // import Img1 from "../../assets/images/ports/3.png";
 import "./AboutUs.css";
 
 const Purpose = ({ page, seo }) => {
+    const sharedData = usePage().props.localizations;
+    const renderHTML = (rawHTML) => React.createElement("div", { dangerouslySetInnerHTML: { __html: rawHTML } });
     return (
         <Layout seo={seo}>
             <div className="aboutPage wrapper padding_top">
@@ -19,7 +22,7 @@ const Purpose = ({ page, seo }) => {
                     />
                     <img src='/assets/images/ports/1.png' alt="" />
                     <div className="content">
-                        <p>
+                        {/* <p>
                             ლორემ იპსუმ ქვეყნიური თვითიდენტიფიკაციისა მესამის რიტუალური
                             გაუშტერდათ, მიწუნებს სასახლეებზე მრავლობით. გაუშტერდათ განიცდიდი
                             მებრძოლები, ზეციური რეტროსპექტივას დეტალების გაგაკეთებინებს წწერა,
@@ -63,6 +66,9 @@ const Purpose = ({ page, seo }) => {
                             მოგცენ. ბრძანებაა მოუჭირა ამაღლდებიან ადვოკატობას შეფასებული ღიაა.
                             დამიხედე ამოტივტივდებაო მარტოკა ღიჯინი მათთაგან, მოუჭირა იუბილარს
                             იქადაგებს ემატებიან ბურჟუები გულგახეთქილნი.
+                        </p> */}
+                        <p>
+                            {renderHTML(__('client.aboutus.purpose_main_text', sharedData).replace(/(?:\r\n|\r|\n)/g, '<br>'))}
                         </p>
                     </div>
                 </div>

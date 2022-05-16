@@ -1,6 +1,7 @@
 import React, { useState } from 'react';
 // import Arrow from "../../assets/images/icons/other/arr.svg";
 import "./Form.css";
+import "../../../../resources/js/Layouts/App.css"
 import { useForm } from '@inertiajs/inertia-react'
 import { Inertia } from '@inertiajs/inertia'
 import { Link, usePage } from "@inertiajs/inertia-react";

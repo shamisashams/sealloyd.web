@@ -11,10 +11,11 @@ import Layout from "../../Layouts/Layout";
 import { Form } from "../../components/Form/Form";
 import { StatorBoxes } from "../../components/StatorBoxes/StatorBoxes";
 // import { Link } from "react-router-dom";
-import { Link } from "@inertiajs/inertia-react";
+import { Link, usePage } from "@inertiajs/inertia-react";
 import PortsMap from "../../components/PortsMap/PortsMap";
-
 const Home = ({ page, seo }) => {
+    const renderHTML = (rawHTML) => React.createElement("div", { dangerouslySetInnerHTML: { __html: rawHTML } });
+    const sharedData = usePage().props.localizations;
     return (
         <Layout seo={seo}>
             <div className="homePage">
@@ -32,12 +33,18 @@ const Home = ({ page, seo }) => {
                     <PortsMap />
                     <div className="wrapper">
                         <div className="content">
-                            <div className="font45">აღიარებული ინსპექტორები</div>
-                            <p>
+                            {/* <div className="font45">აღიარებული ინსპექტორები</div> */}
+                            <div className="font45">
+                                {renderHTML(__('client.home_accepted_inspectors', sharedData).replace(/(?:\r\n|\r|\n)/g, '<br>'))}
+                            </div>
+                            {/* <p>
                                 ასევე მცირე ტექსტი კომპანიის საქმიანობაზე, კლიენტებზე, ნებისმიერ
                                 სიახლესა და პირობაზე რომელიც საინტერესო შეიძლება იყოს
                                 ვიზიტორისთვის. ტექსტის შეყვანა და დაედითება შესაძლებელია
                                 ადმინპანელიდან.
+                            </p> */}
+                            <p>
+                                {renderHTML(__('client.home_accepted_text', sharedData).replace(/(?:\r\n|\r|\n)/g, '<br>'))}
                             </p>
                             <Link to="/" className="flex">
                                 <span>დეტალურად</span>

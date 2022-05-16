@@ -10,6 +10,7 @@ import "./Header.css";
 import { Languages } from "../Languages/Languages";
 
 const Header = () => {
+    const renderHTML = (rawHTML) => React.createElement("div", { dangerouslySetInnerHTML: { __html: rawHTML } });
     const sharedData = usePage().props.localizations;
     let navList = [
         {
@@ -26,83 +27,83 @@ const Header = () => {
                     link: route('client.aboutus.purpose'),
                 },
                 {
-                    name: "ეთიკის კოდექსი",
+                    name: __('client.nav_ethics', sharedData),
                     link: route('client.aboutus.ethics'),
                 },
                 {
-                    name: "პოლიტიკა",
+                    name: __('client.nav_politics', sharedData),
                     link: route('client.aboutus.politics'),
                 },
                 {
-                    name: "ხარისხის მენეჯმენტის სისტემა",
+                    name: __('client.nav_managment', sharedData),
                     link: route('client.aboutus.management'),
                 },
                 {
-                    name: "დროშის აღიარებები",
+                    name: __('client.nav_recognition', sharedData),
                     link: route('client.aboutus.recognition'),
                 },
             ],
         },
         {
-            name: "სერვისი",
+            name: __('client.nav_services', sharedData),
             link: "",
             dropdown: [
                 {
-                    name: "გემების კლასიფიკაცია",
+                    name: __('client.nav_clasification', sharedData),
                     link: route("client.services.index"),
                 },
                 {
-                    name: "სტატუტორი",
+                    name: __('client.nav_stators', sharedData),
                     link: route("client.services.stators"),
                 },
                 {
-                    name: "მანუალების დამოწმება",
+                    name: __('client.nav_certifications', sharedData),
                     link: route("client.services.certifications"),
                 },
                 {
-                    name: "კომპანიების აღიარება",
+                    name: __('client.nav_comprecognition', sharedData),
                     link: route("client.services.comprecognition"),
                 },
             ],
         },
         {
-            name: "დოკუმენტაცია",
+            name: __('client.nav_documentation', sharedData),
             link: "",
             dropdown: [
                 {
-                    name: "გემთმფლობელის აპლიკაცია",
+                    name: __('client.nav_ownerapplication', sharedData),
                     link: route('client.services.ownerapplication'),
                 },
                 {
-                    name: "მომსახურების შეფასება",
+                    name: __('client.nav_evaluation', sharedData),
                     link: route('client.services.evaluation'),
                 },
                 {
-                    name: "ცირკულარები",
+                    name: __('client.nav_circulars', sharedData),
                     link: route('client.services.circulars'),
                 },
             ],
         },
         {
-            name: "ჩვენი გუნდი",
+            name: __('client.nav_ourteam', sharedData),
             link: "",
             dropdown: [
                 {
-                    name: "ბათუმის სათაო ოფისი",
+                    name: __('client.nav_office', sharedData),
                     link: route('client.services.office'),
                 },
                 {
-                    name: "აღიარებული ინსპექტორები",
+                    name: __('client.nav_inspectors', sharedData),
                     link: route('client.services.inspectors'),
                 },
                 {
-                    name: "კარიერა",
+                    name: __('client.nav_career', sharedData),
                     link: route('client.services.career'),
                 },
             ],
         },
         {
-            name: "კონტაქტი",
+            name: __('client.nav_contact', sharedData),
             link: route('client.contact.index'),
         },
     ]
@@ -173,7 +174,7 @@ const Header = () => {
                         className={pathname === route('client.login') ? "nav_link active" : "nav_link"}
                         href={route('client.login')}
                     >
-                        <span>კაბინეტი</span>
+                        <span>{__('client.nav_cabinet', sharedData)}</span>
                     </Link>
                     {/* <div className="languages">
                         <div className="on">
@@ -193,6 +194,9 @@ const Header = () => {
                         <div className="span"></div>
                         <div className="span"></div>
                     </button> */}
+
+
+                    {/* language dropdown buttons */}
                     <Languages></Languages>
                 </div>
             </div>

@@ -2,8 +2,14 @@ import React from "react";
 import { DlPdf, PagePath } from "../../components/SmallComps/SmallComps";
 import Layout from "../../Layouts/Layout";
 import "./AboutUs.css";
+import { Link, usePage } from "@inertiajs/inertia-react";
+
 
 const Management = ({ seo }) => {
+
+    const sharedData = usePage().props.localizations;
+    const renderHTML = (rawHTML) => React.createElement("div", { dangerouslySetInnerHTML: { __html: rawHTML } });
+
     return (
         <Layout seo={seo}>
             <div className="aboutPage wrapper padding_top">
@@ -17,7 +23,7 @@ const Management = ({ seo }) => {
                         location3="ხარისხის მენეჯმენტის სისტემა"
                     />
                     <div className="content" style={{ marginBottom: "50px" }}>
-                        <p>
+                        {/* <p>
                             ლორემ იპსუმ ქვეყნიური თვითიდენტიფიკაციისა მესამის რიტუალური,
                             მიწუნებს სასახლეებზე მრავლობით. განიცდიდი მებრძოლები, ზეციური
                             რეტროსპექტივას დეტალების გაგაკეთებინებს წწერა, ქადილით მზაკვრობისა
@@ -31,6 +37,10 @@ const Management = ({ seo }) => {
                             შესაბრალისი მომთხოვა შეთითხნილი, გაჩერდებითო ვედრებას ღიჭინი.
                             მრავლობით ყურთმაჯები დავიბრუნო ივახშმეს უჩქეფს საბრძოლველად
                             მკათათვის იცოხებოდნენ კარისკაცი.
+                        </p> */}
+                        <p>
+                            {renderHTML(__('client.aboutus.managment_main_text', sharedData).replace(/(?:\r\n|\r|\n)/g, '<br>'))}
+
                         </p>
                     </div>
                     <div className="blue" style={{ marginBottom: "20px" }}>

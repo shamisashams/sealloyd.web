@@ -3,8 +3,12 @@ import { PagePath } from "../../components/SmallComps/SmallComps";
 import Layout from "../../Layouts/Layout";
 // import Img1 from "../../assets/images/ports/2.png";
 import "./AboutUs.css";
+import { Link, usePage } from "@inertiajs/inertia-react";
 
 const Politics = ({ seo }) => {
+    const sharedData = usePage().props.localizations;
+    const renderHTML = (rawHTML) => React.createElement("div", { dangerouslySetInnerHTML: { __html: rawHTML } });
+
     return (
         <Layout seo={seo}>
             <div className="aboutPage padding_top">
@@ -26,7 +30,7 @@ const Politics = ({ seo }) => {
                 </div>
                 <div className="wrapper">
                     <div className="container content" style={{ margin: "auto" }}>
-                        <p>
+                        {/* <p>
                             ლორემ იპსუმ ქვეყნიური თვითიდენტიფიკაციისა მესამის რიტუალური
                             გაუშტერდათ, მიწუნებს სასახლეებზე მრავლობით. გაუშტერდათ განიცდიდი
                             მებრძოლები, ზეციური რეტროსპექტივას დეტალების გაგაკეთებინებს წწერა,
@@ -70,6 +74,9 @@ const Politics = ({ seo }) => {
                             მოგცენ. ბრძანებაა მოუჭირა ამაღლდებიან ადვოკატობას შეფასებული ღიაა.
                             დამიხედე ამოტივტივდებაო მარტოკა ღიჯინი მათთაგან, მოუჭირა იუბილარს
                             იქადაგებს ემატებიან ბურჟუები გულგახეთქილნი.
+                        </p> */}
+                        <p>
+                            {renderHTML(__('client.aboutus.policits_main_text', sharedData).replace(/(?:\r\n|\r|\n)/g, '<br>'))}
                         </p>
                     </div>
                 </div>

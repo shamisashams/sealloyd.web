@@ -2,10 +2,15 @@ import React from "react";
 import { PagePath } from "../../../components/SmallComps/SmallComps";
 import { StatorBoxes } from "../../../components/StatorBoxes/StatorBoxes";
 import Layout from "../../../Layouts/Layout";
+import { Link, usePage } from "@inertiajs/inertia-react";
+
 
 import "../../AboutUs/AboutUs.css";
 
 const Stator1 = ({ page, seo }) => {
+    const sharedData = usePage().props.localizations;
+    const renderHTML = (rawHTML) => React.createElement("div", { dangerouslySetInnerHTML: { __html: rawHTML } });
+
     return (
         <Layout seo={seo}>
             <div className="servicesPage">
@@ -18,7 +23,7 @@ const Stator1 = ({ page, seo }) => {
                             location3="სტატუტორი"
                         />
                         <div className="content">
-                            <p>
+                            {/* <p>
                                 - he International Convention for the Safety of Life at Sea
                                 (SOLAS) was adopted by the International Conference on Safety of
                                 Life at Sea on November 1, 1974 and entered into force on May 25,
@@ -37,6 +42,9 @@ const Stator1 = ({ page, seo }) => {
                                 4. Cargo Ship Safety Radio Certificate <br />
                                 5. Cargo Ship Safety Certificate <br />
                                 6. Exemption Certificate
+                            </p> */}
+                            <p>
+                                {renderHTML(__('client.services.nav_stators_main_text', sharedData).replace(/(?:\r\n|\r|\n)/g, '<br>'))}
                             </p>
                         </div>
                     </div>

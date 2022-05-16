@@ -7,8 +7,13 @@ import Layout from "../../Layouts/Layout";
 // import Flag3 from "../../assets/images/icons/flags/3.png";
 // import Flag4 from "../../assets/images/icons/flags/4.png";
 // import Flag5 from "../../assets/images/icons/flags/5.png";
+import { Link, usePage } from "@inertiajs/inertia-react";
+
 
 const Recognition = ({ page, seo }) => {
+    const sharedData = usePage().props.localizations;
+    const renderHTML = (rawHTML) => React.createElement("div", { dangerouslySetInnerHTML: { __html: rawHTML } });
+
     const countries = [
         {
             flag: '/assets/images/icons/flags/1.png',
@@ -46,7 +51,7 @@ const Recognition = ({ page, seo }) => {
                         location3="დროშის აღიარებები"
                     />
                     <div className="content" style={{ marginBottom: "50px" }}>
-                        <p>
+                        {/* <p>
                             ლორემ იპსუმ ქვეყნიური თვითიდენტიფიკაციისა მესამის რიტუალური,
                             მიწუნებს სასახლეებზე მრავლობით. განიცდიდი მებრძოლები, ზეციური
                             რეტროსპექტივას დეტალების გაგაკეთებინებს წწერა, ქადილით მზაკვრობისა
@@ -60,6 +65,10 @@ const Recognition = ({ page, seo }) => {
                             შესაბრალისი მომთხოვა შეთითხნილი, გაჩერდებითო ვედრებას ღიჭინი.
                             მრავლობით ყურთმაჯები დავიბრუნო ივახშმეს უჩქეფს საბრძოლველად
                             მკათათვის იცოხებოდნენ კარისკაცი.
+                        </p> */}
+                        <p>
+                            {renderHTML(__('client.aboutus.recognition_maint_text', sharedData).replace(/(?:\r\n|\r|\n)/g, '<br>'))}
+
                         </p>
                     </div>
                     <h5>დროშები</h5>

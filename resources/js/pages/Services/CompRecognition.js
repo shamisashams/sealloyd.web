@@ -1,9 +1,13 @@
 import React from "react";
 import { PagePath } from "../../components/SmallComps/SmallComps";
 import Layout from "../../Layouts/Layout";
+import { Link, usePage } from "@inertiajs/inertia-react";
+
 // import Img1 from "../../assets/images/ports/5.png";
 import "../AboutUs/AboutUs.css";
 const CompRecognition = ({ seo }) => {
+    const sharedData = usePage().props.localizations;
+    const renderHTML = (rawHTML) => React.createElement("div", { dangerouslySetInnerHTML: { __html: rawHTML } });
     return (
         <Layout seo={seo}>
             <div className="aboutPage wrapper padding_top">
@@ -16,7 +20,7 @@ const CompRecognition = ({ seo }) => {
                     />
                     <img src='/assets/images/bgs/2.png' alt="" />
                     <div className="content">
-                        <p>
+                        {/* <p>
                             ლორემ იპსუმ ქვეყნიური თვითიდენტიფიკაციისა მესამის რიტუალური
                             გაუშტერდათ, მიწუნებს სასახლეებზე მრავლობით. გაუშტერდათ განიცდიდი
                             მებრძოლები, ზეციური რეტროსპექტივას დეტალების გაგაკეთებინებს წწერა,
@@ -60,6 +64,9 @@ const CompRecognition = ({ seo }) => {
                             მოგცენ. ბრძანებაა მოუჭირა ამაღლდებიან ადვოკატობას შეფასებული ღიაა.
                             დამიხედე ამოტივტივდებაო მარტოკა ღიჯინი მათთაგან, მოუჭირა იუბილარს
                             იქადაგებს ემატებიან ბურჟუები გულგახეთქილნი.
+                        </p> */}
+                        <p>
+                            {renderHTML(__('client.services.nav_comprecognition_main_text', sharedData).replace(/(?:\r\n|\r|\n)/g, '<br>'))}
                         </p>
                     </div>
                 </div>

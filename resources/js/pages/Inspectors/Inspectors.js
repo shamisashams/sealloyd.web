@@ -3,8 +3,12 @@ import PortsMap from "../../components/PortsMap/PortsMap";
 import { PagePath } from "../../components/SmallComps/SmallComps";
 import Layout from "../../Layouts/Layout";
 import "./Inspectors.css";
+import { Link, usePage } from "@inertiajs/inertia-react";
+
 
 const Inspectors = ({ seo }) => {
+    const sharedData = usePage().props.localizations;
+    const renderHTML = (rawHTML) => React.createElement("div", { dangerouslySetInnerHTML: { __html: rawHTML } });
     return (
         <Layout seo={seo} >
             <div className="inspectors">
@@ -22,7 +26,7 @@ const Inspectors = ({ seo }) => {
                                 აღიარებული <br />
                                 ინსპექტორები
                             </div>
-                            <p>
+                            {/* <p>
                                 ლორემ იპსუმ ქვეყნიური თვითიდენტიფიკაციისა მესამის რიტუალური
                                 გაუშტერდათ, მიწუნებს სასახლეებზე მრავლობით. გაუშტერდათ განიცდიდი
                                 მებრძოლები, ზეციური რეტროსპექტივას დეტალების გაგაკეთებინებს წერა,
@@ -37,6 +41,9 @@ const Inspectors = ({ seo }) => {
                                 შესაბრალისი მომთხოვა შეთითხნილი, გაჩერდებითო ვედრებას ღიჭინი.
                                 მრავლობით ყურთმაჯები დავიბრუნო ივახშმეს უჩქეფს საბრძოლველად
                                 მკათათვის იცოხებოდნენ კარისკაცი.
+                            </p> */}
+                            <p>
+                                {renderHTML(__('client.ourteam.inspectors_main_text', sharedData).replace(/(?:\r\n|\r|\n)/g, '<br>'))}
                             </p>
                         </div>
                     </div>

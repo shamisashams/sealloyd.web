@@ -3,6 +3,8 @@ import { PagePath } from "../../components/SmallComps/SmallComps";
 import { DlPdf } from "../../components/SmallComps/SmallComps";
 import "./Documents.css";
 import Layout from "../../Layouts/Layout";
+import { Link, usePage } from "@inertiajs/inertia-react";
+
 
 const Circulars = ({ seo }) => {
     const docList = [
@@ -15,6 +17,8 @@ const Circulars = ({ seo }) => {
         "დოკუმენტის დასახელება",
         "დოკუმენტის გრძელი დასახელება რომე...",
     ];
+    const sharedData = usePage().props.localizations;
+    const renderHTML = (rawHTML) => React.createElement("div", { dangerouslySetInnerHTML: { __html: rawHTML } });
     return (
         <Layout seo={seo}>
             <div className="documents teamPage careerPage">
@@ -25,7 +29,7 @@ const Circulars = ({ seo }) => {
                         location2="დოკუმენტაცია"
                         location3="ცირკულარები"
                     />
-                    <p className="container">
+                    {/* <p className="container">
                         ლორემ იპსუმ ქვეყნიური თვითიდენტიფიკაციისა მესამის რიტუალური
                         გაუშტერდათ, მიწუნებს სასახლეებზე მრავლობით. გაუშტერდათ განიცდიდი
                         მებრძოლები, ზეციური რეტროსპექტივას დეტალების გაგაკეთებინებს წერა,
@@ -34,6 +38,10 @@ const Circulars = ({ seo }) => {
                         გაგაკეთებინებს ახრამუნებდა სიამაყე შშავს. ქადილით მისძახა
                         ეპისკოპოსებსა ბრინკაი ვიღებდი წინამძღოლის ყურთმაჯები ეამა არეალს,
                         მკალავიშვილის მეთვრამეტე.
+                    </p> */}
+                    <p className='container'>
+                        {renderHTML(__('client.documentation.circulars_main_text', sharedData).replace(/(?:\r\n|\r|\n)/g, '<br>'))}
+
                     </p>
                     <div className="blue">ცირკულარები</div>
                     <div className="doc_grid">
