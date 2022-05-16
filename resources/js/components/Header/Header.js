@@ -5,10 +5,111 @@ import { Inertia } from "@inertiajs/inertia";
 // import Logo from "../../assets/images/logo/1.png";
 // import Ge from "../../assets/images/icons/langs/ge.png";
 // import En from "../../assets/images/icons/langs/en.png";
-import { navList } from "./NavList";
+// import { navList } from "./NavList";
 import "./Header.css";
+import { Languages } from "../Languages/Languages";
 
 const Header = () => {
+    const sharedData = usePage().props.localizations;
+    let navList = [
+        {
+            // name: 'მთავარი',
+            name: __('client.nav_home', sharedData),
+            link: route('client.home.index'),
+        },
+        {
+            name: __('client.nav_aboutus', sharedData),
+            link: "",
+            dropdown: [
+                {
+                    name: __('client.nav_purpose', sharedData),
+                    link: route('client.aboutus.purpose'),
+                },
+                {
+                    name: "ეთიკის კოდექსი",
+                    link: route('client.aboutus.ethics'),
+                },
+                {
+                    name: "პოლიტიკა",
+                    link: route('client.aboutus.politics'),
+                },
+                {
+                    name: "ხარისხის მენეჯმენტის სისტემა",
+                    link: route('client.aboutus.management'),
+                },
+                {
+                    name: "დროშის აღიარებები",
+                    link: route('client.aboutus.recognition'),
+                },
+            ],
+        },
+        {
+            name: "სერვისი",
+            link: "",
+            dropdown: [
+                {
+                    name: "გემების კლასიფიკაცია",
+                    link: route("client.services.index"),
+                },
+                {
+                    name: "სტატუტორი",
+                    link: route("client.services.stators"),
+                },
+                {
+                    name: "მანუალების დამოწმება",
+                    link: route("client.services.certifications"),
+                },
+                {
+                    name: "კომპანიების აღიარება",
+                    link: route("client.services.comprecognition"),
+                },
+            ],
+        },
+        {
+            name: "დოკუმენტაცია",
+            link: "",
+            dropdown: [
+                {
+                    name: "გემთმფლობელის აპლიკაცია",
+                    link: route('client.services.ownerapplication'),
+                },
+                {
+                    name: "მომსახურების შეფასება",
+                    link: route('client.services.evaluation'),
+                },
+                {
+                    name: "ცირკულარები",
+                    link: route('client.services.circulars'),
+                },
+            ],
+        },
+        {
+            name: "ჩვენი გუნდი",
+            link: "",
+            dropdown: [
+                {
+                    name: "ბათუმის სათაო ოფისი",
+                    link: route('client.services.office'),
+                },
+                {
+                    name: "აღიარებული ინსპექტორები",
+                    link: route('client.services.inspectors'),
+                },
+                {
+                    name: "კარიერა",
+                    link: route('client.services.career'),
+                },
+            ],
+        },
+        {
+            name: "კონტაქტი",
+            link: route('client.contact.index'),
+        },
+    ]
+
+    const testFunction = () => {
+        alert('asd')
+    }
     const { url, component } = usePage();
     const { pathname, currentLocale } = usePage().props;
     let url_ = new URL(pathname);
@@ -74,7 +175,7 @@ const Header = () => {
                     >
                         <span>კაბინეტი</span>
                     </Link>
-                    <div className="languages">
+                    {/* <div className="languages">
                         <div className="on">
                             <img src='/assets/images/icons/langs/ge.png' alt="" />
                         </div>
@@ -85,12 +186,14 @@ const Header = () => {
                         </div>
                     </div>
                     <button
-                        onClick={() => toggleMenu()}
+                        // onClick={() => toggleMenu()}
+                        onClick={testFunction}
                         className={menu ? "menu_btn clicked" : "menu_btn"}
                     >
                         <div className="span"></div>
                         <div className="span"></div>
-                    </button>
+                    </button> */}
+                    <Languages></Languages>
                 </div>
             </div>
         </div>

@@ -1,6 +1,7 @@
+
 export const navList = [
     {
-        name: "მთავარი",
+        name: 'მთავარი',
         link: route('client.home.index'),
     },
     {
