@@ -59,7 +59,7 @@ export const DlPdf = ({ name }) => {
 export const SendButton = ({ onClick, text }) => {
     return (
         <button className="send_button" onClick={onClick}>
-            <img src='/assets/images/icons/other/pdf.png' alt="" />
+            <img src='/assets/images/icons/team/send.svg' alt="" />
             {text}
         </button>
     );

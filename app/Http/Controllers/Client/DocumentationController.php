@@ -8,6 +8,8 @@ use App\Models\Slider;
 use Illuminate\Support\Facades\App;
 use Inertia\Inertia;
 use App\Repositories\Eloquent\ProductRepository;
+use Illuminate\Http\Request;
+use App\Models\rateservice;
 
 
 class DocumentationController extends Controller
@@ -54,7 +56,7 @@ class DocumentationController extends Controller
         ]);
     }
 
-    public function evaluation()
+    public function evaluation(Request $request)
     {
 
 
@@ -77,7 +79,7 @@ class DocumentationController extends Controller
 
         //dd($products);
 
-        return Inertia::render('Documents/Evaluation', ["sliders" => $sliders->get(), "page" => $page, "seo" => [
+        return Inertia::render('Documents/Evaluation', ['success' => $request->session()->get('success'), "sliders" => $sliders->get(), "page" => $page, "seo" => [
             "title" => $page->meta_title,
             "description" => $page->meta_description,
             "keywords" => $page->meta_keyword,
@@ -136,5 +138,27 @@ class DocumentationController extends Controller
             'og_title' => $page->meta_og_title,
             'og_description' => $page->meta_og_description
         ]);
+    }
+
+    // add rateservices to db
+    public function add_rateservices(Request $request)
+    {
+        $rateservices = rateservice::create(
+            $request->only(
+                'company_name',
+                'created_at',
+                'satisfied_dissatisfied',
+                'recomendations',
+                'repurchases',
+                'rate_quality',
+                'satisfied',
+                'satisfied_service',
+                'satisfied_price',
+                'satisfied_value',
+            )
+        );
+        return redirect(route('client.services.evaluation', app()->getLocale()))->with('success', 'warmatebit');
+        // dd($request->post());
+
     }
 }

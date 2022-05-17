@@ -6,6 +6,9 @@ import "./StatorBoxes.css";
 // import Bg from "../../assets/images/stators/bg.png";
 
 export const StatorBoxes = () => {
+    const renderHTML = (rawHTML) => React.createElement("div", { dangerouslySetInnerHTML: { __html: rawHTML } });
+    const sharedData = usePage().props.localizations;
+
     let baseUrl = window.location.origin;
     let link = window.location.pathname;
     let a = link.split('/');
@@ -23,9 +26,12 @@ export const StatorBoxes = () => {
         <div className="stator_grid">
             <div className="first_box" data-aos="zoom-in">
                 <h6>სტატუტორი</h6>
-                <p>
+                {/* <p>
                     Founded in Norway in 1861, Wilhelmsen is now a comprehensive global
                     maritime group providing essential products and services to
+                </p> */}
+                <p>
+                    {renderHTML(__('client.staturboxes_main_text', sharedData).replace(/(?:\r\n|\r|\n)/g, '<br>'))}
                 </p>
             </div>
             {stators.map((stator, index) => {

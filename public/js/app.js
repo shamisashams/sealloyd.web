@@ -4161,13 +4161,64 @@ __webpack_require__.r(__webpack_exports__);
 /* harmony import */ var _components_SmallComps_SmallComps__WEBPACK_IMPORTED_MODULE_1__ = __webpack_require__(/*! ../../components/SmallComps/SmallComps */ "./resources/js/components/SmallComps/SmallComps.js");
 /* harmony import */ var _Documents_css__WEBPACK_IMPORTED_MODULE_2__ = __webpack_require__(/*! ./Documents.css */ "./resources/js/Pages/Documents/Documents.css");
 /* harmony import */ var _Layouts_Layout__WEBPACK_IMPORTED_MODULE_3__ = __webpack_require__(/*! ../../Layouts/Layout */ "./resources/js/Layouts/Layout.js");
+/* harmony import */ var _inertiajs_inertia__WEBPACK_IMPORTED_MODULE_4__ = __webpack_require__(/*! @inertiajs/inertia */ "./node_modules/@inertiajs/inertia/dist/index.js");
+function ownKeys(object, enumerableOnly) { var keys = Object.keys(object); if (Object.getOwnPropertySymbols) { var symbols = Object.getOwnPropertySymbols(object); enumerableOnly && (symbols = symbols.filter(function (sym) { return Object.getOwnPropertyDescriptor(object, sym).enumerable; })), keys.push.apply(keys, symbols); } return keys; }
+
+function _objectSpread(target) { for (var i = 1; i < arguments.length; i++) { var source = null != arguments[i] ? arguments[i] : {}; i % 2 ? ownKeys(Object(source), !0).forEach(function (key) { _defineProperty(target, key, source[key]); }) : Object.getOwnPropertyDescriptors ? Object.defineProperties(target, Object.getOwnPropertyDescriptors(source)) : ownKeys(Object(source)).forEach(function (key) { Object.defineProperty(target, key, Object.getOwnPropertyDescriptor(source, key)); }); } return target; }
+
+function _defineProperty(obj, key, value) { if (key in obj) { Object.defineProperty(obj, key, { value: value, enumerable: true, configurable: true, writable: true }); } else { obj[key] = value; } return obj; }
+
+function _slicedToArray(arr, i) { return _arrayWithHoles(arr) || _iterableToArrayLimit(arr, i) || _unsupportedIterableToArray(arr, i) || _nonIterableRest(); }
+
+function _nonIterableRest() { throw new TypeError("Invalid attempt to destructure non-iterable instance.\nIn order to be iterable, non-array objects must have a [Symbol.iterator]() method."); }
+
+function _unsupportedIterableToArray(o, minLen) { if (!o) return; if (typeof o === "string") return _arrayLikeToArray(o, minLen); var n = Object.prototype.toString.call(o).slice(8, -1); if (n === "Object" && o.constructor) n = o.constructor.name; if (n === "Map" || n === "Set") return Array.from(o); if (n === "Arguments" || /^(?:Ui|I)nt(?:8|16|32)(?:Clamped)?Array$/.test(n)) return _arrayLikeToArray(o, minLen); }
+
+function _arrayLikeToArray(arr, len) { if (len == null || len > arr.length) len = arr.length; for (var i = 0, arr2 = new Array(len); i < len; i++) { arr2[i] = arr[i]; } return arr2; }
+
+function _iterableToArrayLimit(arr, i) { var _i = arr == null ? null : typeof Symbol !== "undefined" && arr[Symbol.iterator] || arr["@@iterator"]; if (_i == null) return; var _arr = []; var _n = true; var _d = false; var _s, _e; try { for (_i = _i.call(arr); !(_n = (_s = _i.next()).done); _n = true) { _arr.push(_s.value); if (i && _arr.length === i) break; } } catch (err) { _d = true; _e = err; } finally { try { if (!_n && _i["return"] != null) _i["return"](); } finally { if (_d) throw _e; } } return _arr; }
+
+function _arrayWithHoles(arr) { if (Array.isArray(arr)) return arr; }
+
+
 
 
 
 
 
 var Evaluation = function Evaluation(_ref) {
-  var seo = _ref.seo;
+  var seo = _ref.seo,
+      success = _ref.success;
+
+  var _useState = (0,react__WEBPACK_IMPORTED_MODULE_0__.useState)({
+    company_name: "",
+    created_at: "",
+    satisfied_dissatisfied: "",
+    recomendations: "",
+    repurchases: "",
+    rate_quality: "",
+    satisfied: "",
+    satisfied_service: "",
+    satisfied_price: "",
+    satisfied_value: ""
+  }),
+      _useState2 = _slicedToArray(_useState, 2),
+      values = _useState2[0],
+      setValues = _useState2[1];
+
+  function handleChange(e) {
+    var key = e.target.id;
+    var value = e.target.value;
+    setValues(function (values) {
+      return _objectSpread(_objectSpread({}, values), {}, _defineProperty({}, key, value));
+    });
+  }
+
+  function handleSubmit(e) {
+    e.preventDefault();
+    _inertiajs_inertia__WEBPACK_IMPORTED_MODULE_4__.Inertia.post(route('client.documentations.rateservices'), values);
+  }
+
   var scale = [1, 2, 3, 4, 5];
   var satisfaction = ["Excellent", "Very Good", "Good", "Fair", "Poor"];
   return /*#__PURE__*/react__WEBPACK_IMPORTED_MODULE_0__.createElement(_Layouts_Layout__WEBPACK_IMPORTED_MODULE_3__["default"], {
@@ -4186,12 +4237,18 @@ var Evaluation = function Evaluation(_ref) {
     className: "content"
   }, /*#__PURE__*/react__WEBPACK_IMPORTED_MODULE_0__.createElement("p", {
     className: "op05 margin_bottom"
-  }, "We hope you are pleased with the service that you have already received from MARITIME LLOYD. It is our aim to provide the most helpful and comprehensive service possible. To help us, please would you complete this short questionnaire?"), /*#__PURE__*/react__WEBPACK_IMPORTED_MODULE_0__.createElement("input", {
+  }, "We hope you are pleased with the service that you have already received from MARITIME LLOYD. It is our aim to provide the most helpful and comprehensive service possible. To help us, please would you complete this short questionnaire?"), /*#__PURE__*/react__WEBPACK_IMPORTED_MODULE_0__.createElement("form", {
+    onSubmit: handleSubmit
+  }, /*#__PURE__*/react__WEBPACK_IMPORTED_MODULE_0__.createElement("input", {
+    id: "company_name",
     type: "text",
-    placeholder: "Organization/Company name"
+    placeholder: "Organization/Company name",
+    onChange: handleChange
   }), /*#__PURE__*/react__WEBPACK_IMPORTED_MODULE_0__.createElement("input", {
+    id: "created_at",
     type: "date",
-    className: "margin_bottom"
+    className: "margin_bottom",
+    onChange: handleChange
   }), /*#__PURE__*/react__WEBPACK_IMPORTED_MODULE_0__.createElement("p", null, "On a scale of 1 to 5 where 1 represents \"Extremely dissatisfied\" and 5 represents \"Extremely Satisfied,\" how would you rate your level of overall satisfaction with Maritime Lloyd as a service supplier?"), /*#__PURE__*/react__WEBPACK_IMPORTED_MODULE_0__.createElement("div", {
     className: "flex rating scale margin_bottom"
   }, scale.map(function (item, index) {
@@ -4203,13 +4260,19 @@ var Evaluation = function Evaluation(_ref) {
       htmlFor: "rate_1_".concat(index)
     }, item), /*#__PURE__*/react__WEBPACK_IMPORTED_MODULE_0__.createElement("input", {
       type: "radio",
-      name: "rate_1",
-      id: "rate_1_".concat(index)
+      name: "rate_1" // id={`rate_1_${index}`}
+      ,
+      required: true,
+      id: "satisfied_dissatisfied",
+      value: "".concat(++index),
+      onChange: handleChange
     }));
   })), /*#__PURE__*/react__WEBPACK_IMPORTED_MODULE_0__.createElement("p", null, "Why do you say that? What specifically are you satisfied or dissatisfied with Maritime Lloyd?"), /*#__PURE__*/react__WEBPACK_IMPORTED_MODULE_0__.createElement("input", {
+    id: "recomendations",
     type: "text",
     placeholder: "Enter response here",
-    className: "margin_bottom"
+    className: "margin_bottom",
+    onChange: handleChange
   }), /*#__PURE__*/react__WEBPACK_IMPORTED_MODULE_0__.createElement("p", null, "How likely are you to recommend Maritime Lloyd to your business partners/other ship owners? Would you say the chances are \u2026"), /*#__PURE__*/react__WEBPACK_IMPORTED_MODULE_0__.createElement("div", {
     className: " rating satis margin_bottom"
   }, satisfaction.map(function (item, index) {
@@ -4218,8 +4281,12 @@ var Evaluation = function Evaluation(_ref) {
       className: "radio num"
     }, /*#__PURE__*/react__WEBPACK_IMPORTED_MODULE_0__.createElement("input", {
       type: "radio",
-      name: "rate_2",
-      id: "rate_2_".concat(index)
+      name: "rate_2" //  id={`rate_2_${index}`}
+      ,
+      required: true,
+      id: "repurchases",
+      value: item,
+      onChange: handleChange
     }), /*#__PURE__*/react__WEBPACK_IMPORTED_MODULE_0__.createElement("label", {
       className: "op05",
       htmlFor: "rate_2_".concat(index)
@@ -4232,8 +4299,12 @@ var Evaluation = function Evaluation(_ref) {
       className: "radio num"
     }, /*#__PURE__*/react__WEBPACK_IMPORTED_MODULE_0__.createElement("input", {
       type: "radio",
-      name: "rate_3",
-      id: "rate_3_".concat(index)
+      name: "rate_3" // id={`rate_3_${index}`}
+      ,
+      required: true,
+      id: "rate_quality",
+      value: item,
+      onChange: handleChange
     }), /*#__PURE__*/react__WEBPACK_IMPORTED_MODULE_0__.createElement("label", {
       className: "op05",
       htmlFor: "rate_3_".concat(index)
@@ -4246,8 +4317,12 @@ var Evaluation = function Evaluation(_ref) {
       className: "radio num"
     }, /*#__PURE__*/react__WEBPACK_IMPORTED_MODULE_0__.createElement("input", {
       type: "radio",
-      name: "rate_4",
-      id: "rate_4_".concat(index)
+      name: "rate_4" // id={`rate_4_${index}`}
+      ,
+      required: true,
+      id: "satisfied",
+      value: item,
+      onChange: handleChange
     }), /*#__PURE__*/react__WEBPACK_IMPORTED_MODULE_0__.createElement("label", {
       className: "op05",
       htmlFor: "rate_4_".concat(index)
@@ -4263,8 +4338,12 @@ var Evaluation = function Evaluation(_ref) {
       htmlFor: "rate_5_".concat(index)
     }, item), /*#__PURE__*/react__WEBPACK_IMPORTED_MODULE_0__.createElement("input", {
       type: "radio",
-      name: "rate_5",
-      id: "rate_5_".concat(index)
+      name: "rate_5" // id={`rate_5_${index}`}
+      ,
+      required: true,
+      id: "satisfied_service",
+      value: ++index,
+      onChange: handleChange
     }));
   })), /*#__PURE__*/react__WEBPACK_IMPORTED_MODULE_0__.createElement("p", null, "On a scale of 1 to 5 where 1 represents \"Extremely dissatisfied\" and 5 represents \"Extremely Satisfied,\" how would you rate your level of satisfaction with Maritime Lloyd in regards to price?"), /*#__PURE__*/react__WEBPACK_IMPORTED_MODULE_0__.createElement("div", {
     className: "flex rating scale margin_bottom"
@@ -4277,8 +4356,12 @@ var Evaluation = function Evaluation(_ref) {
       htmlFor: "rate_6_".concat(index)
     }, item), /*#__PURE__*/react__WEBPACK_IMPORTED_MODULE_0__.createElement("input", {
       type: "radio",
-      name: "rate_6",
-      id: "rate_6_".concat(index)
+      name: "rate_6" // id={`rate_6_${index}`}
+      ,
+      required: true,
+      id: "satisfied_price",
+      value: ++index,
+      onChange: handleChange
     }));
   })), /*#__PURE__*/react__WEBPACK_IMPORTED_MODULE_0__.createElement("p", null, "On a scale of 1 to 5 where 1 represents \"Extremely dissatisfied\" and 5 represents \"Extremely Satisfied,\" how would you rate your level of satisfaction with Maritime Lloyd in regards to value?"), /*#__PURE__*/react__WEBPACK_IMPORTED_MODULE_0__.createElement("div", {
     className: "flex rating scale margin_bottom"
@@ -4291,8 +4374,12 @@ var Evaluation = function Evaluation(_ref) {
       htmlFor: "rate_7_".concat(index)
     }, item), /*#__PURE__*/react__WEBPACK_IMPORTED_MODULE_0__.createElement("input", {
       type: "radio",
-      name: "rate_7",
-      id: "rate_7_".concat(index)
+      name: "rate_7" // id={`rate_7_${index}`}
+      ,
+      required: true,
+      id: "satisfied_value",
+      value: ++index,
+      onChange: handleChange
     }));
   })), /*#__PURE__*/react__WEBPACK_IMPORTED_MODULE_0__.createElement("div", {
     className: "uppercase"
@@ -4300,7 +4387,7 @@ var Evaluation = function Evaluation(_ref) {
     className: "op05 margin_bottom"
   }, "Your Comments Will Be Treated as Fully Confidential."), /*#__PURE__*/react__WEBPACK_IMPORTED_MODULE_0__.createElement(_components_SmallComps_SmallComps__WEBPACK_IMPORTED_MODULE_1__.SendButton, {
     text: "Send Answers Now"
-  })))));
+  }), success ? 'good' : 'not good')))));
 };
 
 /* harmony default export */ const __WEBPACK_DEFAULT_EXPORT__ = (Evaluation);
@@ -5980,7 +6067,7 @@ var SendButton = function SendButton(_ref2) {
     className: "send_button",
     onClick: onClick
   }, /*#__PURE__*/react__WEBPACK_IMPORTED_MODULE_0__.createElement("img", {
-    src: "/assets/images/icons/other/pdf.png",
+    src: "/assets/images/icons/team/send.svg",
     alt: ""
   }), text);
 };
@@ -6009,6 +6096,15 @@ __webpack_require__.r(__webpack_exports__);
  // import Bg from "../../assets/images/stators/bg.png";
 
 var StatorBoxes = function StatorBoxes() {
+  var renderHTML = function renderHTML(rawHTML) {
+    return /*#__PURE__*/react__WEBPACK_IMPORTED_MODULE_0__.createElement("div", {
+      dangerouslySetInnerHTML: {
+        __html: rawHTML
+      }
+    });
+  };
+
+  var sharedData = (0,_inertiajs_inertia_react__WEBPACK_IMPORTED_MODULE_2__.usePage)().props.localizations;
   var baseUrl = window.location.origin;
   var link = window.location.pathname;
   var a = link.split('/');
@@ -6018,7 +6114,7 @@ var StatorBoxes = function StatorBoxes() {
   }, /*#__PURE__*/react__WEBPACK_IMPORTED_MODULE_0__.createElement("div", {
     className: "first_box",
     "data-aos": "zoom-in"
-  }, /*#__PURE__*/react__WEBPACK_IMPORTED_MODULE_0__.createElement("h6", null, "\u10E1\u10E2\u10D0\u10E2\u10E3\u10E2\u10DD\u10E0\u10D8"), /*#__PURE__*/react__WEBPACK_IMPORTED_MODULE_0__.createElement("p", null, "Founded in Norway in 1861, Wilhelmsen is now a comprehensive global maritime group providing essential products and services to")), stators.map(function (stator, index) {
+  }, /*#__PURE__*/react__WEBPACK_IMPORTED_MODULE_0__.createElement("h6", null, "\u10E1\u10E2\u10D0\u10E2\u10E3\u10E2\u10DD\u10E0\u10D8"), /*#__PURE__*/react__WEBPACK_IMPORTED_MODULE_0__.createElement("p", null, renderHTML(__('client.staturboxes_main_text', sharedData).replace(/(?:\r\n|\r|\n)/g, '<br>')))), stators.map(function (stator, index) {
     return /*#__PURE__*/react__WEBPACK_IMPORTED_MODULE_0__.createElement(_inertiajs_inertia_react__WEBPACK_IMPORTED_MODULE_2__.Link, {
       href: "".concat(baseUrl, "/").concat(a[1], "/stators/").concat(++index),
       key: index
