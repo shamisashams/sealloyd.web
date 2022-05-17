@@ -7,29 +7,30 @@ import { PagePath } from "../../components/SmallComps/SmallComps";
 import Layout from "../../Layouts/Layout";
 import "./OurTeam.css";
 
-const Office = ({ seo }) => {
-    const members = [
-        {
-            img: '/assets/images/team/1.png',
-            name: "სახელი გვარი",
-            position: "პოზიცია",
-        },
-        {
-            img: '/assets/images/team/1.png',
-            name: "სახელი გვარი",
-            position: "პოზიცია",
-        },
-        {
-            img: '/assets/images/team/1.png',
-            name: "სახელი გვარი",
-            position: "პოზიცია",
-        },
-        {
-            img: '/assets/images/team/1.png',
-            name: "სახელი გვარი",
-            position: "პოზიცია",
-        },
-    ];
+const Office = ({ seo, staff }) => {
+
+    // const members = [
+    //     {
+    //         img: '/assets/images/team/1.png',
+    //         name: "სახელი გვარი",
+    //         position: "პოზიცია",
+    //     },
+    //     {
+    //         img: '/assets/images/team/1.png',
+    //         name: "სახელი გვარი",
+    //         position: "პოზიცია",
+    //     },
+    //     {
+    //         img: '/assets/images/team/1.png',
+    //         name: "სახელი გვარი",
+    //         position: "პოზიცია",
+    //     },
+    //     {
+    //         img: '/assets/images/team/1.png',
+    //         name: "სახელი გვარი",
+    //         position: "პოზიცია",
+    //     },
+    // ];
     return (
         <Layout seo={seo}>
             <div className="teamPage">
@@ -46,14 +47,14 @@ const Office = ({ seo }) => {
                         best-in-class value at an independent cost structure.
                     </p>
                     <div className="office_grid">
-                        {members.map((member, index) => {
+                        {staff.map((member, index) => {
                             return (
                                 <div className="team_member" key={index}>
                                     <div className="img">
                                         <img src='/assets/images/team/1.png' alt="" />
                                     </div>
                                     <h4>{member.name}</h4>
-                                    <p className="blue">პოზიცია</p>
+                                    <p className="blue">{member.position}</p>
                                 </div>
                             );
                         })}

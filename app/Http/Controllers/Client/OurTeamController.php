@@ -8,6 +8,8 @@ use App\Models\Slider;
 use Illuminate\Support\Facades\App;
 use Inertia\Inertia;
 use App\Repositories\Eloquent\ProductRepository;
+use App\Models\staff;
+
 
 
 class OurTeamController extends Controller
@@ -35,7 +37,7 @@ class OurTeamController extends Controller
 
         //dd($products);
 
-        return Inertia::render('OurTeam/Office', ["sliders" => $sliders->get(), "page" => $page, "seo" => [
+        return Inertia::render('OurTeam/Office', ["staff" => staff::all(), "sliders" => $sliders->get(), "page" => $page, "seo" => [
             "title" => $page->meta_title,
             "description" => $page->meta_description,
             "keywords" => $page->meta_keyword,

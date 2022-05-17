@@ -4722,24 +4722,30 @@ __webpack_require__.r(__webpack_exports__);
 
 
 var Office = function Office(_ref) {
-  var seo = _ref.seo;
-  var members = [{
-    img: '/assets/images/team/1.png',
-    name: "სახელი გვარი",
-    position: "პოზიცია"
-  }, {
-    img: '/assets/images/team/1.png',
-    name: "სახელი გვარი",
-    position: "პოზიცია"
-  }, {
-    img: '/assets/images/team/1.png',
-    name: "სახელი გვარი",
-    position: "პოზიცია"
-  }, {
-    img: '/assets/images/team/1.png',
-    name: "სახელი გვარი",
-    position: "პოზიცია"
-  }];
+  var seo = _ref.seo,
+      staff = _ref.staff;
+  // const members = [
+  //     {
+  //         img: '/assets/images/team/1.png',
+  //         name: "სახელი გვარი",
+  //         position: "პოზიცია",
+  //     },
+  //     {
+  //         img: '/assets/images/team/1.png',
+  //         name: "სახელი გვარი",
+  //         position: "პოზიცია",
+  //     },
+  //     {
+  //         img: '/assets/images/team/1.png',
+  //         name: "სახელი გვარი",
+  //         position: "პოზიცია",
+  //     },
+  //     {
+  //         img: '/assets/images/team/1.png',
+  //         name: "სახელი გვარი",
+  //         position: "პოზიცია",
+  //     },
+  // ];
   return /*#__PURE__*/react__WEBPACK_IMPORTED_MODULE_0__.createElement(_Layouts_Layout__WEBPACK_IMPORTED_MODULE_2__["default"], {
     seo: seo
   }, /*#__PURE__*/react__WEBPACK_IMPORTED_MODULE_0__.createElement("div", {
@@ -4754,7 +4760,7 @@ var Office = function Office(_ref) {
     location3: "\u10D1\u10D0\u10D7\u10E3\u10DB\u10D8\u10E1 \u10E1\u10D0\u10D7\u10D0\u10DD \u10DD\u10E4\u10D8\u10E1\u10D8"
   }), /*#__PURE__*/react__WEBPACK_IMPORTED_MODULE_0__.createElement("p", null, "Our team is comprised of leading industry experts with specialized technical trainings and experience. \xA0This allows us to provide best-in-class value at an independent cost structure."), /*#__PURE__*/react__WEBPACK_IMPORTED_MODULE_0__.createElement("div", {
     className: "office_grid"
-  }, members.map(function (member, index) {
+  }, staff.map(function (member, index) {
     return /*#__PURE__*/react__WEBPACK_IMPORTED_MODULE_0__.createElement("div", {
       className: "team_member",
       key: index
@@ -4765,7 +4771,7 @@ var Office = function Office(_ref) {
       alt: ""
     })), /*#__PURE__*/react__WEBPACK_IMPORTED_MODULE_0__.createElement("h4", null, member.name), /*#__PURE__*/react__WEBPACK_IMPORTED_MODULE_0__.createElement("p", {
       className: "blue"
-    }, "\u10DE\u10DD\u10D6\u10D8\u10EA\u10D8\u10D0"));
+    }, member.position));
   })))));
 };
 

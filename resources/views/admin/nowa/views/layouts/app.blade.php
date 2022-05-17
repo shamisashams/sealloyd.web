@@ -8,7 +8,6 @@
 		<meta name="Description" content="Insite - Admin Panel">
 		<meta name="Author" content="Spruko Technologies Private Limited">
 		<meta name="Keywords" content=""/>
-
 		<!-- Title -->
 		<title> Insite - Admin Panel </title>
 

@@ -14,7 +14,6 @@
             "icon": "language",
             "slug": "product",
             "submenu": [
-
                 {
                     "url": "category.index",
                     "name": "კატეგორიები",
@@ -65,6 +64,13 @@
             "i18n": "change password",
             "icon": "g_translate",
             "slug": "change_password"
+        },
+        {
+            "url": "staff.index",
+            "name": "პერსონალი",
+            "i18n": "staff",
+            "icon": "g_translate",
+            "slug": "staff"
         }
     ],
     "_comment": [

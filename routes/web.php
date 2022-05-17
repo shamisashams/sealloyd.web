@@ -84,6 +84,11 @@ Route::prefix('{locale?}')
                 // Password
                 Route::get('password', [\App\Http\Controllers\Admin\PasswordController::class, 'index'])->name('password.index');
                 Route::post('password', [\App\Http\Controllers\Admin\PasswordController::class, 'update'])->name('password.update');
+
+                //staff
+                Route::get('staff', [\App\Http\Controllers\Admin\StaffController::class, 'index'])->name('staff.index');
+                Route::post('addstaff', [\App\Http\Controllers\Admin\StaffController::class, 'addStaff'])->name('staff.addstaff');
+                Route::post('editstaff', [\App\Http\Controllers\Admin\StaffController::class, 'editstaff'])->name('staff.editstaff');
             });
         });
         Route::middleware(['active'])->group(function () {
