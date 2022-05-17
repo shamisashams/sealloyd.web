@@ -3,8 +3,11 @@ import { PagePath, SendButton } from "../../components/SmallComps/SmallComps";
 import "./Documents.css";
 import Layout from "../../Layouts/Layout";
 import { Inertia } from '@inertiajs/inertia'
+import Swal from 'sweetalert2'
 
 const Evaluation = ({ seo, success }) => {
+    const Swal = require('sweetalert2')
+
     const [values, setValues] = useState({
         company_name: "",
         created_at: "",
@@ -34,7 +37,14 @@ const Evaluation = ({ seo, success }) => {
 
     const scale = [1, 2, 3, 4, 5];
     const satisfaction = ["Excellent", "Very Good", "Good", "Fair", "Poor"];
-
+    if (success) {
+        Swal.fire({
+            title: 'success!',
+            text: 'წარმატებით დაემატა',
+            icon: 'success',
+            confirmButtonText: 'Cool'
+        })
+    }
     return (
         <Layout seo={seo}>
             <div className="documents teamPage careerPage evaluation">
@@ -232,7 +242,6 @@ const Evaluation = ({ seo, success }) => {
                                 Your Comments Will Be Treated as Fully Confidential.
                             </p>
                             <SendButton text="Send Answers Now" />
-                            {success ? 'good' : 'not good'}
                         </form>
                     </div>
                 </div>

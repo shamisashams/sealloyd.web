@@ -121,29 +121,29 @@ const AppChecklist = ({ seo }) => {
         },
     ];
     return (
-        <Layout seo={seo}>
-            <div className="app_checklist">
-                {checklist.map((item, index) => {
-                    return (
-                        <div key={index} className="flex line">
-                            <div className="cat">{item.title}</div>
-                            {item.checks.map((check, i) => {
-                                return (
-                                    <div className="checkbox" key={i}>
-                                        <label htmlFor={`checkbox_${index}_${i}`}>{check}</label>
-                                        <input
-                                            name={`checkbox_${index}`}
-                                            type="radio"
-                                            id={`checkbox_${index}_${i}`}
-                                        />
-                                    </div>
-                                );
-                            })}
-                        </div>
-                    );
-                })}
-            </div>
-        </Layout>
+        // <Layout seo={seo}>
+        <div className="app_checklist">
+            {checklist.map((item, index) => {
+                return (
+                    <div key={index} className="flex line">
+                        <div className="cat">{item.title}</div>
+                        {item.checks.map((check, i) => {
+                            return (
+                                <div className="checkbox" key={i}>
+                                    <label htmlFor={`checkbox_${index}_${i}`}>{check}</label>
+                                    <input
+                                        name={`checkbox_${index}`}
+                                        type="radio"
+                                        id={`checkbox_${index}_${i}`}
+                                    />
+                                </div>
+                            );
+                        })}
+                    </div>
+                );
+            })}
+        </div>
+        // </Layout>
     );
 };
 
