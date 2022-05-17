@@ -67,7 +67,7 @@ const Recognition = ({ page, seo }) => {
                             მკათათვის იცოხებოდნენ კარისკაცი.
                         </p> */}
                         <p>
-                            {renderHTML(__('client.aboutus.recognition_maint_text', sharedData).replace(/(?:\r\n|\r|\n)/g, '<br>'))}
+                            {renderHTML(__('client.aboutus_recognition_maint_text', sharedData).replace(/(?:\r\n|\r|\n)/g, '<br>'))}
 
                         </p>
                     </div>

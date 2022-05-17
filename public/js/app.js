@@ -3191,7 +3191,7 @@ var Ethics = function Ethics(_ref) {
     style: {
       margin: "auto"
     }
-  }, /*#__PURE__*/react__WEBPACK_IMPORTED_MODULE_0__.createElement("p", null, renderHTML(__('client.aboutus.ethics_main_text', sharedData).replace(/(?:\r\n|\r|\n)/g, '<br>')))))));
+  }, /*#__PURE__*/react__WEBPACK_IMPORTED_MODULE_0__.createElement("p", null, renderHTML(__('client.aboutus_ethics_main_text', sharedData).replace(/(?:\r\n|\r|\n)/g, '<br>')))))));
 };
 
 /* harmony default export */ const __WEBPACK_DEFAULT_EXPORT__ = (Ethics);
@@ -3249,7 +3249,7 @@ var Management = function Management(_ref) {
     style: {
       marginBottom: "50px"
     }
-  }, /*#__PURE__*/react__WEBPACK_IMPORTED_MODULE_0__.createElement("p", null, renderHTML(__('client.aboutus.managment_main_text', sharedData).replace(/(?:\r\n|\r|\n)/g, '<br>')))), /*#__PURE__*/react__WEBPACK_IMPORTED_MODULE_0__.createElement("div", {
+  }, /*#__PURE__*/react__WEBPACK_IMPORTED_MODULE_0__.createElement("p", null, renderHTML(__('client.aboutus_managment_main_text', sharedData).replace(/(?:\r\n|\r|\n)/g, '<br>')))), /*#__PURE__*/react__WEBPACK_IMPORTED_MODULE_0__.createElement("div", {
     className: "blue",
     style: {
       marginBottom: "20px"
@@ -3322,7 +3322,7 @@ var Politics = function Politics(_ref) {
     style: {
       margin: "auto"
     }
-  }, /*#__PURE__*/react__WEBPACK_IMPORTED_MODULE_0__.createElement("p", null, renderHTML(__('client.aboutus.policits_main_text', sharedData).replace(/(?:\r\n|\r|\n)/g, '<br>')))))));
+  }, /*#__PURE__*/react__WEBPACK_IMPORTED_MODULE_0__.createElement("p", null, renderHTML(__('client.aboutus_policits_main_text', sharedData).replace(/(?:\r\n|\r|\n)/g, '<br>')))))));
 };
 
 /* harmony default export */ const __WEBPACK_DEFAULT_EXPORT__ = (Politics);
@@ -3363,7 +3363,10 @@ var Purpose = function Purpose(_ref) {
         __html: rawHTML
       }
     });
-  };
+  }; // if (sharedData.length) {
+  //     sharedData == "";
+  // }
+
 
   return /*#__PURE__*/react__WEBPACK_IMPORTED_MODULE_0__.createElement(_Layouts_Layout__WEBPACK_IMPORTED_MODULE_2__["default"], {
     seo: seo
@@ -3382,7 +3385,7 @@ var Purpose = function Purpose(_ref) {
     alt: ""
   }), /*#__PURE__*/react__WEBPACK_IMPORTED_MODULE_0__.createElement("div", {
     className: "content"
-  }, /*#__PURE__*/react__WEBPACK_IMPORTED_MODULE_0__.createElement("p", null, renderHTML(__('client.aboutus.purpose_main_text', sharedData).replace(/(?:\r\n|\r|\n)/g, '<br>')))))));
+  }, /*#__PURE__*/react__WEBPACK_IMPORTED_MODULE_0__.createElement("p", null, renderHTML(__('client.aboutus_purpose_main_text', sharedData).replace(/(?:\r\n|\r|\n)/g, '<br>')))))));
 };
 
 /* harmony default export */ const __WEBPACK_DEFAULT_EXPORT__ = (Purpose);
@@ -3463,7 +3466,7 @@ var Recognition = function Recognition(_ref) {
     style: {
       marginBottom: "50px"
     }
-  }, /*#__PURE__*/react__WEBPACK_IMPORTED_MODULE_0__.createElement("p", null, renderHTML(__('client.aboutus.recognition_maint_text', sharedData).replace(/(?:\r\n|\r|\n)/g, '<br>')))), /*#__PURE__*/react__WEBPACK_IMPORTED_MODULE_0__.createElement("h5", null, "\u10D3\u10E0\u10DD\u10E8\u10D4\u10D1\u10D8"), /*#__PURE__*/react__WEBPACK_IMPORTED_MODULE_0__.createElement("div", {
+  }, /*#__PURE__*/react__WEBPACK_IMPORTED_MODULE_0__.createElement("p", null, renderHTML(__('client.aboutus_recognition_maint_text', sharedData).replace(/(?:\r\n|\r|\n)/g, '<br>')))), /*#__PURE__*/react__WEBPACK_IMPORTED_MODULE_0__.createElement("h5", null, "\u10D3\u10E0\u10DD\u10E8\u10D4\u10D1\u10D8"), /*#__PURE__*/react__WEBPACK_IMPORTED_MODULE_0__.createElement("div", {
     style: {
       display: "block"
     }
@@ -4136,7 +4139,7 @@ var Circulars = function Circulars(_ref) {
     location3: "\u10EA\u10D8\u10E0\u10D9\u10E3\u10DA\u10D0\u10E0\u10D4\u10D1\u10D8"
   }), /*#__PURE__*/react__WEBPACK_IMPORTED_MODULE_0__.createElement("p", {
     className: "container"
-  }, renderHTML(__('client.documentation.circulars_main_text', sharedData).replace(/(?:\r\n|\r|\n)/g, '<br>'))), /*#__PURE__*/react__WEBPACK_IMPORTED_MODULE_0__.createElement("div", {
+  }, renderHTML(__('client.documentation_circulars_main_text', sharedData).replace(/(?:\r\n|\r|\n)/g, '<br>'))), /*#__PURE__*/react__WEBPACK_IMPORTED_MODULE_0__.createElement("div", {
     className: "blue"
   }, "\u10EA\u10D8\u10E0\u10D9\u10E3\u10DA\u10D0\u10E0\u10D4\u10D1\u10D8"), /*#__PURE__*/react__WEBPACK_IMPORTED_MODULE_0__.createElement("div", {
     className: "doc_grid"
@@ -4647,7 +4650,7 @@ var Inspectors = function Inspectors(_ref) {
     className: "bottom"
   }, /*#__PURE__*/react__WEBPACK_IMPORTED_MODULE_0__.createElement("div", {
     className: "font45"
-  }, "\u10D0\u10E6\u10D8\u10D0\u10E0\u10D4\u10D1\u10E3\u10DA\u10D8 ", /*#__PURE__*/react__WEBPACK_IMPORTED_MODULE_0__.createElement("br", null), "\u10D8\u10DC\u10E1\u10DE\u10D4\u10E5\u10E2\u10DD\u10E0\u10D4\u10D1\u10D8"), /*#__PURE__*/react__WEBPACK_IMPORTED_MODULE_0__.createElement("p", null, renderHTML(__('client.ourteam.inspectors_main_text', sharedData).replace(/(?:\r\n|\r|\n)/g, '<br>'))))))));
+  }, "\u10D0\u10E6\u10D8\u10D0\u10E0\u10D4\u10D1\u10E3\u10DA\u10D8 ", /*#__PURE__*/react__WEBPACK_IMPORTED_MODULE_0__.createElement("br", null), "\u10D8\u10DC\u10E1\u10DE\u10D4\u10E5\u10E2\u10DD\u10E0\u10D4\u10D1\u10D8"), /*#__PURE__*/react__WEBPACK_IMPORTED_MODULE_0__.createElement("p", null, renderHTML(__('client.ourteam_inspectors_main_text', sharedData).replace(/(?:\r\n|\r|\n)/g, '<br>'))))))));
 };
 
 /* harmony default export */ const __WEBPACK_DEFAULT_EXPORT__ = (Inspectors);
@@ -4711,7 +4714,8 @@ __webpack_require__.r(__webpack_exports__);
 /* harmony import */ var react__WEBPACK_IMPORTED_MODULE_0__ = __webpack_require__(/*! react */ "./node_modules/react/index.js");
 /* harmony import */ var _components_SmallComps_SmallComps__WEBPACK_IMPORTED_MODULE_1__ = __webpack_require__(/*! ../../components/SmallComps/SmallComps */ "./resources/js/components/SmallComps/SmallComps.js");
 /* harmony import */ var _Layouts_Layout__WEBPACK_IMPORTED_MODULE_2__ = __webpack_require__(/*! ../../Layouts/Layout */ "./resources/js/Layouts/Layout.js");
-/* harmony import */ var _OurTeam_css__WEBPACK_IMPORTED_MODULE_3__ = __webpack_require__(/*! ./OurTeam.css */ "./resources/js/Pages/OurTeam/OurTeam.css");
+/* harmony import */ var _inertiajs_inertia_react__WEBPACK_IMPORTED_MODULE_3__ = __webpack_require__(/*! @inertiajs/inertia-react */ "./node_modules/@inertiajs/inertia-react/dist/index.js");
+/* harmony import */ var _OurTeam_css__WEBPACK_IMPORTED_MODULE_4__ = __webpack_require__(/*! ./OurTeam.css */ "./resources/js/Pages/OurTeam/OurTeam.css");
 
  // import Img1 from "../../assets/images/team/1.png";
 // import Img2 from "../../assets/images/team/2.png";
@@ -4721,10 +4725,19 @@ __webpack_require__.r(__webpack_exports__);
 
 
 
+
 var Office = function Office(_ref) {
   var seo = _ref.seo,
       staff = _ref.staff;
-  // const members = [
+  var sharedData = (0,_inertiajs_inertia_react__WEBPACK_IMPORTED_MODULE_3__.usePage)().props.localizations;
+
+  var renderHTML = function renderHTML(rawHTML) {
+    return /*#__PURE__*/react__WEBPACK_IMPORTED_MODULE_0__.createElement("div", {
+      dangerouslySetInnerHTML: {
+        __html: rawHTML
+      }
+    });
+  }; // const members = [
   //     {
   //         img: '/assets/images/team/1.png',
   //         name: "სახელი გვარი",
@@ -4746,6 +4759,8 @@ var Office = function Office(_ref) {
   //         position: "პოზიცია",
   //     },
   // ];
+
+
   return /*#__PURE__*/react__WEBPACK_IMPORTED_MODULE_0__.createElement(_Layouts_Layout__WEBPACK_IMPORTED_MODULE_2__["default"], {
     seo: seo
   }, /*#__PURE__*/react__WEBPACK_IMPORTED_MODULE_0__.createElement("div", {
@@ -4758,7 +4773,7 @@ var Office = function Office(_ref) {
     location1: "\u10DB\u10D7\u10D0\u10D5\u10D0\u10E0\u10D8",
     location2: "\u10E9\u10D5\u10D4\u10DC\u10D8 \u10D2\u10E3\u10DC\u10D3\u10D8",
     location3: "\u10D1\u10D0\u10D7\u10E3\u10DB\u10D8\u10E1 \u10E1\u10D0\u10D7\u10D0\u10DD \u10DD\u10E4\u10D8\u10E1\u10D8"
-  }), /*#__PURE__*/react__WEBPACK_IMPORTED_MODULE_0__.createElement("p", null, "Our team is comprised of leading industry experts with specialized technical trainings and experience. \xA0This allows us to provide best-in-class value at an independent cost structure."), /*#__PURE__*/react__WEBPACK_IMPORTED_MODULE_0__.createElement("div", {
+  }), /*#__PURE__*/react__WEBPACK_IMPORTED_MODULE_0__.createElement("p", null, renderHTML(__('client.ourteam_office_maint_text', sharedData).replace(/(?:\r\n|\r|\n)/g, '<br>'))), /*#__PURE__*/react__WEBPACK_IMPORTED_MODULE_0__.createElement("div", {
     className: "office_grid"
   }, staff.map(function (member, index) {
     return /*#__PURE__*/react__WEBPACK_IMPORTED_MODULE_0__.createElement("div", {
@@ -4831,7 +4846,7 @@ var Certification = function Certification(_ref) {
     alt: ""
   }), /*#__PURE__*/react__WEBPACK_IMPORTED_MODULE_0__.createElement("div", {
     className: "content"
-  }, /*#__PURE__*/react__WEBPACK_IMPORTED_MODULE_0__.createElement("p", null, renderHTML(__('client.services.certification_main_text', sharedData).replace(/(?:\r\n|\r|\n)/g, '<br>')))))));
+  }, /*#__PURE__*/react__WEBPACK_IMPORTED_MODULE_0__.createElement("p", null, renderHTML(__('client.services_certification_main_text', sharedData).replace(/(?:\r\n|\r|\n)/g, '<br>')))))));
 };
 
 /* harmony default export */ const __WEBPACK_DEFAULT_EXPORT__ = (Certification);
@@ -4893,7 +4908,7 @@ var Classification = function Classification(_ref) {
     location3: "\u10D2\u10D4\u10DB\u10D4\u10D1\u10D8\u10E1 \u10D9\u10DA\u10D0\u10E1\u10D8\u10E4\u10D8\u10D9\u10D0\u10EA\u10D8\u10D0"
   }), /*#__PURE__*/react__WEBPACK_IMPORTED_MODULE_0__.createElement("div", {
     className: "content"
-  }, /*#__PURE__*/react__WEBPACK_IMPORTED_MODULE_0__.createElement("p", null, renderHTML(__('client.services.nav_clasification_main_text', sharedData).replace(/(?:\r\n|\r|\n)/g, '<br>'))))))));
+  }, /*#__PURE__*/react__WEBPACK_IMPORTED_MODULE_0__.createElement("p", null, renderHTML(__('client.services_nav_clasification_main_text', sharedData).replace(/(?:\r\n|\r|\n)/g, '<br>'))))))));
 };
 
 /* harmony default export */ const __WEBPACK_DEFAULT_EXPORT__ = (Classification);
@@ -4952,7 +4967,7 @@ var CompRecognition = function CompRecognition(_ref) {
     alt: ""
   }), /*#__PURE__*/react__WEBPACK_IMPORTED_MODULE_0__.createElement("div", {
     className: "content"
-  }, /*#__PURE__*/react__WEBPACK_IMPORTED_MODULE_0__.createElement("p", null, renderHTML(__('client.services.nav_comprecognition_main_text', sharedData).replace(/(?:\r\n|\r|\n)/g, '<br>')))))));
+  }, /*#__PURE__*/react__WEBPACK_IMPORTED_MODULE_0__.createElement("p", null, renderHTML(__('client.services_nav_comprecognition_main_text', sharedData).replace(/(?:\r\n|\r|\n)/g, '<br>')))))));
 };
 
 /* harmony default export */ const __WEBPACK_DEFAULT_EXPORT__ = (CompRecognition);
@@ -5012,7 +5027,7 @@ var Stator1 = function Stator1(_ref) {
     location3: "\u10E1\u10E2\u10D0\u10E2\u10E3\u10E2\u10DD\u10E0\u10D8"
   }), /*#__PURE__*/react__WEBPACK_IMPORTED_MODULE_0__.createElement("div", {
     className: "content"
-  }, /*#__PURE__*/react__WEBPACK_IMPORTED_MODULE_0__.createElement("p", null, renderHTML(__('client.services.nav_stators_main_text', sharedData).replace(/(?:\r\n|\r|\n)/g, '<br>'))))), /*#__PURE__*/react__WEBPACK_IMPORTED_MODULE_0__.createElement(_components_StatorBoxes_StatorBoxes__WEBPACK_IMPORTED_MODULE_2__.StatorBoxes, null))));
+  }, /*#__PURE__*/react__WEBPACK_IMPORTED_MODULE_0__.createElement("p", null, renderHTML(__('client.services_nav_stators_main_text', sharedData).replace(/(?:\r\n|\r|\n)/g, '<br>'))))), /*#__PURE__*/react__WEBPACK_IMPORTED_MODULE_0__.createElement(_components_StatorBoxes_StatorBoxes__WEBPACK_IMPORTED_MODULE_2__.StatorBoxes, null))));
 };
 
 /* harmony default export */ const __WEBPACK_DEFAULT_EXPORT__ = (Stator1);

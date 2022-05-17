@@ -75,7 +75,7 @@ const Ethics = ({ seo }) => {
                             იქადაგებს ემატებიან ბურჟუები გულგახეთქილნი.
                         </p> */}
                         <p>
-                            {renderHTML(__('client.aboutus.ethics_main_text', sharedData).replace(/(?:\r\n|\r|\n)/g, '<br>'))}
+                            {renderHTML(__('client.aboutus_ethics_main_text', sharedData).replace(/(?:\r\n|\r|\n)/g, '<br>'))}
                         </p>
                     </div>
                 </div>

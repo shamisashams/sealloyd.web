@@ -5,9 +5,13 @@ import { PagePath } from "../../components/SmallComps/SmallComps";
 // import Img3 from "../../assets/images/team/3.png";
 // import Img4 from "../../assets/images/team/4.png";
 import Layout from "../../Layouts/Layout";
+import { Link, usePage } from "@inertiajs/inertia-react";
+
 import "./OurTeam.css";
 
 const Office = ({ seo, staff }) => {
+    const sharedData = usePage().props.localizations;
+    const renderHTML = (rawHTML) => React.createElement("div", { dangerouslySetInnerHTML: { __html: rawHTML } });
 
     // const members = [
     //     {
@@ -41,10 +45,13 @@ const Office = ({ seo, staff }) => {
                         location2="ჩვენი გუნდი"
                         location3="ბათუმის სათაო ოფისი"
                     />
-                    <p>
+                    {/* <p>
                         Our team is comprised of leading industry experts with specialized
                         technical trainings and experience.  This allows us to provide
                         best-in-class value at an independent cost structure.
+                    </p> */}
+                    <p>
+                        {renderHTML(__('client.ourteam_office_maint_text', sharedData).replace(/(?:\r\n|\r|\n)/g, '<br>'))}
                     </p>
                     <div className="office_grid">
                         {staff.map((member, index) => {

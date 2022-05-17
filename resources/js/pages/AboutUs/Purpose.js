@@ -8,6 +8,9 @@ import "./AboutUs.css";
 const Purpose = ({ page, seo }) => {
     const sharedData = usePage().props.localizations;
     const renderHTML = (rawHTML) => React.createElement("div", { dangerouslySetInnerHTML: { __html: rawHTML } });
+    // if (sharedData.length) {
+    //     sharedData == "";
+    // }
     return (
         <Layout seo={seo}>
             <div className="aboutPage wrapper padding_top">
@@ -68,7 +71,7 @@ const Purpose = ({ page, seo }) => {
                             იქადაგებს ემატებიან ბურჟუები გულგახეთქილნი.
                         </p> */}
                         <p>
-                            {renderHTML(__('client.aboutus.purpose_main_text', sharedData).replace(/(?:\r\n|\r|\n)/g, '<br>'))}
+                            {renderHTML(__('client.aboutus_purpose_main_text', sharedData).replace(/(?:\r\n|\r|\n)/g, '<br>'))}
                         </p>
                     </div>
                 </div>

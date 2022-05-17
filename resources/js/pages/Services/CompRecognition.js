@@ -66,7 +66,7 @@ const CompRecognition = ({ seo }) => {
                             იქადაგებს ემატებიან ბურჟუები გულგახეთქილნი.
                         </p> */}
                         <p>
-                            {renderHTML(__('client.services.nav_comprecognition_main_text', sharedData).replace(/(?:\r\n|\r|\n)/g, '<br>'))}
+                            {renderHTML(__('client.services_nav_comprecognition_main_text', sharedData).replace(/(?:\r\n|\r|\n)/g, '<br>'))}
                         </p>
                     </div>
                 </div>

@@ -44,7 +44,7 @@ const Stator1 = ({ page, seo }) => {
                                 6. Exemption Certificate
                             </p> */}
                             <p>
-                                {renderHTML(__('client.services.nav_stators_main_text', sharedData).replace(/(?:\r\n|\r|\n)/g, '<br>'))}
+                                {renderHTML(__('client.services_nav_stators_main_text', sharedData).replace(/(?:\r\n|\r|\n)/g, '<br>'))}
                             </p>
                         </div>
                     </div>

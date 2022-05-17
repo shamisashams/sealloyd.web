@@ -43,7 +43,7 @@ const Inspectors = ({ seo }) => {
                                 მკათათვის იცოხებოდნენ კარისკაცი.
                             </p> */}
                             <p>
-                                {renderHTML(__('client.ourteam.inspectors_main_text', sharedData).replace(/(?:\r\n|\r|\n)/g, '<br>'))}
+                                {renderHTML(__('client.ourteam_inspectors_main_text', sharedData).replace(/(?:\r\n|\r|\n)/g, '<br>'))}
                             </p>
                         </div>
                     </div>

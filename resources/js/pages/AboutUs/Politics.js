@@ -76,7 +76,7 @@ const Politics = ({ seo }) => {
                             იქადაგებს ემატებიან ბურჟუები გულგახეთქილნი.
                         </p> */}
                         <p>
-                            {renderHTML(__('client.aboutus.policits_main_text', sharedData).replace(/(?:\r\n|\r|\n)/g, '<br>'))}
+                            {renderHTML(__('client.aboutus_policits_main_text', sharedData).replace(/(?:\r\n|\r|\n)/g, '<br>'))}
                         </p>
                     </div>
                 </div>

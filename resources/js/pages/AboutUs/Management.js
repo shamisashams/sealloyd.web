@@ -39,7 +39,7 @@ const Management = ({ seo }) => {
                             მკათათვის იცოხებოდნენ კარისკაცი.
                         </p> */}
                         <p>
-                            {renderHTML(__('client.aboutus.managment_main_text', sharedData).replace(/(?:\r\n|\r|\n)/g, '<br>'))}
+                            {renderHTML(__('client.aboutus_managment_main_text', sharedData).replace(/(?:\r\n|\r|\n)/g, '<br>'))}
 
                         </p>
                     </div>

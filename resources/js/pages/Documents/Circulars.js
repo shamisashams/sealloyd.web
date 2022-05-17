@@ -40,7 +40,7 @@ const Circulars = ({ seo }) => {
                         მკალავიშვილის მეთვრამეტე.
                     </p> */}
                     <p className='container'>
-                        {renderHTML(__('client.documentation.circulars_main_text', sharedData).replace(/(?:\r\n|\r|\n)/g, '<br>'))}
+                        {renderHTML(__('client.documentation_circulars_main_text', sharedData).replace(/(?:\r\n|\r|\n)/g, '<br>'))}
 
                     </p>
                     <div className="blue">ცირკულარები</div>

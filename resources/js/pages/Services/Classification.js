@@ -56,7 +56,7 @@ const Classification = ({ seo }) => {
                                 treaties concerning the safety of merchant ships.
                             </p> */}
                             <p>
-                                {renderHTML(__('client.services.nav_clasification_main_text', sharedData).replace(/(?:\r\n|\r|\n)/g, '<br>'))}
+                                {renderHTML(__('client.services_nav_clasification_main_text', sharedData).replace(/(?:\r\n|\r|\n)/g, '<br>'))}
                             </p>
                         </div>
                     </div>
