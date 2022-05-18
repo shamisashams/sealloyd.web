@@ -13,7 +13,7 @@ use Illuminate\Http\RedirectResponse;
 use Illuminate\Routing\Redirector;
 use Illuminate\Support\Arr;
 use App\Models\User;
-use App\Models\staff;
+use App\Models\Staff;
 use Illuminate\Support\Facades\Hash;
 use Illuminate\Http\Request;
 use Illuminate\Support\Facades\DB;
@@ -53,13 +53,13 @@ class StaffController extends Controller
             }
         }
 
-        $staff = staff::all();
+        $staff = Staff::all();
         return view('admin.nowa.views.staff.index', compact('staff'));
     }
     public function addStaff(Request $request)
     {
         // dd($request->post());
-        $staff = staff::create(
+        $staff = Staff::create(
             $request->only(
                 'name',
                 'position',
@@ -72,7 +72,7 @@ class StaffController extends Controller
     }
     public function editstaff(Request $request)
     {
-        $update = staff::where('id', $request->id)->update(array(
+        $update = Staff::where('id', $request->id)->update(array(
             'name' => $request->name,
             'position' => $request->position,
         ));

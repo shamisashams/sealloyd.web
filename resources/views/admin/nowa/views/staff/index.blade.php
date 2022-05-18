@@ -26,27 +26,28 @@
 @section('content')
 
     <!-- breadcrumb -->
-<form class='mt-5 shadow p-3 mb-5 bg-body rounded' action="{{route('staff.addstaff')}}" method="POST">
-    @csrf
-    <div class="form-group">
-      <label for="exampleInputEmail1">სახელი გვარი</label>
-      <input type="text" name='name'  class="form-control" id="exampleInputEmail1" aria-describedby="emailHelp" placeholder="name-lastname">
-    </div>
-    <div class="form-group">
-      <label for="exampleInputPassword1">პოზიცია</label>
-      <input type="text" name='position' class="form-control" id="exampleInputPassword1" placeholder="position">
-    </div>
 
-    <button type="submit" class="btn btn-primary">დამატება</button>
-  </form>
 
   @php
   $link = route('staff.index');
   @endphp
 
-<div class="container text-center" >
-    <table class="table">
-        <thead class="table-dark">
+<div class="container-fluid bg-white p-1" >
+    <form class='mt-5 shadow p-3 mb-5 rounded' action="{{route('staff.addstaff')}}" method="POST">
+        @csrf
+        <div class="form-group">
+          <label for="exampleInputEmail1">სახელი გვარი</label>
+          <input type="text" name='name'  class="form-control" id="exampleInputEmail1" aria-describedby="emailHelp" placeholder="name-lastname">
+        </div>
+        <div class="form-group">
+          <label for="exampleInputPassword1">პოზიცია</label>
+          <input type="text" name='position' class="form-control" id="exampleInputPassword1" placeholder="position">
+        </div>
+        <button type="submit" class="btn btn-primary">დამატება</button>
+      </form>
+
+    <table class="table text-center">
+        <thead class="table-white">
             <th scope="col">#</th>
             <th scope="col">სახელი გვარი</th>
             <th scope="col">პოზიცია</th>

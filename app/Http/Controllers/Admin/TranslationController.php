@@ -1,4 +1,5 @@
 <?php
+
 /**
  *  app/Http/Controllers/Admin/TranslationController.php
  *
@@ -6,6 +7,7 @@
  * Time: 09:35
  * @author Insite LLC <hello@insite.international>
  */
+
 namespace App\Http\Controllers\Admin;
 
 use App\Http\Controllers\Controller;
@@ -134,7 +136,7 @@ class TranslationController extends Controller
         // Clear cache
         Artisan::call('cache:clear');
 
-        return ['msg' => 'success','status' => 'ok'];
+        return ['msg' => 'success', 'status' => 'ok'];
 
         //return redirect(locale_route('translation.index', $id))->with('success', 'Translation Updated.');
     }

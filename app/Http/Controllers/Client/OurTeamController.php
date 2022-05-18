@@ -37,16 +37,24 @@ class OurTeamController extends Controller
 
         //dd($products);
 
-        return Inertia::render('OurTeam/Office', ["staff" => staff::all(), "sliders" => $sliders->get(), "page" => $page, "seo" => [
-            "title" => $page->meta_title,
-            "description" => $page->meta_description,
-            "keywords" => $page->meta_keyword,
-            "og_title" => $page->meta_og_title,
-            "og_description" => $page->meta_og_description,
-
-            //            "image" => "imgg",
-            //            "locale" => App::getLocale()
-        ], 'popular_products' => $products, 'images' => $images])->withViewData([
+        return Inertia::render(
+            'OurTeam/Office',
+            [
+                "staff" => staff::all(),
+                "sliders" => $sliders->get(),
+                "page" => $page,
+                "seo" => [
+                    "title" => $page->meta_title,
+                    "description" => $page->meta_description,
+                    "keywords" => $page->meta_keyword,
+                    "og_title" => $page->meta_og_title,
+                    "og_description" => $page->meta_og_description,
+                    //            "image" => "imgg",
+                    //            "locale" => App::getLocale()
+                ],
+                'popular_products' => $products, 'images' => $images
+            ]
+        )->withViewData([
             'meta_title' => $page->meta_title,
             'meta_description' => $page->meta_description,
             'meta_keyword' => $page->meta_keyword,
