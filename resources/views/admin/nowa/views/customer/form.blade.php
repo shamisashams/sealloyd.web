@@ -78,7 +78,7 @@
                         {!! Form::label('password',__('admin.password'),['class' => 'form-label']) !!}
                         {!! Form::text('password','',['class' => 'form-control']) !!}
 
-                        @error('email')
+                        @error('password')
                         <small class="text-danger">
                             <div class="error">
                                 {{$message}}

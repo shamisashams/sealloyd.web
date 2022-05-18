@@ -5,6 +5,7 @@ namespace App\Models;
 use App\Traits\ScopeFilter;
 use Illuminate\Contracts\Auth\MustVerifyEmail;
 use Illuminate\Database\Eloquent\Factories\HasFactory;
+use Illuminate\Database\Eloquent\Relations\MorphMany;
 use Illuminate\Foundation\Auth\User as Authenticatable;
 use Illuminate\Notifications\Notifiable;
 
@@ -62,5 +63,13 @@ class Customer extends Authenticatable
                 'scopeMethod' => 'categoryId'
             ]
         ];
+    }
+
+    /**
+     * @return MorphMany
+     */
+    public function files(): MorphMany
+    {
+        return $this->morphMany(File::class, 'fileable');
     }
 }

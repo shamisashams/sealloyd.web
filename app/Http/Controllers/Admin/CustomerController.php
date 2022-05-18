@@ -13,6 +13,7 @@ use App\Http\Controllers\Controller;
 use App\Http\Requests\Admin\CustomerRequest;
 use App\Http\Requests\Admin\ProductRequest;
 use App\Models\Category;
+use App\Models\Customer;
 use App\Models\Product;
 use App\Repositories\CategoryRepositoryInterface;
 use App\Repositories\Eloquent\CustomerRepository;
@@ -24,6 +25,7 @@ use Illuminate\Http\RedirectResponse;
 use Illuminate\Routing\Redirector;
 use Illuminate\Support\Arr;
 use ReflectionException;
+use Illuminate\Support\Facades\Hash;
 
 class CustomerController extends Controller
 {
@@ -99,10 +101,11 @@ class CustomerController extends Controller
     public function store(CustomerRequest $request)
     {
 
-        dd($request->all());
+        //dd($request->all());
         $saveData = Arr::except($request->except('_token'), []);
         $saveData['status'] = isset($saveData['status']) && (bool)$saveData['status'];
 
+        $saveData['password'] = Hash::make($request->password);
 
         //dd($saveData);
         $customer = $this->customerRepository->create($saveData);
@@ -125,7 +128,7 @@ class CustomerController extends Controller
      *
      * @return Application|Factory|View
      */
-    public function show(string $locale, Product $product)
+    public function show(string $locale, Customer $product)
     {
         return view('admin.pages.product.show', [
             'product' => $product,
@@ -140,9 +143,9 @@ class CustomerController extends Controller
      *
      * @return Application|Factory|View
      */
-    public function edit(string $locale, Product $product)
+    public function edit(string $locale, Customer $customer)
     {
-        $url = locale_route('product.update', $product->id, false);
+        $url = locale_route('customer.update', $customer->id, false);
         $method = 'PUT';
 
         /*return view('admin.pages.product.form', [
@@ -153,10 +156,9 @@ class CustomerController extends Controller
         ]);*/
 
         return view('admin.nowa.views.customer.form', [
-            'product' => $product,
+            'customer' => $customer,
             'url' => $url,
             'method' => $method,
-            'categories' => $this->categories
         ]);
     }
 
@@ -169,24 +171,23 @@ class CustomerController extends Controller
      * @return Application|RedirectResponse|Redirector
      * @throws ReflectionException
      */
-    public function update(ProductRequest $request, string $locale, Product $product)
+    public function update(CustomerRequest $request, string $locale, Customer $customer)
     {
         //dd($request->all());
         $saveData = Arr::except($request->except('_token'), []);
         $saveData['status'] = isset($saveData['status']) && (bool)$saveData['status'];
-        $saveData['popular'] = isset($saveData['popular']) && (bool)$saveData['popular'];
-        $saveData['stock'] = isset($saveData['stock']) && (bool)$saveData['stock'];
 
+        $saveData['password'] = Hash::make($request->password);
         //dd($saveData);
 
-        $this->productRepository->update($product->id, $saveData);
+        $this->customerRepository->update($customer->id, $saveData);
 
-        $this->productRepository->saveFiles($product->id, $request);
-
-        $product->categories()->sync($saveData['categories'] ?? []);
+        $this->customerRepository->saveFiles($customer->id, $request);
 
 
-        return redirect(locale_route('product.index', $product->id))->with('success', __('admin.update_successfully'));
+
+
+        return redirect(locale_route('customer.index', $customer->id))->with('success', __('admin.update_successfully'));
     }
 
     /**
