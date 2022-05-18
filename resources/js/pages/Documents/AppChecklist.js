@@ -121,7 +121,7 @@ const AppChecklist = ({ seo }) => {
         },
     ];
     return (
-        <Layout seo={seo}>
+
             <div className="app_checklist">
                 {checklist.map((item, index) => {
                     return (
@@ -143,7 +143,7 @@ const AppChecklist = ({ seo }) => {
                     );
                 })}
             </div>
-        </Layout>
+
     );
 };
 
