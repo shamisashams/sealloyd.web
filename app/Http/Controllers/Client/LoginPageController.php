@@ -5,9 +5,11 @@ namespace App\Http\Controllers\Client;
 use App\Http\Controllers\Controller;
 use App\Models\Page;
 use App\Models\Slider;
+use Illuminate\Http\Request;
 use Illuminate\Support\Facades\App;
 use Inertia\Inertia;
 use App\Repositories\Eloquent\ProductRepository;
+use Illuminate\Support\Facades\Auth;
 
 
 class LoginPageController extends Controller
@@ -257,5 +259,24 @@ class LoginPageController extends Controller
             'og_title' => $page->meta_og_title,
             'og_description' => $page->meta_og_description
         ]);
+    }
+
+    public function auth(Request $request){
+
+        $request->validate([
+            'email' => ['required','email'],
+            'password' => 'required'
+        ]);
+
+        if (!Auth::guard('customer')->attempt([
+            'email' => $request->email,
+            'password' => $request->password,
+        ],$request->remember)) {
+            //return back()->with('danger','Email or Password is incorrect!');
+            dd('ee');
+        }
+
+        dd('ok');
+        return redirect('/ge/adminpanel/category');
     }
 }

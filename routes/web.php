@@ -124,6 +124,8 @@ Route::prefix('{locale?}')
             // cabinet
             Route::get('/login', [LoginPageController::class, 'Login'])->name('client.login');
 
+            Route::post('/login', [LoginPageController::class, 'auth'])->name('client.auth');
+
             // Contact Page
             Route::get('/contact', [ContactController::class, 'index'])->name('client.contact.index');
             Route::post('/contact-us', [ContactController::class, 'mail'])->name('client.contact.mail');
