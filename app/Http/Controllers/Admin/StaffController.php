@@ -17,6 +17,8 @@ use App\Models\Staff;
 use Illuminate\Support\Facades\Hash;
 use Illuminate\Http\Request;
 use Illuminate\Support\Facades\DB;
+use App\Http\Requests\Admin\TranslationRequest;
+use App\Repositories\TranslationRepositoryInterface;
 
 
 class StaffController extends Controller
@@ -29,8 +31,9 @@ class StaffController extends Controller
     /**
      * @param SettingRepositoryInterface $settingRepository
      */
-    public function __construct()
+    public function __construct(TranslationRepositoryInterface $translationRepository)
     {
+        $this->translationRepository = $translationRepository;
     }
 
 
@@ -54,7 +57,10 @@ class StaffController extends Controller
         }
 
         $staff = Staff::all();
-        return view('admin.nowa.views.staff.index', compact('staff'));
+        return view('admin.nowa.views.staff.index', compact('staff'), [
+            'translations' => $this->translationRepository->getData($request),
+            'languages' => $this->activeLanguages()
+        ]);
     }
     public function addStaff(Request $request)
     {
