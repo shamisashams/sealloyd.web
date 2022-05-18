@@ -79,16 +79,18 @@ Route::prefix('{locale?}')
                 Route::resource('setting', SettingController::class);
                 Route::get('setting/{setting}/destroy', [SettingController::class, 'destroy'])->name('setting.destroy');
 
-
-
-                // Password
-                Route::get('password', [\App\Http\Controllers\Admin\PasswordController::class, 'index'])->name('password.index');
-                Route::post('password', [\App\Http\Controllers\Admin\PasswordController::class, 'update'])->name('password.update');
+                Route::resource('customer', \App\Http\Controllers\Admin\CustomerController::class);
+                Route::get('customer/{customer}/destroy', [\App\Http\Controllers\Admin\CustomerController::class, 'destroy'])->name('customer.destroy');
 
                 //staff
                 Route::get('staff', [\App\Http\Controllers\Admin\StaffController::class, 'index'])->name('staff.index');
                 Route::post('addstaff', [\App\Http\Controllers\Admin\StaffController::class, 'addStaff'])->name('staff.addstaff');
                 Route::post('editstaff', [\App\Http\Controllers\Admin\StaffController::class, 'editstaff'])->name('staff.editstaff');
+
+
+                // Password
+                Route::get('password', [\App\Http\Controllers\Admin\PasswordController::class, 'index'])->name('password.index');
+                Route::post('password', [\App\Http\Controllers\Admin\PasswordController::class, 'update'])->name('password.update');
             });
         });
         Route::middleware(['active'])->group(function () {
