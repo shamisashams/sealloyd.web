@@ -80,6 +80,11 @@
                                         $method = 'PUT';
                                         ?>
                                         <tr>
+
+
+
+
+
                                             <td>{{$translation->id}}</td>
                                             <td>{{$translation->group}}</td>
                                             <td>{{$translation->key}}</td>
