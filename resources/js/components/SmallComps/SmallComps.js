@@ -43,12 +43,12 @@ export const PagePath = (props) => {
 
 export const DlPdf = ({ name }) => {
     return (
-        <a href="#" className="flex dl_pdf">
+        <a href={'/storage/Customer/' + name.fileable_id + '/files/' + name.title} className="flex dl_pdf">
             <img src='/assets/images/icons/other/pdf.png' alt="" />
             <div>
-                <p>{name}</p>
+                <p>{name.title}</p>
                 <span>
-                    <img src='/assets/images/icons/other/pdf.png' alt="" />
+                    <img src='/assets/images/icons/other/dl.png' alt="" />
                     გადმოწერა
                 </span>
             </div>

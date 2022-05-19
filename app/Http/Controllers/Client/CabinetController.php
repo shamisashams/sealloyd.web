@@ -5,6 +5,7 @@ namespace App\Http\Controllers\Client;
 use App\Http\Controllers\Controller;
 use App\Models\Certificate;
 use App\Models\Page;
+use Illuminate\Support\Facades\Auth;
 use Inertia\Inertia;
 use App\Repositories\Eloquent\GalleryRepository;
 
@@ -31,12 +32,17 @@ class CabinetController extends Controller
             }
         }
 
+
         $files = [];
         if ($page->images) $files = $page->files;
 
+        $user = Auth::user();
+
+        $docs = $user->docs;
+
         //dd($files);
 
-        return Inertia::render('Cabinet/Cabinet', ["page" => $page, "seo" => [
+        return Inertia::render('Cabinet/Cabinet', ["page" => $page, 'docs' => $docs, "seo" => [
             "title" => $page->meta_title,
             "description" => $page->meta_description,
             "keywords" => $page->meta_keyword,

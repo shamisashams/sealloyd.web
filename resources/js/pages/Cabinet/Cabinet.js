@@ -5,7 +5,8 @@ import Layout from "../../Layouts/Layout";
 import { Link, usePage } from "@inertiajs/inertia-react";
 
 const Cabinet = ({ seo }) => {
-    const {user} = usePage().props;
+    const {user, docs} = usePage().props;
+    console.log(docs)
     const docList = [
         "დოკუმენტის გრძელი დასახელება რომე...",
         "დოკუმენტის დასახელება",
@@ -35,7 +36,7 @@ const Cabinet = ({ seo }) => {
                     </p>
                     <div className="blue">ცირკულარები</div>
                     <div className="doc_grid">
-                        {docList.map((doc, index) => {
+                        {docs.map((doc, index) => {
                             return <DlPdf key={index} name={doc} />;
                         })}
                     </div>

@@ -3509,7 +3509,10 @@ __webpack_require__.r(__webpack_exports__);
 
 var Cabinet = function Cabinet(_ref) {
   var seo = _ref.seo;
-  var user = (0,_inertiajs_inertia_react__WEBPACK_IMPORTED_MODULE_4__.usePage)().props.user;
+  var _usePage$props = (0,_inertiajs_inertia_react__WEBPACK_IMPORTED_MODULE_4__.usePage)().props,
+      user = _usePage$props.user,
+      docs = _usePage$props.docs;
+  console.log(docs);
   var docList = ["დოკუმენტის გრძელი დასახელება რომე...", "დოკუმენტის დასახელება", "დოკუმენტის დასახელება", "დოკუმენტის გრძელი დასახელება რომე...", "დოკუმენტის გრძელი დასახელება რომე...", "დოკუმენტის დასახელება", "დოკუმენტის დასახელება", "დოკუმენტის გრძელი დასახელება რომე..."];
   return /*#__PURE__*/react__WEBPACK_IMPORTED_MODULE_0__.createElement(_Layouts_Layout__WEBPACK_IMPORTED_MODULE_3__["default"], {
     seo: seo
@@ -3525,7 +3528,7 @@ var Cabinet = function Cabinet(_ref) {
     className: "blue"
   }, "\u10EA\u10D8\u10E0\u10D9\u10E3\u10DA\u10D0\u10E0\u10D4\u10D1\u10D8"), /*#__PURE__*/react__WEBPACK_IMPORTED_MODULE_0__.createElement("div", {
     className: "doc_grid"
-  }, docList.map(function (doc, index) {
+  }, docs.map(function (doc, index) {
     return /*#__PURE__*/react__WEBPACK_IMPORTED_MODULE_0__.createElement(_components_SmallComps_SmallComps__WEBPACK_IMPORTED_MODULE_1__.DlPdf, {
       key: index,
       name: doc
@@ -6143,13 +6146,13 @@ var PagePath = function PagePath(props) {
 var DlPdf = function DlPdf(_ref) {
   var name = _ref.name;
   return /*#__PURE__*/react__WEBPACK_IMPORTED_MODULE_0__.createElement("a", {
-    href: "#",
+    href: '/storage/Customer/' + name.fileable_id + '/files/' + name.title,
     className: "flex dl_pdf"
   }, /*#__PURE__*/react__WEBPACK_IMPORTED_MODULE_0__.createElement("img", {
     src: "/assets/images/icons/other/pdf.png",
     alt: ""
-  }), /*#__PURE__*/react__WEBPACK_IMPORTED_MODULE_0__.createElement("div", null, /*#__PURE__*/react__WEBPACK_IMPORTED_MODULE_0__.createElement("p", null, name), /*#__PURE__*/react__WEBPACK_IMPORTED_MODULE_0__.createElement("span", null, /*#__PURE__*/react__WEBPACK_IMPORTED_MODULE_0__.createElement("img", {
-    src: "/assets/images/icons/other/pdf.png",
+  }), /*#__PURE__*/react__WEBPACK_IMPORTED_MODULE_0__.createElement("div", null, /*#__PURE__*/react__WEBPACK_IMPORTED_MODULE_0__.createElement("p", null, name.title), /*#__PURE__*/react__WEBPACK_IMPORTED_MODULE_0__.createElement("span", null, /*#__PURE__*/react__WEBPACK_IMPORTED_MODULE_0__.createElement("img", {
+    src: "/assets/images/icons/other/dl.png",
     alt: ""
   }), "\u10D2\u10D0\u10D3\u10DB\u10DD\u10EC\u10D4\u10E0\u10D0")));
 };
