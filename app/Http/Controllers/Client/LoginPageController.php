@@ -14,6 +14,12 @@ use Illuminate\Support\Facades\Auth;
 
 class LoginPageController extends Controller
 {
+
+    public function __construct()
+    {
+        //$this->middleware('guest:customer')->except('logout');
+    }
+
     public function Login()
     {
 
@@ -273,7 +279,7 @@ class LoginPageController extends Controller
             'password' => $request->password,
         ],$request->remember)) {
             //return back()->with('danger','Email or Password is incorrect!');
-            dd('ee');
+            dd('wrong credentials');
         }
 
         //dd('ok');

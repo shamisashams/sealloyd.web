@@ -2,8 +2,10 @@ import React from "react";
 import { DlPdf } from "../../components/SmallComps/SmallComps";
 import "../Documents/Documents.css";
 import Layout from "../../Layouts/Layout";
+import { Link, usePage } from "@inertiajs/inertia-react";
 
 const Cabinet = ({ seo }) => {
+    const {user} = usePage().props;
     const docList = [
         "დოკუმენტის გრძელი დასახელება რომე...",
         "დოკუმენტის დასახელება",

@@ -33,6 +33,7 @@ class File extends Model
     public const FILE_DEFAULT = 1;
     public const FILE_MAIN_1 = 2;
     public const FILE_MAIN_2 = 3;
+    public const FILE_DOC = 4;
 
     /**
      * The table associated with the model.

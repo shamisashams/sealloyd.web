@@ -42,7 +42,7 @@ class CustomerRequest extends FormRequest
 
         return [
             'email' => ['required','email', Rule::unique('customers', 'email')->ignore($this->customer)],
-            'password' => ['required'],
+            //'password' => ['required'],
 
 
 

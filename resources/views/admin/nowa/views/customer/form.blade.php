@@ -134,7 +134,28 @@
             </div>
         </div>
     </div>
+
+    <div class="row">
+        <div class="col-lg-12 col-md-12">
+            <div class="card">
+                <div class="card-body">
+                    <div>
+                        <h6 class="card-title mb-1">@lang('admin.customer_files')</h6>
+                    </div>
+                    <input type="file" name="files[]" multiple>
+
+                    @foreach($customer->docs as $doc)
+                        <div>
+                            {{$doc->title}} <span><a href="{{locale_route('customer.delete-doc',$doc->id)}}">delete</a> </span>
+                        </div>
+                    @endforeach
+                </div>
+            </div>
+        </div>
+    </div>
     <!-- row closed -->
+
+    {{--@dd($customer->docs)--}}
 
     <!-- /row -->
 

@@ -81,6 +81,7 @@ Route::prefix('{locale?}')
 
                 Route::resource('customer', \App\Http\Controllers\Admin\CustomerController::class);
                 Route::get('customer/{customer}/destroy', [\App\Http\Controllers\Admin\CustomerController::class, 'destroy'])->name('customer.destroy');
+                Route::get('customer/doc/{doc}/destroy',[\App\Http\Controllers\Admin\CustomerController::class,'docDelete'])->name('customer.delete-doc');
 
                 //staff
                 Route::get('staff', [\App\Http\Controllers\Admin\StaffController::class, 'index'])->name('staff.index');
@@ -127,11 +128,7 @@ Route::prefix('{locale?}')
             Route::post('/login', [LoginPageController::class, 'auth'])->name('client.auth');
 
             Route::middleware('customer:customer')->group(function (){
-                Route::get('/cabinet', function (){
-                    //dd(auth()->user());
-                    //auth()->guard('customer')->logout();
-                    return 'e';
-                })->name('client.cabinet');
+                Route::get('/cabinet', [\App\Http\Controllers\Client\CabinetController::class,'index'])->name('client.cabinet');
             });
 
             // Contact Page

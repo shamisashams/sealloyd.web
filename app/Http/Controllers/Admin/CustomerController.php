@@ -14,6 +14,7 @@ use App\Http\Requests\Admin\CustomerRequest;
 use App\Http\Requests\Admin\ProductRequest;
 use App\Models\Category;
 use App\Models\Customer;
+use App\Models\File;
 use App\Models\Product;
 use App\Repositories\CategoryRepositoryInterface;
 use App\Repositories\Eloquent\CustomerRepository;
@@ -24,6 +25,7 @@ use Illuminate\Contracts\View\View;
 use Illuminate\Http\RedirectResponse;
 use Illuminate\Routing\Redirector;
 use Illuminate\Support\Arr;
+use Illuminate\Support\Facades\Storage;
 use ReflectionException;
 use Illuminate\Support\Facades\Hash;
 
@@ -105,7 +107,10 @@ class CustomerController extends Controller
         $saveData = Arr::except($request->except('_token'), []);
         $saveData['status'] = isset($saveData['status']) && (bool)$saveData['status'];
 
-        $saveData['password'] = Hash::make($request->password);
+        if ($request->password !== ''){
+            $saveData['password'] = Hash::make($request->password);
+        } else unset($saveData['password']);
+
 
         //dd($saveData);
         $customer = $this->customerRepository->create($saveData);
@@ -114,6 +119,10 @@ class CustomerController extends Controller
         // Save Files
         if ($request->hasFile('images')) {
             $customer = $this->customerRepository->saveFiles($customer->id, $request);
+        }
+
+        if ($request->hasFile('files')) {
+            $customer = $this->customerRepository->saveFilesDocs($customer->id, $request);
         }
 
         return redirect(locale_route('customer.index', $customer->id))->with('success', __('admin.create_successfully'));
@@ -184,6 +193,10 @@ class CustomerController extends Controller
 
         $this->customerRepository->saveFiles($customer->id, $request);
 
+        if ($request->hasFile('files')) {
+            $customer = $this->customerRepository->saveFilesDocs($customer->id, $request);
+        }
+
 
 
 
@@ -197,11 +210,24 @@ class CustomerController extends Controller
      * @param Product $product
      * @return Application|RedirectResponse|Redirector
      */
-    public function destroy(string $locale, Product $product)
+    public function destroy(string $locale, Customer $customer)
     {
-        if (!$this->productRepository->delete($product->id)) {
-            return redirect(locale_route('product.show', $product->id))->with('danger', __('admin.not_delete_message'));
+        if (!$this->customerRepository->delete($customer->id)) {
+            return redirect(locale_route('customer.index', $customer->id))->with('danger', __('admin.not_delete_message'));
         }
-        return redirect(locale_route('product.index'))->with('success', __('admin.delete_message'));
+        return redirect(locale_route('customer.index'))->with('success', __('admin.delete_message'));
+    }
+
+    public function docDelete($locale,$id){
+        $file = File::query()->where('id',$id)->firstOrFail();
+        $id = $file->fileable_id;
+        //dd($file);
+        if (Storage::exists('public/Customer/' . $file->fileable_id . '/files/' . $file->title)) {
+            Storage::delete('public/Customer/' . $file->fileable_id . '/files/' . $file->title);
+        }
+
+        $file->delete();
+        return redirect(locale_route('customer.edit',$id))->with('success', __('admin.delete_message'));
+
     }
 }

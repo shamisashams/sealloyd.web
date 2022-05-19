@@ -112,7 +112,9 @@ const Header = () => {
         alert('asd')
     }
     const { url, component } = usePage();
-    const { pathname, currentLocale } = usePage().props;
+
+    const { pathname, currentLocale, user } = usePage().props;
+    console.log(user)
     let url_ = new URL(pathname);
     let pathname_ = url_.pathname;
     const [menu, setMenu] = useState(false);
@@ -170,12 +172,18 @@ const Header = () => {
                             );
                         })}
                     </div>
-                    <Link
+
+                    {user === null ?<Link
                         className={pathname === route('client.login') ? "nav_link active" : "nav_link"}
                         href={route('client.login')}
                     >
                         <span>{__('client.nav_cabinet', sharedData)}</span>
-                    </Link>
+                    </Link> : <Link
+                        className={pathname === route('client.cabinet') ? "nav_link active" : "nav_link"}
+                        href={route('client.cabinet')}
+                    >
+                        <span>{__('client.nav_cabinet', sharedData)}</span>
+                    </Link>}
                     {/* <div className="languages">
                         <div className="on">
                             <img src='/assets/images/icons/langs/ge.png' alt="" />

@@ -5,6 +5,7 @@ namespace App\Http\Middleware;
 use App\Models\Setting;
 use App\Repositories\Eloquent\CategoryRepository;
 use Illuminate\Http\Request;
+use Illuminate\Support\Facades\Auth;
 use Inertia\Inertia;
 use Inertia\Middleware;
 
@@ -76,7 +77,8 @@ class HandleInertiaRequests extends Middleware
             "locale_urls" => $locale_urls,
             'urlPrev'	=> $urlPrev,
             'categories' => $result,
-            'info' => $_result
+            'info' => $_result,
+            'user' => Auth::user()
         ]);
     }
 

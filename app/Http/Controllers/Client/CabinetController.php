@@ -3,23 +3,24 @@
 namespace App\Http\Controllers\Client;
 
 use App\Http\Controllers\Controller;
+use App\Models\Certificate;
 use App\Models\Page;
-use App\Models\Slider;
-use Illuminate\Support\Facades\App;
-use Illuminate\Support\Facades\Auth;
 use Inertia\Inertia;
-use App\Repositories\Eloquent\ProductRepository;
+use App\Repositories\Eloquent\GalleryRepository;
 
-
-class HomeController extends Controller
+class CabinetController extends Controller
 {
+    protected $galleryRepository;
+
+    public function __construct(GalleryRepository $galleryRepository)
+    {
+        $this->galleryRepository = $galleryRepository;
+        //auth()->guard('customer')->logout();
+    }
+
     public function index()
     {
-
-
-
-
-        $page = Page::where('key', 'home')->firstOrFail();
+        $page = Page::where('key', 'about')->firstOrFail();
 
         $images = [];
         foreach ($page->sections as $sections) {
@@ -30,24 +31,20 @@ class HomeController extends Controller
             }
         }
 
-        $sliders = Slider::query()->where("status", 1)->with(['file', 'translations']);
-        //        dd($page->file);
-        //        dd(App::getLocale());
-        $products = app(ProductRepository::class)->getPopularProducts();
+        $files = [];
+        if ($page->images) $files = $page->files;
 
+        //dd($files);
 
-        //dd($products);
-
-        return Inertia::render('Home/Home', ["sliders" => $sliders->get(), "page" => $page, "seo" => [
+        return Inertia::render('Cabinet/Cabinet', ["page" => $page, "seo" => [
             "title" => $page->meta_title,
             "description" => $page->meta_description,
             "keywords" => $page->meta_keyword,
             "og_title" => $page->meta_og_title,
             "og_description" => $page->meta_og_description,
-
             //            "image" => "imgg",
             //            "locale" => App::getLocale()
-        ], 'popular_products' => $products, 'images' => $images])->withViewData([
+        ], 'gallery_img' => $files, 'images' => $images])->withViewData([
             'meta_title' => $page->meta_title,
             'meta_description' => $page->meta_description,
             'meta_keyword' => $page->meta_keyword,
