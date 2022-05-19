@@ -83,6 +83,12 @@ Route::prefix('{locale?}')
                 Route::get('customer/{customer}/destroy', [\App\Http\Controllers\Admin\CustomerController::class, 'destroy'])->name('customer.destroy');
                 Route::get('customer/doc/{doc}/destroy',[\App\Http\Controllers\Admin\CustomerController::class,'docDelete'])->name('customer.delete-doc');
 
+                Route::resource('vacancy', \App\Http\Controllers\Admin\VacancyController::class);
+                Route::get('vacancy/{vacancy}/destroy', [\App\Http\Controllers\Admin\VacancyController::class, 'destroy'])->name('vacancy.destroy');
+
+                Route::resource('skill', \App\Http\Controllers\Admin\SkillController::class);
+                Route::get('skill/{skill}/destroy', [\App\Http\Controllers\Admin\SkillController::class, 'destroy'])->name('skill.destroy');
+
                 //staff
                 Route::get('staff', [\App\Http\Controllers\Admin\StaffController::class, 'index'])->name('staff.index');
                 Route::post('addstaff', [\App\Http\Controllers\Admin\StaffController::class, 'addStaff'])->name('staff.addstaff');
