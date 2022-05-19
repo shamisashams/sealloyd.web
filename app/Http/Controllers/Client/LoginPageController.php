@@ -276,7 +276,7 @@ class LoginPageController extends Controller
             dd('ee');
         }
 
-        dd('ok');
-        return redirect('/ge/adminpanel/category');
+        //dd('ok');
+        return redirect(locale_route('client.cabinet'));
     }
 }

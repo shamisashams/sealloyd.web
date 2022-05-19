@@ -126,6 +126,14 @@ Route::prefix('{locale?}')
 
             Route::post('/login', [LoginPageController::class, 'auth'])->name('client.auth');
 
+            Route::middleware('customer:customer')->group(function (){
+                Route::get('/cabinet', function (){
+                    //dd(auth()->user());
+                    //auth()->guard('customer')->logout();
+                    return 'e';
+                })->name('client.cabinet');
+            });
+
             // Contact Page
             Route::get('/contact', [ContactController::class, 'index'])->name('client.contact.index');
             Route::post('/contact-us', [ContactController::class, 'mail'])->name('client.contact.mail');
