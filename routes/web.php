@@ -119,6 +119,7 @@ Route::prefix('{locale?}')
             Route::get('/owner-application', [DocumentationController::class, 'index'])->name('client.services.ownerapplication');
             Route::get('/evaluation', [DocumentationController::class, 'evaluation'])->name('client.services.evaluation');
             Route::post('rateservices', [DocumentationController::class, 'add_rateservices'])->name('client.documentations.rateservices');
+            Route::post('sendapplication', [DocumentationController::class, 'sendapplication'])->name('client.documentations.sendapplication');
             Route::get('/circulars', [DocumentationController::class, 'circulars'])->name('client.services.circulars');
 
 

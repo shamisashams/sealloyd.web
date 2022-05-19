@@ -3856,90 +3856,119 @@ var AppChecklist = function AppChecklist(_ref) {
   var seo = _ref.seo;
   var checklist = [{
     title: "HULL & MACHINERY",
+    name: "hull_machinery",
     checks: ["Special", "Annual", "Intermediate", "Dry dock/Tailshaft"]
   }, {
     title: "CARGO GEAR",
+    name: 'cargo_gear',
     checks: ["Renewal", "Annual", "Intermediate", "Occasional survey"]
   }, {
     title: "LOAD LINE",
+    name: 'load_line',
     checks: ["Renewal", "Annual"]
   }, {
     title: "SAFETY CONSTRUCTION",
+    name: 'safety_constructor',
     checks: ["Renewal", "Annual", "Intermediate"]
   }, {
     title: "SAFETY EQUIPMENT",
+    name: 'safety_equipment',
     checks: ["Renewal", "Annual", "Periodical"]
   }, {
     title: "PASSENGER SAFETY",
+    name: 'passenger_safety',
     checks: ["Renewal"]
   }, {
     title: "SAFETY RADIO",
+    name: 'safety_radio',
     checks: ["Renewal", "Periodical"]
   }, {
     title: "MARPOL ANNEX I",
+    name: 'marpol_annexi',
     checks: ["Renewal", "Annual", "Intermediate"]
   }, {
     title: "MARPOL ANNEX II",
+    name: 'marpol_annexii',
     checks: ["Renewal", "Annual", "Intermediate"]
   }, {
     title: "MARPOL ANNEX III (SEW)",
+    name: 'marpol_annexiii',
     checks: ["Initial", "Renewal"]
   }, {
     title: "MARPOL ANNEX V (GAR)",
+    name: 'marpol_annexv',
     checks: ["Initial", "Renewal"]
   }, {
     title: "MARPOL ANNEX VI",
+    name: 'marpol_annex_vi',
     checks: ["Renewal", "Annual"]
   }, {
     title: "ENERGY EFFICIENCY",
+    name: 'energy_efficiency',
     checks: ["Initial", "Renewal"]
   }, {
     title: "ENGINE IAPPC",
+    name: 'engine_iopc',
     checks: ["Initial", "Renewal"]
   }, {
     title: "FISHING VESSEL",
+    name: 'fishing_vessel',
     checks: ["Initial", "Annual", "Renewal"]
   }, {
     title: "TONNAGE CERTIFICATE",
+    name: 'tonnage_certificate',
     checks: ["Study", "Re-issuance"]
   }, {
     title: "SOLID BULK CARGOES",
+    name: 'solid_bulk_cards',
     checks: ["A", "B", "C"]
   }, {
     title: "DANGEROUS GOODS",
+    name: 'dangerous_goods',
     checks: ["Initial", "Annual"]
   }, {
     title: "DOC",
+    name: 'doc',
     checks: ["Interim", "Initial", "Annual", "Renewal"]
   }, {
     title: "SMC",
+    name: 'smc',
     checks: ["Interim", "Initial", "Intermediate", "Renewal/Additional"]
   }, {
     title: "ISPS ON BOARD VERIFICATION",
+    name: 'isps_on_board_verification',
     checks: ["Interim", "Initial", "Intermediate", "Renewal/Additional"]
   }, {
     title: "MLC 2006",
+    name: 'mlc_2006',
     checks: ["Interim", "Initial", "Intermediate", "Renewal"]
   }, {
     title: "BALLAST WATER",
+    name: 'ballast_water',
     checks: ["Renewal", "Annual", "Intermediate"]
   }, {
     title: "ANTIFOULING SURVEY",
+    name: 'antifouling_survey',
     checks: ["Renewal", "Re-issuance"]
   }, {
     title: "EXEMPTION",
+    name: 'exemption',
     checks: ["Request"]
   }, {
     title: "CARGO SHIP SAFETY UNDER 500 GRT ",
+    name: 'cargo_ship_safety_under_500_grt',
     checks: ["Renewal", "Annual", "Intermediate"]
   }, {
     title: "SEAWORTHINESS",
+    name: 'seaworthiness',
     checks: ["Renewal", "Annual", "Intermediate"]
   }, {
     title: "HSC/DSC SAFETY",
+    name: 'hsc_dsc_safety',
     checks: ["Renewal", "Annual", "Intermediate"]
   }, {
     title: "MANUAL APPROVAL (SPECIFY)",
+    name: 'manual_approval',
     checks: ["Approval"]
   }];
   return /*#__PURE__*/react__WEBPACK_IMPORTED_MODULE_0__.createElement("div", {
@@ -3957,9 +3986,14 @@ var AppChecklist = function AppChecklist(_ref) {
       }, /*#__PURE__*/react__WEBPACK_IMPORTED_MODULE_0__.createElement("label", {
         htmlFor: "checkbox_".concat(index, "_").concat(i)
       }, check), /*#__PURE__*/react__WEBPACK_IMPORTED_MODULE_0__.createElement("input", {
-        name: "checkbox_".concat(index),
+        name: checklist[index].name // type="radio"
+        // id={checklist[index].name}
+        ,
+        onChange: handleChange // name={`checkbox_${index}`}
+        ,
         type: "radio",
-        id: "checkbox_".concat(index, "_").concat(i)
+        id: checklist[index].name,
+        value: checklist[index].checks[i]
       }));
     }));
   }));
@@ -4434,8 +4468,28 @@ __webpack_require__.r(__webpack_exports__);
 /* harmony import */ var _components_SmallComps_SmallComps__WEBPACK_IMPORTED_MODULE_1__ = __webpack_require__(/*! ../../components/SmallComps/SmallComps */ "./resources/js/components/SmallComps/SmallComps.js");
 /* harmony import */ var _AppChecklist__WEBPACK_IMPORTED_MODULE_2__ = __webpack_require__(/*! ./AppChecklist */ "./resources/js/Pages/Documents/AppChecklist.js");
 /* harmony import */ var _AppInputs__WEBPACK_IMPORTED_MODULE_3__ = __webpack_require__(/*! ./AppInputs */ "./resources/js/Pages/Documents/AppInputs.js");
-/* harmony import */ var _Layouts_Layout__WEBPACK_IMPORTED_MODULE_4__ = __webpack_require__(/*! ../../Layouts/Layout */ "./resources/js/Layouts/Layout.js");
-/* harmony import */ var _Documents_css__WEBPACK_IMPORTED_MODULE_5__ = __webpack_require__(/*! ./Documents.css */ "./resources/js/Pages/Documents/Documents.css");
+/* harmony import */ var _inertiajs_inertia__WEBPACK_IMPORTED_MODULE_4__ = __webpack_require__(/*! @inertiajs/inertia */ "./node_modules/@inertiajs/inertia/dist/index.js");
+/* harmony import */ var _Layouts_Layout__WEBPACK_IMPORTED_MODULE_5__ = __webpack_require__(/*! ../../Layouts/Layout */ "./resources/js/Layouts/Layout.js");
+/* harmony import */ var _Documents_css__WEBPACK_IMPORTED_MODULE_6__ = __webpack_require__(/*! ./Documents.css */ "./resources/js/Pages/Documents/Documents.css");
+function ownKeys(object, enumerableOnly) { var keys = Object.keys(object); if (Object.getOwnPropertySymbols) { var symbols = Object.getOwnPropertySymbols(object); enumerableOnly && (symbols = symbols.filter(function (sym) { return Object.getOwnPropertyDescriptor(object, sym).enumerable; })), keys.push.apply(keys, symbols); } return keys; }
+
+function _objectSpread(target) { for (var i = 1; i < arguments.length; i++) { var source = null != arguments[i] ? arguments[i] : {}; i % 2 ? ownKeys(Object(source), !0).forEach(function (key) { _defineProperty(target, key, source[key]); }) : Object.getOwnPropertyDescriptors ? Object.defineProperties(target, Object.getOwnPropertyDescriptors(source)) : ownKeys(Object(source)).forEach(function (key) { Object.defineProperty(target, key, Object.getOwnPropertyDescriptor(source, key)); }); } return target; }
+
+function _defineProperty(obj, key, value) { if (key in obj) { Object.defineProperty(obj, key, { value: value, enumerable: true, configurable: true, writable: true }); } else { obj[key] = value; } return obj; }
+
+function _slicedToArray(arr, i) { return _arrayWithHoles(arr) || _iterableToArrayLimit(arr, i) || _unsupportedIterableToArray(arr, i) || _nonIterableRest(); }
+
+function _nonIterableRest() { throw new TypeError("Invalid attempt to destructure non-iterable instance.\nIn order to be iterable, non-array objects must have a [Symbol.iterator]() method."); }
+
+function _unsupportedIterableToArray(o, minLen) { if (!o) return; if (typeof o === "string") return _arrayLikeToArray(o, minLen); var n = Object.prototype.toString.call(o).slice(8, -1); if (n === "Object" && o.constructor) n = o.constructor.name; if (n === "Map" || n === "Set") return Array.from(o); if (n === "Arguments" || /^(?:Ui|I)nt(?:8|16|32)(?:Clamped)?Array$/.test(n)) return _arrayLikeToArray(o, minLen); }
+
+function _arrayLikeToArray(arr, len) { if (len == null || len > arr.length) len = arr.length; for (var i = 0, arr2 = new Array(len); i < len; i++) { arr2[i] = arr[i]; } return arr2; }
+
+function _iterableToArrayLimit(arr, i) { var _i = arr == null ? null : typeof Symbol !== "undefined" && arr[Symbol.iterator] || arr["@@iterator"]; if (_i == null) return; var _arr = []; var _n = true; var _d = false; var _s, _e; try { for (_i = _i.call(arr); !(_n = (_s = _i.next()).done); _n = true) { _arr.push(_s.value); if (i && _arr.length === i) break; } } catch (err) { _d = true; _e = err; } finally { try { if (!_n && _i["return"] != null) _i["return"](); } finally { if (_d) throw _e; } } return _arr; }
+
+function _arrayWithHoles(arr) { if (Array.isArray(arr)) return arr; }
+
+
 
 
 
@@ -4446,7 +4500,222 @@ __webpack_require__.r(__webpack_exports__);
 
 var OwnerApplication = function OwnerApplication(_ref) {
   var seo = _ref.seo;
-  return /*#__PURE__*/react__WEBPACK_IMPORTED_MODULE_0__.createElement(_Layouts_Layout__WEBPACK_IMPORTED_MODULE_4__["default"], {
+  var checklist = [{
+    title: "HULL & MACHINERY",
+    name: "hull_machinery",
+    checks: ["Special", "Annual", "Intermediate", "Dry dock/Tailshaft"]
+  }, {
+    title: "CARGO GEAR",
+    name: 'cargo_gear',
+    checks: ["Renewal", "Annual", "Intermediate", "Occasional survey"]
+  }, {
+    title: "LOAD LINE",
+    name: 'load_line',
+    checks: ["Renewal", "Annual"]
+  }, {
+    title: "SAFETY CONSTRUCTION",
+    name: 'safety_constructor',
+    checks: ["Renewal", "Annual", "Intermediate"]
+  }, {
+    title: "SAFETY EQUIPMENT",
+    name: 'safety_equipment',
+    checks: ["Renewal", "Annual", "Periodical"]
+  }, {
+    title: "PASSENGER SAFETY",
+    name: 'passenger_safety',
+    checks: ["Renewal"]
+  }, {
+    title: "SAFETY RADIO",
+    name: 'safety_radio',
+    checks: ["Renewal", "Periodical"]
+  }, {
+    title: "MARPOL ANNEX I",
+    name: 'marpol_annexi',
+    checks: ["Renewal", "Annual", "Intermediate"]
+  }, {
+    title: "MARPOL ANNEX II",
+    name: 'marpol_annexii',
+    checks: ["Renewal", "Annual", "Intermediate"]
+  }, {
+    title: "MARPOL ANNEX III (SEW)",
+    name: 'marpol_annexiii',
+    checks: ["Initial", "Renewal"]
+  }, {
+    title: "MARPOL ANNEX V (GAR)",
+    name: 'marpol_annexv',
+    checks: ["Initial", "Renewal"]
+  }, {
+    title: "MARPOL ANNEX VI",
+    name: 'marpol_annex_vi',
+    checks: ["Renewal", "Annual"]
+  }, {
+    title: "ENERGY EFFICIENCY",
+    name: 'energy_efficiency',
+    checks: ["Initial", "Renewal"]
+  }, {
+    title: "ENGINE IAPPC",
+    name: 'engine_iopc',
+    checks: ["Initial", "Renewal"]
+  }, {
+    title: "FISHING VESSEL",
+    name: 'fishing_vessel',
+    checks: ["Initial", "Annual", "Renewal"]
+  }, {
+    title: "TONNAGE CERTIFICATE",
+    name: 'tonnage_certificate',
+    checks: ["Study", "Re-issuance"]
+  }, {
+    title: "SOLID BULK CARGOES",
+    name: 'solid_bulk_cards',
+    checks: ["A", "B", "C"]
+  }, {
+    title: "DANGEROUS GOODS",
+    name: 'dangerous_goods',
+    checks: ["Initial", "Annual"]
+  }, {
+    title: "DOC",
+    name: 'doc',
+    checks: ["Interim", "Initial", "Annual", "Renewal"]
+  }, {
+    title: "SMC",
+    name: 'smc',
+    checks: ["Interim", "Initial", "Intermediate", "Renewal/Additional"]
+  }, {
+    title: "ISPS ON BOARD VERIFICATION",
+    name: 'isps_on_board_verification',
+    checks: ["Interim", "Initial", "Intermediate", "Renewal/Additional"]
+  }, {
+    title: "MLC 2006",
+    name: 'mlc_2006',
+    checks: ["Interim", "Initial", "Intermediate", "Renewal"]
+  }, {
+    title: "BALLAST WATER",
+    name: 'ballast_water',
+    checks: ["Renewal", "Annual", "Intermediate"]
+  }, {
+    title: "ANTIFOULING SURVEY",
+    name: 'antifouling_survey',
+    checks: ["Renewal", "Re-issuance"]
+  }, {
+    title: "EXEMPTION",
+    name: 'exemption',
+    checks: ["Request"]
+  }, {
+    title: "CARGO SHIP SAFETY UNDER 500 GRT ",
+    name: 'cargo_ship_safety_under_500_grt',
+    checks: ["Renewal", "Annual", "Intermediate"]
+  }, {
+    title: "SEAWORTHINESS",
+    name: 'seaworthiness',
+    checks: ["Renewal", "Annual", "Intermediate"]
+  }, {
+    title: "HSC/DSC SAFETY",
+    name: 'hsc_dsc_safety',
+    checks: ["Renewal", "Annual", "Intermediate"]
+  }, {
+    title: "MANUAL APPROVAL (SPECIFY)",
+    name: 'manual approval',
+    checks: ["Approval"]
+  }];
+  var obj = {};
+  var a = document.querySelectorAll('.app_inputs input');
+  var value;
+  a.forEach(function (e) {
+    if (e.placeholder == "") {
+      value = e.title;
+    } else {
+      value = e.placeholder;
+    }
+
+    var str = value.replace(/\s+/g, '_').toLowerCase();
+    obj[str] = "";
+  }); // console.log(obj);
+
+  var _useState = (0,react__WEBPACK_IMPORTED_MODULE_0__.useState)({
+    name_of_ship: "",
+    ex_names: "",
+    imo_no: "",
+    type: "",
+    existing_flag: "",
+    call_sign: "",
+    grt: "",
+    nrt: "",
+    dwt: "",
+    date_keel_laid: "",
+    build: "",
+    framing_system: "",
+    builders: "",
+    loa: "",
+    lpp: "",
+    breath: "",
+    depth: "",
+    main_engine_builders: "",
+    type2: "",
+    bhp: "",
+    number_and_type_of_generators: "",
+    cargogear: "",
+    owning_company: "",
+    managing_company: "",
+    place_date: "",
+    name_of_applicant: "",
+    hull_machinery: "",
+    cargo_gear: "",
+    load_line: "",
+    safety_constructor: "",
+    safety_equipment: "",
+    passenger_safety: "",
+    safety_radio: "",
+    marpol_annexi: "",
+    marpol_annexii: "",
+    marpol_annexiii: "",
+    marpol_annexv: "",
+    marpol_annex_vi: "",
+    energy_efficiency: "",
+    engine_iopc: "",
+    fishing_vessel: "",
+    tonnage_certificate: "",
+    solid_bulk_cards: "",
+    dangerous_goods: "",
+    doc: "",
+    smc: "",
+    isps_on_board_verification: "",
+    mlc_2006: "",
+    ballast_water: "",
+    antifouling_survey: "",
+    exemption: "",
+    cargo_ship_safety_under_500_grt: "",
+    seaworthiness: "",
+    hsc_dsc_safety: "",
+    manual_approval: ""
+  }),
+      _useState2 = _slicedToArray(_useState, 2),
+      values = _useState2[0],
+      setValues = _useState2[1]; // display today time
+
+
+  var date = new Date();
+  var day = date.getDate();
+  var month = date.getMonth() + 1;
+  var year = date.getFullYear();
+  if (month < 10) month = "0" + month;
+  if (day < 10) day = "0" + day;
+  var today = year + "-" + month + "-" + day;
+
+  function handleChange(e) {
+    var key = e.target.id;
+    var value = e.target.value;
+    setValues(function (values) {
+      return _objectSpread(_objectSpread({}, values), {}, _defineProperty({}, key, value));
+    });
+  }
+
+  function handleSubmit(e) {
+    e.preventDefault();
+    _inertiajs_inertia__WEBPACK_IMPORTED_MODULE_4__.Inertia.post(route('client.documentations.sendapplication'), values);
+  }
+
+  console.log(obj);
+  return /*#__PURE__*/react__WEBPACK_IMPORTED_MODULE_0__.createElement(_Layouts_Layout__WEBPACK_IMPORTED_MODULE_5__["default"], {
     seo: seo
   }, /*#__PURE__*/react__WEBPACK_IMPORTED_MODULE_0__.createElement("div", {
     className: "documents teamPage careerPage"
@@ -4458,17 +4727,210 @@ var OwnerApplication = function OwnerApplication(_ref) {
     location1: "\u10DB\u10D7\u10D0\u10D5\u10D0\u10E0\u10D8",
     location2: "\u10D3\u10DD\u10D9\u10E3\u10DB\u10D4\u10DC\u10E2\u10D0\u10EA\u10D8\u10D0",
     location3: "\u10D2\u10D4\u10DB\u10D7\u10DB\u10E4\u10DA\u10DD\u10D1\u10D4\u10DA\u10D8\u10E1 \u10D0\u10DE\u10DA\u10D8\u10D9\u10D0\u10EA\u10D8\u10D0"
-  }), /*#__PURE__*/react__WEBPACK_IMPORTED_MODULE_0__.createElement("p", null, "Dear Sirs, ", /*#__PURE__*/react__WEBPACK_IMPORTED_MODULE_0__.createElement("br", null), "Please proceed with classification/statutory survey"), /*#__PURE__*/react__WEBPACK_IMPORTED_MODULE_0__.createElement("div", {
+  }), /*#__PURE__*/react__WEBPACK_IMPORTED_MODULE_0__.createElement("p", null, "Dear Sirs, ", /*#__PURE__*/react__WEBPACK_IMPORTED_MODULE_0__.createElement("br", null), "Please proceed with classification/statutory survey"), /*#__PURE__*/react__WEBPACK_IMPORTED_MODULE_0__.createElement("form", {
+    onSubmit: handleSubmit
+  }, /*#__PURE__*/react__WEBPACK_IMPORTED_MODULE_0__.createElement("div", {
     className: "flex main"
   }, /*#__PURE__*/react__WEBPACK_IMPORTED_MODULE_0__.createElement("div", {
     className: "inputs"
   }, /*#__PURE__*/react__WEBPACK_IMPORTED_MODULE_0__.createElement("div", {
     className: "underline uppercase head"
-  }, "FOR ALL SHIPS"), /*#__PURE__*/react__WEBPACK_IMPORTED_MODULE_0__.createElement(_AppInputs__WEBPACK_IMPORTED_MODULE_3__["default"], null)), /*#__PURE__*/react__WEBPACK_IMPORTED_MODULE_0__.createElement("div", {
+  }, "FOR ALL SHIPS"), /*#__PURE__*/react__WEBPACK_IMPORTED_MODULE_0__.createElement("div", {
+    className: "app_inputs"
+  }, /*#__PURE__*/react__WEBPACK_IMPORTED_MODULE_0__.createElement("input", {
+    type: "text",
+    id: "name_of_ship",
+    name: "name_of_ship",
+    placeholder: "name of ship",
+    onChange: handleChange
+  }), /*#__PURE__*/react__WEBPACK_IMPORTED_MODULE_0__.createElement("input", {
+    type: "text",
+    id: "ex_names",
+    name: "ex_names",
+    placeholder: "ex names",
+    onChange: handleChange
+  }), /*#__PURE__*/react__WEBPACK_IMPORTED_MODULE_0__.createElement("input", {
+    type: "number",
+    id: "imo_no",
+    name: "imo_no",
+    placeholder: "imo no",
+    onChange: handleChange
+  }), /*#__PURE__*/react__WEBPACK_IMPORTED_MODULE_0__.createElement("input", {
+    type: "text",
+    name: "type",
+    id: "type",
+    placeholder: "type",
+    onChange: handleChange
+  }), /*#__PURE__*/react__WEBPACK_IMPORTED_MODULE_0__.createElement("input", {
+    type: "text",
+    placeholder: "existing flag",
+    name: "existing_flag",
+    id: "existing_flag",
+    onChange: handleChange
+  }), /*#__PURE__*/react__WEBPACK_IMPORTED_MODULE_0__.createElement("input", {
+    type: "text",
+    placeholder: "Call Sign",
+    name: "call_sign",
+    id: "call_sign",
+    onChange: handleChange
+  }), /*#__PURE__*/react__WEBPACK_IMPORTED_MODULE_0__.createElement("div", {
+    className: "grid3"
+  }, /*#__PURE__*/react__WEBPACK_IMPORTED_MODULE_0__.createElement("input", {
+    type: "text",
+    placeholder: "grt",
+    name: "grt",
+    id: "grt",
+    onChange: handleChange
+  }), /*#__PURE__*/react__WEBPACK_IMPORTED_MODULE_0__.createElement("input", {
+    type: "text",
+    placeholder: "nrt",
+    name: "nrt",
+    id: "nrt",
+    onChange: handleChange
+  }), /*#__PURE__*/react__WEBPACK_IMPORTED_MODULE_0__.createElement("input", {
+    type: "text",
+    placeholder: "DWT",
+    name: "dwt",
+    id: "dwt",
+    onChange: handleChange
+  })), /*#__PURE__*/react__WEBPACK_IMPORTED_MODULE_0__.createElement("input", {
+    type: "text",
+    placeholder: "Date Keel Laid",
+    name: "date_keel_laid",
+    id: "date_keel_laid",
+    onChange: handleChange
+  }), /*#__PURE__*/react__WEBPACK_IMPORTED_MODULE_0__.createElement("input", {
+    type: "text",
+    placeholder: "Build",
+    name: "build",
+    id: "build",
+    onChange: handleChange
+  }), /*#__PURE__*/react__WEBPACK_IMPORTED_MODULE_0__.createElement("input", {
+    type: "text",
+    placeholder: "Framing System",
+    name: "framing_system",
+    id: "framing_system",
+    onChange: handleChange
+  }), /*#__PURE__*/react__WEBPACK_IMPORTED_MODULE_0__.createElement("input", {
+    type: "text",
+    placeholder: "Builders",
+    name: "builders",
+    id: "builders",
+    onChange: handleChange
+  }), /*#__PURE__*/react__WEBPACK_IMPORTED_MODULE_0__.createElement("div", {
+    className: "grid2"
+  }, /*#__PURE__*/react__WEBPACK_IMPORTED_MODULE_0__.createElement("input", {
+    type: "text",
+    placeholder: "LOA",
+    name: "loa",
+    id: "loa",
+    onChange: handleChange
+  }), /*#__PURE__*/react__WEBPACK_IMPORTED_MODULE_0__.createElement("input", {
+    type: "text",
+    placeholder: "L.P.P",
+    name: "lpp",
+    id: "lpp",
+    onChange: handleChange
+  })), /*#__PURE__*/react__WEBPACK_IMPORTED_MODULE_0__.createElement("div", {
+    className: "grid2"
+  }, /*#__PURE__*/react__WEBPACK_IMPORTED_MODULE_0__.createElement("input", {
+    type: "text",
+    placeholder: "Breath",
+    name: "breath",
+    id: "breath",
+    onChange: handleChange
+  }), /*#__PURE__*/react__WEBPACK_IMPORTED_MODULE_0__.createElement("input", {
+    type: "text",
+    placeholder: "Depth",
+    name: "depth",
+    id: "depth",
+    onChange: handleChange
+  })), /*#__PURE__*/react__WEBPACK_IMPORTED_MODULE_0__.createElement("input", {
+    type: "text",
+    placeholder: "Main Engine Builders",
+    name: "main_engine_builders",
+    id: "main_engine_builders",
+    onChange: handleChange
+  }), /*#__PURE__*/react__WEBPACK_IMPORTED_MODULE_0__.createElement("div", {
+    className: "grid2"
+  }, /*#__PURE__*/react__WEBPACK_IMPORTED_MODULE_0__.createElement("input", {
+    type: "text",
+    placeholder: "Type",
+    name: "type2",
+    id: "type2",
+    onChange: handleChange
+  }), /*#__PURE__*/react__WEBPACK_IMPORTED_MODULE_0__.createElement("input", {
+    type: "text",
+    placeholder: "B.H.P",
+    name: "bhp",
+    id: "bhp",
+    onChange: handleChange
+  })), /*#__PURE__*/react__WEBPACK_IMPORTED_MODULE_0__.createElement("input", {
+    type: "text",
+    placeholder: "Number And Type of Generators",
+    name: "number_and_type_of_generators",
+    id: "number_and_type_of_generators",
+    onChange: handleChange
+  }), /*#__PURE__*/react__WEBPACK_IMPORTED_MODULE_0__.createElement("input", {
+    type: "text",
+    placeholder: "Cargo Gear",
+    name: "cargogear",
+    id: "cargogear",
+    onChange: handleChange
+  }), /*#__PURE__*/react__WEBPACK_IMPORTED_MODULE_0__.createElement("input", {
+    type: "text",
+    placeholder: "Owning Company",
+    name: "owning_company",
+    id: "owning_company",
+    onChange: handleChange
+  }), /*#__PURE__*/react__WEBPACK_IMPORTED_MODULE_0__.createElement("input", {
+    type: "text",
+    placeholder: "Managing Company",
+    name: "managing_company",
+    id: "managing_company",
+    onChange: handleChange
+  }), /*#__PURE__*/react__WEBPACK_IMPORTED_MODULE_0__.createElement("input", {
+    type: "text",
+    placeholder: "Place and Date of Surveys",
+    name: "place_date",
+    id: "place_date",
+    onChange: handleChange
+  }), /*#__PURE__*/react__WEBPACK_IMPORTED_MODULE_0__.createElement("input", {
+    type: "text",
+    placeholder: "Name of Applicant",
+    name: "name_of_applicant",
+    id: "name_of_applicant",
+    onChange: handleChange
+  }), /*#__PURE__*/react__WEBPACK_IMPORTED_MODULE_0__.createElement("input", {
+    type: "date",
+    value: today
+  }))), /*#__PURE__*/react__WEBPACK_IMPORTED_MODULE_0__.createElement("div", {
     className: "checkboxes"
   }, /*#__PURE__*/react__WEBPACK_IMPORTED_MODULE_0__.createElement("div", {
     className: "underline uppercase head"
-  }, "Surveys requested ", /*#__PURE__*/react__WEBPACK_IMPORTED_MODULE_0__.createElement("span", null, "Check whatever is applicable*")), /*#__PURE__*/react__WEBPACK_IMPORTED_MODULE_0__.createElement(_AppChecklist__WEBPACK_IMPORTED_MODULE_2__["default"], null), /*#__PURE__*/react__WEBPACK_IMPORTED_MODULE_0__.createElement("div", {
+  }, "Surveys requested ", /*#__PURE__*/react__WEBPACK_IMPORTED_MODULE_0__.createElement("span", null, "Check whatever is applicable*")), /*#__PURE__*/react__WEBPACK_IMPORTED_MODULE_0__.createElement("div", {
+    className: "app_checklist"
+  }, checklist.map(function (item, index) {
+    return /*#__PURE__*/react__WEBPACK_IMPORTED_MODULE_0__.createElement("div", {
+      key: index,
+      className: "flex line"
+    }, /*#__PURE__*/react__WEBPACK_IMPORTED_MODULE_0__.createElement("div", {
+      className: "cat"
+    }, item.title), item.checks.map(function (check, i) {
+      return /*#__PURE__*/react__WEBPACK_IMPORTED_MODULE_0__.createElement("div", {
+        className: "checkbox",
+        key: i
+      }, /*#__PURE__*/react__WEBPACK_IMPORTED_MODULE_0__.createElement("label", {
+        htmlFor: "checkbox_".concat(index, "_").concat(i)
+      }, check), /*#__PURE__*/react__WEBPACK_IMPORTED_MODULE_0__.createElement("input", {
+        name: checklist[index].name,
+        onChange: handleChange,
+        type: "radio",
+        id: checklist[index].name,
+        value: checklist[index].checks[i]
+      }));
+    }));
+  })), /*#__PURE__*/react__WEBPACK_IMPORTED_MODULE_0__.createElement("div", {
     className: "bottom flex"
   }, /*#__PURE__*/react__WEBPACK_IMPORTED_MODULE_0__.createElement("div", {
     className: "check"
@@ -4479,8 +4941,9 @@ var OwnerApplication = function OwnerApplication(_ref) {
   }), /*#__PURE__*/react__WEBPACK_IMPORTED_MODULE_0__.createElement("label", {
     htmlFor: "terms_conditions"
   }, "By Checking this Box I Accapt Terms and Conditions")), /*#__PURE__*/react__WEBPACK_IMPORTED_MODULE_0__.createElement(_components_SmallComps_SmallComps__WEBPACK_IMPORTED_MODULE_1__.SendButton, {
-    text: "Send Now"
-  })))), /*#__PURE__*/react__WEBPACK_IMPORTED_MODULE_0__.createElement("div", {
+    text: "Send Now",
+    type: "submit"
+  }))))), /*#__PURE__*/react__WEBPACK_IMPORTED_MODULE_0__.createElement("div", {
     className: "required_docs"
   }, "Please send us with application form following Documents:", /*#__PURE__*/react__WEBPACK_IMPORTED_MODULE_0__.createElement("ul", null, /*#__PURE__*/react__WEBPACK_IMPORTED_MODULE_0__.createElement("li", null, "1. Latest Survey Status"), /*#__PURE__*/react__WEBPACK_IMPORTED_MODULE_0__.createElement("li", null, "2. Latest Ship Construction Certificate"), /*#__PURE__*/react__WEBPACK_IMPORTED_MODULE_0__.createElement("li", null, "3. Flag Registration Letter")), /*#__PURE__*/react__WEBPACK_IMPORTED_MODULE_0__.createElement("a", {
     href: "#"
@@ -6158,10 +6621,12 @@ var DlPdf = function DlPdf(_ref) {
 };
 var SendButton = function SendButton(_ref2) {
   var onClick = _ref2.onClick,
-      text = _ref2.text;
+      text = _ref2.text,
+      type = _ref2.type;
   return /*#__PURE__*/react__WEBPACK_IMPORTED_MODULE_0__.createElement("button", {
     className: "send_button",
-    onClick: onClick
+    onClick: onClick,
+    type: type
   }, /*#__PURE__*/react__WEBPACK_IMPORTED_MODULE_0__.createElement("img", {
     src: "/assets/images/icons/team/send.svg",
     alt: ""
