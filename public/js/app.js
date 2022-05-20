@@ -3067,12 +3067,11 @@ function Layout(_ref) {
   }, []);
   console.log((0,_inertiajs_inertia_react__WEBPACK_IMPORTED_MODULE_7__.usePage)().props);
   var currentLocale = (0,_inertiajs_inertia_react__WEBPACK_IMPORTED_MODULE_7__.usePage)().props.currentLocale;
-
-  if (currentLocale == "ge") {
-    __webpack_require__.e(/*! import() */ "resources_js_Layouts_AppGeo_css").then(__webpack_require__.bind(__webpack_require__, /*! ./AppGeo.css */ "./resources/js/Layouts/AppGeo.css"));
+  /*if (currentLocale == "ge") {
+      import("./AppGeo.css");
   } else if (currentLocale == "ru") {
-    __webpack_require__.e(/*! import() */ "resources_js_Layouts_AppRus_css").then(__webpack_require__.bind(__webpack_require__, /*! ./AppRus.css */ "./resources/js/Layouts/AppRus.css"));
-  }
+      import("./AppRus.css");
+  }*/
 
   return /*#__PURE__*/react__WEBPACK_IMPORTED_MODULE_0__.createElement(react__WEBPACK_IMPORTED_MODULE_0__.Fragment, null, /*#__PURE__*/react__WEBPACK_IMPORTED_MODULE_0__.createElement(_components_Header_Header__WEBPACK_IMPORTED_MODULE_3__["default"], null), children, /*#__PURE__*/react__WEBPACK_IMPORTED_MODULE_0__.createElement(_components_Footer_Footer__WEBPACK_IMPORTED_MODULE_4__["default"], null));
 }
@@ -7100,7 +7099,7 @@ __webpack_require__.r(__webpack_exports__);
 
 var ___CSS_LOADER_EXPORT___ = _node_modules_css_loader_dist_runtime_api_js__WEBPACK_IMPORTED_MODULE_0___default()(function(i){return i[1]});
 // Module
-___CSS_LOADER_EXPORT___.push([module.id, "@font-face {\r\n    font-family: \"roboto\";\r\n    src: url(/assets/fonts/Roboto-Regular.ttf);\r\n}\r\n\r\n@font-face {\r\n    font-family: \"mtav\";\r\n    src: url(/assets/fonts/AS-Grammatika-Regular_Mtav.ttf);\r\n}\r\n\r\n@font-face {\r\n    font-family: \"poppins\";\r\n    src: url(/assets/fonts/Poppins/Poppins-Regular.ttf);\r\n}\r\n\r\n@font-face {\r\n    font-family: \"bold\";\r\n    src: url(/assets/fonts/Poppins/Poppins-Bold.ttf);\r\n}\r\n\r\n*,\r\n*::after,\r\n*::before {\r\n    font-family: \"poppins\";\r\n    margin: 0;\r\n    padding: 0;\r\n    box-sizing: border-box;\r\n    scroll-behavior: smooth;\r\n}\r\n\r\n*::after,\r\n*::before {\r\n    position: absolute;\r\n    content: \"\";\r\n}\r\n\r\n/* width */\r\n::-webkit-scrollbar {\r\n    width: 7px;\r\n}\r\n\r\n/* Track */\r\n::-webkit-scrollbar-track {\r\n    background: #272639;\r\n}\r\n\r\n/* Handle */\r\n::-webkit-scrollbar-thumb {\r\n    background: #e81748b6;\r\n}\r\n\r\n::-webkit-scrollbar-thumb:hover {\r\n    background: #e81748;\r\n}\r\n\r\nhtml {\r\n    box-sizing: border-box;\r\n}\r\n\r\nbody {\r\n    font-family: \"poppins\";\r\n    font-weight: 400;\r\n    line-height: 1.3;\r\n    color: #05185a;\r\n    background: #fff;\r\n    overflow-x: hidden;\r\n    scroll-behavior: smooth;\r\n    font-size: 16px;\r\n}\r\n\r\np {\r\n    font-weight: 100;\r\n    line-height: 1.5;\r\n}\r\n\r\nh1 {\r\n    font-weight: 600;\r\n}\r\n\r\nul {\r\n    list-style: none;\r\n}\r\n\r\na {\r\n    text-decoration: none;\r\n    color: inherit;\r\n}\r\n\r\ninput,\r\ntextarea,\r\nbutton {\r\n    outline: none;\r\n    border: none;\r\n    background: none;\r\n}\r\n\r\nbutton {\r\n    cursor: pointer;\r\n}\r\n\r\nselect {\r\n    border: none;\r\n    outline: none;\r\n}\r\n\r\nimg {\r\n    height: auto;\r\n    max-width: 100%;\r\n}\r\n\r\n.img {\r\n    overflow: hidden;\r\n}\r\n\r\n.img img {\r\n    width: 100%;\r\n    height: 100%;\r\n    -o-object-fit: cover;\r\n       object-fit: cover;\r\n}\r\n\r\n.map iframe {\r\n    width: 100%;\r\n    height: 100%;\r\n}\r\n\r\n.wrapper {\r\n    width: 1600px;\r\n    height: 100%;\r\n    margin: auto;\r\n    position: relative;\r\n}\r\n\r\n.bold {\r\n    font-family: \"bold\";\r\n}\r\n\r\n.flex {\r\n    display: flex;\r\n    align-items: center;\r\n    justify-content: space-between;\r\n}\r\n\r\n.flex.centered {\r\n    justify-content: center;\r\n}\r\n\r\n.grid4 {\r\n    display: grid;\r\n    grid-template-columns: repeat(4, 1fr);\r\n    grid-gap: 32px 16px;\r\n}\r\n\r\n@media screen and (max-width: 1650px) {\r\n    .wrapper {\r\n        width: 95%;\r\n    }\r\n}\r\n\r\n@media screen and (max-width: 1320px) {\r\n    .grid4 {\r\n        grid-template-columns: repeat(3, 1fr);\r\n    }\r\n}\r\n\r\n@media screen and (max-width: 1100px) {\r\n    .grid4 {\r\n        grid-template-columns: repeat(2, 1fr);\r\n    }\r\n}\r\n\r\n@media screen and (max-width: 900px) {\r\n    .grid4 {\r\n        margin: auto;\r\n        margin-top: 30px;\r\n    }\r\n}\r\n\r\n@media screen and (max-width: 500px) {\r\n    .grid4 {\r\n        grid-template-columns: 1fr;\r\n    }\r\n}\r\n", ""]);
+___CSS_LOADER_EXPORT___.push([module.id, "@font-face {\n  font-family: \"nusxuri\";\n  src: url(/assets/fonts/TbcDin_Nusxuri_Regular.ttf);\n}\n@font-face {\n  font-family: \"mtavruli\";\n  src: url(/assets/fonts/tbcdinmtavrulibold.ttf);\n}\n*,\n*::after,\n*::before {\n  font-family: \"mtavruli\";\n  margin: 0;\n  padding: 0;\n  box-sizing: border-box;\n  scroll-behavior: smooth;\n}\n*::after,\n*::before {\n  position: absolute;\n  content: \"\";\n}\n/* width */\n::-webkit-scrollbar {\n  width: 7px;\n}\n\n/* Track */\n::-webkit-scrollbar-track {\n  background: #1c728f;\n}\n\n/* Handle */\n::-webkit-scrollbar-thumb {\n  background: #00bbffa9;\n}\n::-webkit-scrollbar-thumb:hover {\n  background: #00bdff;\n}\n\nhtml {\n  box-sizing: border-box;\n}\nbody {\n  font-family: \"mtavruli\";\n  font-weight: 400;\n  line-height: 1.3;\n  color: #1c3447;\n  background: #fff;\n  overflow-x: hidden;\n  scroll-behavior: smooth;\n  font-size: 16px;\n}\np {\n  font-family: \"nusxuri\";\n  font-weight: 100;\n  line-height: 1.5;\n  text-align: justify;\n}\nh1 {\n  font-weight: 600;\n}\nul {\n  list-style: none;\n}\na {\n  text-decoration: none;\n  color: inherit;\n}\ninput,\ntextarea,\nbutton {\n  outline: none;\n  border: none;\n  background: none;\n}\nbutton {\n  cursor: pointer;\n}\nselect {\n  border: none;\n  outline: none;\n}\nimg {\n  height: auto;\n  max-width: 100%;\n}\n.img {\n  overflow: hidden;\n}\n.img img {\n  width: 100%;\n  height: 100%;\n  -o-object-fit: cover;\n     object-fit: cover;\n}\n.map iframe {\n  width: 100%;\n  height: 100%;\n}\n.wrapper {\n  width: 1400px;\n  height: 100%;\n  margin: auto;\n}\n.container {\n  width: 800px;\n}\n.flex {\n  display: flex;\n  align-items: center;\n  justify-content: space-between;\n}\n.flex.centered {\n  justify-content: center;\n}\n.nux {\n  font-family: \"nusxuri\";\n}\n.font45 {\n  font-size: 45px;\n  margin-bottom: 30px;\n}\n.blue {\n  color: #22aabe;\n}\ninput,\ntextarea {\n  width: 100%;\n  border: 3px solid #eef2f9;\n  padding-left: 20px;\n  margin-bottom: 20px;\n  height: 40px;\n}\ntextarea {\n  height: 100px;\n  margin-bottom: 22px;\n  padding-top: 7px;\n}\n.padding_top {\n  padding-top: 82px;\n}\n.underline {\n  text-decoration: underline;\n}\n.uppercase {\n  text-transform: uppercase;\n}\n\n@media screen and (max-width: 1450px) {\n  .wrapper {\n    width: 95%;\n  }\n}\n@media screen and (max-width: 1200px) {\n  .padding_top {\n    padding-top: 79px;\n  }\n}\n@media screen and (max-width: 1000px) {\n  .font45 {\n    font-size: 30px;\n  }\n  .padding_top {\n    padding-top: 77px;\n  }\n}\n@media screen and (max-width: 850px) {\n  .container {\n    width: 100%;\n  }\n  body {\n    font-size: 14px;\n  }\n}\n@media screen and (max-width: 500px) {\n  input,\n  textarea {\n    padding-left: 15px;\n    margin-bottom: 11px;\n  }\n  .font45 {\n    font-size: 25px;\n    margin-bottom: 20px;\n  }\n}\n", ""]);
 // Exports
 /* harmony default export */ const __WEBPACK_DEFAULT_EXPORT__ = (___CSS_LOADER_EXPORT___);
 
@@ -45892,39 +45891,6 @@ module.exports = JSON.parse('{"name":"axios","version":"0.21.4","description":"P
 /******/ 		};
 /******/ 	})();
 /******/ 	
-/******/ 	/* webpack/runtime/ensure chunk */
-/******/ 	(() => {
-/******/ 		__webpack_require__.f = {};
-/******/ 		// This file contains only the entry chunk.
-/******/ 		// The chunk loading function for additional chunks
-/******/ 		__webpack_require__.e = (chunkId) => {
-/******/ 			return Promise.all(Object.keys(__webpack_require__.f).reduce((promises, key) => {
-/******/ 				__webpack_require__.f[key](chunkId, promises);
-/******/ 				return promises;
-/******/ 			}, []));
-/******/ 		};
-/******/ 	})();
-/******/ 	
-/******/ 	/* webpack/runtime/get javascript chunk filename */
-/******/ 	(() => {
-/******/ 		// This function allow to reference async chunks
-/******/ 		__webpack_require__.u = (chunkId) => {
-/******/ 			// return url for filenames not based on template
-/******/ 			if ({"resources_js_Layouts_AppGeo_css":1,"resources_js_Layouts_AppRus_css":1}[chunkId]) return "js/" + chunkId + ".js";
-/******/ 			// return url for filenames based on template
-/******/ 			return undefined;
-/******/ 		};
-/******/ 	})();
-/******/ 	
-/******/ 	/* webpack/runtime/get mini-css chunk filename */
-/******/ 	(() => {
-/******/ 		// This function allow to reference all chunks
-/******/ 		__webpack_require__.miniCssF = (chunkId) => {
-/******/ 			// return url for filenames based on template
-/******/ 			return "" + chunkId + ".css";
-/******/ 		};
-/******/ 	})();
-/******/ 	
 /******/ 	/* webpack/runtime/global */
 /******/ 	(() => {
 /******/ 		__webpack_require__.g = (function() {
@@ -45940,52 +45906,6 @@ module.exports = JSON.parse('{"name":"axios","version":"0.21.4","description":"P
 /******/ 	/* webpack/runtime/hasOwnProperty shorthand */
 /******/ 	(() => {
 /******/ 		__webpack_require__.o = (obj, prop) => (Object.prototype.hasOwnProperty.call(obj, prop))
-/******/ 	})();
-/******/ 	
-/******/ 	/* webpack/runtime/load script */
-/******/ 	(() => {
-/******/ 		var inProgress = {};
-/******/ 		// data-webpack is not used as build has no uniqueName
-/******/ 		// loadScript function to load a script via script tag
-/******/ 		__webpack_require__.l = (url, done, key, chunkId) => {
-/******/ 			if(inProgress[url]) { inProgress[url].push(done); return; }
-/******/ 			var script, needAttach;
-/******/ 			if(key !== undefined) {
-/******/ 				var scripts = document.getElementsByTagName("script");
-/******/ 				for(var i = 0; i < scripts.length; i++) {
-/******/ 					var s = scripts[i];
-/******/ 					if(s.getAttribute("src") == url) { script = s; break; }
-/******/ 				}
-/******/ 			}
-/******/ 			if(!script) {
-/******/ 				needAttach = true;
-/******/ 				script = document.createElement('script');
-/******/ 		
-/******/ 				script.charset = 'utf-8';
-/******/ 				script.timeout = 120;
-/******/ 				if (__webpack_require__.nc) {
-/******/ 					script.setAttribute("nonce", __webpack_require__.nc);
-/******/ 				}
-/******/ 		
-/******/ 				script.src = url;
-/******/ 			}
-/******/ 			inProgress[url] = [done];
-/******/ 			var onScriptComplete = (prev, event) => {
-/******/ 				// avoid mem leaks in IE.
-/******/ 				script.onerror = script.onload = null;
-/******/ 				clearTimeout(timeout);
-/******/ 				var doneFns = inProgress[url];
-/******/ 				delete inProgress[url];
-/******/ 				script.parentNode && script.parentNode.removeChild(script);
-/******/ 				doneFns && doneFns.forEach((fn) => (fn(event)));
-/******/ 				if(prev) return prev(event);
-/******/ 			}
-/******/ 			;
-/******/ 			var timeout = setTimeout(onScriptComplete.bind(null, undefined, { type: 'timeout', target: script }), 120000);
-/******/ 			script.onerror = onScriptComplete.bind(null, script.onerror);
-/******/ 			script.onload = onScriptComplete.bind(null, script.onload);
-/******/ 			needAttach && document.head.appendChild(script);
-/******/ 		};
 /******/ 	})();
 /******/ 	
 /******/ 	/* webpack/runtime/make namespace object */
@@ -46008,11 +45928,6 @@ module.exports = JSON.parse('{"name":"axios","version":"0.21.4","description":"P
 /******/ 		};
 /******/ 	})();
 /******/ 	
-/******/ 	/* webpack/runtime/publicPath */
-/******/ 	(() => {
-/******/ 		__webpack_require__.p = "/";
-/******/ 	})();
-/******/ 	
 /******/ 	/* webpack/runtime/jsonp chunk loading */
 /******/ 	(() => {
 /******/ 		// no baseURI
@@ -46027,44 +45942,7 @@ module.exports = JSON.parse('{"name":"axios","version":"0.21.4","description":"P
 /******/ 			"css/app": 0
 /******/ 		};
 /******/ 		
-/******/ 		__webpack_require__.f.j = (chunkId, promises) => {
-/******/ 				// JSONP chunk loading for javascript
-/******/ 				var installedChunkData = __webpack_require__.o(installedChunks, chunkId) ? installedChunks[chunkId] : undefined;
-/******/ 				if(installedChunkData !== 0) { // 0 means "already installed".
-/******/ 		
-/******/ 					// a Promise means "currently loading".
-/******/ 					if(installedChunkData) {
-/******/ 						promises.push(installedChunkData[2]);
-/******/ 					} else {
-/******/ 						if(!/^css\/(App(Eng|Geo)|app)$/.test(chunkId)) {
-/******/ 							// setup Promise in chunk cache
-/******/ 							var promise = new Promise((resolve, reject) => (installedChunkData = installedChunks[chunkId] = [resolve, reject]));
-/******/ 							promises.push(installedChunkData[2] = promise);
-/******/ 		
-/******/ 							// start chunk loading
-/******/ 							var url = __webpack_require__.p + __webpack_require__.u(chunkId);
-/******/ 							// create error before stack unwound to get useful stacktrace later
-/******/ 							var error = new Error();
-/******/ 							var loadingEnded = (event) => {
-/******/ 								if(__webpack_require__.o(installedChunks, chunkId)) {
-/******/ 									installedChunkData = installedChunks[chunkId];
-/******/ 									if(installedChunkData !== 0) installedChunks[chunkId] = undefined;
-/******/ 									if(installedChunkData) {
-/******/ 										var errorType = event && (event.type === 'load' ? 'missing' : event.type);
-/******/ 										var realSrc = event && event.target && event.target.src;
-/******/ 										error.message = 'Loading chunk ' + chunkId + ' failed.\n(' + errorType + ': ' + realSrc + ')';
-/******/ 										error.name = 'ChunkLoadError';
-/******/ 										error.type = errorType;
-/******/ 										error.request = realSrc;
-/******/ 										installedChunkData[1](error);
-/******/ 									}
-/******/ 								}
-/******/ 							};
-/******/ 							__webpack_require__.l(url, loadingEnded, "chunk-" + chunkId, chunkId);
-/******/ 						} else installedChunks[chunkId] = 0;
-/******/ 					}
-/******/ 				}
-/******/ 		};
+/******/ 		// no chunk on demand loading
 /******/ 		
 /******/ 		// no prefetching
 /******/ 		

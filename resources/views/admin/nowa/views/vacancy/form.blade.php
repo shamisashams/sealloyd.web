@@ -43,7 +43,9 @@ $ids = $vacancy->skills->pluck("id")->toArray();
         <div class="col-lg-6 col-md-12">
             <div class="card">
                 <div class="card-body">
-
+                    <div>
+                        <h6 class="card-title mb-1">@lang('admin.skills')</h6>
+                    </div>
                     <div class="mb-4">
                         @foreach($skills as $skill)
                             <div class="form-group">
