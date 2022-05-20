@@ -3,11 +3,35 @@ import { PagePath, SendButton } from "../../components/SmallComps/SmallComps";
 import AppChecklist from "./AppChecklist";
 import AppInputs from "./AppInputs";
 import { Inertia } from '@inertiajs/inertia'
+import { usePage } from '@inertiajs/inertia-react'
 import Layout from "../../Layouts/Layout";
+import Swal from 'sweetalert2'
 // import mail from "../../assets/images/icons/contact/mail.svg";
 import "./Documents.css";
 
-const OwnerApplication = ({ seo }) => {
+const OwnerApplication = ({ seo, success, error }) => {
+    const { errors } = usePage().props
+    if (success) {
+        Swal.fire({
+            title: 'წარმატებით დაემატა',
+            text: '',
+            icon: 'success',
+            confirmButtonText: 'Cool'
+        })
+        setTimeout(() => {
+            location.reload();
+        }, 2000);
+    } else if (error) {
+        Swal.fire({
+            title: 'შეცდომა!',
+            text: '',
+            icon: 'fail',
+            confirmButtonText: 'Cool'
+        })
+        location.reload()
+    }
+
+
     const checklist = [
         {
             title: "HULL & MACHINERY",
@@ -156,19 +180,18 @@ const OwnerApplication = ({ seo }) => {
         },
     ];
 
-    let obj = {};
-    let a = document.querySelectorAll('.app_inputs input');
-    var value;
-    a.forEach((e) => {
-        if (e.placeholder == "") {
-            value = e.title
-        } else {
-            value = e.placeholder;
-        }
-        var str = value.replace(/\s+/g, '_').toLowerCase();
-        obj[str] = "";
-    })
-    // console.log(obj);
+    // let obj = {};
+    // let a = document.querySelectorAll('.app_inputs input');
+    // var value;
+    // a.forEach((e) => {
+    //     if (e.placeholder == "") {
+    //         value = e.title
+    //     } else {
+    //         value = e.placeholder;
+    //     }
+    //     var str = value.replace(/\s+/g, '_').toLowerCase();
+    //     obj[str] = "";
+    // })
 
     const [values, setValues] = useState({
         name_of_ship: "",
@@ -249,13 +272,48 @@ const OwnerApplication = ({ seo }) => {
         }))
     }
 
+    let radio = document.querySelectorAll('#radio_container');
+
+    function GetElementInsideContainer(containerID, childID) {
+        var elm = document.getElementById(childID);
+        var parent = elm ? elm.parentNode : {};
+        return (parent.id && parent.id === containerID) ? elm : {};
+    }
+    GetElementInsideContainer('app_checklist', 'radio_container')
+    // let assa = radio[0].getElementsByClassName("checkbox")
+
     function handleSubmit(e) {
         e.preventDefault()
-        Inertia.post(route('client.documentations.sendapplication'), values)
+        // let form = document.forms["ownerapplication"];
+        // let formInputs = form.elements;
+        let validform = true;
+        let a = document.querySelectorAll('.app_inputs input')
+        for (let i = 0; i < a.length; i++) {
+            if (a[i].value == "") {
+                validform = false;
+                Swal.fire({
+                    title: 'შეცდომა',
+                    text: 'გთხოვთ შეავსოთ ყველა ველი',
+                    icon: 'fail',
+                    confirmButtonText: 'Cool'
+                })
+                break;
+            }
+        }
+        if (!validform) {
+            Swal.fire({
+                title: 'შეცდომა',
+                text: 'გთხოვთ შეავსოთ ყველა ველი',
+                icon: 'fail',
+                confirmButtonText: 'Cool'
+            })
+        }
+        if (validform) {
+            Inertia.post(route('client.documentations.sendapplication'), values)
+        }
     }
 
 
-    console.log(obj);
     return (
         <Layout seo={seo}>
             <div className="documents teamPage careerPage">
@@ -270,7 +328,7 @@ const OwnerApplication = ({ seo }) => {
                         Dear Sirs, <br />
                         Please proceed with classification/statutory survey
                     </p>
-                    <form onSubmit={handleSubmit}>
+                    <form name='ownerapplication' onSubmit={handleSubmit}>
                         <div className="flex main">
                             <div className="inputs">
 
@@ -319,10 +377,10 @@ const OwnerApplication = ({ seo }) => {
                                     Surveys requested <span>Check whatever is applicable*</span>
                                 </div>
 
-                                <div className="app_checklist">
+                                <div className="app_checklist" id="app_checklist">
                                     {checklist.map((item, index) => {
                                         return (
-                                            <div key={index} className="flex line">
+                                            <div key={index} className="flex line" id='radio_container'>
                                                 <div className="cat">{item.title}</div>
                                                 {item.checks.map((check, i) => {
                                                     return (
