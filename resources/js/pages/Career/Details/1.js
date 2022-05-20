@@ -68,6 +68,7 @@ const CareerDetail1 = ({seo}) => {
                           remuneration={vacancy.remuneration}
                           date={vacancy.created_at}
                           pdfName={vacancy.docs[0]}
+                          vacancyId={vacancy.id}
                       />
                       <div className="other_vacancies">
                           <h4>სხვა ვაკანსიები</h4>

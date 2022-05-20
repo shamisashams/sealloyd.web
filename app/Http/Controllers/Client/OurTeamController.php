@@ -6,6 +6,8 @@ use App\Http\Controllers\Controller;
 use App\Models\Page;
 use App\Models\Slider;
 use App\Models\Vacancy;
+use App\Repositories\Eloquent\ResumeRepository;
+use Illuminate\Http\Request;
 use Illuminate\Support\Facades\App;
 use Inertia\Inertia;
 use App\Repositories\Eloquent\ProductRepository;
@@ -190,5 +192,11 @@ class OurTeamController extends Controller
             'og_title' => $page->meta_og_title,
             'og_description' => $page->meta_og_description
         ]);
+    }
+
+    public function appUpload(Request $request){
+
+        app(ResumeRepository::class)->saveResume($request);
+        return redirect()->back();
     }
 }

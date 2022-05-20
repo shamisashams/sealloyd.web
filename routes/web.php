@@ -86,6 +86,7 @@ Route::prefix('{locale?}')
                 Route::resource('vacancy', \App\Http\Controllers\Admin\VacancyController::class);
                 Route::get('vacancy/{vacancy}/destroy', [\App\Http\Controllers\Admin\VacancyController::class, 'destroy'])->name('vacancy.destroy');
                 Route::get('vacancy/doc/{doc}/destroy',[\App\Http\Controllers\Admin\VacancyController::class,'docDelete'])->name('vacancy.delete-doc');
+                Route::get('vacancy/{vacancy}/resumes',[\App\Http\Controllers\Admin\VacancyController::class,'viewResumes'])->name('vacancy.resumes');
 
                 Route::resource('skill', \App\Http\Controllers\Admin\SkillController::class);
                 Route::get('skill/{skill}/destroy', [\App\Http\Controllers\Admin\SkillController::class, 'destroy'])->name('skill.destroy');
@@ -130,6 +131,8 @@ Route::prefix('{locale?}')
             Route::get('/career', [OurTeamController::class, 'career'])->name('client.services.career');
 
             Route::get('/vacancy/{vacancy}', [OurTeamController::class, 'viewVacancy'])->name('client.vacancy.show');
+
+            Route::post('vacancy/upload_application',[OurTeamController::class,'appUpload'])->name('client.app-upload');
 
 
             // cabinet

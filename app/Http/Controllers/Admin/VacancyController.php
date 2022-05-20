@@ -239,4 +239,10 @@ class VacancyController extends Controller
         return redirect(locale_route('vacancy.edit',$id))->with('success', __('admin.delete_message'));
 
     }
+
+    public function viewResumes(string $locale, Vacancy $vacancy){
+        return view('admin.nowa.views.vacancy.resumes', [
+            'vacancy' => $vacancy,
+        ]);
+    }
 }

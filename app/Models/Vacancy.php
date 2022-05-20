@@ -158,6 +158,10 @@ class Vacancy extends Model
         return $this->morphMany(File::class, 'fileable')->where('type',4);
     }
 
+    public function resumes():HasMany{
+        return $this->hasMany(Resume::class);
+    }
+
     public function getCreatedAtAttribute($value)
     {
         return (new Carbon($value))->format('d/m/Y');
