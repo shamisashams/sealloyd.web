@@ -5,9 +5,14 @@ import { VacancyBox } from "../../components/VacancyBox/VacancyBox";
 import Layout from "../../Layouts/Layout";
 
 import "./Career.css";
+import {usePage} from "@inertiajs/inertia-react";
 
 const Career = ({ seo }) => {
-    const vacancies = [
+    const renderHTML = (rawHTML) => React.createElement("div", { dangerouslySetInnerHTML: { __html: rawHTML } });
+    const sharedData = usePage().props.localizations;
+    const {vacancies} = usePage().props;
+    console.log(vacancies)
+    const _vacancies = [
         {
             title: "HR სპეციალისტი",
             subtitle: "ადამიანური რესურსების მართვა",
@@ -46,10 +51,10 @@ const Career = ({ seo }) => {
                                 <VacancyBox
                                     key={index}
                                     title={box.title}
-                                    subtitle={box.subtitle}
+                                    subtitle={box.sub_title}
                                     time={box.time}
-                                    date={box.date}
-                                    link={box.link}
+                                    date={box.created_at}
+                                    link={route('client.vacancy.show',box.slug)}
                                 />
                             );
                         })}

@@ -3,8 +3,15 @@ import { ExtendedVB } from "../../../components/VacancyBox/VacancyBox";
 import "../Career.css";
 import { VacancyBox } from "../../../components/VacancyBox/VacancyBox";
 import { PagePath } from "../../../components/SmallComps/SmallComps";
+import Layout from "../../../Layouts/Layout";
+import {usePage} from "@inertiajs/inertia-react";
 
-const CareerDetail1 = () => {
+const CareerDetail1 = ({seo}) => {
+
+    const renderHTML = (rawHTML) => React.createElement("div", { dangerouslySetInnerHTML: { __html: rawHTML } });
+    const sharedData = usePage().props.localizations;
+    const {vacancies , vacancy} = usePage().props;
+
   const otherVacancies = [
     {
       title: "HR სპეციალისტი",
@@ -36,45 +43,52 @@ const CareerDetail1 = () => {
     "განვითარების სურვილი",
     "ინგლისური B2",
   ];
+
+  const skills = vacancy.skills
+
   return (
-    <div className="teamPage careerPage">
-      <div className="wrapper">
-        <div className="font45 blue">კარიერა</div>
-        <PagePath
-          location1="მთავარი"
-          location2="ჩვენი გუნდი"
-          location3="კარიერა"
-        />
-        <div className="career_grid details">
-          <ExtendedVB
-            title="HR სპეციალისტი"
-            subtitle="ადამიანური რესურსების მართვა"
-            time="სრული განაკვეთი"
-            paragraph="ლორემ იპსუმ ქვეყნიური თვითიდენტიფიკაციისა მესამის რიტუალური გაუშტერდათ, მიწუნებს სასახლეებზე მრავლობით. გაუშტერდათ განიცდიდი მებრძოლები, ზეციური რეტროსპექტივას დეტალების გაგაკეთებინებს წერა, ქადილით მზაკვრობისა ჩაესვენა მეთვრამეტე რათა მართალსა. "
-            skills={skillList}
-            salary="1500 - 2200"
-            salaryInfo="დამოკიდებულია კანდიდატის შესაძლებლობებზე"
-            date=" 23/02/2020"
-            pdfName="Application Form for Surveyors"
-          />
-          <div className="other_vacancies">
-            <h4>სხვა ვაკანსიები</h4>
-            {otherVacancies.map((box, index) => {
-              return (
-                <VacancyBox
-                  key={index}
-                  title={box.title}
-                  subtitle={box.subtitle}
-                  time={box.time}
-                  date={box.date}
-                  link={box.link}
-                />
-              );
-            })}
+      <Layout seo={seo}>
+          <div className="teamPage careerPage">
+              <div className="wrapper">
+                  <div className="font45 blue">კარიერა</div>
+                  <PagePath
+                      location1="მთავარი"
+                      location2="ჩვენი გუნდი"
+                      location3="კარიერა"
+                  />
+                  <div className="career_grid details">
+                      <ExtendedVB
+                          title={vacancy.title}
+                          subtitle={vacancy.sub_title}
+                          time={vacancy.time}
+                          paragraph={vacancy.description}
+                          skills={skills}
+                          salary="1500 - 2200"
+                          salaryInfo="დამოკიდებულია კანდიდატის შესაძლებლობებზე"
+                          remuneration={vacancy.remuneration}
+                          date={vacancy.created_at}
+                          pdfName={vacancy.docs[0]}
+                      />
+                      <div className="other_vacancies">
+                          <h4>სხვა ვაკანსიები</h4>
+                          {vacancies.map((box, index) => {
+                              return (
+                                  <VacancyBox
+                                      key={index}
+                                      title={box.title}
+                                      subtitle={box.sub_title}
+                                      time={box.time}
+                                      date={box.created_at}
+                                      link={route('client.vacancy.show',box.slug)}
+                                  />
+                              );
+                          })}
+                      </div>
+                  </div>
+              </div>
           </div>
-        </div>
-      </div>
-    </div>
+      </Layout>
+
   );
 };
 
