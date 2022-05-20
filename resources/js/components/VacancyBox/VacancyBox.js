@@ -6,12 +6,15 @@ import React from "react";
 // import share from "../../assets/images/icons/team/share.svg";
 // import send from "../../assets/images/icons/team/send.svg";
 // import { Link } from "react-router-dom";
-import { Link, usePage } from "@inertiajs/inertia-react";
+import { Link, usePage, useForm } from "@inertiajs/inertia-react";
 import { Inertia } from "@inertiajs/inertia";
 import "./VacancyBox.css";
 import { DlPdf } from "../SmallComps/SmallComps";
 
 export const VacancyBox = (props) => {
+
+
+
     return (
         <div className="vacancy_box " data-aos="fade-up">
             <div className="head flex">
@@ -43,6 +46,14 @@ export const VacancyBox = (props) => {
 };
 
 export const ExtendedVB = (props) => {
+    const { data, setData, post, progress } = useForm({
+        doc: null,
+        vacancy_id: props.vacancyId
+    })
+    function submit(e) {
+        e.preventDefault()
+        post(route('client.app-upload'))
+    }
     return (
         <div className="vacancy_box extended" data-aos="fade-right">
             <div className="head flex">
@@ -81,11 +92,19 @@ export const ExtendedVB = (props) => {
 
                 <DlPdf model="Vacancy" name={props.pdfName} />
             </div>
+
+            <form onSubmit={submit}>
+                <input type="file" filename={data.doc} onChange={e => setData("doc", e.target.files[0])} />
+
+                <button type="submit">Submit</button>
+            </form>
+
             <div className="section">
                 <button className="button grey">
                     <img className="inline_img" src='/assets/images/icons/team/upload.svg' alt="" />
                     ატვირთე რეზიუმე <span>(Application Form, CV, Certificates)</span>
                 </button>
+
                 <button className="button">
                     <img className="inline_img" src='/assets/images/icons/team/send.svg' alt="" />
                     გაგზავნე განაცხადი

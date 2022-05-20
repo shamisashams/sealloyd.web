@@ -28,29 +28,25 @@ $ids = $vacancy->skills->pluck("id")->toArray();
 
     <!-- breadcrumb -->
     <div class="breadcrumb-header justify-content-between">
-        <div class="left-content">
-            <span class="main-content-title mg-b-0 mg-b-lg-1">{{$vacancy->created_at ? __('admin.vacancy-update') : __('admin.vacancy-create')}}</span>
-        </div>
+
         <div class="justify-content-center mt-2">
             @include('admin.nowa.views.layouts.components.breadcrump')
         </div>
     </div>
     <!-- /breadcrumb -->
-    <input name="old-images[]" id="old_images" hidden disabled value="{{$vacancy->files}}">
+
     <!-- row -->
-    {!! Form::model($vacancy,['url' => $url, 'method' => $method,'files' => true]) !!}
+
     <div class="row">
         <div class="col-lg-6 col-md-12">
             <div class="card">
                 <div class="card-body">
-                    <div>
-                        <h6 class="card-title mb-1">@lang('admin.skills')</h6>
-                    </div>
+
                     <div class="mb-4">
-                        @foreach($skills as $skill)
+                        @foreach($vacancy->skills as $skill)
                             <div class="form-group">
                                 <label class="ckbox">
-                                    <input type="checkbox" name="skills[]" data-checkboxes="mygroup" class="custom-control-input"  id="{{$skill->id}}" value="{{$skill->id}}" {{in_array($skill->id,$ids) ? 'checked' : ''}}>
+                                    <input type="checkbox" name="skills[]" data-checkboxes="mygroup" class="custom-control-input"  id="{{$skill->id}}" value="{{$skill->id}}" }} checked disabled>
                                     <span style="margin-left: 5px">{{$skill->title}}</span>
 
                                 </label>
@@ -88,7 +84,7 @@ $ids = $vacancy->skills->pluck("id")->toArray();
                                         ?>
                                         <div class="tab-pane {{$active}}" id="lang-{{$locale}}">
                                             <div class="form-group">
-                                                <input type="text" name="{{$locale.'[title]'}}" class="form-control" placeholder="@lang('admin.title')" value="{{$vacancy->translate($locale)->title ?? ''}}">
+                                                <input disabled type="text" name="{{$locale.'[title]'}}" class="form-control" placeholder="@lang('admin.title')" value="{{$vacancy->translate($locale)->title ?? ''}}">
                                             </div>
                                             @error($locale.'.title')
                                             <small class="text-danger">
@@ -99,7 +95,7 @@ $ids = $vacancy->skills->pluck("id")->toArray();
                                             @enderror
 
                                             <div class="form-group">
-                                                <input type="text" name="{{$locale.'[sub_title]'}}" class="form-control" placeholder="@lang('admin.sub_title')" value="{{$vacancy->translate($locale)->sub_title ?? ''}}">
+                                                <input disabled type="text" name="{{$locale.'[sub_title]'}}" class="form-control" placeholder="@lang('admin.sub_title')" value="{{$vacancy->translate($locale)->sub_title ?? ''}}">
                                             </div>
                                             @error($locale.'.sub_title')
                                             <small class="text-danger">
@@ -110,7 +106,7 @@ $ids = $vacancy->skills->pluck("id")->toArray();
                                             @enderror
 
                                             <div class="form-group">
-                                                <textarea type="text" name="{{$locale.'[description]'}}" class="form-control" placeholder="@lang('admin.description')" >{{$vacancy->translate($locale)->description ?? ''}}</textarea>
+                                                <textarea disabled type="text" name="{{$locale.'[description]'}}" class="form-control" placeholder="@lang('admin.description')" >{{$vacancy->translate($locale)->description ?? ''}}</textarea>
                                             </div>
                                             @error($locale.'.description')
                                             <small class="text-danger">
@@ -121,7 +117,7 @@ $ids = $vacancy->skills->pluck("id")->toArray();
                                             @enderror
 
                                             <div class="form-group">
-                                                <input type="text" name="{{$locale.'[remuneration]'}}" class="form-control" placeholder="@lang('admin.remuneration')" value="{{$vacancy->translate($locale)->remuneration ?? ''}}">
+                                                <input disabled type="text" name="{{$locale.'[remuneration]'}}" class="form-control" placeholder="@lang('admin.remuneration')" value="{{$vacancy->translate($locale)->remuneration ?? ''}}">
                                             </div>
                                             @error($locale.'.remuneration')
                                             <small class="text-danger">
@@ -132,7 +128,7 @@ $ids = $vacancy->skills->pluck("id")->toArray();
                                             @enderror
 
                                             <div class="form-group">
-                                                <input type="text" name="{{$locale.'[time]'}}" class="form-control" placeholder="@lang('admin.time')" value="{{$vacancy->translate($locale)->time ?? ''}}">
+                                                <input disabled type="text" name="{{$locale.'[time]'}}" class="form-control" placeholder="@lang('admin.time')" value="{{$vacancy->translate($locale)->time ?? ''}}">
                                             </div>
                                             @error($locale.'.time')
                                             <small class="text-danger">
@@ -174,30 +170,16 @@ $ids = $vacancy->skills->pluck("id")->toArray();
                     </small>
                     @enderror--}}
 
-                    <div class="form-group">
-                        <label class="form-label">@lang('admin.slug')</label>
-                        <input type="text" name="slug" class="form-control" placeholder="@lang('admin.slug')" value="{{$vacancy->slug ?? ''}}">
-                    </div>
-                    @error('slug')
-                    <small class="text-danger">
-                        <div class="error">
-                            {{$message}}
-                        </div>
-                    </small>
-                    @enderror
+
                     <div class="form-group mb-0 justify-content-end">
                         <div class="checkbox">
                             <div class="custom-checkbox custom-control">
-                                <input type="checkbox" data-checkboxes="mygroup" name="status" class="custom-control-input" id="checkbox-2" {{$vacancy->status ? 'checked' : ''}}>
+                                <input disabled type="checkbox" data-checkboxes="mygroup" name="status" class="custom-control-input" id="checkbox-2" {{$vacancy->status ? 'checked' : ''}}>
                                 <label for="checkbox-2" class="custom-control-label mt-1">{{__('admin.status')}}</label>
                             </div>
                         </div>
                     </div>
-                    <div class="form-group mb-0 mt-3 justify-content-end">
-                        <div>
-                            {!! Form::submit($vacancy->created_at ? __('admin.update') : __('admin.create'),['class' => 'btn btn-primary']) !!}
-                        </div>
-                    </div>
+
 
                 </div>
             </div>
@@ -205,23 +187,7 @@ $ids = $vacancy->skills->pluck("id")->toArray();
 
     </div>
 
-    <!-- /row -->
-    <!-- row -->
-    <div class="row">
-        <div class="col-lg-12 col-md-12">
-            <div class="card">
-                <div class="card-body">
-                    <div class="input-images"></div>
-                    @if ($errors->has('images'))
-                        <span class="help-block">
-                                            {{ $errors->first('images') }}
-                                        </span>
-                    @endif
-                </div>
-            </div>
-        </div>
-    </div>
-    <!-- row closed -->
+
 
     <div class="row">
         <div class="col-lg-12 col-md-12">
@@ -230,11 +196,11 @@ $ids = $vacancy->skills->pluck("id")->toArray();
                     <div>
                         <h6 class="card-title mb-1">@lang('admin.vacancy_files')</h6>
                     </div>
-                    <input type="file" name="files[]" multiple>
+
 
                     @foreach($vacancy->docs as $doc)
                         <div>
-                            {{$doc->title}} <span><a href="{{locale_route('vacancy.delete-doc',$doc->id)}}">delete</a> </span>
+                            <a href="/storage/Vacancy/{{$vacancy->id}}/files/{{$doc->title}}">{{$doc->title}} </a>
                         </div>
                     @endforeach
                 </div>
@@ -244,9 +210,27 @@ $ids = $vacancy->skills->pluck("id")->toArray();
     <!-- /row -->
 
     <!-- row -->
+    <div class="row">
+        <div class="col-lg-12 col-md-12">
+            <div class="card">
+                <div class="card-body">
+                    <div>
+                        <h6 class="card-title mb-1">@lang('admin.uploaded_resumes')</h6>
+                    </div>
 
+
+                    @foreach($vacancy->resumes as $doc)
+                        <div>
+                            <a href="/storage/Vacancy/{{$vacancy->id}}/resumes/{{$doc->file_name}}">{{$doc->file_name}} </a>
+                            <span style="margin-left: 20px">{{$doc->created_at}}</span>
+                        </div>
+                    @endforeach
+                </div>
+            </div>
+        </div>
+    </div>
     <!-- row closed -->
-    {!! Form::close() !!}
+
 
 @endsection
 

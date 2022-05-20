@@ -3067,12 +3067,11 @@ function Layout(_ref) {
   }, []);
   console.log((0,_inertiajs_inertia_react__WEBPACK_IMPORTED_MODULE_7__.usePage)().props);
   var currentLocale = (0,_inertiajs_inertia_react__WEBPACK_IMPORTED_MODULE_7__.usePage)().props.currentLocale;
-
-  if (currentLocale == "ge") {
-    __webpack_require__.e(/*! import() */ "resources_js_Layouts_AppGeo_css").then(__webpack_require__.bind(__webpack_require__, /*! ./AppGeo.css */ "./resources/js/Layouts/AppGeo.css"));
+  /*if (currentLocale == "ge") {
+      import("./AppGeo.css");
   } else if (currentLocale == "ru") {
-    __webpack_require__.e(/*! import() */ "resources_js_Layouts_AppRus_css").then(__webpack_require__.bind(__webpack_require__, /*! ./AppRus.css */ "./resources/js/Layouts/AppRus.css"));
-  }
+      import("./AppRus.css");
+  }*/
 
   return /*#__PURE__*/react__WEBPACK_IMPORTED_MODULE_0__.createElement(react__WEBPACK_IMPORTED_MODULE_0__.Fragment, null, /*#__PURE__*/react__WEBPACK_IMPORTED_MODULE_0__.createElement(_components_Header_Header__WEBPACK_IMPORTED_MODULE_3__["default"], null), children, /*#__PURE__*/react__WEBPACK_IMPORTED_MODULE_0__.createElement(_components_Footer_Footer__WEBPACK_IMPORTED_MODULE_4__["default"], null));
 }
@@ -3715,7 +3714,8 @@ var CareerDetail1 = function CareerDetail1(_ref) {
     salaryInfo: "\u10D3\u10D0\u10DB\u10DD\u10D9\u10D8\u10D3\u10D4\u10D1\u10E3\u10DA\u10D8\u10D0 \u10D9\u10D0\u10DC\u10D3\u10D8\u10D3\u10D0\u10E2\u10D8\u10E1 \u10E8\u10D4\u10E1\u10D0\u10EB\u10DA\u10D4\u10D1\u10DA\u10DD\u10D1\u10D4\u10D1\u10D6\u10D4",
     remuneration: vacancy.remuneration,
     date: vacancy.created_at,
-    pdfName: vacancy.docs[0]
+    pdfName: vacancy.docs[0],
+    vacancyId: vacancy.id
   }), /*#__PURE__*/react__WEBPACK_IMPORTED_MODULE_0__.createElement("div", {
     className: "other_vacancies"
   }, /*#__PURE__*/react__WEBPACK_IMPORTED_MODULE_0__.createElement("h4", null, "\u10E1\u10EE\u10D5\u10D0 \u10D5\u10D0\u10D9\u10D0\u10DC\u10E1\u10D8\u10D4\u10D1\u10D8"), vacancies.map(function (box, index) {
@@ -6880,6 +6880,20 @@ var VacancyBox = function VacancyBox(props) {
   }, "\u10D3\u10D4\u10E2\u10D0\u10DA\u10E3\u10E0\u10D0\u10D3")));
 };
 var ExtendedVB = function ExtendedVB(props) {
+  var _useForm = (0,_inertiajs_inertia_react__WEBPACK_IMPORTED_MODULE_1__.useForm)({
+    doc: null,
+    vacancy_id: props.vacancyId
+  }),
+      data = _useForm.data,
+      setData = _useForm.setData,
+      post = _useForm.post,
+      progress = _useForm.progress;
+
+  function submit(e) {
+    e.preventDefault();
+    post(route('client.app-upload'));
+  }
+
   return /*#__PURE__*/react__WEBPACK_IMPORTED_MODULE_0__.createElement("div", {
     className: "vacancy_box extended",
     "data-aos": "fade-right"
@@ -6917,7 +6931,17 @@ var ExtendedVB = function ExtendedVB(props) {
   }, /*#__PURE__*/react__WEBPACK_IMPORTED_MODULE_0__.createElement(_SmallComps_SmallComps__WEBPACK_IMPORTED_MODULE_4__.DlPdf, {
     model: "Vacancy",
     name: props.pdfName
-  })), /*#__PURE__*/react__WEBPACK_IMPORTED_MODULE_0__.createElement("div", {
+  })), /*#__PURE__*/react__WEBPACK_IMPORTED_MODULE_0__.createElement("form", {
+    onSubmit: submit
+  }, /*#__PURE__*/react__WEBPACK_IMPORTED_MODULE_0__.createElement("input", {
+    type: "file",
+    filename: data.doc,
+    onChange: function onChange(e) {
+      return setData("doc", e.target.files[0]);
+    }
+  }), /*#__PURE__*/react__WEBPACK_IMPORTED_MODULE_0__.createElement("button", {
+    type: "submit"
+  }, "Submit")), /*#__PURE__*/react__WEBPACK_IMPORTED_MODULE_0__.createElement("div", {
     className: "section"
   }, /*#__PURE__*/react__WEBPACK_IMPORTED_MODULE_0__.createElement("button", {
     className: "button grey"
@@ -7075,7 +7099,7 @@ __webpack_require__.r(__webpack_exports__);
 
 var ___CSS_LOADER_EXPORT___ = _node_modules_css_loader_dist_runtime_api_js__WEBPACK_IMPORTED_MODULE_0___default()(function(i){return i[1]});
 // Module
-___CSS_LOADER_EXPORT___.push([module.id, "@font-face {\n    font-family: \"roboto\";\n    src: url(/assets/fonts/Roboto-Regular.ttf);\n}\n\n@font-face {\n    font-family: \"mtav\";\n    src: url(/assets/fonts/AS-Grammatika-Regular_Mtav.ttf);\n}\n\n@font-face {\n    font-family: \"poppins\";\n    src: url(/assets/fonts/Poppins/Poppins-Regular.ttf);\n}\n\n@font-face {\n    font-family: \"bold\";\n    src: url(/assets/fonts/Poppins/Poppins-Bold.ttf);\n}\n\n*,\n*::after,\n*::before {\n    font-family: \"poppins\";\n    margin: 0;\n    padding: 0;\n    box-sizing: border-box;\n    scroll-behavior: smooth;\n}\n\n*::after,\n*::before {\n    position: absolute;\n    content: \"\";\n}\n\n/* width */\n::-webkit-scrollbar {\n    width: 7px;\n}\n\n/* Track */\n::-webkit-scrollbar-track {\n    background: #272639;\n}\n\n/* Handle */\n::-webkit-scrollbar-thumb {\n    background: #e81748b6;\n}\n\n::-webkit-scrollbar-thumb:hover {\n    background: #e81748;\n}\n\nhtml {\n    box-sizing: border-box;\n}\n\nbody {\n    font-family: \"poppins\";\n    font-weight: 400;\n    line-height: 1.3;\n    color: #05185a;\n    background: #fff;\n    overflow-x: hidden;\n    scroll-behavior: smooth;\n    font-size: 16px;\n}\n\np {\n    font-weight: 100;\n    line-height: 1.5;\n}\n\nh1 {\n    font-weight: 600;\n}\n\nul {\n    list-style: none;\n}\n\na {\n    text-decoration: none;\n    color: inherit;\n}\n\ninput,\ntextarea,\nbutton {\n    outline: none;\n    border: none;\n    background: none;\n}\n\nbutton {\n    cursor: pointer;\n}\n\nselect {\n    border: none;\n    outline: none;\n}\n\nimg {\n    height: auto;\n    max-width: 100%;\n}\n\n.img {\n    overflow: hidden;\n}\n\n.img img {\n    width: 100%;\n    height: 100%;\n    -o-object-fit: cover;\n       object-fit: cover;\n}\n\n.map iframe {\n    width: 100%;\n    height: 100%;\n}\n\n.wrapper {\n    width: 1600px;\n    height: 100%;\n    margin: auto;\n    position: relative;\n}\n\n.bold {\n    font-family: \"bold\";\n}\n\n.flex {\n    display: flex;\n    align-items: center;\n    justify-content: space-between;\n}\n\n.flex.centered {\n    justify-content: center;\n}\n\n.grid4 {\n    display: grid;\n    grid-template-columns: repeat(4, 1fr);\n    grid-gap: 32px 16px;\n}\n\n@media screen and (max-width: 1650px) {\n    .wrapper {\n        width: 95%;\n    }\n}\n\n@media screen and (max-width: 1320px) {\n    .grid4 {\n        grid-template-columns: repeat(3, 1fr);\n    }\n}\n\n@media screen and (max-width: 1100px) {\n    .grid4 {\n        grid-template-columns: repeat(2, 1fr);\n    }\n}\n\n@media screen and (max-width: 900px) {\n    .grid4 {\n        margin: auto;\n        margin-top: 30px;\n    }\n}\n\n@media screen and (max-width: 500px) {\n    .grid4 {\n        grid-template-columns: 1fr;\n    }\n}\n", ""]);
+___CSS_LOADER_EXPORT___.push([module.id, "@font-face {\n  font-family: \"nusxuri\";\n  src: url(/assets/fonts/TbcDin_Nusxuri_Regular.ttf);\n}\n@font-face {\n  font-family: \"mtavruli\";\n  src: url(/assets/fonts/tbcdinmtavrulibold.ttf);\n}\n*,\n*::after,\n*::before {\n  font-family: \"mtavruli\";\n  margin: 0;\n  padding: 0;\n  box-sizing: border-box;\n  scroll-behavior: smooth;\n}\n*::after,\n*::before {\n  position: absolute;\n  content: \"\";\n}\n/* width */\n::-webkit-scrollbar {\n  width: 7px;\n}\n\n/* Track */\n::-webkit-scrollbar-track {\n  background: #1c728f;\n}\n\n/* Handle */\n::-webkit-scrollbar-thumb {\n  background: #00bbffa9;\n}\n::-webkit-scrollbar-thumb:hover {\n  background: #00bdff;\n}\n\nhtml {\n  box-sizing: border-box;\n}\nbody {\n  font-family: \"mtavruli\";\n  font-weight: 400;\n  line-height: 1.3;\n  color: #1c3447;\n  background: #fff;\n  overflow-x: hidden;\n  scroll-behavior: smooth;\n  font-size: 16px;\n}\np {\n  font-family: \"nusxuri\";\n  font-weight: 100;\n  line-height: 1.5;\n  text-align: justify;\n}\nh1 {\n  font-weight: 600;\n}\nul {\n  list-style: none;\n}\na {\n  text-decoration: none;\n  color: inherit;\n}\ninput,\ntextarea,\nbutton {\n  outline: none;\n  border: none;\n  background: none;\n}\nbutton {\n  cursor: pointer;\n}\nselect {\n  border: none;\n  outline: none;\n}\nimg {\n  height: auto;\n  max-width: 100%;\n}\n.img {\n  overflow: hidden;\n}\n.img img {\n  width: 100%;\n  height: 100%;\n  -o-object-fit: cover;\n     object-fit: cover;\n}\n.map iframe {\n  width: 100%;\n  height: 100%;\n}\n.wrapper {\n  width: 1400px;\n  height: 100%;\n  margin: auto;\n}\n.container {\n  width: 800px;\n}\n.flex {\n  display: flex;\n  align-items: center;\n  justify-content: space-between;\n}\n.flex.centered {\n  justify-content: center;\n}\n.nux {\n  font-family: \"nusxuri\";\n}\n.font45 {\n  font-size: 45px;\n  margin-bottom: 30px;\n}\n.blue {\n  color: #22aabe;\n}\ninput,\ntextarea {\n  width: 100%;\n  border: 3px solid #eef2f9;\n  padding-left: 20px;\n  margin-bottom: 20px;\n  height: 40px;\n}\ntextarea {\n  height: 100px;\n  margin-bottom: 22px;\n  padding-top: 7px;\n}\n.padding_top {\n  padding-top: 82px;\n}\n.underline {\n  text-decoration: underline;\n}\n.uppercase {\n  text-transform: uppercase;\n}\n\n@media screen and (max-width: 1450px) {\n  .wrapper {\n    width: 95%;\n  }\n}\n@media screen and (max-width: 1200px) {\n  .padding_top {\n    padding-top: 79px;\n  }\n}\n@media screen and (max-width: 1000px) {\n  .font45 {\n    font-size: 30px;\n  }\n  .padding_top {\n    padding-top: 77px;\n  }\n}\n@media screen and (max-width: 850px) {\n  .container {\n    width: 100%;\n  }\n  body {\n    font-size: 14px;\n  }\n}\n@media screen and (max-width: 500px) {\n  input,\n  textarea {\n    padding-left: 15px;\n    margin-bottom: 11px;\n  }\n  .font45 {\n    font-size: 25px;\n    margin-bottom: 20px;\n  }\n}\n", ""]);
 // Exports
 /* harmony default export */ const __WEBPACK_DEFAULT_EXPORT__ = (___CSS_LOADER_EXPORT___);
 
@@ -7099,7 +7123,7 @@ __webpack_require__.r(__webpack_exports__);
 
 var ___CSS_LOADER_EXPORT___ = _node_modules_css_loader_dist_runtime_api_js__WEBPACK_IMPORTED_MODULE_0___default()(function(i){return i[1]});
 // Module
-___CSS_LOADER_EXPORT___.push([module.id, ".aboutPage {\n    padding-bottom: 70px;\n}\n\n.aboutPage .font45 {\n    margin-top: 30px;\n}\n\n.aboutPage .showcase {\n    height: 256px;\n    padding-top: 30px;\n    margin-bottom: 40px;\n}\n\n.aboutPage p {\n    margin-bottom: 20px;\n}\n\n.aboutPage .content {\n    margin-top: 40px;\n}\n\n.aboutPage .country {\n    display: inline-block;\n    margin-right: 30px;\n    margin-top: 30px;\n    vertical-align: top;\n}\n\n.aboutPage h5 {\n    font-size: 16px;\n}\n\n.aboutPage .country h6 {\n    font-size: 15px;\n}\n\n.aboutPage .country span {\n    font-size: 8px;\n}\n\n@media screen and (max-width: 700px) {\n    .aboutPage {\n        font-size: 14px;\n    }\n\n    .aboutPage .showcase {\n        height: 173px;\n        padding-top: 9px;\n        margin-bottom: 22px;\n    }\n\n    .aboutPage p {\n        margin-bottom: 11px;\n    }\n\n    .aboutPage .content {\n        margin-top: 20px;\n    }\n}\n", ""]);
+___CSS_LOADER_EXPORT___.push([module.id, ".aboutPage {\r\n    padding-bottom: 70px;\r\n}\r\n\r\n.aboutPage .font45 {\r\n    margin-top: 30px;\r\n}\r\n\r\n.aboutPage .showcase {\r\n    height: 256px;\r\n    padding-top: 30px;\r\n    margin-bottom: 40px;\r\n}\r\n\r\n.aboutPage p {\r\n    margin-bottom: 20px;\r\n}\r\n\r\n.aboutPage .content {\r\n    margin-top: 40px;\r\n}\r\n\r\n.aboutPage .country {\r\n    display: inline-block;\r\n    margin-right: 30px;\r\n    margin-top: 30px;\r\n    vertical-align: top;\r\n}\r\n\r\n.aboutPage h5 {\r\n    font-size: 16px;\r\n}\r\n\r\n.aboutPage .country h6 {\r\n    font-size: 15px;\r\n}\r\n\r\n.aboutPage .country span {\r\n    font-size: 8px;\r\n}\r\n\r\n@media screen and (max-width: 700px) {\r\n    .aboutPage {\r\n        font-size: 14px;\r\n    }\r\n\r\n    .aboutPage .showcase {\r\n        height: 173px;\r\n        padding-top: 9px;\r\n        margin-bottom: 22px;\r\n    }\r\n\r\n    .aboutPage p {\r\n        margin-bottom: 11px;\r\n    }\r\n\r\n    .aboutPage .content {\r\n        margin-top: 20px;\r\n    }\r\n}\r\n", ""]);
 // Exports
 /* harmony default export */ const __WEBPACK_DEFAULT_EXPORT__ = (___CSS_LOADER_EXPORT___);
 
@@ -7123,7 +7147,7 @@ __webpack_require__.r(__webpack_exports__);
 
 var ___CSS_LOADER_EXPORT___ = _node_modules_css_loader_dist_runtime_api_js__WEBPACK_IMPORTED_MODULE_0___default()(function(i){return i[1]});
 // Module
-___CSS_LOADER_EXPORT___.push([module.id, ".careerPage {\n    background: url('/assets/images/bgs/4.png') no-repeat;\n    background-position: center;\n    background-size: cover;\n    background-attachment: fixed;\n}\n\n.career_grid {\n    display: grid;\n    grid-template-columns: repeat(2, 1fr);\n    grid-gap: 18px;\n    padding-top: 20px;\n}\n\n.other_vacancies {\n    position: relative;\n}\n\n.other_vacancies h4 {\n    position: absolute;\n    right: 0;\n    top: -30px;\n}\n\n.other_vacancies .vacancy_box {\n    margin-bottom: 18px;\n}\n\n.career_grid.details {\n    grid-gap: 35px;\n}\n\n@media screen and (max-width: 1200px) {\n    .career_grid {\n        grid-template-columns: 1fr;\n        max-width: 700px;\n    }\n\n    .career_grid.details {\n        margin: auto;\n        grid-gap: 50px;\n    }\n\n    .other_vacancies h4 {\n        position: relative;\n        right: auto;\n        top: auto;\n        margin-bottom: 20px;\n    }\n}\n", ""]);
+___CSS_LOADER_EXPORT___.push([module.id, ".careerPage {\r\n    background: url('/assets/images/bgs/4.png') no-repeat;\r\n    background-position: center;\r\n    background-size: cover;\r\n    background-attachment: fixed;\r\n}\r\n\r\n.career_grid {\r\n    display: grid;\r\n    grid-template-columns: repeat(2, 1fr);\r\n    grid-gap: 18px;\r\n    padding-top: 20px;\r\n}\r\n\r\n.other_vacancies {\r\n    position: relative;\r\n}\r\n\r\n.other_vacancies h4 {\r\n    position: absolute;\r\n    right: 0;\r\n    top: -30px;\r\n}\r\n\r\n.other_vacancies .vacancy_box {\r\n    margin-bottom: 18px;\r\n}\r\n\r\n.career_grid.details {\r\n    grid-gap: 35px;\r\n}\r\n\r\n@media screen and (max-width: 1200px) {\r\n    .career_grid {\r\n        grid-template-columns: 1fr;\r\n        max-width: 700px;\r\n    }\r\n\r\n    .career_grid.details {\r\n        margin: auto;\r\n        grid-gap: 50px;\r\n    }\r\n\r\n    .other_vacancies h4 {\r\n        position: relative;\r\n        right: auto;\r\n        top: auto;\r\n        margin-bottom: 20px;\r\n    }\r\n}\r\n", ""]);
 // Exports
 /* harmony default export */ const __WEBPACK_DEFAULT_EXPORT__ = (___CSS_LOADER_EXPORT___);
 
@@ -7243,7 +7267,7 @@ __webpack_require__.r(__webpack_exports__);
 
 var ___CSS_LOADER_EXPORT___ = _node_modules_css_loader_dist_runtime_api_js__WEBPACK_IMPORTED_MODULE_0___default()(function(i){return i[1]});
 // Module
-___CSS_LOADER_EXPORT___.push([module.id, ".loginPage {\n    background: url(/assets/images/bgs/1.png) no-repeat;\n    background-position: top;\n    background-size: cover;\n    padding: 200px 0;\n}\n\n.login_box {\n    width: 536px;\n    background-color: #eef2f9;\n    border-radius: 10px;\n    box-shadow: 0 10px 15px #1e3b601f;\n    padding: 117px 100px;\n    margin: auto;\n}\n\n.login_box h5 {\n    text-align: center;\n    font-size: 20px;\n    margin-bottom: 20px;\n}\n\n.login_box input {\n    border-color: #fff;\n}\n\n.login_box p {\n    margin-bottom: 35px;\n    opacity: 0.7;\n}\n\n.login_box button {\n    background-color: #fff;\n    height: 50px;\n    margin-top: 20px;\n    margin-bottom: 40px;\n    width: 100%;\n}\n\n.login_box button img {\n    vertical-align: middle;\n    margin-left: 10px;\n}\n\n@media screen and (max-width: 1200px) {\n    .loginPage {\n        padding: 80px 0;\n    }\n\n    .login_box {\n        padding: 81px 67px;\n    }\n}\n\n@media screen and (max-width: 600px) {\n    .login_box {\n        width: 95%;\n        padding: 46px 23px;\n    }\n}\n", ""]);
+___CSS_LOADER_EXPORT___.push([module.id, ".loginPage {\r\n    background: url(/assets/images/bgs/1.png) no-repeat;\r\n    background-position: top;\r\n    background-size: cover;\r\n    padding: 200px 0;\r\n}\r\n\r\n.login_box {\r\n    width: 536px;\r\n    background-color: #eef2f9;\r\n    border-radius: 10px;\r\n    box-shadow: 0 10px 15px #1e3b601f;\r\n    padding: 117px 100px;\r\n    margin: auto;\r\n}\r\n\r\n.login_box h5 {\r\n    text-align: center;\r\n    font-size: 20px;\r\n    margin-bottom: 20px;\r\n}\r\n\r\n.login_box input {\r\n    border-color: #fff;\r\n}\r\n\r\n.login_box p {\r\n    margin-bottom: 35px;\r\n    opacity: 0.7;\r\n}\r\n\r\n.login_box button {\r\n    background-color: #fff;\r\n    height: 50px;\r\n    margin-top: 20px;\r\n    margin-bottom: 40px;\r\n    width: 100%;\r\n}\r\n\r\n.login_box button img {\r\n    vertical-align: middle;\r\n    margin-left: 10px;\r\n}\r\n\r\n@media screen and (max-width: 1200px) {\r\n    .loginPage {\r\n        padding: 80px 0;\r\n    }\r\n\r\n    .login_box {\r\n        padding: 81px 67px;\r\n    }\r\n}\r\n\r\n@media screen and (max-width: 600px) {\r\n    .login_box {\r\n        width: 95%;\r\n        padding: 46px 23px;\r\n    }\r\n}\r\n", ""]);
 // Exports
 /* harmony default export */ const __WEBPACK_DEFAULT_EXPORT__ = (___CSS_LOADER_EXPORT___);
 
@@ -7291,7 +7315,7 @@ __webpack_require__.r(__webpack_exports__);
 
 var ___CSS_LOADER_EXPORT___ = _node_modules_css_loader_dist_runtime_api_js__WEBPACK_IMPORTED_MODULE_0___default()(function(i){return i[1]});
 // Module
-___CSS_LOADER_EXPORT___.push([module.id, ".servicesPage {\n    background: url(/assets/images/bgs/3.png) no-repeat;\n    background-position: center;\n    background-size: cover;\n    background-attachment: fixed;\n    padding-top: 100px;\n}\n\n.servicesPage .ships_img {\n    margin: 50px 0;\n}\n\n.statorPage .content {\n    margin-bottom: 50px;\n}\n\n@media screen and (max-width: 600px) {\n    .servicesPage .ships_img {\n        margin: 32px 0;\n    }\n}\n", ""]);
+___CSS_LOADER_EXPORT___.push([module.id, ".servicesPage {\r\n    background: url(/assets/images/bgs/3.png) no-repeat;\r\n    background-position: center;\r\n    background-size: cover;\r\n    background-attachment: fixed;\r\n    padding-top: 100px;\r\n}\r\n\r\n.servicesPage .ships_img {\r\n    margin: 50px 0;\r\n}\r\n\r\n.statorPage .content {\r\n    margin-bottom: 50px;\r\n}\r\n\r\n@media screen and (max-width: 600px) {\r\n    .servicesPage .ships_img {\r\n        margin: 32px 0;\r\n    }\r\n}\r\n", ""]);
 // Exports
 /* harmony default export */ const __WEBPACK_DEFAULT_EXPORT__ = (___CSS_LOADER_EXPORT___);
 
@@ -7435,7 +7459,7 @@ __webpack_require__.r(__webpack_exports__);
 
 var ___CSS_LOADER_EXPORT___ = _node_modules_css_loader_dist_runtime_api_js__WEBPACK_IMPORTED_MODULE_0___default()(function(i){return i[1]});
 // Module
-___CSS_LOADER_EXPORT___.push([module.id, ".stator_grid {\n    display: grid;\n    grid-template-columns: repeat(5, 1fr);\n    grid-gap: 12px 11px;\n    width: 100%;\n}\n\n.stator_grid .first_box {\n    background: url('/assets/images/stators/bg2.png') no-repeat;\n    background-position: center;\n    background-size: cover;\n    color: #fff;\n    margin-right: 5px;\n    border-radius: 10px;\n    overflow: hidden;\n    width: 338px;\n    grid-row: span 2;\n    padding: 20px;\n}\n\n.stator_grid .first_box h6 {\n    font-size: 20px;\n    margin-bottom: 100px;\n}\n\n.stator_box {\n    position: relative;\n    border-radius: 5px;\n    overflow: hidden;\n    box-shadow: 0 3px 6px rgba(0, 0, 0, 0.164);\n    height: 138px;\n    background-color: #eef2f9;\n}\n\n.stator_box .bg {\n    position: absolute;\n    width: 100%;\n    height: 100%;\n    left: 0;\n    top: 0;\n    transform: translateX(-100%);\n    transition: 0.4s;\n}\n\n.stator_box:hover .bg {\n    transform: translateX(0);\n}\n\n.stator_name {\n    position: absolute;\n    left: 50%;\n    top: 50%;\n    transform: translate(-50%, -50%);\n    font-size: 20px;\n    color: #073a64;\n    transition: all 0.4s;\n    white-space: nowrap;\n}\n\n.stator_grid a:nth-child(5) .stator_name {\n    white-space: normal;\n}\n\n.stator_box:hover .stator_name {\n    left: 16px;\n    transform: translate(0, -50%);\n    color: #fff;\n}\n\n.stator_box .more {\n    position: absolute;\n    left: 16px;\n    bottom: 12px;\n    color: #fff;\n    opacity: 0;\n    transition: all 0.4s;\n}\n\n.stator_box:hover .more {\n    opacity: 1;\n}\n\n@media screen and (max-width: 1450px) {\n    .stator_name {\n        font-size: 18px;\n    }\n\n    .stator_grid a:nth-child(5) .stator_name {\n        width: 114px;\n    }\n}\n\n@media screen and (max-width: 1200px) {\n    .stator_grid .first_box {\n        width: 100%;\n        grid-column: span 2;\n        margin: 0;\n        border-radius: 5px;\n    }\n\n    .stator_grid {\n        grid-template-columns: repeat(4, 1fr);\n    }\n}\n\n@media screen and (max-width: 750px) {\n    .stator_grid {\n        grid-template-columns: repeat(3, 1fr);\n    }\n}\n\n@media screen and (max-width: 500px) {\n    .stator_grid {\n        grid-template-columns: repeat(2, 1fr);\n    }\n}\n", ""]);
+___CSS_LOADER_EXPORT___.push([module.id, ".stator_grid {\r\n    display: grid;\r\n    grid-template-columns: repeat(5, 1fr);\r\n    grid-gap: 12px 11px;\r\n    width: 100%;\r\n}\r\n\r\n.stator_grid .first_box {\r\n    background: url('/assets/images/stators/bg2.png') no-repeat;\r\n    background-position: center;\r\n    background-size: cover;\r\n    color: #fff;\r\n    margin-right: 5px;\r\n    border-radius: 10px;\r\n    overflow: hidden;\r\n    width: 338px;\r\n    grid-row: span 2;\r\n    padding: 20px;\r\n}\r\n\r\n.stator_grid .first_box h6 {\r\n    font-size: 20px;\r\n    margin-bottom: 100px;\r\n}\r\n\r\n.stator_box {\r\n    position: relative;\r\n    border-radius: 5px;\r\n    overflow: hidden;\r\n    box-shadow: 0 3px 6px rgba(0, 0, 0, 0.164);\r\n    height: 138px;\r\n    background-color: #eef2f9;\r\n}\r\n\r\n.stator_box .bg {\r\n    position: absolute;\r\n    width: 100%;\r\n    height: 100%;\r\n    left: 0;\r\n    top: 0;\r\n    transform: translateX(-100%);\r\n    transition: 0.4s;\r\n}\r\n\r\n.stator_box:hover .bg {\r\n    transform: translateX(0);\r\n}\r\n\r\n.stator_name {\r\n    position: absolute;\r\n    left: 50%;\r\n    top: 50%;\r\n    transform: translate(-50%, -50%);\r\n    font-size: 20px;\r\n    color: #073a64;\r\n    transition: all 0.4s;\r\n    white-space: nowrap;\r\n}\r\n\r\n.stator_grid a:nth-child(5) .stator_name {\r\n    white-space: normal;\r\n}\r\n\r\n.stator_box:hover .stator_name {\r\n    left: 16px;\r\n    transform: translate(0, -50%);\r\n    color: #fff;\r\n}\r\n\r\n.stator_box .more {\r\n    position: absolute;\r\n    left: 16px;\r\n    bottom: 12px;\r\n    color: #fff;\r\n    opacity: 0;\r\n    transition: all 0.4s;\r\n}\r\n\r\n.stator_box:hover .more {\r\n    opacity: 1;\r\n}\r\n\r\n@media screen and (max-width: 1450px) {\r\n    .stator_name {\r\n        font-size: 18px;\r\n    }\r\n\r\n    .stator_grid a:nth-child(5) .stator_name {\r\n        width: 114px;\r\n    }\r\n}\r\n\r\n@media screen and (max-width: 1200px) {\r\n    .stator_grid .first_box {\r\n        width: 100%;\r\n        grid-column: span 2;\r\n        margin: 0;\r\n        border-radius: 5px;\r\n    }\r\n\r\n    .stator_grid {\r\n        grid-template-columns: repeat(4, 1fr);\r\n    }\r\n}\r\n\r\n@media screen and (max-width: 750px) {\r\n    .stator_grid {\r\n        grid-template-columns: repeat(3, 1fr);\r\n    }\r\n}\r\n\r\n@media screen and (max-width: 500px) {\r\n    .stator_grid {\r\n        grid-template-columns: repeat(2, 1fr);\r\n    }\r\n}\r\n", ""]);
 // Exports
 /* harmony default export */ const __WEBPACK_DEFAULT_EXPORT__ = (___CSS_LOADER_EXPORT___);
 
@@ -45867,39 +45891,6 @@ module.exports = JSON.parse('{"name":"axios","version":"0.21.4","description":"P
 /******/ 		};
 /******/ 	})();
 /******/ 	
-/******/ 	/* webpack/runtime/ensure chunk */
-/******/ 	(() => {
-/******/ 		__webpack_require__.f = {};
-/******/ 		// This file contains only the entry chunk.
-/******/ 		// The chunk loading function for additional chunks
-/******/ 		__webpack_require__.e = (chunkId) => {
-/******/ 			return Promise.all(Object.keys(__webpack_require__.f).reduce((promises, key) => {
-/******/ 				__webpack_require__.f[key](chunkId, promises);
-/******/ 				return promises;
-/******/ 			}, []));
-/******/ 		};
-/******/ 	})();
-/******/ 	
-/******/ 	/* webpack/runtime/get javascript chunk filename */
-/******/ 	(() => {
-/******/ 		// This function allow to reference async chunks
-/******/ 		__webpack_require__.u = (chunkId) => {
-/******/ 			// return url for filenames not based on template
-/******/ 			if ({"resources_js_Layouts_AppGeo_css":1,"resources_js_Layouts_AppRus_css":1}[chunkId]) return "js/" + chunkId + ".js";
-/******/ 			// return url for filenames based on template
-/******/ 			return undefined;
-/******/ 		};
-/******/ 	})();
-/******/ 	
-/******/ 	/* webpack/runtime/get mini-css chunk filename */
-/******/ 	(() => {
-/******/ 		// This function allow to reference all chunks
-/******/ 		__webpack_require__.miniCssF = (chunkId) => {
-/******/ 			// return url for filenames based on template
-/******/ 			return "" + chunkId + ".css";
-/******/ 		};
-/******/ 	})();
-/******/ 	
 /******/ 	/* webpack/runtime/global */
 /******/ 	(() => {
 /******/ 		__webpack_require__.g = (function() {
@@ -45915,52 +45906,6 @@ module.exports = JSON.parse('{"name":"axios","version":"0.21.4","description":"P
 /******/ 	/* webpack/runtime/hasOwnProperty shorthand */
 /******/ 	(() => {
 /******/ 		__webpack_require__.o = (obj, prop) => (Object.prototype.hasOwnProperty.call(obj, prop))
-/******/ 	})();
-/******/ 	
-/******/ 	/* webpack/runtime/load script */
-/******/ 	(() => {
-/******/ 		var inProgress = {};
-/******/ 		// data-webpack is not used as build has no uniqueName
-/******/ 		// loadScript function to load a script via script tag
-/******/ 		__webpack_require__.l = (url, done, key, chunkId) => {
-/******/ 			if(inProgress[url]) { inProgress[url].push(done); return; }
-/******/ 			var script, needAttach;
-/******/ 			if(key !== undefined) {
-/******/ 				var scripts = document.getElementsByTagName("script");
-/******/ 				for(var i = 0; i < scripts.length; i++) {
-/******/ 					var s = scripts[i];
-/******/ 					if(s.getAttribute("src") == url) { script = s; break; }
-/******/ 				}
-/******/ 			}
-/******/ 			if(!script) {
-/******/ 				needAttach = true;
-/******/ 				script = document.createElement('script');
-/******/ 		
-/******/ 				script.charset = 'utf-8';
-/******/ 				script.timeout = 120;
-/******/ 				if (__webpack_require__.nc) {
-/******/ 					script.setAttribute("nonce", __webpack_require__.nc);
-/******/ 				}
-/******/ 		
-/******/ 				script.src = url;
-/******/ 			}
-/******/ 			inProgress[url] = [done];
-/******/ 			var onScriptComplete = (prev, event) => {
-/******/ 				// avoid mem leaks in IE.
-/******/ 				script.onerror = script.onload = null;
-/******/ 				clearTimeout(timeout);
-/******/ 				var doneFns = inProgress[url];
-/******/ 				delete inProgress[url];
-/******/ 				script.parentNode && script.parentNode.removeChild(script);
-/******/ 				doneFns && doneFns.forEach((fn) => (fn(event)));
-/******/ 				if(prev) return prev(event);
-/******/ 			}
-/******/ 			;
-/******/ 			var timeout = setTimeout(onScriptComplete.bind(null, undefined, { type: 'timeout', target: script }), 120000);
-/******/ 			script.onerror = onScriptComplete.bind(null, script.onerror);
-/******/ 			script.onload = onScriptComplete.bind(null, script.onload);
-/******/ 			needAttach && document.head.appendChild(script);
-/******/ 		};
 /******/ 	})();
 /******/ 	
 /******/ 	/* webpack/runtime/make namespace object */
@@ -45983,11 +45928,6 @@ module.exports = JSON.parse('{"name":"axios","version":"0.21.4","description":"P
 /******/ 		};
 /******/ 	})();
 /******/ 	
-/******/ 	/* webpack/runtime/publicPath */
-/******/ 	(() => {
-/******/ 		__webpack_require__.p = "/";
-/******/ 	})();
-/******/ 	
 /******/ 	/* webpack/runtime/jsonp chunk loading */
 /******/ 	(() => {
 /******/ 		// no baseURI
@@ -46002,44 +45942,7 @@ module.exports = JSON.parse('{"name":"axios","version":"0.21.4","description":"P
 /******/ 			"css/app": 0
 /******/ 		};
 /******/ 		
-/******/ 		__webpack_require__.f.j = (chunkId, promises) => {
-/******/ 				// JSONP chunk loading for javascript
-/******/ 				var installedChunkData = __webpack_require__.o(installedChunks, chunkId) ? installedChunks[chunkId] : undefined;
-/******/ 				if(installedChunkData !== 0) { // 0 means "already installed".
-/******/ 		
-/******/ 					// a Promise means "currently loading".
-/******/ 					if(installedChunkData) {
-/******/ 						promises.push(installedChunkData[2]);
-/******/ 					} else {
-/******/ 						if(!/^css\/(App(Eng|Geo)|app)$/.test(chunkId)) {
-/******/ 							// setup Promise in chunk cache
-/******/ 							var promise = new Promise((resolve, reject) => (installedChunkData = installedChunks[chunkId] = [resolve, reject]));
-/******/ 							promises.push(installedChunkData[2] = promise);
-/******/ 		
-/******/ 							// start chunk loading
-/******/ 							var url = __webpack_require__.p + __webpack_require__.u(chunkId);
-/******/ 							// create error before stack unwound to get useful stacktrace later
-/******/ 							var error = new Error();
-/******/ 							var loadingEnded = (event) => {
-/******/ 								if(__webpack_require__.o(installedChunks, chunkId)) {
-/******/ 									installedChunkData = installedChunks[chunkId];
-/******/ 									if(installedChunkData !== 0) installedChunks[chunkId] = undefined;
-/******/ 									if(installedChunkData) {
-/******/ 										var errorType = event && (event.type === 'load' ? 'missing' : event.type);
-/******/ 										var realSrc = event && event.target && event.target.src;
-/******/ 										error.message = 'Loading chunk ' + chunkId + ' failed.\n(' + errorType + ': ' + realSrc + ')';
-/******/ 										error.name = 'ChunkLoadError';
-/******/ 										error.type = errorType;
-/******/ 										error.request = realSrc;
-/******/ 										installedChunkData[1](error);
-/******/ 									}
-/******/ 								}
-/******/ 							};
-/******/ 							__webpack_require__.l(url, loadingEnded, "chunk-" + chunkId, chunkId);
-/******/ 						} else installedChunks[chunkId] = 0;
-/******/ 					}
-/******/ 				}
-/******/ 		};
+/******/ 		// no chunk on demand loading
 /******/ 		
 /******/ 		// no prefetching
 /******/ 		

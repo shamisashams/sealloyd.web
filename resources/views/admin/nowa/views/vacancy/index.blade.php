@@ -109,6 +109,10 @@
                                             </td>
 
                                             <td>
+                                                <a href="{{locale_route('vacancy.resumes',$item->id)}}"
+                                                   class="pl-3">
+                                                    <i class="fa fa-edit">ნახვა</i>
+                                                </a>
 
                                                 <a href="{{locale_route('vacancy.edit',$item->id)}}"
                                                    class="pl-3">
