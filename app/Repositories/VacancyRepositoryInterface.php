@@ -1,4 +1,5 @@
 <?php
+
 /**
  *  app/Repositories/CategoryRepositoryInterface.php
  *
@@ -6,6 +7,7 @@
  * Time: 17:44
  * @author Insite LLC <hello@insite.international>
  */
+
 namespace App\Repositories;
 
 
@@ -18,7 +20,4 @@ use App\Models\Category;
  */
 interface VacancyRepositoryInterface
 {
-
-
-
 }

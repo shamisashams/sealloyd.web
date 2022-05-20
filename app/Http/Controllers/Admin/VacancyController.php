@@ -1,4 +1,5 @@
 <?php
+
 /**
  *  app/Http/Controllers/Admin/ProductController.php
  *
@@ -46,8 +47,7 @@ class VacancyController extends Controller
 
     public function __construct(
         VacancyRepository $vacancyRepository
-    )
-    {
+    ) {
         $this->vacancyRepository = $vacancyRepository;
     }
 
@@ -132,7 +132,6 @@ class VacancyController extends Controller
         }
 
         return redirect(locale_route('vacancy.index', $vacancy->id))->with('success', __('admin.create_successfully'));
-
     }
 
     /**
@@ -227,8 +226,9 @@ class VacancyController extends Controller
         return redirect(locale_route('vacancy.index'))->with('success', __('admin.delete_message'));
     }
 
-    public function docDelete($locale,$id){
-        $file = File::query()->where('id',$id)->firstOrFail();
+    public function docDelete($locale, $id)
+    {
+        $file = File::query()->where('id', $id)->firstOrFail();
         $id = $file->fileable_id;
         //dd($file);
         if (Storage::exists('public/Vacancy/' . $file->fileable_id . '/files/' . $file->title)) {
@@ -236,7 +236,6 @@ class VacancyController extends Controller
         }
 
         $file->delete();
-        return redirect(locale_route('vacancy.edit',$id))->with('success', __('admin.delete_message'));
-
+        return redirect(locale_route('vacancy.edit', $id))->with('success', __('admin.delete_message'));
     }
 }

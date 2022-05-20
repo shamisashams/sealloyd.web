@@ -1,4 +1,5 @@
 <?php
+
 /**
  *  app/Http/Controllers/Admin/ProductController.php
  *
@@ -44,8 +45,7 @@ class SkillController extends Controller
 
     public function __construct(
         SkillRepository $skillRepository
-    )
-    {
+    ) {
         $this->skillRepository = $skillRepository;
     }
 
@@ -126,7 +126,6 @@ class SkillController extends Controller
         }
 
         return redirect(locale_route('skill.index', $customer->id))->with('success', __('admin.create_successfully'));
-
     }
 
     /**
@@ -220,8 +219,9 @@ class SkillController extends Controller
         return redirect(locale_route('skill.index'))->with('success', __('admin.delete_message'));
     }
 
-    public function docDelete($locale,$id){
-        $file = File::query()->where('id',$id)->firstOrFail();
+    public function docDelete($locale, $id)
+    {
+        $file = File::query()->where('id', $id)->firstOrFail();
         $id = $file->fileable_id;
         //dd($file);
         if (Storage::exists('public/Customer/' . $file->fileable_id . '/files/' . $file->title)) {
@@ -229,7 +229,6 @@ class SkillController extends Controller
         }
 
         $file->delete();
-        return redirect(locale_route('customer.edit',$id))->with('success', __('admin.delete_message'));
-
+        return redirect(locale_route('customer.edit', $id))->with('success', __('admin.delete_message'));
     }
 }
