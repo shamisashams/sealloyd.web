@@ -4469,8 +4469,11 @@ __webpack_require__.r(__webpack_exports__);
 /* harmony import */ var _AppChecklist__WEBPACK_IMPORTED_MODULE_2__ = __webpack_require__(/*! ./AppChecklist */ "./resources/js/Pages/Documents/AppChecklist.js");
 /* harmony import */ var _AppInputs__WEBPACK_IMPORTED_MODULE_3__ = __webpack_require__(/*! ./AppInputs */ "./resources/js/Pages/Documents/AppInputs.js");
 /* harmony import */ var _inertiajs_inertia__WEBPACK_IMPORTED_MODULE_4__ = __webpack_require__(/*! @inertiajs/inertia */ "./node_modules/@inertiajs/inertia/dist/index.js");
-/* harmony import */ var _Layouts_Layout__WEBPACK_IMPORTED_MODULE_5__ = __webpack_require__(/*! ../../Layouts/Layout */ "./resources/js/Layouts/Layout.js");
-/* harmony import */ var _Documents_css__WEBPACK_IMPORTED_MODULE_6__ = __webpack_require__(/*! ./Documents.css */ "./resources/js/Pages/Documents/Documents.css");
+/* harmony import */ var _inertiajs_inertia_react__WEBPACK_IMPORTED_MODULE_5__ = __webpack_require__(/*! @inertiajs/inertia-react */ "./node_modules/@inertiajs/inertia-react/dist/index.js");
+/* harmony import */ var _Layouts_Layout__WEBPACK_IMPORTED_MODULE_6__ = __webpack_require__(/*! ../../Layouts/Layout */ "./resources/js/Layouts/Layout.js");
+/* harmony import */ var sweetalert2__WEBPACK_IMPORTED_MODULE_7__ = __webpack_require__(/*! sweetalert2 */ "./node_modules/sweetalert2/dist/sweetalert2.all.js");
+/* harmony import */ var sweetalert2__WEBPACK_IMPORTED_MODULE_7___default = /*#__PURE__*/__webpack_require__.n(sweetalert2__WEBPACK_IMPORTED_MODULE_7__);
+/* harmony import */ var _Documents_css__WEBPACK_IMPORTED_MODULE_8__ = __webpack_require__(/*! ./Documents.css */ "./resources/js/Pages/Documents/Documents.css");
 function ownKeys(object, enumerableOnly) { var keys = Object.keys(object); if (Object.getOwnPropertySymbols) { var symbols = Object.getOwnPropertySymbols(object); enumerableOnly && (symbols = symbols.filter(function (sym) { return Object.getOwnPropertyDescriptor(object, sym).enumerable; })), keys.push.apply(keys, symbols); } return keys; }
 
 function _objectSpread(target) { for (var i = 1; i < arguments.length; i++) { var source = null != arguments[i] ? arguments[i] : {}; i % 2 ? ownKeys(Object(source), !0).forEach(function (key) { _defineProperty(target, key, source[key]); }) : Object.getOwnPropertyDescriptors ? Object.defineProperties(target, Object.getOwnPropertyDescriptors(source)) : ownKeys(Object(source)).forEach(function (key) { Object.defineProperty(target, key, Object.getOwnPropertyDescriptor(source, key)); }); } return target; }
@@ -4494,12 +4497,38 @@ function _arrayWithHoles(arr) { if (Array.isArray(arr)) return arr; }
 
 
 
+
+
  // import mail from "../../assets/images/icons/contact/mail.svg";
 
 
 
 var OwnerApplication = function OwnerApplication(_ref) {
-  var seo = _ref.seo;
+  var seo = _ref.seo,
+      success = _ref.success,
+      error = _ref.error;
+  var errors = (0,_inertiajs_inertia_react__WEBPACK_IMPORTED_MODULE_5__.usePage)().props.errors;
+
+  if (success) {
+    sweetalert2__WEBPACK_IMPORTED_MODULE_7___default().fire({
+      title: 'წარმატებით დაემატა',
+      text: '',
+      icon: 'success',
+      confirmButtonText: 'Cool'
+    });
+    setTimeout(function () {
+      location.reload();
+    }, 2000);
+  } else if (error) {
+    sweetalert2__WEBPACK_IMPORTED_MODULE_7___default().fire({
+      title: 'შეცდომა!',
+      text: '',
+      icon: 'fail',
+      confirmButtonText: 'Cool'
+    });
+    location.reload();
+  }
+
   var checklist = [{
     title: "HULL & MACHINERY",
     name: "hull_machinery",
@@ -4616,20 +4645,18 @@ var OwnerApplication = function OwnerApplication(_ref) {
     title: "MANUAL APPROVAL (SPECIFY)",
     name: 'manual approval',
     checks: ["Approval"]
-  }];
-  var obj = {};
-  var a = document.querySelectorAll('.app_inputs input');
-  var value;
-  a.forEach(function (e) {
-    if (e.placeholder == "") {
-      value = e.title;
-    } else {
-      value = e.placeholder;
-    }
-
-    var str = value.replace(/\s+/g, '_').toLowerCase();
-    obj[str] = "";
-  }); // console.log(obj);
+  }]; // let obj = {};
+  // let a = document.querySelectorAll('.app_inputs input');
+  // var value;
+  // a.forEach((e) => {
+  //     if (e.placeholder == "") {
+  //         value = e.title
+  //     } else {
+  //         value = e.placeholder;
+  //     }
+  //     var str = value.replace(/\s+/g, '_').toLowerCase();
+  //     obj[str] = "";
+  // })
 
   var _useState = (0,react__WEBPACK_IMPORTED_MODULE_0__.useState)({
     name_of_ship: "",
@@ -4709,13 +4736,51 @@ var OwnerApplication = function OwnerApplication(_ref) {
     });
   }
 
-  function handleSubmit(e) {
-    e.preventDefault();
-    _inertiajs_inertia__WEBPACK_IMPORTED_MODULE_4__.Inertia.post(route('client.documentations.sendapplication'), values);
+  var radio = document.querySelectorAll('#radio_container');
+
+  function GetElementInsideContainer(containerID, childID) {
+    var elm = document.getElementById(childID);
+    var parent = elm ? elm.parentNode : {};
+    return parent.id && parent.id === containerID ? elm : {};
   }
 
-  console.log(obj);
-  return /*#__PURE__*/react__WEBPACK_IMPORTED_MODULE_0__.createElement(_Layouts_Layout__WEBPACK_IMPORTED_MODULE_5__["default"], {
+  GetElementInsideContainer('app_checklist', 'radio_container'); // let assa = radio[0].getElementsByClassName("checkbox")
+
+  function handleSubmit(e) {
+    e.preventDefault(); // let form = document.forms["ownerapplication"];
+    // let formInputs = form.elements;
+
+    var validform = true;
+    var a = document.querySelectorAll('.app_inputs input');
+
+    for (var i = 0; i < a.length; i++) {
+      if (a[i].value == "") {
+        validform = false;
+        sweetalert2__WEBPACK_IMPORTED_MODULE_7___default().fire({
+          title: 'შეცდომა',
+          text: 'გთხოვთ შეავსოთ ყველა ველი',
+          icon: 'fail',
+          confirmButtonText: 'Cool'
+        });
+        break;
+      }
+    }
+
+    if (!validform) {
+      sweetalert2__WEBPACK_IMPORTED_MODULE_7___default().fire({
+        title: 'შეცდომა',
+        text: 'გთხოვთ შეავსოთ ყველა ველი',
+        icon: 'fail',
+        confirmButtonText: 'Cool'
+      });
+    }
+
+    if (validform) {
+      _inertiajs_inertia__WEBPACK_IMPORTED_MODULE_4__.Inertia.post(route('client.documentations.sendapplication'), values);
+    }
+  }
+
+  return /*#__PURE__*/react__WEBPACK_IMPORTED_MODULE_0__.createElement(_Layouts_Layout__WEBPACK_IMPORTED_MODULE_6__["default"], {
     seo: seo
   }, /*#__PURE__*/react__WEBPACK_IMPORTED_MODULE_0__.createElement("div", {
     className: "documents teamPage careerPage"
@@ -4728,6 +4793,7 @@ var OwnerApplication = function OwnerApplication(_ref) {
     location2: "\u10D3\u10DD\u10D9\u10E3\u10DB\u10D4\u10DC\u10E2\u10D0\u10EA\u10D8\u10D0",
     location3: "\u10D2\u10D4\u10DB\u10D7\u10DB\u10E4\u10DA\u10DD\u10D1\u10D4\u10DA\u10D8\u10E1 \u10D0\u10DE\u10DA\u10D8\u10D9\u10D0\u10EA\u10D8\u10D0"
   }), /*#__PURE__*/react__WEBPACK_IMPORTED_MODULE_0__.createElement("p", null, "Dear Sirs, ", /*#__PURE__*/react__WEBPACK_IMPORTED_MODULE_0__.createElement("br", null), "Please proceed with classification/statutory survey"), /*#__PURE__*/react__WEBPACK_IMPORTED_MODULE_0__.createElement("form", {
+    name: "ownerapplication",
     onSubmit: handleSubmit
   }, /*#__PURE__*/react__WEBPACK_IMPORTED_MODULE_0__.createElement("div", {
     className: "flex main"
@@ -4909,11 +4975,13 @@ var OwnerApplication = function OwnerApplication(_ref) {
   }, /*#__PURE__*/react__WEBPACK_IMPORTED_MODULE_0__.createElement("div", {
     className: "underline uppercase head"
   }, "Surveys requested ", /*#__PURE__*/react__WEBPACK_IMPORTED_MODULE_0__.createElement("span", null, "Check whatever is applicable*")), /*#__PURE__*/react__WEBPACK_IMPORTED_MODULE_0__.createElement("div", {
-    className: "app_checklist"
+    className: "app_checklist",
+    id: "app_checklist"
   }, checklist.map(function (item, index) {
     return /*#__PURE__*/react__WEBPACK_IMPORTED_MODULE_0__.createElement("div", {
       key: index,
-      className: "flex line"
+      className: "flex line",
+      id: "radio_container"
     }, /*#__PURE__*/react__WEBPACK_IMPORTED_MODULE_0__.createElement("div", {
       className: "cat"
     }, item.title), item.checks.map(function (check, i) {
@@ -6956,7 +7024,7 @@ __webpack_require__.r(__webpack_exports__);
 
 var ___CSS_LOADER_EXPORT___ = _node_modules_css_loader_dist_runtime_api_js__WEBPACK_IMPORTED_MODULE_0___default()(function(i){return i[1]});
 // Module
-___CSS_LOADER_EXPORT___.push([module.id, "@font-face {\r\n    font-family: \"roboto\";\r\n    src: url(/assets/fonts/Roboto-Regular.ttf);\r\n}\r\n\r\n@font-face {\r\n    font-family: \"mtav\";\r\n    src: url(/assets/fonts/AS-Grammatika-Regular_Mtav.ttf);\r\n}\r\n\r\n@font-face {\r\n    font-family: \"poppins\";\r\n    src: url(/assets/fonts/Poppins/Poppins-Regular.ttf);\r\n}\r\n\r\n@font-face {\r\n    font-family: \"bold\";\r\n    src: url(/assets/fonts/Poppins/Poppins-Bold.ttf);\r\n}\r\n\r\n*,\r\n*::after,\r\n*::before {\r\n    font-family: \"poppins\";\r\n    margin: 0;\r\n    padding: 0;\r\n    box-sizing: border-box;\r\n    scroll-behavior: smooth;\r\n}\r\n\r\n*::after,\r\n*::before {\r\n    position: absolute;\r\n    content: \"\";\r\n}\r\n\r\n/* width */\r\n::-webkit-scrollbar {\r\n    width: 7px;\r\n}\r\n\r\n/* Track */\r\n::-webkit-scrollbar-track {\r\n    background: #272639;\r\n}\r\n\r\n/* Handle */\r\n::-webkit-scrollbar-thumb {\r\n    background: #e81748b6;\r\n}\r\n\r\n::-webkit-scrollbar-thumb:hover {\r\n    background: #e81748;\r\n}\r\n\r\nhtml {\r\n    box-sizing: border-box;\r\n}\r\n\r\nbody {\r\n    font-family: \"poppins\";\r\n    font-weight: 400;\r\n    line-height: 1.3;\r\n    color: #05185a;\r\n    background: #fff;\r\n    overflow-x: hidden;\r\n    scroll-behavior: smooth;\r\n    font-size: 16px;\r\n}\r\n\r\np {\r\n    font-weight: 100;\r\n    line-height: 1.5;\r\n}\r\n\r\nh1 {\r\n    font-weight: 600;\r\n}\r\n\r\nul {\r\n    list-style: none;\r\n}\r\n\r\na {\r\n    text-decoration: none;\r\n    color: inherit;\r\n}\r\n\r\ninput,\r\ntextarea,\r\nbutton {\r\n    outline: none;\r\n    border: none;\r\n    background: none;\r\n}\r\n\r\nbutton {\r\n    cursor: pointer;\r\n}\r\n\r\nselect {\r\n    border: none;\r\n    outline: none;\r\n}\r\n\r\nimg {\r\n    height: auto;\r\n    max-width: 100%;\r\n}\r\n\r\n.img {\r\n    overflow: hidden;\r\n}\r\n\r\n.img img {\r\n    width: 100%;\r\n    height: 100%;\r\n    -o-object-fit: cover;\r\n       object-fit: cover;\r\n}\r\n\r\n.map iframe {\r\n    width: 100%;\r\n    height: 100%;\r\n}\r\n\r\n.wrapper {\r\n    width: 1600px;\r\n    height: 100%;\r\n    margin: auto;\r\n    position: relative;\r\n}\r\n\r\n.bold {\r\n    font-family: \"bold\";\r\n}\r\n\r\n.flex {\r\n    display: flex;\r\n    align-items: center;\r\n    justify-content: space-between;\r\n}\r\n\r\n.flex.centered {\r\n    justify-content: center;\r\n}\r\n\r\n.grid4 {\r\n    display: grid;\r\n    grid-template-columns: repeat(4, 1fr);\r\n    grid-gap: 32px 16px;\r\n}\r\n\r\n@media screen and (max-width: 1650px) {\r\n    .wrapper {\r\n        width: 95%;\r\n    }\r\n}\r\n\r\n@media screen and (max-width: 1320px) {\r\n    .grid4 {\r\n        grid-template-columns: repeat(3, 1fr);\r\n    }\r\n}\r\n\r\n@media screen and (max-width: 1100px) {\r\n    .grid4 {\r\n        grid-template-columns: repeat(2, 1fr);\r\n    }\r\n}\r\n\r\n@media screen and (max-width: 900px) {\r\n    .grid4 {\r\n        margin: auto;\r\n        margin-top: 30px;\r\n    }\r\n}\r\n\r\n@media screen and (max-width: 500px) {\r\n    .grid4 {\r\n        grid-template-columns: 1fr;\r\n    }\r\n}\r\n", ""]);
+___CSS_LOADER_EXPORT___.push([module.id, "@font-face {\n    font-family: \"roboto\";\n    src: url(/assets/fonts/Roboto-Regular.ttf);\n}\n\n@font-face {\n    font-family: \"mtav\";\n    src: url(/assets/fonts/AS-Grammatika-Regular_Mtav.ttf);\n}\n\n@font-face {\n    font-family: \"poppins\";\n    src: url(/assets/fonts/Poppins/Poppins-Regular.ttf);\n}\n\n@font-face {\n    font-family: \"bold\";\n    src: url(/assets/fonts/Poppins/Poppins-Bold.ttf);\n}\n\n*,\n*::after,\n*::before {\n    font-family: \"poppins\";\n    margin: 0;\n    padding: 0;\n    box-sizing: border-box;\n    scroll-behavior: smooth;\n}\n\n*::after,\n*::before {\n    position: absolute;\n    content: \"\";\n}\n\n/* width */\n::-webkit-scrollbar {\n    width: 7px;\n}\n\n/* Track */\n::-webkit-scrollbar-track {\n    background: #272639;\n}\n\n/* Handle */\n::-webkit-scrollbar-thumb {\n    background: #e81748b6;\n}\n\n::-webkit-scrollbar-thumb:hover {\n    background: #e81748;\n}\n\nhtml {\n    box-sizing: border-box;\n}\n\nbody {\n    font-family: \"poppins\";\n    font-weight: 400;\n    line-height: 1.3;\n    color: #05185a;\n    background: #fff;\n    overflow-x: hidden;\n    scroll-behavior: smooth;\n    font-size: 16px;\n}\n\np {\n    font-weight: 100;\n    line-height: 1.5;\n}\n\nh1 {\n    font-weight: 600;\n}\n\nul {\n    list-style: none;\n}\n\na {\n    text-decoration: none;\n    color: inherit;\n}\n\ninput,\ntextarea,\nbutton {\n    outline: none;\n    border: none;\n    background: none;\n}\n\nbutton {\n    cursor: pointer;\n}\n\nselect {\n    border: none;\n    outline: none;\n}\n\nimg {\n    height: auto;\n    max-width: 100%;\n}\n\n.img {\n    overflow: hidden;\n}\n\n.img img {\n    width: 100%;\n    height: 100%;\n    -o-object-fit: cover;\n       object-fit: cover;\n}\n\n.map iframe {\n    width: 100%;\n    height: 100%;\n}\n\n.wrapper {\n    width: 1600px;\n    height: 100%;\n    margin: auto;\n    position: relative;\n}\n\n.bold {\n    font-family: \"bold\";\n}\n\n.flex {\n    display: flex;\n    align-items: center;\n    justify-content: space-between;\n}\n\n.flex.centered {\n    justify-content: center;\n}\n\n.grid4 {\n    display: grid;\n    grid-template-columns: repeat(4, 1fr);\n    grid-gap: 32px 16px;\n}\n\n@media screen and (max-width: 1650px) {\n    .wrapper {\n        width: 95%;\n    }\n}\n\n@media screen and (max-width: 1320px) {\n    .grid4 {\n        grid-template-columns: repeat(3, 1fr);\n    }\n}\n\n@media screen and (max-width: 1100px) {\n    .grid4 {\n        grid-template-columns: repeat(2, 1fr);\n    }\n}\n\n@media screen and (max-width: 900px) {\n    .grid4 {\n        margin: auto;\n        margin-top: 30px;\n    }\n}\n\n@media screen and (max-width: 500px) {\n    .grid4 {\n        grid-template-columns: 1fr;\n    }\n}\n", ""]);
 // Exports
 /* harmony default export */ const __WEBPACK_DEFAULT_EXPORT__ = (___CSS_LOADER_EXPORT___);
 
@@ -6980,7 +7048,7 @@ __webpack_require__.r(__webpack_exports__);
 
 var ___CSS_LOADER_EXPORT___ = _node_modules_css_loader_dist_runtime_api_js__WEBPACK_IMPORTED_MODULE_0___default()(function(i){return i[1]});
 // Module
-___CSS_LOADER_EXPORT___.push([module.id, ".aboutPage {\r\n    padding-bottom: 70px;\r\n}\r\n\r\n.aboutPage .font45 {\r\n    margin-top: 30px;\r\n}\r\n\r\n.aboutPage .showcase {\r\n    height: 256px;\r\n    padding-top: 30px;\r\n    margin-bottom: 40px;\r\n}\r\n\r\n.aboutPage p {\r\n    margin-bottom: 20px;\r\n}\r\n\r\n.aboutPage .content {\r\n    margin-top: 40px;\r\n}\r\n\r\n.aboutPage .country {\r\n    display: inline-block;\r\n    margin-right: 30px;\r\n    margin-top: 30px;\r\n    vertical-align: top;\r\n}\r\n\r\n.aboutPage h5 {\r\n    font-size: 16px;\r\n}\r\n\r\n.aboutPage .country h6 {\r\n    font-size: 15px;\r\n}\r\n\r\n.aboutPage .country span {\r\n    font-size: 8px;\r\n}\r\n\r\n@media screen and (max-width: 700px) {\r\n    .aboutPage {\r\n        font-size: 14px;\r\n    }\r\n\r\n    .aboutPage .showcase {\r\n        height: 173px;\r\n        padding-top: 9px;\r\n        margin-bottom: 22px;\r\n    }\r\n\r\n    .aboutPage p {\r\n        margin-bottom: 11px;\r\n    }\r\n\r\n    .aboutPage .content {\r\n        margin-top: 20px;\r\n    }\r\n}\r\n", ""]);
+___CSS_LOADER_EXPORT___.push([module.id, ".aboutPage {\n    padding-bottom: 70px;\n}\n\n.aboutPage .font45 {\n    margin-top: 30px;\n}\n\n.aboutPage .showcase {\n    height: 256px;\n    padding-top: 30px;\n    margin-bottom: 40px;\n}\n\n.aboutPage p {\n    margin-bottom: 20px;\n}\n\n.aboutPage .content {\n    margin-top: 40px;\n}\n\n.aboutPage .country {\n    display: inline-block;\n    margin-right: 30px;\n    margin-top: 30px;\n    vertical-align: top;\n}\n\n.aboutPage h5 {\n    font-size: 16px;\n}\n\n.aboutPage .country h6 {\n    font-size: 15px;\n}\n\n.aboutPage .country span {\n    font-size: 8px;\n}\n\n@media screen and (max-width: 700px) {\n    .aboutPage {\n        font-size: 14px;\n    }\n\n    .aboutPage .showcase {\n        height: 173px;\n        padding-top: 9px;\n        margin-bottom: 22px;\n    }\n\n    .aboutPage p {\n        margin-bottom: 11px;\n    }\n\n    .aboutPage .content {\n        margin-top: 20px;\n    }\n}\n", ""]);
 // Exports
 /* harmony default export */ const __WEBPACK_DEFAULT_EXPORT__ = (___CSS_LOADER_EXPORT___);
 
@@ -7004,7 +7072,7 @@ __webpack_require__.r(__webpack_exports__);
 
 var ___CSS_LOADER_EXPORT___ = _node_modules_css_loader_dist_runtime_api_js__WEBPACK_IMPORTED_MODULE_0___default()(function(i){return i[1]});
 // Module
-___CSS_LOADER_EXPORT___.push([module.id, ".careerPage {\r\n    background: url('/assets/images/bgs/4.png') no-repeat;\r\n    background-position: center;\r\n    background-size: cover;\r\n    background-attachment: fixed;\r\n}\r\n\r\n.career_grid {\r\n    display: grid;\r\n    grid-template-columns: repeat(2, 1fr);\r\n    grid-gap: 18px;\r\n    padding-top: 20px;\r\n}\r\n\r\n.other_vacancies {\r\n    position: relative;\r\n}\r\n\r\n.other_vacancies h4 {\r\n    position: absolute;\r\n    right: 0;\r\n    top: -30px;\r\n}\r\n\r\n.other_vacancies .vacancy_box {\r\n    margin-bottom: 18px;\r\n}\r\n\r\n.career_grid.details {\r\n    grid-gap: 35px;\r\n}\r\n\r\n@media screen and (max-width: 1200px) {\r\n    .career_grid {\r\n        grid-template-columns: 1fr;\r\n        max-width: 700px;\r\n    }\r\n\r\n    .career_grid.details {\r\n        margin: auto;\r\n        grid-gap: 50px;\r\n    }\r\n\r\n    .other_vacancies h4 {\r\n        position: relative;\r\n        right: auto;\r\n        top: auto;\r\n        margin-bottom: 20px;\r\n    }\r\n}\r\n", ""]);
+___CSS_LOADER_EXPORT___.push([module.id, ".careerPage {\n    background: url('/assets/images/bgs/4.png') no-repeat;\n    background-position: center;\n    background-size: cover;\n    background-attachment: fixed;\n}\n\n.career_grid {\n    display: grid;\n    grid-template-columns: repeat(2, 1fr);\n    grid-gap: 18px;\n    padding-top: 20px;\n}\n\n.other_vacancies {\n    position: relative;\n}\n\n.other_vacancies h4 {\n    position: absolute;\n    right: 0;\n    top: -30px;\n}\n\n.other_vacancies .vacancy_box {\n    margin-bottom: 18px;\n}\n\n.career_grid.details {\n    grid-gap: 35px;\n}\n\n@media screen and (max-width: 1200px) {\n    .career_grid {\n        grid-template-columns: 1fr;\n        max-width: 700px;\n    }\n\n    .career_grid.details {\n        margin: auto;\n        grid-gap: 50px;\n    }\n\n    .other_vacancies h4 {\n        position: relative;\n        right: auto;\n        top: auto;\n        margin-bottom: 20px;\n    }\n}\n", ""]);
 // Exports
 /* harmony default export */ const __WEBPACK_DEFAULT_EXPORT__ = (___CSS_LOADER_EXPORT___);
 
@@ -7124,7 +7192,7 @@ __webpack_require__.r(__webpack_exports__);
 
 var ___CSS_LOADER_EXPORT___ = _node_modules_css_loader_dist_runtime_api_js__WEBPACK_IMPORTED_MODULE_0___default()(function(i){return i[1]});
 // Module
-___CSS_LOADER_EXPORT___.push([module.id, ".loginPage {\r\n    background: url(/assets/images/bgs/1.png) no-repeat;\r\n    background-position: top;\r\n    background-size: cover;\r\n    padding: 200px 0;\r\n}\r\n\r\n.login_box {\r\n    width: 536px;\r\n    background-color: #eef2f9;\r\n    border-radius: 10px;\r\n    box-shadow: 0 10px 15px #1e3b601f;\r\n    padding: 117px 100px;\r\n    margin: auto;\r\n}\r\n\r\n.login_box h5 {\r\n    text-align: center;\r\n    font-size: 20px;\r\n    margin-bottom: 20px;\r\n}\r\n\r\n.login_box input {\r\n    border-color: #fff;\r\n}\r\n\r\n.login_box p {\r\n    margin-bottom: 35px;\r\n    opacity: 0.7;\r\n}\r\n\r\n.login_box button {\r\n    background-color: #fff;\r\n    height: 50px;\r\n    margin-top: 20px;\r\n    margin-bottom: 40px;\r\n    width: 100%;\r\n}\r\n\r\n.login_box button img {\r\n    vertical-align: middle;\r\n    margin-left: 10px;\r\n}\r\n\r\n@media screen and (max-width: 1200px) {\r\n    .loginPage {\r\n        padding: 80px 0;\r\n    }\r\n\r\n    .login_box {\r\n        padding: 81px 67px;\r\n    }\r\n}\r\n\r\n@media screen and (max-width: 600px) {\r\n    .login_box {\r\n        width: 95%;\r\n        padding: 46px 23px;\r\n    }\r\n}\r\n", ""]);
+___CSS_LOADER_EXPORT___.push([module.id, ".loginPage {\n    background: url(/assets/images/bgs/1.png) no-repeat;\n    background-position: top;\n    background-size: cover;\n    padding: 200px 0;\n}\n\n.login_box {\n    width: 536px;\n    background-color: #eef2f9;\n    border-radius: 10px;\n    box-shadow: 0 10px 15px #1e3b601f;\n    padding: 117px 100px;\n    margin: auto;\n}\n\n.login_box h5 {\n    text-align: center;\n    font-size: 20px;\n    margin-bottom: 20px;\n}\n\n.login_box input {\n    border-color: #fff;\n}\n\n.login_box p {\n    margin-bottom: 35px;\n    opacity: 0.7;\n}\n\n.login_box button {\n    background-color: #fff;\n    height: 50px;\n    margin-top: 20px;\n    margin-bottom: 40px;\n    width: 100%;\n}\n\n.login_box button img {\n    vertical-align: middle;\n    margin-left: 10px;\n}\n\n@media screen and (max-width: 1200px) {\n    .loginPage {\n        padding: 80px 0;\n    }\n\n    .login_box {\n        padding: 81px 67px;\n    }\n}\n\n@media screen and (max-width: 600px) {\n    .login_box {\n        width: 95%;\n        padding: 46px 23px;\n    }\n}\n", ""]);
 // Exports
 /* harmony default export */ const __WEBPACK_DEFAULT_EXPORT__ = (___CSS_LOADER_EXPORT___);
 
@@ -7172,7 +7240,7 @@ __webpack_require__.r(__webpack_exports__);
 
 var ___CSS_LOADER_EXPORT___ = _node_modules_css_loader_dist_runtime_api_js__WEBPACK_IMPORTED_MODULE_0___default()(function(i){return i[1]});
 // Module
-___CSS_LOADER_EXPORT___.push([module.id, ".servicesPage {\r\n    background: url(/assets/images/bgs/3.png) no-repeat;\r\n    background-position: center;\r\n    background-size: cover;\r\n    background-attachment: fixed;\r\n    padding-top: 100px;\r\n}\r\n\r\n.servicesPage .ships_img {\r\n    margin: 50px 0;\r\n}\r\n\r\n.statorPage .content {\r\n    margin-bottom: 50px;\r\n}\r\n\r\n@media screen and (max-width: 600px) {\r\n    .servicesPage .ships_img {\r\n        margin: 32px 0;\r\n    }\r\n}\r\n", ""]);
+___CSS_LOADER_EXPORT___.push([module.id, ".servicesPage {\n    background: url(/assets/images/bgs/3.png) no-repeat;\n    background-position: center;\n    background-size: cover;\n    background-attachment: fixed;\n    padding-top: 100px;\n}\n\n.servicesPage .ships_img {\n    margin: 50px 0;\n}\n\n.statorPage .content {\n    margin-bottom: 50px;\n}\n\n@media screen and (max-width: 600px) {\n    .servicesPage .ships_img {\n        margin: 32px 0;\n    }\n}\n", ""]);
 // Exports
 /* harmony default export */ const __WEBPACK_DEFAULT_EXPORT__ = (___CSS_LOADER_EXPORT___);
 
@@ -7316,7 +7384,7 @@ __webpack_require__.r(__webpack_exports__);
 
 var ___CSS_LOADER_EXPORT___ = _node_modules_css_loader_dist_runtime_api_js__WEBPACK_IMPORTED_MODULE_0___default()(function(i){return i[1]});
 // Module
-___CSS_LOADER_EXPORT___.push([module.id, ".stator_grid {\r\n    display: grid;\r\n    grid-template-columns: repeat(5, 1fr);\r\n    grid-gap: 12px 11px;\r\n    width: 100%;\r\n}\r\n\r\n.stator_grid .first_box {\r\n    background: url('/assets/images/stators/bg2.png') no-repeat;\r\n    background-position: center;\r\n    background-size: cover;\r\n    color: #fff;\r\n    margin-right: 5px;\r\n    border-radius: 10px;\r\n    overflow: hidden;\r\n    width: 338px;\r\n    grid-row: span 2;\r\n    padding: 20px;\r\n}\r\n\r\n.stator_grid .first_box h6 {\r\n    font-size: 20px;\r\n    margin-bottom: 100px;\r\n}\r\n\r\n.stator_box {\r\n    position: relative;\r\n    border-radius: 5px;\r\n    overflow: hidden;\r\n    box-shadow: 0 3px 6px rgba(0, 0, 0, 0.164);\r\n    height: 138px;\r\n    background-color: #eef2f9;\r\n}\r\n\r\n.stator_box .bg {\r\n    position: absolute;\r\n    width: 100%;\r\n    height: 100%;\r\n    left: 0;\r\n    top: 0;\r\n    transform: translateX(-100%);\r\n    transition: 0.4s;\r\n}\r\n\r\n.stator_box:hover .bg {\r\n    transform: translateX(0);\r\n}\r\n\r\n.stator_name {\r\n    position: absolute;\r\n    left: 50%;\r\n    top: 50%;\r\n    transform: translate(-50%, -50%);\r\n    font-size: 20px;\r\n    color: #073a64;\r\n    transition: all 0.4s;\r\n    white-space: nowrap;\r\n}\r\n\r\n.stator_grid a:nth-child(5) .stator_name {\r\n    white-space: normal;\r\n}\r\n\r\n.stator_box:hover .stator_name {\r\n    left: 16px;\r\n    transform: translate(0, -50%);\r\n    color: #fff;\r\n}\r\n\r\n.stator_box .more {\r\n    position: absolute;\r\n    left: 16px;\r\n    bottom: 12px;\r\n    color: #fff;\r\n    opacity: 0;\r\n    transition: all 0.4s;\r\n}\r\n\r\n.stator_box:hover .more {\r\n    opacity: 1;\r\n}\r\n\r\n@media screen and (max-width: 1450px) {\r\n    .stator_name {\r\n        font-size: 18px;\r\n    }\r\n\r\n    .stator_grid a:nth-child(5) .stator_name {\r\n        width: 114px;\r\n    }\r\n}\r\n\r\n@media screen and (max-width: 1200px) {\r\n    .stator_grid .first_box {\r\n        width: 100%;\r\n        grid-column: span 2;\r\n        margin: 0;\r\n        border-radius: 5px;\r\n    }\r\n\r\n    .stator_grid {\r\n        grid-template-columns: repeat(4, 1fr);\r\n    }\r\n}\r\n\r\n@media screen and (max-width: 750px) {\r\n    .stator_grid {\r\n        grid-template-columns: repeat(3, 1fr);\r\n    }\r\n}\r\n\r\n@media screen and (max-width: 500px) {\r\n    .stator_grid {\r\n        grid-template-columns: repeat(2, 1fr);\r\n    }\r\n}\r\n", ""]);
+___CSS_LOADER_EXPORT___.push([module.id, ".stator_grid {\n    display: grid;\n    grid-template-columns: repeat(5, 1fr);\n    grid-gap: 12px 11px;\n    width: 100%;\n}\n\n.stator_grid .first_box {\n    background: url('/assets/images/stators/bg2.png') no-repeat;\n    background-position: center;\n    background-size: cover;\n    color: #fff;\n    margin-right: 5px;\n    border-radius: 10px;\n    overflow: hidden;\n    width: 338px;\n    grid-row: span 2;\n    padding: 20px;\n}\n\n.stator_grid .first_box h6 {\n    font-size: 20px;\n    margin-bottom: 100px;\n}\n\n.stator_box {\n    position: relative;\n    border-radius: 5px;\n    overflow: hidden;\n    box-shadow: 0 3px 6px rgba(0, 0, 0, 0.164);\n    height: 138px;\n    background-color: #eef2f9;\n}\n\n.stator_box .bg {\n    position: absolute;\n    width: 100%;\n    height: 100%;\n    left: 0;\n    top: 0;\n    transform: translateX(-100%);\n    transition: 0.4s;\n}\n\n.stator_box:hover .bg {\n    transform: translateX(0);\n}\n\n.stator_name {\n    position: absolute;\n    left: 50%;\n    top: 50%;\n    transform: translate(-50%, -50%);\n    font-size: 20px;\n    color: #073a64;\n    transition: all 0.4s;\n    white-space: nowrap;\n}\n\n.stator_grid a:nth-child(5) .stator_name {\n    white-space: normal;\n}\n\n.stator_box:hover .stator_name {\n    left: 16px;\n    transform: translate(0, -50%);\n    color: #fff;\n}\n\n.stator_box .more {\n    position: absolute;\n    left: 16px;\n    bottom: 12px;\n    color: #fff;\n    opacity: 0;\n    transition: all 0.4s;\n}\n\n.stator_box:hover .more {\n    opacity: 1;\n}\n\n@media screen and (max-width: 1450px) {\n    .stator_name {\n        font-size: 18px;\n    }\n\n    .stator_grid a:nth-child(5) .stator_name {\n        width: 114px;\n    }\n}\n\n@media screen and (max-width: 1200px) {\n    .stator_grid .first_box {\n        width: 100%;\n        grid-column: span 2;\n        margin: 0;\n        border-radius: 5px;\n    }\n\n    .stator_grid {\n        grid-template-columns: repeat(4, 1fr);\n    }\n}\n\n@media screen and (max-width: 750px) {\n    .stator_grid {\n        grid-template-columns: repeat(3, 1fr);\n    }\n}\n\n@media screen and (max-width: 500px) {\n    .stator_grid {\n        grid-template-columns: repeat(2, 1fr);\n    }\n}\n", ""]);
 // Exports
 /* harmony default export */ const __WEBPACK_DEFAULT_EXPORT__ = (___CSS_LOADER_EXPORT___);
 

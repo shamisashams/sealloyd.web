@@ -2,11 +2,14 @@
 
 namespace App\Http\Controllers\Client;
 
+use App\Models\Setting;
+use App\Mail\ContactEmail;
 use App\Http\Controllers\Controller;
 use App\Models\Page;
 use App\Models\Slider;
 use Illuminate\Support\Facades\App;
 use Inertia\Inertia;
+use Illuminate\Support\Facades\Mail;
 use App\Repositories\Eloquent\ProductRepository;
 use Illuminate\Http\Request;
 use App\Models\rateservice;
@@ -15,7 +18,7 @@ use App\Models\Ownerapplication;
 
 class DocumentationController extends Controller
 {
-    public function index()
+    public function index(Request $request)
     {
 
 
@@ -38,12 +41,13 @@ class DocumentationController extends Controller
 
         //dd($products);
 
-        return Inertia::render('Documents/OwnerApplication', ["sliders" => $sliders->get(), "page" => $page, "seo" => [
+        return Inertia::render('Documents/OwnerApplication', ['error' => $request->session()->get('error'), 'success' => $request->session()->get('success'), "sliders" => $sliders->get(), "page" => $page, "seo" => [
             "title" => $page->meta_title,
             "description" => $page->meta_description,
             "keywords" => $page->meta_keyword,
             "og_title" => $page->meta_og_title,
             "og_description" => $page->meta_og_description,
+            "success" => $request->session()->get('success'),
 
             //            "image" => "imgg",
             //            "locale" => App::getLocale()
@@ -166,6 +170,65 @@ class DocumentationController extends Controller
     // send owner application to db
     public function sendapplication(Request $request)
     {
+        // validate input
+        $request->validate([
+            'name_of_ship' => ['required'],
+            'ex_names' => ['required'],
+            'imo_no' => ['required'],
+            'type' => ['required'],
+            'existing_flag' => ['required'],
+            'call_sign' => ['required'],
+            'grt' => ['required'],
+            'nrt' => ['required'],
+            'dwt' => ['required'],
+            'date_keel_laid' => ['required'],
+            'build' => ['required'],
+            'framing_system' => ['required'],
+            'builders' => ['required'],
+            'loa' => ['required'],
+            'lpp' => ['required'],
+            'breath' => ['required'],
+            'depth' => ['required'],
+            'main_engine_builders' => ['required'],
+            'type2' => ['required'],
+            'bhp' => ['required'],
+            'number_and_type_of_generators' => ['required'],
+            'cargogear' => ['required'],
+            'owning_company' => ['required'],
+            'managing_company' => ['required'],
+            'place_date' => ['required'],
+            'name_of_applicant' => ['required'],
+            'hull_machinery' => ['required'],
+            'cargo_gear' => ['required'],
+            'load_line' => ['required'],
+            'safety_constructor' => ['required'],
+            'safety_equipment' => ['required'],
+            'passenger_safety' => ['required'],
+            'safety_radio' => ['required'],
+            'marpol_annexi' => ['required'],
+            'marpol_annexii' => ['required'],
+            'marpol_annexiii' => ['required'],
+            'marpol_annexv' => ['required'],
+            'marpol_annex_vi' => ['required'],
+            'energy_efficiency' => ['required'],
+            'engine_iopc' => ['required'],
+            'fishing_vessel' => ['required'],
+            'tonnage_certificate' => ['required'],
+            'solid_bulk_cards' => ['required'],
+            'dangerous_goods' => ['required'],
+            'doc' => ['required'],
+            'smc' => ['required'],
+            'isps_on_board_verification' => ['required'],
+            'mlc_2006' => ['required'],
+            'ballast_water' => ['required'],
+            'antifouling_survey' => ['required'],
+            'exemption' => ['required'],
+            'cargo_ship_safety_under_500_grt' => ['required'],
+            'seaworthiness' => ['required'],
+            'hsc_dsc_safety' => ['required'],
+        ]);
+
+        // add to db
         $ownwerapplciation = Ownerapplication::create(
             $request->only(
                 'name_of_ship',
@@ -225,6 +288,20 @@ class DocumentationController extends Controller
                 // 'manual_approval',
             )
         );
-        return redirect(route('client.services.ownerapplication', app()->getLocale()))->with('success', 'warmatebit');
+
+        // send mail
+
+        $data = [
+            'test' => 'asd'
+        ];
+        if ($ownwerapplciation) {
+            $mailTo = Setting::where(['key' => 'email'])->first();
+            if (($mailTo !== null) && $mailTo->value) {
+                Mail::to($mailTo->value)->send(new ContactEmail($data));
+            }
+            return redirect(route('client.services.ownerapplication', app()->getLocale()))->with('success', 'warmatebit');
+        } else {
+            return redirect(route('client.services.ownerapplication', app()->getLocale()))->with('error', 'error');
+        }
     }
 }
