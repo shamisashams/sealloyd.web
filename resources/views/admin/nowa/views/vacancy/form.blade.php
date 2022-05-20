@@ -128,6 +128,17 @@ $ids = $vacancy->skills->pluck("id")->toArray();
                                                 </div>
                                             </small>
                                             @enderror
+
+                                            <div class="form-group">
+                                                <input type="text" name="{{$locale.'[time]'}}" class="form-control" placeholder="@lang('admin.time')" value="{{$vacancy->translate($locale)->time ?? ''}}">
+                                            </div>
+                                            @error($locale.'.time')
+                                            <small class="text-danger">
+                                                <div class="error">
+                                                    {{$message}}
+                                                </div>
+                                            </small>
+                                            @enderror
                                         </div>
 
                                     @endforeach
@@ -145,7 +156,7 @@ $ids = $vacancy->skills->pluck("id")->toArray();
                     ]
                     ?>
 
-                    <div class="form-group">
+                    {{--<div class="form-group">
                         <label class="form-label">@lang('admin.rate')</label>
                         <select name="rate" class="form-control">
                             @foreach($rates as $key => $rate)
@@ -153,13 +164,13 @@ $ids = $vacancy->skills->pluck("id")->toArray();
                             @endforeach
                         </select>
                     </div>
-                    @error('slug')
+                    @error('rate')
                     <small class="text-danger">
                         <div class="error">
                             {{$message}}
                         </div>
                     </small>
-                    @enderror
+                    @enderror--}}
 
                     <div class="form-group">
                         <label class="form-label">@lang('admin.slug')</label>

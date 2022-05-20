@@ -14,6 +14,7 @@ use App\Models\Translations\CategoryTranslation;
 use App\Models\Translations\VacancyTranslation;
 use App\Traits\ScopeFilter;
 use Astrotomic\Translatable\Translatable;
+use Carbon\Carbon;
 use Illuminate\Database\Eloquent\Factories\HasFactory;
 use Illuminate\Database\Eloquent\Model;
 use Illuminate\Database\Eloquent\Relations\BelongsToMany;
@@ -88,7 +89,8 @@ class Vacancy extends Model
         'title',
         'sub_title',
         'description',
-        'remuneration'
+        'remuneration',
+        'time'
     ];
 
 
@@ -154,5 +156,10 @@ class Vacancy extends Model
 
     public function docs(){
         return $this->morphMany(File::class, 'fileable')->where('type',4);
+    }
+
+    public function getCreatedAtAttribute($value)
+    {
+        return (new Carbon($value))->format('d/m/Y');
     }
 }

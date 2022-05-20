@@ -41,9 +41,9 @@ export const PagePath = (props) => {
     );
 };
 
-export const DlPdf = ({ name }) => {
+export const DlPdf = ({ model, name }) => {
     return (
-        <a href={'/storage/Customer/' + name.fileable_id + '/files/' + name.title} className="flex dl_pdf">
+         name !== undefined ? <a href={'/storage/'+ model +'/' + name.fileable_id + '/files/' + name.title} className="flex dl_pdf">
             <img src='/assets/images/icons/other/pdf.png' alt="" />
             <div>
                 <p>{name.title}</p>
@@ -52,7 +52,7 @@ export const DlPdf = ({ name }) => {
                     გადმოწერა
                 </span>
             </div>
-        </a>
+        </a> : null
     );
 };
 

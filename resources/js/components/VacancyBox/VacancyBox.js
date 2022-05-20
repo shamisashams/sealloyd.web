@@ -25,16 +25,16 @@ export const VacancyBox = (props) => {
                     </div>
                 </div>
                 <div className="time" style={{ color: "#798395" }}>
-                    <img className="inline_img" src='/assets/images/icons/team/doc.svg' alt="" />
+                    <img className="inline_img" src='/assets/images/icons/team/time.svg' alt="" />
                     {props.time}
                 </div>
             </div>
             <div className="bottom flex">
                 <div className="date flex">
-                    <img className="inline_img" src='/assets/images/icons/team/doc.svg' alt="" />
+                    <img className="inline_img" src='/assets/images/icons/team/date.svg' alt="" />
                     <p>გამოქვეყნდა {props.date}</p>
                 </div>
-                <Link to={props.link} className="details button">
+                <Link href={props.link} className="details button">
                     დეტალურად
                 </Link>
             </div>
@@ -56,7 +56,7 @@ export const ExtendedVB = (props) => {
                     </div>
                 </div>
                 <div className="time" style={{ color: "#798395" }}>
-                    <img className="inline_img" src='/assets/images/icons/team/doc.svg' alt="" />
+                    <img className="inline_img" src='/assets/images/icons/team/time.svg' alt="" />
                     {props.time}
                 </div>
             </div>
@@ -67,36 +67,38 @@ export const ExtendedVB = (props) => {
                 {props.skills.map((skill, index) => {
                     return (
                         <div className="skill" key={index}>
-                            {skill}
+                            {skill.title}
                         </div>
                     );
                 })}
             </div>
             <p>ანაზღაურება</p>
             <div className="remuneration section">
-                {props.salary} ₾ <span>({props.salaryInfo})</span>
+                {/*{props.salary} ₾ <span>({props.salaryInfo})</span>*/}
+                {props.remuneration}
             </div>
             <div className="section">
-                <DlPdf name={props.pdfName} />
+
+                <DlPdf model="Vacancy" name={props.pdfName} />
             </div>
             <div className="section">
                 <button className="button grey">
-                    <img className="inline_img" src='/assets/images/icons/team/doc.svg' alt="" />
+                    <img className="inline_img" src='/assets/images/icons/team/upload.svg' alt="" />
                     ატვირთე რეზიუმე <span>(Application Form, CV, Certificates)</span>
                 </button>
                 <button className="button">
-                    <img className="inline_img" src='/assets/images/icons/team/doc.svg' alt="" />
+                    <img className="inline_img" src='/assets/images/icons/team/send.svg' alt="" />
                     გაგზავნე განაცხადი
                 </button>
             </div>
 
             <div className="bottom flex">
                 <div className="date flex">
-                    <img className="inline_img" src='/assets/images/icons/team/doc.svg' alt="" />
+                    <img className="inline_img" src='/assets/images/icons/team/date.svg' alt="" />
                     <p>გამოქვეყნდა {props.date}</p>
                 </div>
                 <div className="share flex">
-                    <img className="inline_img" src='/assets/images/icons/team/doc.svg' alt="" />
+                    <img className="inline_img" src='/assets/images/icons/team/share.svg' alt="" />
                     <p>გაუზიარე მეგობარს</p>
                 </div>
             </div>

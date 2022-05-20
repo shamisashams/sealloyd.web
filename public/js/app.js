@@ -3531,6 +3531,7 @@ var Cabinet = function Cabinet(_ref) {
   }, docs.map(function (doc, index) {
     return /*#__PURE__*/react__WEBPACK_IMPORTED_MODULE_0__.createElement(_components_SmallComps_SmallComps__WEBPACK_IMPORTED_MODULE_1__.DlPdf, {
       key: index,
+      model: "Customer",
       name: doc
     });
   })))));
@@ -3557,6 +3558,8 @@ __webpack_require__.r(__webpack_exports__);
 /* harmony import */ var _components_VacancyBox_VacancyBox__WEBPACK_IMPORTED_MODULE_3__ = __webpack_require__(/*! ../../components/VacancyBox/VacancyBox */ "./resources/js/components/VacancyBox/VacancyBox.js");
 /* harmony import */ var _Layouts_Layout__WEBPACK_IMPORTED_MODULE_4__ = __webpack_require__(/*! ../../Layouts/Layout */ "./resources/js/Layouts/Layout.js");
 /* harmony import */ var _Career_css__WEBPACK_IMPORTED_MODULE_5__ = __webpack_require__(/*! ./Career.css */ "./resources/js/Pages/Career/Career.css");
+/* harmony import */ var _inertiajs_inertia_react__WEBPACK_IMPORTED_MODULE_6__ = __webpack_require__(/*! @inertiajs/inertia-react */ "./node_modules/@inertiajs/inertia-react/dist/index.js");
+
 
 
 
@@ -3566,7 +3569,19 @@ __webpack_require__.r(__webpack_exports__);
 
 var Career = function Career(_ref) {
   var seo = _ref.seo;
-  var vacancies = [{
+
+  var renderHTML = function renderHTML(rawHTML) {
+    return /*#__PURE__*/react__WEBPACK_IMPORTED_MODULE_0__.createElement("div", {
+      dangerouslySetInnerHTML: {
+        __html: rawHTML
+      }
+    });
+  };
+
+  var sharedData = (0,_inertiajs_inertia_react__WEBPACK_IMPORTED_MODULE_6__.usePage)().props.localizations;
+  var vacancies = (0,_inertiajs_inertia_react__WEBPACK_IMPORTED_MODULE_6__.usePage)().props.vacancies;
+  console.log(vacancies);
+  var _vacancies = [{
     title: "HR სპეციალისტი",
     subtitle: "ადამიანური რესურსების მართვა",
     time: "სრული განაკვეთი",
@@ -3603,10 +3618,10 @@ var Career = function Career(_ref) {
     return /*#__PURE__*/react__WEBPACK_IMPORTED_MODULE_0__.createElement(_components_VacancyBox_VacancyBox__WEBPACK_IMPORTED_MODULE_3__.VacancyBox, {
       key: index,
       title: box.title,
-      subtitle: box.subtitle,
+      subtitle: box.sub_title,
       time: box.time,
-      date: box.date,
-      link: box.link
+      date: box.created_at,
+      link: route('client.vacancy.show', box.slug)
     });
   })))));
 };
@@ -3630,13 +3645,31 @@ __webpack_require__.r(__webpack_exports__);
 /* harmony import */ var _components_VacancyBox_VacancyBox__WEBPACK_IMPORTED_MODULE_1__ = __webpack_require__(/*! ../../../components/VacancyBox/VacancyBox */ "./resources/js/components/VacancyBox/VacancyBox.js");
 /* harmony import */ var _Career_css__WEBPACK_IMPORTED_MODULE_2__ = __webpack_require__(/*! ../Career.css */ "./resources/js/Pages/Career/Career.css");
 /* harmony import */ var _components_SmallComps_SmallComps__WEBPACK_IMPORTED_MODULE_3__ = __webpack_require__(/*! ../../../components/SmallComps/SmallComps */ "./resources/js/components/SmallComps/SmallComps.js");
+/* harmony import */ var _Layouts_Layout__WEBPACK_IMPORTED_MODULE_4__ = __webpack_require__(/*! ../../../Layouts/Layout */ "./resources/js/Layouts/Layout.js");
+/* harmony import */ var _inertiajs_inertia_react__WEBPACK_IMPORTED_MODULE_5__ = __webpack_require__(/*! @inertiajs/inertia-react */ "./node_modules/@inertiajs/inertia-react/dist/index.js");
 
 
 
 
 
 
-var CareerDetail1 = function CareerDetail1() {
+
+
+var CareerDetail1 = function CareerDetail1(_ref) {
+  var seo = _ref.seo;
+
+  var renderHTML = function renderHTML(rawHTML) {
+    return /*#__PURE__*/react__WEBPACK_IMPORTED_MODULE_0__.createElement("div", {
+      dangerouslySetInnerHTML: {
+        __html: rawHTML
+      }
+    });
+  };
+
+  var sharedData = (0,_inertiajs_inertia_react__WEBPACK_IMPORTED_MODULE_5__.usePage)().props.localizations;
+  var _usePage$props = (0,_inertiajs_inertia_react__WEBPACK_IMPORTED_MODULE_5__.usePage)().props,
+      vacancies = _usePage$props.vacancies,
+      vacancy = _usePage$props.vacancy;
   var otherVacancies = [{
     title: "HR სპეციალისტი",
     subtitle: "ადამიანური რესურსების მართვა",
@@ -3657,7 +3690,10 @@ var CareerDetail1 = function CareerDetail1() {
     link: "/"
   }];
   var skillList = ["მოტივაცია", "პუნქტუალურობა", "2 წლიანი გამოცდილება", "პასუხისმგებლობის მაღალი გრძნობა", "განვითარების სურვილი", "ინგლისური B2"];
-  return /*#__PURE__*/react__WEBPACK_IMPORTED_MODULE_0__.createElement("div", {
+  var skills = vacancy.skills;
+  return /*#__PURE__*/react__WEBPACK_IMPORTED_MODULE_0__.createElement(_Layouts_Layout__WEBPACK_IMPORTED_MODULE_4__["default"], {
+    seo: seo
+  }, /*#__PURE__*/react__WEBPACK_IMPORTED_MODULE_0__.createElement("div", {
     className: "teamPage careerPage"
   }, /*#__PURE__*/react__WEBPACK_IMPORTED_MODULE_0__.createElement("div", {
     className: "wrapper"
@@ -3670,27 +3706,28 @@ var CareerDetail1 = function CareerDetail1() {
   }), /*#__PURE__*/react__WEBPACK_IMPORTED_MODULE_0__.createElement("div", {
     className: "career_grid details"
   }, /*#__PURE__*/react__WEBPACK_IMPORTED_MODULE_0__.createElement(_components_VacancyBox_VacancyBox__WEBPACK_IMPORTED_MODULE_1__.ExtendedVB, {
-    title: "HR \u10E1\u10DE\u10D4\u10EA\u10D8\u10D0\u10DA\u10D8\u10E1\u10E2\u10D8",
-    subtitle: "\u10D0\u10D3\u10D0\u10DB\u10D8\u10D0\u10DC\u10E3\u10E0\u10D8 \u10E0\u10D4\u10E1\u10E3\u10E0\u10E1\u10D4\u10D1\u10D8\u10E1 \u10DB\u10D0\u10E0\u10D7\u10D5\u10D0",
-    time: "\u10E1\u10E0\u10E3\u10DA\u10D8 \u10D2\u10D0\u10DC\u10D0\u10D9\u10D5\u10D4\u10D7\u10D8",
-    paragraph: "\u10DA\u10DD\u10E0\u10D4\u10DB \u10D8\u10DE\u10E1\u10E3\u10DB \u10E5\u10D5\u10D4\u10E7\u10DC\u10D8\u10E3\u10E0\u10D8 \u10D7\u10D5\u10D8\u10D7\u10D8\u10D3\u10D4\u10DC\u10E2\u10D8\u10E4\u10D8\u10D9\u10D0\u10EA\u10D8\u10D8\u10E1\u10D0 \u10DB\u10D4\u10E1\u10D0\u10DB\u10D8\u10E1 \u10E0\u10D8\u10E2\u10E3\u10D0\u10DA\u10E3\u10E0\u10D8 \u10D2\u10D0\u10E3\u10E8\u10E2\u10D4\u10E0\u10D3\u10D0\u10D7, \u10DB\u10D8\u10EC\u10E3\u10DC\u10D4\u10D1\u10E1 \u10E1\u10D0\u10E1\u10D0\u10EE\u10DA\u10D4\u10D4\u10D1\u10D6\u10D4 \u10DB\u10E0\u10D0\u10D5\u10DA\u10DD\u10D1\u10D8\u10D7. \u10D2\u10D0\u10E3\u10E8\u10E2\u10D4\u10E0\u10D3\u10D0\u10D7 \u10D2\u10D0\u10DC\u10D8\u10EA\u10D3\u10D8\u10D3\u10D8 \u10DB\u10D4\u10D1\u10E0\u10EB\u10DD\u10DA\u10D4\u10D1\u10D8, \u10D6\u10D4\u10EA\u10D8\u10E3\u10E0\u10D8 \u10E0\u10D4\u10E2\u10E0\u10DD\u10E1\u10DE\u10D4\u10E5\u10E2\u10D8\u10D5\u10D0\u10E1 \u10D3\u10D4\u10E2\u10D0\u10DA\u10D4\u10D1\u10D8\u10E1 \u10D2\u10D0\u10D2\u10D0\u10D9\u10D4\u10D7\u10D4\u10D1\u10D8\u10DC\u10D4\u10D1\u10E1 \u10EC\u10D4\u10E0\u10D0, \u10E5\u10D0\u10D3\u10D8\u10DA\u10D8\u10D7 \u10DB\u10D6\u10D0\u10D9\u10D5\u10E0\u10DD\u10D1\u10D8\u10E1\u10D0 \u10E9\u10D0\u10D4\u10E1\u10D5\u10D4\u10DC\u10D0 \u10DB\u10D4\u10D7\u10D5\u10E0\u10D0\u10DB\u10D4\u10E2\u10D4 \u10E0\u10D0\u10D7\u10D0 \u10DB\u10D0\u10E0\u10D7\u10D0\u10DA\u10E1\u10D0. ",
-    skills: skillList,
+    title: vacancy.title,
+    subtitle: vacancy.sub_title,
+    time: vacancy.time,
+    paragraph: vacancy.description,
+    skills: skills,
     salary: "1500 - 2200",
     salaryInfo: "\u10D3\u10D0\u10DB\u10DD\u10D9\u10D8\u10D3\u10D4\u10D1\u10E3\u10DA\u10D8\u10D0 \u10D9\u10D0\u10DC\u10D3\u10D8\u10D3\u10D0\u10E2\u10D8\u10E1 \u10E8\u10D4\u10E1\u10D0\u10EB\u10DA\u10D4\u10D1\u10DA\u10DD\u10D1\u10D4\u10D1\u10D6\u10D4",
-    date: " 23/02/2020",
-    pdfName: "Application Form for Surveyors"
+    remuneration: vacancy.remuneration,
+    date: vacancy.created_at,
+    pdfName: vacancy.docs[0]
   }), /*#__PURE__*/react__WEBPACK_IMPORTED_MODULE_0__.createElement("div", {
     className: "other_vacancies"
-  }, /*#__PURE__*/react__WEBPACK_IMPORTED_MODULE_0__.createElement("h4", null, "\u10E1\u10EE\u10D5\u10D0 \u10D5\u10D0\u10D9\u10D0\u10DC\u10E1\u10D8\u10D4\u10D1\u10D8"), otherVacancies.map(function (box, index) {
+  }, /*#__PURE__*/react__WEBPACK_IMPORTED_MODULE_0__.createElement("h4", null, "\u10E1\u10EE\u10D5\u10D0 \u10D5\u10D0\u10D9\u10D0\u10DC\u10E1\u10D8\u10D4\u10D1\u10D8"), vacancies.map(function (box, index) {
     return /*#__PURE__*/react__WEBPACK_IMPORTED_MODULE_0__.createElement(_components_VacancyBox_VacancyBox__WEBPACK_IMPORTED_MODULE_1__.VacancyBox, {
       key: index,
       title: box.title,
-      subtitle: box.subtitle,
+      subtitle: box.sub_title,
       time: box.time,
-      date: box.date,
-      link: box.link
+      date: box.created_at,
+      link: route('client.vacancy.show', box.slug)
     });
-  })))));
+  }))))));
 };
 
 /* harmony default export */ const __WEBPACK_DEFAULT_EXPORT__ = (CareerDetail1);
@@ -6607,9 +6644,10 @@ var PagePath = function PagePath(props) {
   })), /*#__PURE__*/react__WEBPACK_IMPORTED_MODULE_0__.createElement("span", null, props.location3));
 };
 var DlPdf = function DlPdf(_ref) {
-  var name = _ref.name;
-  return /*#__PURE__*/react__WEBPACK_IMPORTED_MODULE_0__.createElement("a", {
-    href: '/storage/Customer/' + name.fileable_id + '/files/' + name.title,
+  var model = _ref.model,
+      name = _ref.name;
+  return name !== undefined ? /*#__PURE__*/react__WEBPACK_IMPORTED_MODULE_0__.createElement("a", {
+    href: '/storage/' + model + '/' + name.fileable_id + '/files/' + name.title,
     className: "flex dl_pdf"
   }, /*#__PURE__*/react__WEBPACK_IMPORTED_MODULE_0__.createElement("img", {
     src: "/assets/images/icons/other/pdf.png",
@@ -6617,7 +6655,7 @@ var DlPdf = function DlPdf(_ref) {
   }), /*#__PURE__*/react__WEBPACK_IMPORTED_MODULE_0__.createElement("div", null, /*#__PURE__*/react__WEBPACK_IMPORTED_MODULE_0__.createElement("p", null, name.title), /*#__PURE__*/react__WEBPACK_IMPORTED_MODULE_0__.createElement("span", null, /*#__PURE__*/react__WEBPACK_IMPORTED_MODULE_0__.createElement("img", {
     src: "/assets/images/icons/other/dl.png",
     alt: ""
-  }), "\u10D2\u10D0\u10D3\u10DB\u10DD\u10EC\u10D4\u10E0\u10D0")));
+  }), "\u10D2\u10D0\u10D3\u10DB\u10DD\u10EC\u10D4\u10E0\u10D0"))) : null;
 };
 var SendButton = function SendButton(_ref2) {
   var onClick = _ref2.onClick,
@@ -6746,7 +6784,7 @@ var VacancyBox = function VacancyBox(props) {
     }
   }, /*#__PURE__*/react__WEBPACK_IMPORTED_MODULE_0__.createElement("img", {
     className: "inline_img",
-    src: "/assets/images/icons/team/doc.svg",
+    src: "/assets/images/icons/team/time.svg",
     alt: ""
   }), props.time)), /*#__PURE__*/react__WEBPACK_IMPORTED_MODULE_0__.createElement("div", {
     className: "bottom flex"
@@ -6754,10 +6792,10 @@ var VacancyBox = function VacancyBox(props) {
     className: "date flex"
   }, /*#__PURE__*/react__WEBPACK_IMPORTED_MODULE_0__.createElement("img", {
     className: "inline_img",
-    src: "/assets/images/icons/team/doc.svg",
+    src: "/assets/images/icons/team/date.svg",
     alt: ""
   }), /*#__PURE__*/react__WEBPACK_IMPORTED_MODULE_0__.createElement("p", null, "\u10D2\u10D0\u10DB\u10DD\u10E5\u10D5\u10D4\u10E7\u10DC\u10D3\u10D0 ", props.date)), /*#__PURE__*/react__WEBPACK_IMPORTED_MODULE_0__.createElement(_inertiajs_inertia_react__WEBPACK_IMPORTED_MODULE_1__.Link, {
-    to: props.link,
+    href: props.link,
     className: "details button"
   }, "\u10D3\u10D4\u10E2\u10D0\u10DA\u10E3\u10E0\u10D0\u10D3")));
 };
@@ -6781,7 +6819,7 @@ var ExtendedVB = function ExtendedVB(props) {
     }
   }, /*#__PURE__*/react__WEBPACK_IMPORTED_MODULE_0__.createElement("img", {
     className: "inline_img",
-    src: "/assets/images/icons/team/doc.svg",
+    src: "/assets/images/icons/team/time.svg",
     alt: ""
   }), props.time)), /*#__PURE__*/react__WEBPACK_IMPORTED_MODULE_0__.createElement("p", null, "\u10E1\u10D0\u10DB\u10E3\u10E8\u10D0\u10DD\u10E1 \u10D0\u10E6\u10EC\u10D4\u10E0\u10D0"), /*#__PURE__*/react__WEBPACK_IMPORTED_MODULE_0__.createElement("p", {
     className: "paragraph section"
@@ -6791,12 +6829,13 @@ var ExtendedVB = function ExtendedVB(props) {
     return /*#__PURE__*/react__WEBPACK_IMPORTED_MODULE_0__.createElement("div", {
       className: "skill",
       key: index
-    }, skill);
+    }, skill.title);
   })), /*#__PURE__*/react__WEBPACK_IMPORTED_MODULE_0__.createElement("p", null, "\u10D0\u10DC\u10D0\u10D6\u10E6\u10D0\u10E3\u10E0\u10D4\u10D1\u10D0"), /*#__PURE__*/react__WEBPACK_IMPORTED_MODULE_0__.createElement("div", {
     className: "remuneration section"
-  }, props.salary, " \u20BE ", /*#__PURE__*/react__WEBPACK_IMPORTED_MODULE_0__.createElement("span", null, "(", props.salaryInfo, ")")), /*#__PURE__*/react__WEBPACK_IMPORTED_MODULE_0__.createElement("div", {
+  }, props.remuneration), /*#__PURE__*/react__WEBPACK_IMPORTED_MODULE_0__.createElement("div", {
     className: "section"
   }, /*#__PURE__*/react__WEBPACK_IMPORTED_MODULE_0__.createElement(_SmallComps_SmallComps__WEBPACK_IMPORTED_MODULE_4__.DlPdf, {
+    model: "Vacancy",
     name: props.pdfName
   })), /*#__PURE__*/react__WEBPACK_IMPORTED_MODULE_0__.createElement("div", {
     className: "section"
@@ -6804,13 +6843,13 @@ var ExtendedVB = function ExtendedVB(props) {
     className: "button grey"
   }, /*#__PURE__*/react__WEBPACK_IMPORTED_MODULE_0__.createElement("img", {
     className: "inline_img",
-    src: "/assets/images/icons/team/doc.svg",
+    src: "/assets/images/icons/team/upload.svg",
     alt: ""
   }), "\u10D0\u10E2\u10D5\u10D8\u10E0\u10D7\u10D4 \u10E0\u10D4\u10D6\u10D8\u10E3\u10DB\u10D4 ", /*#__PURE__*/react__WEBPACK_IMPORTED_MODULE_0__.createElement("span", null, "(Application Form, CV, Certificates)")), /*#__PURE__*/react__WEBPACK_IMPORTED_MODULE_0__.createElement("button", {
     className: "button"
   }, /*#__PURE__*/react__WEBPACK_IMPORTED_MODULE_0__.createElement("img", {
     className: "inline_img",
-    src: "/assets/images/icons/team/doc.svg",
+    src: "/assets/images/icons/team/send.svg",
     alt: ""
   }), "\u10D2\u10D0\u10D2\u10D6\u10D0\u10D5\u10DC\u10D4 \u10D2\u10D0\u10DC\u10D0\u10EA\u10EE\u10D0\u10D3\u10D8")), /*#__PURE__*/react__WEBPACK_IMPORTED_MODULE_0__.createElement("div", {
     className: "bottom flex"
@@ -6818,13 +6857,13 @@ var ExtendedVB = function ExtendedVB(props) {
     className: "date flex"
   }, /*#__PURE__*/react__WEBPACK_IMPORTED_MODULE_0__.createElement("img", {
     className: "inline_img",
-    src: "/assets/images/icons/team/doc.svg",
+    src: "/assets/images/icons/team/date.svg",
     alt: ""
   }), /*#__PURE__*/react__WEBPACK_IMPORTED_MODULE_0__.createElement("p", null, "\u10D2\u10D0\u10DB\u10DD\u10E5\u10D5\u10D4\u10E7\u10DC\u10D3\u10D0 ", props.date)), /*#__PURE__*/react__WEBPACK_IMPORTED_MODULE_0__.createElement("div", {
     className: "share flex"
   }, /*#__PURE__*/react__WEBPACK_IMPORTED_MODULE_0__.createElement("img", {
     className: "inline_img",
-    src: "/assets/images/icons/team/doc.svg",
+    src: "/assets/images/icons/team/share.svg",
     alt: ""
   }), /*#__PURE__*/react__WEBPACK_IMPORTED_MODULE_0__.createElement("p", null, "\u10D2\u10D0\u10E3\u10D6\u10D8\u10D0\u10E0\u10D4 \u10DB\u10D4\u10D2\u10DD\u10D1\u10D0\u10E0\u10E1"))));
 };

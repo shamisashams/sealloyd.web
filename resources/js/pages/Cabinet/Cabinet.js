@@ -37,7 +37,7 @@ const Cabinet = ({ seo }) => {
                     <div className="blue">ცირკულარები</div>
                     <div className="doc_grid">
                         {docs.map((doc, index) => {
-                            return <DlPdf key={index} name={doc} />;
+                            return <DlPdf key={index} model="Customer" name={doc} />;
                         })}
                     </div>
                 </div>

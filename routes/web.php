@@ -129,6 +129,8 @@ Route::prefix('{locale?}')
             Route::get('/inspectors', [OurTeamController::class, 'inspectors'])->name('client.services.inspectors');
             Route::get('/career', [OurTeamController::class, 'career'])->name('client.services.career');
 
+            Route::get('/vacancy/{vacancy}', [OurTeamController::class, 'viewVacancy'])->name('client.vacancy.show');
+
 
             // cabinet
             Route::get('/login', [LoginPageController::class, 'Login'])->name('client.login');
