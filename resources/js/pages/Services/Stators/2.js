@@ -2,9 +2,13 @@ import React from "react";
 import { PagePath } from "../../../components/SmallComps/SmallComps";
 import { StatorBoxes } from "../../../components/StatorBoxes/StatorBoxes";
 import Layout from "../../../Layouts/Layout";
+import { Link, usePage } from "@inertiajs/inertia-react";
+
 import "../../AboutUs/AboutUs.css";
 
 const Stator2 = ({ seo }) => {
+    const sharedData = usePage().props.localizations;
+    const renderHTML = (rawHTML) => React.createElement("div", { dangerouslySetInnerHTML: { __html: rawHTML } });
     return (
         <Layout seo={seo}>
             <div className="servicesPage">
@@ -17,7 +21,7 @@ const Stator2 = ({ seo }) => {
                             location3="სტატუტორი"
                         />
                         <div className="content">
-                            <p>
+                            {/* <p>
                                 Convention includes a set of regulations aimed at preventing
                                 pollution of the sea from ships. MARPOL 73/78 includes six
                                 different annexes outlined below:
@@ -55,6 +59,11 @@ const Stator2 = ({ seo }) => {
                                 7. Engine International Air Pollution Prevention Certificate{" "}
                                 <br />
                                 8. International Energy Efficiency Certificate <br />
+                            </p> */}
+                            <p>
+                                <p>
+                                    {renderHTML(__('client.services_nav_stators2_main_text', sharedData).replace(/(?:\r\n|\r|\n)/g, '<br>'))}
+                                </p>
                             </p>
                         </div>
                     </div>

@@ -5629,7 +5629,9 @@ __webpack_require__.r(__webpack_exports__);
 /* harmony import */ var _components_SmallComps_SmallComps__WEBPACK_IMPORTED_MODULE_1__ = __webpack_require__(/*! ../../../components/SmallComps/SmallComps */ "./resources/js/components/SmallComps/SmallComps.js");
 /* harmony import */ var _components_StatorBoxes_StatorBoxes__WEBPACK_IMPORTED_MODULE_2__ = __webpack_require__(/*! ../../../components/StatorBoxes/StatorBoxes */ "./resources/js/components/StatorBoxes/StatorBoxes.js");
 /* harmony import */ var _Layouts_Layout__WEBPACK_IMPORTED_MODULE_3__ = __webpack_require__(/*! ../../../Layouts/Layout */ "./resources/js/Layouts/Layout.js");
-/* harmony import */ var _AboutUs_AboutUs_css__WEBPACK_IMPORTED_MODULE_4__ = __webpack_require__(/*! ../../AboutUs/AboutUs.css */ "./resources/js/Pages/AboutUs/AboutUs.css");
+/* harmony import */ var _inertiajs_inertia_react__WEBPACK_IMPORTED_MODULE_4__ = __webpack_require__(/*! @inertiajs/inertia-react */ "./node_modules/@inertiajs/inertia-react/dist/index.js");
+/* harmony import */ var _AboutUs_AboutUs_css__WEBPACK_IMPORTED_MODULE_5__ = __webpack_require__(/*! ../../AboutUs/AboutUs.css */ "./resources/js/Pages/AboutUs/AboutUs.css");
+
 
 
 
@@ -5638,6 +5640,16 @@ __webpack_require__.r(__webpack_exports__);
 
 var Stator2 = function Stator2(_ref) {
   var seo = _ref.seo;
+  var sharedData = (0,_inertiajs_inertia_react__WEBPACK_IMPORTED_MODULE_4__.usePage)().props.localizations;
+
+  var renderHTML = function renderHTML(rawHTML) {
+    return /*#__PURE__*/react__WEBPACK_IMPORTED_MODULE_0__.createElement("div", {
+      dangerouslySetInnerHTML: {
+        __html: rawHTML
+      }
+    });
+  };
+
   return /*#__PURE__*/react__WEBPACK_IMPORTED_MODULE_0__.createElement(_Layouts_Layout__WEBPACK_IMPORTED_MODULE_3__["default"], {
     seo: seo
   }, /*#__PURE__*/react__WEBPACK_IMPORTED_MODULE_0__.createElement("div", {
@@ -5654,7 +5666,7 @@ var Stator2 = function Stator2(_ref) {
     location3: "\u10E1\u10E2\u10D0\u10E2\u10E3\u10E2\u10DD\u10E0\u10D8"
   }), /*#__PURE__*/react__WEBPACK_IMPORTED_MODULE_0__.createElement("div", {
     className: "content"
-  }, /*#__PURE__*/react__WEBPACK_IMPORTED_MODULE_0__.createElement("p", null, "Convention includes a set of regulations aimed at preventing pollution of the sea from ships. MARPOL 73/78 includes six different annexes outlined below:"), /*#__PURE__*/react__WEBPACK_IMPORTED_MODULE_0__.createElement("p", null, "1. Regulations for the Prevention of Pollution by Oil from Ships (IOPP) ", /*#__PURE__*/react__WEBPACK_IMPORTED_MODULE_0__.createElement("br", null), "2. Regulations for the Prevention of Pollution by Noxious Liquid Substances in Bulk ", /*#__PURE__*/react__WEBPACK_IMPORTED_MODULE_0__.createElement("br", null), "3. Regulations for the Prevention of Pollution by Harmful Substances Carried by Sea in ", /*#__PURE__*/react__WEBPACK_IMPORTED_MODULE_0__.createElement("br", null), "Packaged Form, or in Freight Containers, Portable Tanks or Road and Rail Tank Wagons ", /*#__PURE__*/react__WEBPACK_IMPORTED_MODULE_0__.createElement("br", null), "4. Regulations for the Prevention of Pollution by Sewage from Ships (SEW) ", /*#__PURE__*/react__WEBPACK_IMPORTED_MODULE_0__.createElement("br", null), "5. Regulations from the Prevention of Pollution by Garbage from Ships (GAR) ", /*#__PURE__*/react__WEBPACK_IMPORTED_MODULE_0__.createElement("br", null), "6. Regulations for the Prevention of Pollution of Air from Ships (IAPP) ", /*#__PURE__*/react__WEBPACK_IMPORTED_MODULE_0__.createElement("br", null)), /*#__PURE__*/react__WEBPACK_IMPORTED_MODULE_0__.createElement("p", null, "MARITIME LLOYD is authorized to issue the following statutory certificates:"), /*#__PURE__*/react__WEBPACK_IMPORTED_MODULE_0__.createElement("p", null, "1. International Oil Pollution Prevention Certificate ", /*#__PURE__*/react__WEBPACK_IMPORTED_MODULE_0__.createElement("br", null), "2. International Certificate of Fitness for the Carriage of Dangerous Chemicals in Bulk ", /*#__PURE__*/react__WEBPACK_IMPORTED_MODULE_0__.createElement("br", null), "3. Certificate of Fitness for the Carriage of Dangerous Chemicals in Bulk ", /*#__PURE__*/react__WEBPACK_IMPORTED_MODULE_0__.createElement("br", null), "4. International Pollution Prevention Certificate for the Carriage of Noxious Liquid Substances in BulK ", /*#__PURE__*/react__WEBPACK_IMPORTED_MODULE_0__.createElement("br", null), "5. International Sewage Pollution Prevention Certificate ", /*#__PURE__*/react__WEBPACK_IMPORTED_MODULE_0__.createElement("br", null), "6. International Air Pollution Prevention Certificate ", /*#__PURE__*/react__WEBPACK_IMPORTED_MODULE_0__.createElement("br", null), "7. Engine International Air Pollution Prevention Certificate", " ", /*#__PURE__*/react__WEBPACK_IMPORTED_MODULE_0__.createElement("br", null), "8. International Energy Efficiency Certificate ", /*#__PURE__*/react__WEBPACK_IMPORTED_MODULE_0__.createElement("br", null)))), /*#__PURE__*/react__WEBPACK_IMPORTED_MODULE_0__.createElement(_components_StatorBoxes_StatorBoxes__WEBPACK_IMPORTED_MODULE_2__.StatorBoxes, null))));
+  }, /*#__PURE__*/react__WEBPACK_IMPORTED_MODULE_0__.createElement("p", null, /*#__PURE__*/react__WEBPACK_IMPORTED_MODULE_0__.createElement("p", null, renderHTML(__('client.services_nav_stators2_main_text', sharedData).replace(/(?:\r\n|\r|\n)/g, '<br>')))))), /*#__PURE__*/react__WEBPACK_IMPORTED_MODULE_0__.createElement(_components_StatorBoxes_StatorBoxes__WEBPACK_IMPORTED_MODULE_2__.StatorBoxes, null))));
 };
 
 /* harmony default export */ const __WEBPACK_DEFAULT_EXPORT__ = (Stator2);
