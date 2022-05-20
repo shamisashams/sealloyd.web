@@ -27,92 +27,92 @@
     <!-- breadcrumb -->
     <div class="breadcrumb-header justify-content-between">
         <div class="left-content">
-            <span class="main-content-title mg-b-0 mg-b-lg-1">{{$customer->created_at ? __('admin.customer-update') : __('admin.customer-create')}}</span>
+            <span class="main-content-title mg-b-0 mg-b-lg-1">{{$skill->created_at ? __('admin.skill-update') : __('admin.skill-create')}}</span>
         </div>
         <div class="justify-content-center mt-2">
             @include('admin.nowa.views.layouts.components.breadcrump')
         </div>
     </div>
     <!-- /breadcrumb -->
-    <input name="old-images[]" id="old_images" hidden disabled value="{{$customer->files}}">
+    <input name="old-images[]" id="old_images" hidden disabled value="{{$skill->files}}">
     <!-- row -->
-    {!! Form::model($customer,['url' => $url, 'method' => $method,'files' => true]) !!}
+    {!! Form::model($skill,['url' => $url, 'method' => $method,'files' => true]) !!}
     <div class="row">
-
         <div class="col-lg-6 col-md-12">
             <div class="card">
                 <div class="card-body">
 
-                    <div>
-                        <h6 class="card-title mb-1">@lang('admin.customer')</h6>
-                    </div>
 
+                    <div class="mb-4">
 
-                    <div class="form-group">
-                        {!! Form::label('name',__('admin.name'),['class' => 'form-label']) !!}
-                        <input type="text" name="name" class="form-control" placeholder="@lang('admin.name')" value="{{$customer->name ?? ''}}">
-                        @error('name')
-                        <small class="text-danger">
-                            <div class="error">
-                                {{$message}}
+                        <div class="panel panel-primary tabs-style-2">
+                            <div class=" tab-menu-heading">
+                                <div class="tabs-menu1">
+                                    <!-- Tabs -->
+                                    <ul class="nav panel-tabs main-nav-line">
+                                        @foreach(config('translatable.locales') as $locale)
+                                            <?php
+                                            $active = '';
+                                            if($loop->first) $active = 'active';
+                                            ?>
+
+                                            <li><a href="#lang-{{$locale}}" class="nav-link {{$active}}" data-bs-toggle="tab">{{$locale}}</a></li>
+                                        @endforeach
+
+                                    </ul>
+                                </div>
                             </div>
-                        </small>
-                        @enderror
-                    </div>
+                            <div class="panel-body tabs-menu-body main-content-body-right border">
+                                <div class="tab-content">
+
+                                    @foreach(config('translatable.locales') as $locale)
+
+                                        <?php
+                                        $active = '';
+                                        if($loop->first) $active = 'active';
+                                        ?>
+                                        <div class="tab-pane {{$active}}" id="lang-{{$locale}}">
+                                            <div class="form-group">
+                                                <input type="text" name="{{$locale.'[title]'}}" class="form-control" placeholder="@lang('admin.title')" value="{{$skill->translate($locale)->title ?? ''}}">
+                                            </div>
+                                            @error($locale.'.title')
+                                            <small class="text-danger">
+                                                <div class="error">
+                                                    {{$message}}
+                                                </div>
+                                            </small>
+                                            @enderror
 
 
-                    <div class="form-group">
-                        {!! Form::label('email',__('admin.email'),['class' => 'form-label']) !!}
-                        {!! Form::text('email',$customer->email,['class' => 'form-control']) !!}
+                                        </div>
 
-                        @error('email')
-                        <small class="text-danger">
-                            <div class="error">
-                                {{$message}}
+                                    @endforeach
+
+                                </div>
                             </div>
-                        </small>
-                        @enderror
+                        </div>
+
                     </div>
 
-                    <div class="form-group">
-                        {!! Form::label('password',__('admin.password'),['class' => 'form-label']) !!}
-                        {!! Form::text('password','',['class' => 'form-control']) !!}
-
-                        @error('password')
-                        <small class="text-danger">
-                            <div class="error">
-                                {{$message}}
-                            </div>
-                        </small>
-                        @enderror
-                    </div>
 
                     <div class="form-group mb-0 justify-content-end">
                         <div class="checkbox">
                             <div class="custom-checkbox custom-control">
-                                <input type="checkbox" data-checkboxes="mygroup" name="status" class="custom-control-input" id="checkbox-2" {{$customer->status ? 'checked' : ''}}>
-                                <label for="checkbox-2" class="custom-control-label mt-1">@lang('admin.status')</label>
+                                <input type="checkbox" data-checkboxes="mygroup" name="status" class="custom-control-input" id="checkbox-2" {{$skill->status ? 'checked' : ''}}>
+                                <label for="checkbox-2" class="custom-control-label mt-1">{{__('admin.status')}}</label>
                             </div>
                         </div>
                     </div>
-
-
-
-
-
-                    <div class="form-group">
-
-                    </div>
-
                     <div class="form-group mb-0 mt-3 justify-content-end">
                         <div>
-                            {!! Form::submit($customer->created_at ? __('admin.update') : __('admin.create'),['class' => 'btn btn-primary']) !!}
+                            {!! Form::submit($skill->created_at ? __('admin.update') : __('admin.create'),['class' => 'btn btn-primary']) !!}
                         </div>
                     </div>
 
                 </div>
             </div>
         </div>
+
     </div>
 
     <!-- /row -->
@@ -121,9 +121,6 @@
         <div class="col-lg-12 col-md-12">
             <div class="card">
                 <div class="card-body">
-                    <div>
-                        <h6 class="card-title mb-1">@lang('admin.customer_img')</h6>
-                    </div>
                     <div class="input-images"></div>
                     @if ($errors->has('images'))
                         <span class="help-block">
@@ -134,28 +131,7 @@
             </div>
         </div>
     </div>
-
-    <div class="row">
-        <div class="col-lg-12 col-md-12">
-            <div class="card">
-                <div class="card-body">
-                    <div>
-                        <h6 class="card-title mb-1">@lang('admin.customer_files')</h6>
-                    </div>
-                    <input type="file" name="files[]" multiple>
-
-                    @foreach($customer->docs as $doc)
-                        <div>
-                            {{$doc->title}} <span><a href="{{locale_route('customer.delete-doc',$doc->id)}}">delete</a> </span>
-                        </div>
-                    @endforeach
-                </div>
-            </div>
-        </div>
-    </div>
     <!-- row closed -->
-
-    {{--@dd($customer->docs)--}}
 
     <!-- /row -->
 
@@ -225,48 +201,6 @@
         } else {
             $('.input-images').imageUploader();
         }
-    </script>
-
-    <script src="{{ asset('ckeditor/ckeditor.js') }}"></script>
-    <script>
-        @foreach(config('translatable.locales') as $locale)
-        CKEDITOR.replace('description-{{$locale}}', {
-            filebrowserUploadUrl: "{{route('upload', ['_token' => csrf_token() ])}}",
-            filebrowserUploadMethod: 'form'
-        });
-        @endforeach
-    </script>
-
-    <script>
-        $('[name="categories[]"]').click(function (e){
-            let $this = $(this);
-
-
-                let next = $this.closest('li').next('li');
-                //console.log(next);
-                if(next.hasClass('child')){
-                    if($this.is(':checked')){
-
-                        next.find('input[type=checkbox]').prop('checked',true);
-                    } else {
-                        next.find('input[type=checkbox]').prop('checked',false);
-                    }
-                }
-
-                if($this.parents('li').hasClass('child')){
-
-                    if($this.is(':checked')){
-
-                        $this.parents('.child').prev('li').find('input[type=checkbox]').prop('checked',true);
-                        //$this.parents('.child').find('input[type=checkbox]').prop('checked',true);
-                    } else {
-                        //$this.parents('.child').find('input[type=checkbox]').prop('checked',false);
-                        $this.parents('.child').prev('li').find('input[type=checkbox]').prop('checked',false);
-                    }
-                }
-
-
-        });
     </script>
 
 @endsection

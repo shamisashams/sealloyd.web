@@ -63,18 +63,14 @@ class Skill extends Model
     /**
      * @var string
      */
-    protected $table = 'products';
+    protected $table = 'skills';
 
     /**
      * @var string[]
      */
     protected $fillable = [
         'slug',
-        'status',
-        'popular',
-        'sale',
-        'stock',
-        'code'
+
     ];
 
     /** @var string */
@@ -128,7 +124,7 @@ class Skill extends Model
      */
     public function vacancies(): BelongsToMany
     {
-        return $this->belongsToMany(Category::class, 'skill_vacancy');
+        return $this->belongsToMany(Vacancy::class, 'skill_vacancy');
     }
 
     /**

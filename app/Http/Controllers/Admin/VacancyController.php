@@ -12,17 +12,22 @@ namespace App\Http\Controllers\Admin;
 use App\Http\Controllers\Controller;
 use App\Http\Requests\Admin\CustomerRequest;
 use App\Http\Requests\Admin\ProductRequest;
+use App\Http\Requests\Admin\VacancyRequest;
 use App\Models\Category;
 use App\Models\Customer;
 use App\Models\File;
 use App\Models\Product;
+use App\Models\Skill;
+use App\Models\Vacancy;
 use App\Repositories\CategoryRepositoryInterface;
 use App\Repositories\Eloquent\CustomerRepository;
+use App\Repositories\Eloquent\VacancyRepository;
 use App\Repositories\ProductRepositoryInterface;
 use Illuminate\Contracts\Foundation\Application;
 use Illuminate\Contracts\View\Factory;
 use Illuminate\Contracts\View\View;
 use Illuminate\Http\RedirectResponse;
+use Illuminate\Http\Request;
 use Illuminate\Routing\Redirector;
 use Illuminate\Support\Arr;
 use Illuminate\Support\Facades\Storage;
@@ -34,16 +39,16 @@ class VacancyController extends Controller
     /**
      * @var ProductRepositoryInterface
      */
-    private $customerRepository;
+    private $vacancyRepository;
 
 
 
 
     public function __construct(
-        CustomerRepository $customerRepository
+        VacancyRepository $vacancyRepository
     )
     {
-        $this->customerRepository = $customerRepository;
+        $this->vacancyRepository = $vacancyRepository;
     }
 
     /**
@@ -58,7 +63,7 @@ class VacancyController extends Controller
         ]);*/
 
         return view('admin.nowa.views.vacancy.index', [
-            'data' => $this->customerRepository->getData($request),
+            'data' => $this->vacancyRepository->getData($request),
         ]);
     }
 
@@ -69,13 +74,13 @@ class VacancyController extends Controller
      */
     public function create()
     {
-        $customer = $this->customerRepository->model;
+        $vacancy = $this->vacancyRepository->model;
 
 
 
 
 
-        $url = locale_route('customer.store', [], false);
+        $url = locale_route('vacancy.store', [], false);
         $method = 'POST';
 
         /*return view('admin.pages.product.form', [
@@ -86,9 +91,10 @@ class VacancyController extends Controller
         ]);*/
 
         return view('admin.nowa.views.vacancy.form', [
-            'customer' => $customer,
+            'vacancy' => $vacancy,
             'url' => $url,
             'method' => $method,
+            'skills' => Skill::all()
         ]);
     }
 
@@ -100,32 +106,32 @@ class VacancyController extends Controller
      * @return Application|RedirectResponse|Redirector
      * @throws ReflectionException
      */
-    public function store(CustomerRequest $request)
+    public function store(VacancyRequest $request)
     {
 
         //dd($request->all());
         $saveData = Arr::except($request->except('_token'), []);
         $saveData['status'] = isset($saveData['status']) && (bool)$saveData['status'];
+        $saveData['position'] = isset($saveData['position']) && (bool)$saveData['position'];
 
-        if ($request->password !== ''){
-            $saveData['password'] = Hash::make($request->password);
-        } else unset($saveData['password']);
+
 
 
         //dd($saveData);
-        $customer = $this->customerRepository->create($saveData);
+        $vacancy = $this->vacancyRepository->create($saveData);
 
+        $vacancy->skills()->sync($saveData['skills'] ?? []);
 
         // Save Files
         if ($request->hasFile('images')) {
-            $customer = $this->customerRepository->saveFiles($customer->id, $request);
+            $vacancy = $this->vacancyRepository->saveFiles($vacancy->id, $request);
         }
 
         if ($request->hasFile('files')) {
-            $customer = $this->customerRepository->saveFilesDocs($customer->id, $request);
+            $vacancy = $this->vacancyRepository->saveFilesDocs($vacancy->id, $request);
         }
 
-        return redirect(locale_route('customer.index', $customer->id))->with('success', __('admin.create_successfully'));
+        return redirect(locale_route('vacancy.index', $vacancy->id))->with('success', __('admin.create_successfully'));
 
     }
 
@@ -152,9 +158,9 @@ class VacancyController extends Controller
      *
      * @return Application|Factory|View
      */
-    public function edit(string $locale, Customer $customer)
+    public function edit(string $locale, Vacancy $vacancy)
     {
-        $url = locale_route('vacancy.update', $customer->id, false);
+        $url = locale_route('vacancy.update', $vacancy->id, false);
         $method = 'PUT';
 
         /*return view('admin.pages.product.form', [
@@ -164,10 +170,11 @@ class VacancyController extends Controller
             'categories' => $this->categories
         ]);*/
 
-        return view('admin.nowa.views.customer.form', [
-            'customer' => $customer,
+        return view('admin.nowa.views.vacancy.form', [
+            'vacancy' => $vacancy,
             'url' => $url,
             'method' => $method,
+            'skills' => Skill::all()
         ]);
     }
 
@@ -180,7 +187,7 @@ class VacancyController extends Controller
      * @return Application|RedirectResponse|Redirector
      * @throws ReflectionException
      */
-    public function update(CustomerRequest $request, string $locale, Customer $customer)
+    public function update(VacancyRequest $request, string $locale, Vacancy $vacancy)
     {
         //dd($request->all());
         $saveData = Arr::except($request->except('_token'), []);
@@ -189,18 +196,20 @@ class VacancyController extends Controller
         $saveData['password'] = Hash::make($request->password);
         //dd($saveData);
 
-        $this->customerRepository->update($customer->id, $saveData);
+        $this->vacancyRepository->update($vacancy->id, $saveData);
 
-        $this->customerRepository->saveFiles($customer->id, $request);
+        $this->vacancyRepository->saveFiles($vacancy->id, $request);
+
+        $vacancy->skills()->sync($saveData['skills'] ?? []);
 
         if ($request->hasFile('files')) {
-            $customer = $this->customerRepository->saveFilesDocs($customer->id, $request);
+            $customer = $this->vacancyRepository->saveFilesDocs($vacancy->id, $request);
         }
 
 
 
 
-        return redirect(locale_route('customer.index', $customer->id))->with('success', __('admin.update_successfully'));
+        return redirect(locale_route('vacancy.index', $vacancy->id))->with('success', __('admin.update_successfully'));
     }
 
     /**
@@ -212,22 +221,22 @@ class VacancyController extends Controller
      */
     public function destroy(string $locale, Customer $customer)
     {
-        if (!$this->customerRepository->delete($customer->id)) {
+        if (!$this->vacancyRepository->delete($customer->id)) {
             return redirect(locale_route('customer.index', $customer->id))->with('danger', __('admin.not_delete_message'));
         }
-        return redirect(locale_route('customer.index'))->with('success', __('admin.delete_message'));
+        return redirect(locale_route('vacancy.index'))->with('success', __('admin.delete_message'));
     }
 
     public function docDelete($locale,$id){
         $file = File::query()->where('id',$id)->firstOrFail();
         $id = $file->fileable_id;
         //dd($file);
-        if (Storage::exists('public/Customer/' . $file->fileable_id . '/files/' . $file->title)) {
-            Storage::delete('public/Customer/' . $file->fileable_id . '/files/' . $file->title);
+        if (Storage::exists('public/Vacancy/' . $file->fileable_id . '/files/' . $file->title)) {
+            Storage::delete('public/Vacancy/' . $file->fileable_id . '/files/' . $file->title);
         }
 
         $file->delete();
-        return redirect(locale_route('customer.edit',$id))->with('success', __('admin.delete_message'));
+        return redirect(locale_route('vacancy.edit',$id))->with('success', __('admin.delete_message'));
 
     }
 }

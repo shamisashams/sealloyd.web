@@ -85,6 +85,7 @@ Route::prefix('{locale?}')
 
                 Route::resource('vacancy', \App\Http\Controllers\Admin\VacancyController::class);
                 Route::get('vacancy/{vacancy}/destroy', [\App\Http\Controllers\Admin\VacancyController::class, 'destroy'])->name('vacancy.destroy');
+                Route::get('vacancy/doc/{doc}/destroy',[\App\Http\Controllers\Admin\VacancyController::class,'docDelete'])->name('vacancy.delete-doc');
 
                 Route::resource('skill', \App\Http\Controllers\Admin\SkillController::class);
                 Route::get('skill/{skill}/destroy', [\App\Http\Controllers\Admin\SkillController::class, 'destroy'])->name('skill.destroy');

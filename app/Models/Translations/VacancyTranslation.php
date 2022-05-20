@@ -16,5 +16,6 @@ class VacancyTranslation extends BaseTranslationModel
         'title',
         'sub_title',
         'description',
+        'remuneration'
     ];
 }

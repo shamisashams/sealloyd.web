@@ -1,4 +1,6 @@
-
+<?php
+$ids = $vacancy->skills->pluck("id")->toArray();
+?>
 @extends('admin.nowa.views.layouts.app')
 
 @section('styles')
@@ -27,92 +29,167 @@
     <!-- breadcrumb -->
     <div class="breadcrumb-header justify-content-between">
         <div class="left-content">
-            <span class="main-content-title mg-b-0 mg-b-lg-1">{{$customer->created_at ? __('admin.customer-update') : __('admin.customer-create')}}</span>
+            <span class="main-content-title mg-b-0 mg-b-lg-1">{{$vacancy->created_at ? __('admin.vacancy-update') : __('admin.vacancy-create')}}</span>
         </div>
         <div class="justify-content-center mt-2">
             @include('admin.nowa.views.layouts.components.breadcrump')
         </div>
     </div>
     <!-- /breadcrumb -->
-    <input name="old-images[]" id="old_images" hidden disabled value="{{$customer->files}}">
+    <input name="old-images[]" id="old_images" hidden disabled value="{{$vacancy->files}}">
     <!-- row -->
-    {!! Form::model($customer,['url' => $url, 'method' => $method,'files' => true]) !!}
+    {!! Form::model($vacancy,['url' => $url, 'method' => $method,'files' => true]) !!}
     <div class="row">
-
         <div class="col-lg-6 col-md-12">
             <div class="card">
                 <div class="card-body">
 
-                    <div>
-                        <h6 class="card-title mb-1">@lang('admin.customer')</h6>
+                    <div class="mb-4">
+                        @foreach($skills as $skill)
+                            <div class="form-group">
+                                <label class="ckbox">
+                                    <input type="checkbox" name="skills[]" data-checkboxes="mygroup" class="custom-control-input"  id="{{$skill->id}}" value="{{$skill->id}}" {{in_array($skill->id,$ids) ? 'checked' : ''}}>
+                                    <span style="margin-left: 5px">{{$skill->title}}</span>
+
+                                </label>
+                            </div>
+                        @endforeach
                     </div>
 
+                    <div class="mb-4">
+
+                        <div class="panel panel-primary tabs-style-2">
+                            <div class=" tab-menu-heading">
+                                <div class="tabs-menu1">
+                                    <!-- Tabs -->
+                                    <ul class="nav panel-tabs main-nav-line">
+                                        @foreach(config('translatable.locales') as $locale)
+                                            <?php
+                                            $active = '';
+                                            if($loop->first) $active = 'active';
+                                            ?>
+
+                                            <li><a href="#lang-{{$locale}}" class="nav-link {{$active}}" data-bs-toggle="tab">{{$locale}}</a></li>
+                                        @endforeach
+
+                                    </ul>
+                                </div>
+                            </div>
+                            <div class="panel-body tabs-menu-body main-content-body-right border">
+                                <div class="tab-content">
+
+                                    @foreach(config('translatable.locales') as $locale)
+
+                                        <?php
+                                        $active = '';
+                                        if($loop->first) $active = 'active';
+                                        ?>
+                                        <div class="tab-pane {{$active}}" id="lang-{{$locale}}">
+                                            <div class="form-group">
+                                                <input type="text" name="{{$locale.'[title]'}}" class="form-control" placeholder="@lang('admin.title')" value="{{$vacancy->translate($locale)->title ?? ''}}">
+                                            </div>
+                                            @error($locale.'.title')
+                                            <small class="text-danger">
+                                                <div class="error">
+                                                    {{$message}}
+                                                </div>
+                                            </small>
+                                            @enderror
+
+                                            <div class="form-group">
+                                                <input type="text" name="{{$locale.'[sub_title]'}}" class="form-control" placeholder="@lang('admin.sub_title')" value="{{$vacancy->translate($locale)->sub_title ?? ''}}">
+                                            </div>
+                                            @error($locale.'.sub_title')
+                                            <small class="text-danger">
+                                                <div class="error">
+                                                    {{$message}}
+                                                </div>
+                                            </small>
+                                            @enderror
+
+                                            <div class="form-group">
+                                                <textarea type="text" name="{{$locale.'[description]'}}" class="form-control" placeholder="@lang('admin.description')" >{{$vacancy->translate($locale)->description ?? ''}}</textarea>
+                                            </div>
+                                            @error($locale.'.description')
+                                            <small class="text-danger">
+                                                <div class="error">
+                                                    {{$message}}
+                                                </div>
+                                            </small>
+                                            @enderror
+
+                                            <div class="form-group">
+                                                <input type="text" name="{{$locale.'[remuneration]'}}" class="form-control" placeholder="@lang('admin.remuneration')" value="{{$vacancy->translate($locale)->remuneration ?? ''}}">
+                                            </div>
+                                            @error($locale.'.remuneration')
+                                            <small class="text-danger">
+                                                <div class="error">
+                                                    {{$message}}
+                                                </div>
+                                            </small>
+                                            @enderror
+                                        </div>
+
+                                    @endforeach
+
+                                </div>
+                            </div>
+                        </div>
+
+                    </div>
+
+                    <?php
+                    $rates = [
+                        1 => __('client.full_rate'),
+                        2 => __('client.half_rate')
+                    ]
+                    ?>
 
                     <div class="form-group">
-                        {!! Form::label('name',__('admin.name'),['class' => 'form-label']) !!}
-                        <input type="text" name="name" class="form-control" placeholder="@lang('admin.name')" value="{{$customer->name ?? ''}}">
-                        @error('name')
-                        <small class="text-danger">
-                            <div class="error">
-                                {{$message}}
-                            </div>
-                        </small>
-                        @enderror
+                        <label class="form-label">@lang('admin.rate')</label>
+                        <select name="rate" class="form-control">
+                            @foreach($rates as $key => $rate)
+                            <option value="{{$key}}" {{$vacancy->rate == $key ? 'selected':''}}>{{$rate}}</option>
+                            @endforeach
+                        </select>
                     </div>
-
+                    @error('slug')
+                    <small class="text-danger">
+                        <div class="error">
+                            {{$message}}
+                        </div>
+                    </small>
+                    @enderror
 
                     <div class="form-group">
-                        {!! Form::label('email',__('admin.email'),['class' => 'form-label']) !!}
-                        {!! Form::text('email',$customer->email,['class' => 'form-control']) !!}
-
-                        @error('email')
-                        <small class="text-danger">
-                            <div class="error">
-                                {{$message}}
-                            </div>
-                        </small>
-                        @enderror
+                        <label class="form-label">@lang('admin.slug')</label>
+                        <input type="text" name="slug" class="form-control" placeholder="@lang('admin.slug')" value="{{$vacancy->slug ?? ''}}">
                     </div>
-
-                    <div class="form-group">
-                        {!! Form::label('password',__('admin.password'),['class' => 'form-label']) !!}
-                        {!! Form::text('password','',['class' => 'form-control']) !!}
-
-                        @error('password')
-                        <small class="text-danger">
-                            <div class="error">
-                                {{$message}}
-                            </div>
-                        </small>
-                        @enderror
-                    </div>
-
+                    @error('slug')
+                    <small class="text-danger">
+                        <div class="error">
+                            {{$message}}
+                        </div>
+                    </small>
+                    @enderror
                     <div class="form-group mb-0 justify-content-end">
                         <div class="checkbox">
                             <div class="custom-checkbox custom-control">
-                                <input type="checkbox" data-checkboxes="mygroup" name="status" class="custom-control-input" id="checkbox-2" {{$customer->status ? 'checked' : ''}}>
-                                <label for="checkbox-2" class="custom-control-label mt-1">@lang('admin.status')</label>
+                                <input type="checkbox" data-checkboxes="mygroup" name="status" class="custom-control-input" id="checkbox-2" {{$vacancy->status ? 'checked' : ''}}>
+                                <label for="checkbox-2" class="custom-control-label mt-1">{{__('admin.status')}}</label>
                             </div>
                         </div>
                     </div>
-
-
-
-
-
-                    <div class="form-group">
-
-                    </div>
-
                     <div class="form-group mb-0 mt-3 justify-content-end">
                         <div>
-                            {!! Form::submit($customer->created_at ? __('admin.update') : __('admin.create'),['class' => 'btn btn-primary']) !!}
+                            {!! Form::submit($vacancy->created_at ? __('admin.update') : __('admin.create'),['class' => 'btn btn-primary']) !!}
                         </div>
                     </div>
 
                 </div>
             </div>
         </div>
+
     </div>
 
     <!-- /row -->
@@ -121,9 +198,6 @@
         <div class="col-lg-12 col-md-12">
             <div class="card">
                 <div class="card-body">
-                    <div>
-                        <h6 class="card-title mb-1">@lang('admin.customer_img')</h6>
-                    </div>
                     <div class="input-images"></div>
                     @if ($errors->has('images'))
                         <span class="help-block">
@@ -134,29 +208,26 @@
             </div>
         </div>
     </div>
+    <!-- row closed -->
 
     <div class="row">
         <div class="col-lg-12 col-md-12">
             <div class="card">
                 <div class="card-body">
                     <div>
-                        <h6 class="card-title mb-1">@lang('admin.customer_files')</h6>
+                        <h6 class="card-title mb-1">@lang('admin.vacancy_files')</h6>
                     </div>
                     <input type="file" name="files[]" multiple>
 
-                    @foreach($customer->docs as $doc)
+                    @foreach($vacancy->docs as $doc)
                         <div>
-                            {{$doc->title}} <span><a href="{{locale_route('customer.delete-doc',$doc->id)}}">delete</a> </span>
+                            {{$doc->title}} <span><a href="{{locale_route('vacancy.delete-doc',$doc->id)}}">delete</a> </span>
                         </div>
                     @endforeach
                 </div>
             </div>
         </div>
     </div>
-    <!-- row closed -->
-
-    {{--@dd($customer->docs)--}}
-
     <!-- /row -->
 
     <!-- row -->
@@ -225,48 +296,6 @@
         } else {
             $('.input-images').imageUploader();
         }
-    </script>
-
-    <script src="{{ asset('ckeditor/ckeditor.js') }}"></script>
-    <script>
-        @foreach(config('translatable.locales') as $locale)
-        CKEDITOR.replace('description-{{$locale}}', {
-            filebrowserUploadUrl: "{{route('upload', ['_token' => csrf_token() ])}}",
-            filebrowserUploadMethod: 'form'
-        });
-        @endforeach
-    </script>
-
-    <script>
-        $('[name="categories[]"]').click(function (e){
-            let $this = $(this);
-
-
-                let next = $this.closest('li').next('li');
-                //console.log(next);
-                if(next.hasClass('child')){
-                    if($this.is(':checked')){
-
-                        next.find('input[type=checkbox]').prop('checked',true);
-                    } else {
-                        next.find('input[type=checkbox]').prop('checked',false);
-                    }
-                }
-
-                if($this.parents('li').hasClass('child')){
-
-                    if($this.is(':checked')){
-
-                        $this.parents('.child').prev('li').find('input[type=checkbox]').prop('checked',true);
-                        //$this.parents('.child').find('input[type=checkbox]').prop('checked',true);
-                    } else {
-                        //$this.parents('.child').find('input[type=checkbox]').prop('checked',false);
-                        $this.parents('.child').prev('li').find('input[type=checkbox]').prop('checked',false);
-                    }
-                }
-
-
-        });
     </script>
 
 @endsection

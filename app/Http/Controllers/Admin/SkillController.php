@@ -12,12 +12,15 @@ namespace App\Http\Controllers\Admin;
 use App\Http\Controllers\Controller;
 use App\Http\Requests\Admin\CustomerRequest;
 use App\Http\Requests\Admin\ProductRequest;
+use App\Http\Requests\Admin\SkillRequest;
 use App\Models\Category;
 use App\Models\Customer;
 use App\Models\File;
 use App\Models\Product;
+use App\Models\Skill;
 use App\Repositories\CategoryRepositoryInterface;
 use App\Repositories\Eloquent\CustomerRepository;
+use App\Repositories\Eloquent\SkillRepository;
 use App\Repositories\ProductRepositoryInterface;
 use Illuminate\Contracts\Foundation\Application;
 use Illuminate\Contracts\View\Factory;
@@ -34,16 +37,16 @@ class SkillController extends Controller
     /**
      * @var ProductRepositoryInterface
      */
-    private $customerRepository;
+    private $skillRepository;
 
 
 
 
     public function __construct(
-        CustomerRepository $customerRepository
+        SkillRepository $skillRepository
     )
     {
-        $this->customerRepository = $customerRepository;
+        $this->skillRepository = $skillRepository;
     }
 
     /**
@@ -57,8 +60,8 @@ class SkillController extends Controller
             'products' => $this->productRepository->getData($request, ['translations', 'categories'])
         ]);*/
 
-        return view('admin.nowa.views.vacancy.index', [
-            'data' => $this->customerRepository->getData($request),
+        return view('admin.nowa.views.skills.index', [
+            'data' => $this->skillRepository->getData($request),
         ]);
     }
 
@@ -69,13 +72,13 @@ class SkillController extends Controller
      */
     public function create()
     {
-        $customer = $this->customerRepository->model;
+        $skill = $this->skillRepository->model;
 
 
 
 
 
-        $url = locale_route('customer.store', [], false);
+        $url = locale_route('skill.store', [], false);
         $method = 'POST';
 
         /*return view('admin.pages.product.form', [
@@ -85,8 +88,8 @@ class SkillController extends Controller
             'categories' => $this->categories
         ]);*/
 
-        return view('admin.nowa.views.vacancy.form', [
-            'customer' => $customer,
+        return view('admin.nowa.views.skills.form', [
+            'skill' => $skill,
             'url' => $url,
             'method' => $method,
         ]);
@@ -100,32 +103,29 @@ class SkillController extends Controller
      * @return Application|RedirectResponse|Redirector
      * @throws ReflectionException
      */
-    public function store(CustomerRequest $request)
+    public function store(SkillRequest $request)
     {
 
         //dd($request->all());
         $saveData = Arr::except($request->except('_token'), []);
-        $saveData['status'] = isset($saveData['status']) && (bool)$saveData['status'];
+        //$saveData['status'] = isset($saveData['status']) && (bool)$saveData['status'];
 
-        if ($request->password !== ''){
-            $saveData['password'] = Hash::make($request->password);
-        } else unset($saveData['password']);
 
 
         //dd($saveData);
-        $customer = $this->customerRepository->create($saveData);
+        $customer = $this->skillRepository->create($saveData);
 
 
         // Save Files
         if ($request->hasFile('images')) {
-            $customer = $this->customerRepository->saveFiles($customer->id, $request);
+            $customer = $this->skillRepository->saveFiles($customer->id, $request);
         }
 
         if ($request->hasFile('files')) {
-            $customer = $this->customerRepository->saveFilesDocs($customer->id, $request);
+            $customer = $this->skillRepository->saveFilesDocs($customer->id, $request);
         }
 
-        return redirect(locale_route('customer.index', $customer->id))->with('success', __('admin.create_successfully'));
+        return redirect(locale_route('skill.index', $customer->id))->with('success', __('admin.create_successfully'));
 
     }
 
@@ -152,9 +152,9 @@ class SkillController extends Controller
      *
      * @return Application|Factory|View
      */
-    public function edit(string $locale, Customer $customer)
+    public function edit(string $locale, Skill $skill)
     {
-        $url = locale_route('vacancy.update', $customer->id, false);
+        $url = locale_route('skill.update', $skill->id, false);
         $method = 'PUT';
 
         /*return view('admin.pages.product.form', [
@@ -164,8 +164,8 @@ class SkillController extends Controller
             'categories' => $this->categories
         ]);*/
 
-        return view('admin.nowa.views.customer.form', [
-            'customer' => $customer,
+        return view('admin.nowa.views.skills.form', [
+            'skill' => $skill,
             'url' => $url,
             'method' => $method,
         ]);
@@ -180,27 +180,29 @@ class SkillController extends Controller
      * @return Application|RedirectResponse|Redirector
      * @throws ReflectionException
      */
-    public function update(CustomerRequest $request, string $locale, Customer $customer)
+    public function update(SkillRequest $request, string $locale, Skill $skill)
     {
         //dd($request->all());
         $saveData = Arr::except($request->except('_token'), []);
-        $saveData['status'] = isset($saveData['status']) && (bool)$saveData['status'];
+        //$saveData['status'] = isset($saveData['status']) && (bool)$saveData['status'];
 
         $saveData['password'] = Hash::make($request->password);
         //dd($saveData);
 
-        $this->customerRepository->update($customer->id, $saveData);
+        $this->skillRepository->update($skill->id, $saveData);
 
-        $this->customerRepository->saveFiles($customer->id, $request);
+
+
+        $this->skillRepository->saveFiles($skill->id, $request);
 
         if ($request->hasFile('files')) {
-            $customer = $this->customerRepository->saveFilesDocs($customer->id, $request);
+            $customer = $this->skillRepository->saveFilesDocs($skill->id, $request);
         }
 
 
 
 
-        return redirect(locale_route('customer.index', $customer->id))->with('success', __('admin.update_successfully'));
+        return redirect(locale_route('skill.index', $skill->id))->with('success', __('admin.update_successfully'));
     }
 
     /**
@@ -213,9 +215,9 @@ class SkillController extends Controller
     public function destroy(string $locale, Customer $customer)
     {
         if (!$this->customerRepository->delete($customer->id)) {
-            return redirect(locale_route('customer.index', $customer->id))->with('danger', __('admin.not_delete_message'));
+            return redirect(locale_route('skill.index', $customer->id))->with('danger', __('admin.not_delete_message'));
         }
-        return redirect(locale_route('customer.index'))->with('success', __('admin.delete_message'));
+        return redirect(locale_route('skill.index'))->with('success', __('admin.delete_message'));
     }
 
     public function docDelete($locale,$id){

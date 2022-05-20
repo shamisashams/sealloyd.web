@@ -77,6 +77,7 @@ class Vacancy extends Model
         'slug',
         'position',
         'status',
+        'rate'
     ];
 
     /** @var string */
@@ -86,7 +87,8 @@ class Vacancy extends Model
     public $translatedAttributes = [
         'title',
         'sub_title',
-        'description'
+        'description',
+        'remuneration'
     ];
 
 
@@ -130,7 +132,7 @@ class Vacancy extends Model
     }
     public function skills(): BelongsToMany
     {
-        return $this->belongsToMany(Product::class, 'skill_vacancy');
+        return $this->belongsToMany(Skill::class, 'skill_vacancy');
     }
 
 
@@ -139,7 +141,7 @@ class Vacancy extends Model
      */
     public function files(): MorphMany
     {
-        return $this->morphMany(File::class, 'fileable');
+        return $this->morphMany(File::class, 'fileable')->where('type','!=',4);
     }
 
     /**
@@ -148,5 +150,9 @@ class Vacancy extends Model
     public function file(): MorphOne
     {
         return $this->morphOne(File::class, 'fileable');
+    }
+
+    public function docs(){
+        return $this->morphMany(File::class, 'fileable')->where('type',4);
     }
 }
