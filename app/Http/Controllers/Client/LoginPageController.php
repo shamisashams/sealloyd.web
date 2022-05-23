@@ -66,7 +66,7 @@ class LoginPageController extends Controller
     {
 
 
-        $page = Page::where('key', 'services')->firstOrFail();
+        $page = Page::where('key', 'purpose')->firstOrFail();
 
         $images = [];
         foreach ($page->sections as $sections) {

@@ -3353,11 +3353,12 @@ __webpack_require__.r(__webpack_exports__);
 
 var Purpose = function Purpose(_ref) {
   var page = _ref.page,
-      seo = _ref.seo;
+      seo = _ref.seo,
+      images = _ref.images;
   var sharedData = (0,_inertiajs_inertia_react__WEBPACK_IMPORTED_MODULE_3__.usePage)().props.localizations;
 
   var renderHTML = function renderHTML(rawHTML) {
-    return /*#__PURE__*/react__WEBPACK_IMPORTED_MODULE_0__.createElement("div", {
+    return /*#__PURE__*/react__WEBPACK_IMPORTED_MODULE_0__.createElement("p", {
       dangerouslySetInnerHTML: {
         __html: rawHTML
       }
@@ -3367,6 +3368,7 @@ var Purpose = function Purpose(_ref) {
   // }
 
 
+  console.log(images);
   return /*#__PURE__*/react__WEBPACK_IMPORTED_MODULE_0__.createElement(_Layouts_Layout__WEBPACK_IMPORTED_MODULE_2__["default"], {
     seo: seo
   }, /*#__PURE__*/react__WEBPACK_IMPORTED_MODULE_0__.createElement("div", {
@@ -3375,16 +3377,16 @@ var Purpose = function Purpose(_ref) {
     className: "container"
   }, /*#__PURE__*/react__WEBPACK_IMPORTED_MODULE_0__.createElement("div", {
     className: "font45 blue"
-  }, "\u10E0\u10D0\u10D8\u10DB\u10D4 \u10E2\u10D4\u10E5\u10E1\u10E2\u10D8 \u10D9\u10DD\u10DB\u10DE\u10D0\u10DC\u10D8\u10D8\u10E1 ", /*#__PURE__*/react__WEBPACK_IMPORTED_MODULE_0__.createElement("br", null), " \u10DB\u10D8\u10D6\u10DC\u10D4\u10D1\u10D8\u10E1 \u10E8\u10D4\u10E1\u10D0\u10EE\u10D4\u10D1"), /*#__PURE__*/react__WEBPACK_IMPORTED_MODULE_0__.createElement(_components_SmallComps_SmallComps__WEBPACK_IMPORTED_MODULE_1__.PagePath, {
-    location1: "\u10DB\u10D7\u10D0\u10D5\u10D0\u10E0\u10D8",
-    location2: "\u10E9\u10D5\u10D4\u10DC \u10E8\u10D4\u10E1\u10D0\u10EE\u10D4\u10D1",
-    location3: "\u10DB\u10D8\u10D6\u10D0\u10DC\u10D8"
+  }, renderHTML(__('client.aboutus_purpose_header', sharedData).replace(/(?:\r\n|\r|\n)/g, '<br>'))), /*#__PURE__*/react__WEBPACK_IMPORTED_MODULE_0__.createElement(_components_SmallComps_SmallComps__WEBPACK_IMPORTED_MODULE_1__.PagePath, {
+    location1: __('client.nav_home', sharedData),
+    location2: __('client.nav_aboutus', sharedData),
+    location3: __('client.nav_purpose', sharedData)
   }), /*#__PURE__*/react__WEBPACK_IMPORTED_MODULE_0__.createElement("img", {
-    src: "/assets/images/ports/1.png",
+    src: images[0],
     alt: ""
   }), /*#__PURE__*/react__WEBPACK_IMPORTED_MODULE_0__.createElement("div", {
     className: "content"
-  }, /*#__PURE__*/react__WEBPACK_IMPORTED_MODULE_0__.createElement("p", null, renderHTML(__('client.aboutus_purpose_main_text', sharedData).replace(/(?:\r\n|\r|\n)/g, '<br>')))))));
+  }, renderHTML(__('client.aboutus_purpose_main_text', sharedData).replace(/(?:\r\n|\r|\n)/g, '<br>'))))));
 };
 
 /* harmony default export */ const __WEBPACK_DEFAULT_EXPORT__ = (Purpose);

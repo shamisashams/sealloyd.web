@@ -5,25 +5,26 @@ import { Link, usePage } from "@inertiajs/inertia-react";
 // import Img1 from "../../assets/images/ports/3.png";
 import "./AboutUs.css";
 
-const Purpose = ({ page, seo }) => {
+const Purpose = ({ page, seo, images }) => {
     const sharedData = usePage().props.localizations;
-    const renderHTML = (rawHTML) => React.createElement("div", { dangerouslySetInnerHTML: { __html: rawHTML } });
+    const renderHTML = (rawHTML) => React.createElement("p", { dangerouslySetInnerHTML: { __html: rawHTML } });
     // if (sharedData.length) {
     //     sharedData == "";
     // }
+    console.log(images)
     return (
         <Layout seo={seo}>
             <div className="aboutPage wrapper padding_top">
                 <div className="container">
                     <div className="font45 blue">
-                        რაიმე ტექსტი კომპანიის <br /> მიზნების შესახებ
+                        {renderHTML(__('client.aboutus_purpose_header', sharedData).replace(/(?:\r\n|\r|\n)/g, '<br>'))}
                     </div>
                     <PagePath
-                        location1="მთავარი"
-                        location2="ჩვენ შესახებ"
-                        location3="მიზანი"
+                        location1={__('client.nav_home',sharedData)}
+                        location2={__('client.nav_aboutus',sharedData)}
+                        location3={__('client.nav_purpose',sharedData)}
                     />
-                    <img src='/assets/images/ports/1.png' alt="" />
+                    <img src={images[0]} alt="" />
                     <div className="content">
                         {/* <p>
                             ლორემ იპსუმ ქვეყნიური თვითიდენტიფიკაციისა მესამის რიტუალური
@@ -70,9 +71,9 @@ const Purpose = ({ page, seo }) => {
                             დამიხედე ამოტივტივდებაო მარტოკა ღიჯინი მათთაგან, მოუჭირა იუბილარს
                             იქადაგებს ემატებიან ბურჟუები გულგახეთქილნი.
                         </p> */}
-                        <p>
+
                             {renderHTML(__('client.aboutus_purpose_main_text', sharedData).replace(/(?:\r\n|\r|\n)/g, '<br>'))}
-                        </p>
+
                     </div>
                 </div>
             </div>
