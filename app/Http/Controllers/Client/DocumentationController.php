@@ -164,6 +164,29 @@ class DocumentationController extends Controller
                 'answer_8',
             )
         );
+        $questions = [
+            1 => 'On a scale of 1 to 5 where 1 represents "Extremely dissatisfied" and
+                                5 represents "Extremely Satisfied," how would you rate your level of
+                                overall satisfaction with Maritime Lloyd as a service supplier?',
+            2 => 'Why do you say that? What specifically are you satisfied or
+                                dissatisfied with Maritime Lloyd?',
+            3 => 'How likely are you to recommend Maritime Lloyd to your business
+                                partners/other ship owners? Would you say the chances are …',
+            4 => 'How likely are you to repurchase services from Maritime Lloyd? Would
+                                you say the chances are …',
+            5 => 'How would you rate the overall quality of your relationship with
+                                Maritime Lloyd, considering all of your experiences with them? Would
+                                you say it is',
+            6 => 'On a scale of 1 to 5 where 1 represents "Extremely dissatisfied" and
+                                5 represents "Extremely Satisfied," how would you rate your level of
+                                satisfaction with Maritime Lloyd in regards to customer service?',
+            7 => 'On a scale of 1 to 5 where 1 represents "Extremely dissatisfied" and
+                                5 represents "Extremely Satisfied," how would you rate your level of
+                                satisfaction with Maritime Lloyd in regards to price?',
+            8 => 'On a scale of 1 to 5 where 1 represents "Extremely dissatisfied" and
+                                5 represents "Extremely Satisfied," how would you rate your level of
+                                satisfaction with Maritime Lloyd in regards to value?'
+        ];
 
        /* if ($rateservices) {
             $mailTo = Setting::where(['key' => 'email'])->first();
