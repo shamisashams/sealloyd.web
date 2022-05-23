@@ -72,6 +72,7 @@ Route::prefix('{locale?}')
                 // Page
                 Route::resource('page', PageController::class);
                 Route::get('page/{page}/destroy', [PageController::class, 'destroy'])->name('page.destroy');
+                Route::get('page/doc/{doc}/destroy',[PageController::class,'docDelete'])->name('page.delete-doc');
 
 
                 Route::get('setting/active', [SettingController::class, 'setActive'])->name('setting.active');

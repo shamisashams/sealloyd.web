@@ -285,7 +285,28 @@
 
 
     <!-- row closed -->
+    @if($page->key == 'circulars' || $page->key == 'management')
 
+        <div class="row">
+            <div class="col-lg-12 col-md-12">
+                <div class="card">
+                    <div class="card-body">
+                        <div>
+                            <h6 class="card-title mb-1">@lang('admin.page_files')</h6>
+                        </div>
+                        <input type="file" name="files[]" multiple>
+
+                        @foreach($page->docs as $doc)
+                            <div>
+                                {{$doc->title}} <span><a href="{{locale_route('page.delete-doc',$doc->id)}}">delete</a> </span>
+                            </div>
+                        @endforeach
+                    </div>
+                </div>
+            </div>
+        </div>
+
+    @endif
     <!-- /row -->
 
     <!-- row -->

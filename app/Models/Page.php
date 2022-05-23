@@ -67,7 +67,11 @@ class Page extends Model
 
     public function files(): MorphMany
     {
-        return $this->morphMany(File::class, 'fileable');
+        return $this->morphMany(File::class, 'fileable')->where('type','!=',4);
+    }
+
+    public function docs(){
+        return $this->morphMany(File::class, 'fileable')->where('type',4);
     }
 
     public function sections(){

@@ -203,7 +203,7 @@ class VacancyController extends Controller
         $vacancy->skills()->sync($saveData['skills'] ?? []);
 
         if ($request->hasFile('files')) {
-            $customer = $this->vacancyRepository->saveFilesDocs($vacancy->id, $request);
+            $vacancy = $this->vacancyRepository->saveFilesDocs($vacancy->id, $request);
         }
 
 

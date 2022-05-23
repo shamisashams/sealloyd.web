@@ -4,6 +4,7 @@ namespace App\Http\Controllers\Admin;
 
 use App\Http\Controllers\Controller;
 use App\Http\Requests\Admin\PageRequest;
+use App\Models\File;
 use App\Models\Page;
 use App\Repositories\Eloquent\PageSectionRepository;
 use App\Repositories\PageRepositoryInterface;
@@ -13,6 +14,7 @@ use Illuminate\Contracts\View\View;
 use Illuminate\Http\RedirectResponse;
 use Illuminate\Routing\Redirector;
 use Illuminate\Support\Arr;
+use Illuminate\Support\Facades\Storage;
 
 class PageController extends Controller
 {
@@ -113,9 +115,26 @@ class PageController extends Controller
 
         $this->pageSectionRepository->saveFile($page->id, $request);
 
+        if ($request->hasFile('files')) {
+            $page = $this->pageRepository->saveFilesDocs($page->id, $request);
+        }
+
 
 
         return redirect(locale_route('page.index', $page->id))->with('success', __('admin.update_successfully'));
+    }
+
+    public function docDelete($locale,$id){
+        $file = File::query()->where('id',$id)->firstOrFail();
+        $id = $file->fileable_id;
+        //dd($file);
+        if (Storage::exists('public/Page/' . $file->fileable_id . '/files/' . $file->title)) {
+            Storage::delete('public/Page/' . $file->fileable_id . '/files/' . $file->title);
+        }
+
+        $file->delete();
+        return redirect(locale_route('page.edit',$id))->with('success', __('admin.delete_message'));
+
     }
 
 }
