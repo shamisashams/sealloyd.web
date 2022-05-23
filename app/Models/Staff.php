@@ -16,7 +16,6 @@ use Illuminate\Database\Eloquent\SoftDeletes;
 class Staff extends Model
 {
     use Translatable, HasFactory, ScopeFilter;
-    use HasFactory;
     protected $table = 'staffs';
     protected $fillable = ['status'];
 
@@ -51,6 +50,7 @@ class Staff extends Model
     public $translatedAttributes = [
         'name',
         'position',
+        'slug',
     ];
 
     public function latestImage()
