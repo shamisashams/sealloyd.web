@@ -164,6 +164,17 @@ class DocumentationController extends Controller
                 'answer_8',
             )
         );
+
+       /* if ($rateservices) {
+            $mailTo = Setting::where(['key' => 'email'])->first();
+            if (($mailTo !== null) && $mailTo->value) {
+                Mail::to($mailTo->value)->send(new ContactEmail($rateservices));
+            }
+            return redirect(route('client.services.ownerapplication', app()->getLocale()))->with('success', 'warmatebit');
+        } else {
+            return redirect(route('client.services.ownerapplication', app()->getLocale()))->with('error', 'error');
+        }*/
+
         return redirect(route('client.services.evaluation', app()->getLocale()))->with('success', 'warmatebit');
         // dd($request->post());
 
