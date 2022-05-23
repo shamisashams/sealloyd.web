@@ -281,7 +281,7 @@ class LoginPageController extends Controller
             //return back()->with('danger','Email or Password is incorrect!');
             dd('wrong credentials');
         }
-
+        $request->session()->regenerate();
         //dd('ok');
         return redirect(locale_route('client.cabinet'));
     }

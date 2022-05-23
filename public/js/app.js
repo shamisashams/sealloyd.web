@@ -6478,6 +6478,8 @@ var Header = function Header() {
   }; // const { pathname } = useLocation();
 
 
+  console.log(route('client.home.index'));
+  console.log(pathname);
   var solid = false;
   console.log(pathname);
 
@@ -6485,56 +6487,52 @@ var Header = function Header() {
     solid = true;
   }
 
-  return (
-    /*#__PURE__*/
-    // <div className={solid ? "header solid" : "header"}>
-    react__WEBPACK_IMPORTED_MODULE_0__.createElement("div", {
-      className: "header solid"
-    }, /*#__PURE__*/react__WEBPACK_IMPORTED_MODULE_0__.createElement("div", {
-      className: "wrapper flex"
+  return /*#__PURE__*/react__WEBPACK_IMPORTED_MODULE_0__.createElement("div", {
+    className: solid ? "header solid" : "header"
+  }, /*#__PURE__*/react__WEBPACK_IMPORTED_MODULE_0__.createElement("div", {
+    className: "wrapper flex"
+  }, /*#__PURE__*/react__WEBPACK_IMPORTED_MODULE_0__.createElement(_inertiajs_inertia_react__WEBPACK_IMPORTED_MODULE_1__.Link, {
+    href: route('client.home.index')
+  }, /*#__PURE__*/react__WEBPACK_IMPORTED_MODULE_0__.createElement("img", {
+    src: "/assets/images/logo/1.png",
+    alt: ""
+  })), /*#__PURE__*/react__WEBPACK_IMPORTED_MODULE_0__.createElement("div", {
+    className: "flex right"
+  }, /*#__PURE__*/react__WEBPACK_IMPORTED_MODULE_0__.createElement("div", {
+    className: menu ? "navbar open" : "navbar"
+  }, navList.map(function (nav, i) {
+    var drop = nav.dropdown;
+    return /*#__PURE__*/react__WEBPACK_IMPORTED_MODULE_0__.createElement("div", {
+      className: pathname === nav.link ? "nav_link active" : "nav_link",
+      key: i
     }, /*#__PURE__*/react__WEBPACK_IMPORTED_MODULE_0__.createElement(_inertiajs_inertia_react__WEBPACK_IMPORTED_MODULE_1__.Link, {
-      href: route('client.home.index')
-    }, /*#__PURE__*/react__WEBPACK_IMPORTED_MODULE_0__.createElement("img", {
-      src: "/assets/images/logo/1.png",
-      alt: ""
-    })), /*#__PURE__*/react__WEBPACK_IMPORTED_MODULE_0__.createElement("div", {
-      className: "flex right"
-    }, /*#__PURE__*/react__WEBPACK_IMPORTED_MODULE_0__.createElement("div", {
-      className: menu ? "navbar open" : "navbar"
-    }, navList.map(function (nav, i) {
-      var drop = nav.dropdown;
-      return /*#__PURE__*/react__WEBPACK_IMPORTED_MODULE_0__.createElement("div", {
-        className: pathname === nav.link ? "nav_link active" : "nav_link",
-        key: i
-      }, /*#__PURE__*/react__WEBPACK_IMPORTED_MODULE_0__.createElement(_inertiajs_inertia_react__WEBPACK_IMPORTED_MODULE_1__.Link, {
-        className: drop ? "" : "link",
-        href: nav.link,
-        onClick: drop ? function (e) {
-          e.preventDefault();
-        } : function (e) {
-          return "";
-        }
-      }, /*#__PURE__*/react__WEBPACK_IMPORTED_MODULE_0__.createElement("span", null, nav.name)), drop ? /*#__PURE__*/react__WEBPACK_IMPORTED_MODULE_0__.createElement("div", {
-        className: "dropdown"
-      }, drop.map(function (drop, i) {
-        if (drop) {
-          return /*#__PURE__*/react__WEBPACK_IMPORTED_MODULE_0__.createElement("div", {
-            key: i,
-            className: "link"
-          }, /*#__PURE__*/react__WEBPACK_IMPORTED_MODULE_0__.createElement(_inertiajs_inertia_react__WEBPACK_IMPORTED_MODULE_1__.Link, {
-            className: " nux",
-            href: drop.link
-          }, drop.name));
-        }
-      })) : "");
-    })), user === null ? /*#__PURE__*/react__WEBPACK_IMPORTED_MODULE_0__.createElement(_inertiajs_inertia_react__WEBPACK_IMPORTED_MODULE_1__.Link, {
-      className: pathname === route('client.login') ? "nav_link active" : "nav_link",
-      href: route('client.login')
-    }, /*#__PURE__*/react__WEBPACK_IMPORTED_MODULE_0__.createElement("span", null, __('client.nav_cabinet', sharedData))) : /*#__PURE__*/react__WEBPACK_IMPORTED_MODULE_0__.createElement(_inertiajs_inertia_react__WEBPACK_IMPORTED_MODULE_1__.Link, {
-      className: pathname === route('client.cabinet') ? "nav_link active" : "nav_link",
-      href: route('client.cabinet')
-    }, /*#__PURE__*/react__WEBPACK_IMPORTED_MODULE_0__.createElement("span", null, __('client.nav_cabinet', sharedData))), /*#__PURE__*/react__WEBPACK_IMPORTED_MODULE_0__.createElement(_Languages_Languages__WEBPACK_IMPORTED_MODULE_4__.Languages, null))))
-  );
+      className: drop ? "" : "link",
+      href: nav.link,
+      onClick: drop ? function (e) {
+        e.preventDefault();
+      } : function (e) {
+        return "";
+      }
+    }, /*#__PURE__*/react__WEBPACK_IMPORTED_MODULE_0__.createElement("span", null, nav.name)), drop ? /*#__PURE__*/react__WEBPACK_IMPORTED_MODULE_0__.createElement("div", {
+      className: "dropdown"
+    }, drop.map(function (drop, i) {
+      if (drop) {
+        return /*#__PURE__*/react__WEBPACK_IMPORTED_MODULE_0__.createElement("div", {
+          key: i,
+          className: "link"
+        }, /*#__PURE__*/react__WEBPACK_IMPORTED_MODULE_0__.createElement(_inertiajs_inertia_react__WEBPACK_IMPORTED_MODULE_1__.Link, {
+          className: " nux",
+          href: drop.link
+        }, drop.name));
+      }
+    })) : "");
+  })), user === null ? /*#__PURE__*/react__WEBPACK_IMPORTED_MODULE_0__.createElement(_inertiajs_inertia_react__WEBPACK_IMPORTED_MODULE_1__.Link, {
+    className: pathname === route('client.login') ? "nav_link active" : "nav_link",
+    href: route('client.login')
+  }, /*#__PURE__*/react__WEBPACK_IMPORTED_MODULE_0__.createElement("span", null, __('client.nav_cabinet', sharedData))) : /*#__PURE__*/react__WEBPACK_IMPORTED_MODULE_0__.createElement(_inertiajs_inertia_react__WEBPACK_IMPORTED_MODULE_1__.Link, {
+    className: pathname === route('client.cabinet') ? "nav_link active" : "nav_link",
+    href: route('client.cabinet')
+  }, /*#__PURE__*/react__WEBPACK_IMPORTED_MODULE_0__.createElement("span", null, __('client.nav_cabinet', sharedData))), /*#__PURE__*/react__WEBPACK_IMPORTED_MODULE_0__.createElement(_Languages_Languages__WEBPACK_IMPORTED_MODULE_4__.Languages, null))));
 };
 
 /* harmony default export */ const __WEBPACK_DEFAULT_EXPORT__ = (Header);

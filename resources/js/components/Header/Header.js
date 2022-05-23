@@ -122,14 +122,16 @@ const Header = () => {
         setMenu(!menu);
     };
     // const { pathname } = useLocation();
+    console.log(route('client.home.index'))
+    console.log(pathname)
     let solid = false;
     console.log(pathname);
     if (pathname == route('client.home.index')) {
         solid = true;
     }
     return (
-        // <div className={solid ? "header solid" : "header"}>
-        <div className={"header solid"}>
+
+        <div className={solid ? "header solid" : "header"}>
             <div className="wrapper flex">
                 <Link href={route('client.home.index')}>
                     <img src='/assets/images/logo/1.png' alt="" />
@@ -210,6 +212,7 @@ const Header = () => {
                 </div>
             </div>
         </div>
+
     );
 };
 

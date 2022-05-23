@@ -17,6 +17,9 @@ class CabinetController extends Controller
     {
         $this->galleryRepository = $galleryRepository;
         //auth()->guard('customer')->logout();
+        //request()->session()->invalidate();
+
+        //request()->session()->regenerateToken();
     }
 
     public function index()

@@ -67,6 +67,7 @@ class HandleInertiaRequests extends Middleware
         //dd($result,$categories);
 
 
+        //dd(Auth::guard('customer')->user());
         //Generates urls for language switcher with each locale
         $locale_urls = $this->locale_urls();
         //Generates link for go back button
@@ -78,7 +79,7 @@ class HandleInertiaRequests extends Middleware
             'urlPrev'	=> $urlPrev,
             'categories' => $result,
             'info' => $_result,
-            'user' => Auth::user()
+            'user' => Auth::guard('customer')->user()
         ]);
     }
 
