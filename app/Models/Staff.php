@@ -53,5 +53,10 @@ class Staff extends Model
         'position',
     ];
 
+    public function latestImage()
+    {
+        return $this->morphOne(File::class, 'fileable')->latestOfMany();
+    }
+
     protected $translationModel = StaffTranslation::class;
 }

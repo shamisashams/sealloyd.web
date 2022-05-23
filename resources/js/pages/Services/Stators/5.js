@@ -3,8 +3,12 @@ import { PagePath } from "../../../components/SmallComps/SmallComps";
 import { StatorBoxes } from "../../../components/StatorBoxes/StatorBoxes";
 import "../../AboutUs/AboutUs.css";
 import Layout from "../../../Layouts/Layout";
+import { Link, usePage } from "@inertiajs/inertia-react";
+
 
 const Stator5 = ({ seo }) => {
+    const sharedData = usePage().props.localizations;
+    const renderHTML = (rawHTML) => React.createElement("div", { dangerouslySetInnerHTML: { __html: rawHTML } });
     return (
         <Layout seo={seo}>
             <div className="servicesPage">
@@ -17,7 +21,7 @@ const Stator5 = ({ seo }) => {
                             location3="სტატუტორი"
                         />
                         <div className="content">
-                            <p>
+                            {/* <p>
                                 The main objective of ISPS Code is to detect security threats and
                                 implement security measures. To establish roles and
                                 responsibilities concerning maritime security for governments,
@@ -38,6 +42,9 @@ const Stator5 = ({ seo }) => {
                                 ISSC for vessels. Our Company is authorized to carry out initial /
                                 renewal / interim / additional audits on flag administrations
                                 behalf.
+                            </p> */}
+                            <p>
+                                {renderHTML(__('client.services_nav_stators5_main_text', sharedData).replace(/(?:\r\n|\r|\n)/g, '<br>'))}
                             </p>
                         </div>
                     </div>
