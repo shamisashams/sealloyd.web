@@ -3762,9 +3762,12 @@ __webpack_require__.r(__webpack_exports__);
 
 
 var Contact = function Contact(_ref) {
-  var page = _ref.page,
-      seo = _ref.seo;
-  console.log(page);
+  var info = _ref.info,
+      page = _ref.page,
+      seo = _ref.seo,
+      images = _ref.images;
+  console.log(info);
+  var sharedData = (0,_inertiajs_inertia_react__WEBPACK_IMPORTED_MODULE_5__.usePage)().props.localizations;
 
   var _useForm = (0,_inertiajs_inertia_react__WEBPACK_IMPORTED_MODULE_5__.useForm)({
     name: '',
@@ -3791,15 +3794,15 @@ var Contact = function Contact(_ref) {
   }, /*#__PURE__*/react__WEBPACK_IMPORTED_MODULE_0__.createElement("div", {
     className: "showcase",
     style: {
-      background: "url('/assets/images/ports/6.png') no-repeat",
+      background: "url('" + images[0] + "') no-repeat",
       backgroundPosition: "center",
       backgroundSize: "cover"
     }
   }, /*#__PURE__*/react__WEBPACK_IMPORTED_MODULE_0__.createElement("div", {
     className: "wrapper"
   }, /*#__PURE__*/react__WEBPACK_IMPORTED_MODULE_0__.createElement(_components_SmallComps_SmallComps__WEBPACK_IMPORTED_MODULE_1__.PagePath, {
-    location2: "\u10DB\u10D7\u10D0\u10D5\u10D0\u10E0\u10D8",
-    location3: "\u10D9\u10DD\u10DC\u10E2\u10D0\u10E5\u10E2\u10D8"
+    location2: __('client.nav_home', sharedData),
+    location3: __('client.nav_contact', sharedData)
   }))), /*#__PURE__*/react__WEBPACK_IMPORTED_MODULE_0__.createElement("div", {
     className: "wrapper"
   }, /*#__PURE__*/react__WEBPACK_IMPORTED_MODULE_0__.createElement("div", {
@@ -3814,56 +3817,56 @@ var Contact = function Contact(_ref) {
   }, /*#__PURE__*/react__WEBPACK_IMPORTED_MODULE_0__.createElement("img", {
     src: "/assets/images/icons/contact/mail.svg",
     alt: ""
-  }), /*#__PURE__*/react__WEBPACK_IMPORTED_MODULE_0__.createElement("span", null, "stat@geolloyd.com")), /*#__PURE__*/react__WEBPACK_IMPORTED_MODULE_0__.createElement("a", {
+  }), /*#__PURE__*/react__WEBPACK_IMPORTED_MODULE_0__.createElement("span", null, info.email.value)), /*#__PURE__*/react__WEBPACK_IMPORTED_MODULE_0__.createElement("a", {
     href: "#"
   }, /*#__PURE__*/react__WEBPACK_IMPORTED_MODULE_0__.createElement("img", {
-    src: "/assets/images/icons/contact/mail.svg",
+    src: "/assets/images/icons/contact/pin.svg",
     alt: ""
-  }), /*#__PURE__*/react__WEBPACK_IMPORTED_MODULE_0__.createElement("span", null, "street name #123. Batumi, Georgia")), /*#__PURE__*/react__WEBPACK_IMPORTED_MODULE_0__.createElement("a", {
+  }), /*#__PURE__*/react__WEBPACK_IMPORTED_MODULE_0__.createElement("span", null, info.address.value)), /*#__PURE__*/react__WEBPACK_IMPORTED_MODULE_0__.createElement("a", {
     href: "#"
   }, /*#__PURE__*/react__WEBPACK_IMPORTED_MODULE_0__.createElement("img", {
-    src: "/assets/images/icons/contact/mail.svg",
+    src: "/assets/images/icons/contact/tel.svg",
     alt: ""
-  }), /*#__PURE__*/react__WEBPACK_IMPORTED_MODULE_0__.createElement("span", null, "+995 032 2 22 22 22"))), /*#__PURE__*/react__WEBPACK_IMPORTED_MODULE_0__.createElement("div", {
+  }), /*#__PURE__*/react__WEBPACK_IMPORTED_MODULE_0__.createElement("span", null, info.phone.value))), /*#__PURE__*/react__WEBPACK_IMPORTED_MODULE_0__.createElement("div", {
     className: "form"
   }, /*#__PURE__*/react__WEBPACK_IMPORTED_MODULE_0__.createElement("form", {
     onSubmit: submit
   }, /*#__PURE__*/react__WEBPACK_IMPORTED_MODULE_0__.createElement("input", {
-    placeholder: "\u10E1\u10D0\u10EE\u10D4\u10DA\u10D8",
+    placeholder: __('client.contact_form_name', sharedData),
     type: "text",
     value: data.name,
     onChange: function onChange(e) {
       return setData('name', e.target.value);
     }
   }), /*#__PURE__*/react__WEBPACK_IMPORTED_MODULE_0__.createElement("input", {
-    placeholder: "\u10D2\u10D5\u10D0\u10E0\u10D8",
+    placeholder: __('client.contact_form_surname', sharedData),
     type: "text",
     value: data.lastname,
     onChange: function onChange(e) {
       return setData('lastname', e.target.value);
     }
   }), /*#__PURE__*/react__WEBPACK_IMPORTED_MODULE_0__.createElement("input", {
-    placeholder: "\u10D4\u10DA.\u10E4\u10DD\u10E1\u10E2\u10D0",
+    placeholder: __('client.contact_form_email', sharedData),
     type: "mail",
     value: data.mail,
     onChange: function onChange(e) {
       return setData('mail', e.target.value);
     }
   }), /*#__PURE__*/react__WEBPACK_IMPORTED_MODULE_0__.createElement("input", {
-    placeholder: "\u10E2\u10D4\u10DA\u10D4\u10E4\u10DD\u10DC\u10D8",
+    placeholder: __('client.contact_form_phone', sharedData),
     type: "number",
     value: data.phone,
     onChange: function onChange(e) {
       return setData('phone', e.target.value);
     }
   }), /*#__PURE__*/react__WEBPACK_IMPORTED_MODULE_0__.createElement("textarea", {
-    placeholder: "\u10E8\u10D4\u10E2\u10E7\u10DD\u10D1\u10D8\u10DC\u10D4\u10D1\u10D0",
+    placeholder: __('client.contact_form_message', sharedData),
     value: data.message,
     onChange: function onChange(e) {
       return setData('message', e.target.value);
     }
   }), /*#__PURE__*/react__WEBPACK_IMPORTED_MODULE_0__.createElement(_components_SmallComps_SmallComps__WEBPACK_IMPORTED_MODULE_1__.SendButton, {
-    text: "\u10D2\u10D0\u10D2\u10D6\u10D0\u10D5\u10DC\u10D0",
+    text: __('client.contact_form_send', sharedData),
     onClick: function onClick() {
       return console.log();
     }
