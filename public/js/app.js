@@ -4198,12 +4198,13 @@ __webpack_require__.r(__webpack_exports__);
 
 
 var Circulars = function Circulars(_ref) {
-  var seo = _ref.seo;
+  var seo = _ref.seo,
+      docs = _ref.docs;
   var docList = ["დოკუმენტის გრძელი დასახელება რომე...", "დოკუმენტის დასახელება", "დოკუმენტის დასახელება", "დოკუმენტის გრძელი დასახელება რომე...", "დოკუმენტის გრძელი დასახელება რომე...", "დოკუმენტის დასახელება", "დოკუმენტის დასახელება", "დოკუმენტის გრძელი დასახელება რომე..."];
   var sharedData = (0,_inertiajs_inertia_react__WEBPACK_IMPORTED_MODULE_4__.usePage)().props.localizations;
 
   var renderHTML = function renderHTML(rawHTML) {
-    return /*#__PURE__*/react__WEBPACK_IMPORTED_MODULE_0__.createElement("div", {
+    return /*#__PURE__*/react__WEBPACK_IMPORTED_MODULE_0__.createElement("p", {
       dangerouslySetInnerHTML: {
         __html: rawHTML
       }
@@ -4218,19 +4219,20 @@ var Circulars = function Circulars(_ref) {
     className: "wrapper"
   }, /*#__PURE__*/react__WEBPACK_IMPORTED_MODULE_0__.createElement("div", {
     className: "font45 blue"
-  }, "\u10EA\u10D8\u10E0\u10D9\u10E3\u10DA\u10D0\u10E0\u10D4\u10D1\u10D8"), /*#__PURE__*/react__WEBPACK_IMPORTED_MODULE_0__.createElement(_components_SmallComps_SmallComps__WEBPACK_IMPORTED_MODULE_1__.PagePath, {
-    location1: "\u10DB\u10D7\u10D0\u10D5\u10D0\u10E0\u10D8",
-    location2: "\u10D3\u10DD\u10D9\u10E3\u10DB\u10D4\u10DC\u10E2\u10D0\u10EA\u10D8\u10D0",
-    location3: "\u10EA\u10D8\u10E0\u10D9\u10E3\u10DA\u10D0\u10E0\u10D4\u10D1\u10D8"
+  }, renderHTML(__('client.documentation_circulars_header', sharedData).replace(/(?:\r\n|\r|\n)/g, '<br>'))), /*#__PURE__*/react__WEBPACK_IMPORTED_MODULE_0__.createElement(_components_SmallComps_SmallComps__WEBPACK_IMPORTED_MODULE_1__.PagePath, {
+    location1: __('client.nav_home', sharedData),
+    location2: __('client.nav_documentation', sharedData),
+    location3: __('client.nav_circulars', sharedData)
   }), /*#__PURE__*/react__WEBPACK_IMPORTED_MODULE_0__.createElement("p", {
     className: "container"
   }, renderHTML(__('client.documentation_circulars_main_text', sharedData).replace(/(?:\r\n|\r|\n)/g, '<br>'))), /*#__PURE__*/react__WEBPACK_IMPORTED_MODULE_0__.createElement("div", {
     className: "blue"
   }, "\u10EA\u10D8\u10E0\u10D9\u10E3\u10DA\u10D0\u10E0\u10D4\u10D1\u10D8"), /*#__PURE__*/react__WEBPACK_IMPORTED_MODULE_0__.createElement("div", {
     className: "doc_grid"
-  }, docList.map(function (doc, index) {
+  }, docs.map(function (doc, index) {
     return /*#__PURE__*/react__WEBPACK_IMPORTED_MODULE_0__.createElement(_components_SmallComps_SmallComps__WEBPACK_IMPORTED_MODULE_1__.DlPdf, {
       key: index,
+      model: "Page",
       name: doc
     });
   })))));

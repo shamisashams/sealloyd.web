@@ -6,7 +6,7 @@ import Layout from "../../Layouts/Layout";
 import { Link, usePage } from "@inertiajs/inertia-react";
 
 
-const Circulars = ({ seo }) => {
+const Circulars = ({ seo, docs }) => {
     const docList = [
         "დოკუმენტის გრძელი დასახელება რომე...",
         "დოკუმენტის დასახელება",
@@ -18,16 +18,16 @@ const Circulars = ({ seo }) => {
         "დოკუმენტის გრძელი დასახელება რომე...",
     ];
     const sharedData = usePage().props.localizations;
-    const renderHTML = (rawHTML) => React.createElement("div", { dangerouslySetInnerHTML: { __html: rawHTML } });
+    const renderHTML = (rawHTML) => React.createElement("p", { dangerouslySetInnerHTML: { __html: rawHTML } });
     return (
         <Layout seo={seo}>
             <div className="documents teamPage careerPage">
                 <div className="wrapper">
-                    <div className="font45 blue">ცირკულარები</div>
+                    <div className="font45 blue">{renderHTML(__('client.documentation_circulars_header', sharedData).replace(/(?:\r\n|\r|\n)/g, '<br>'))}</div>
                     <PagePath
-                        location1="მთავარი"
-                        location2="დოკუმენტაცია"
-                        location3="ცირკულარები"
+                        location1={__('client.nav_home',sharedData)}
+                        location2={__('client.nav_documentation',sharedData)}
+                        location3={__('client.nav_circulars',sharedData)}
                     />
                     {/* <p className="container">
                         ლორემ იპსუმ ქვეყნიური თვითიდენტიფიკაციისა მესამის რიტუალური
@@ -45,8 +45,8 @@ const Circulars = ({ seo }) => {
                     </p>
                     <div className="blue">ცირკულარები</div>
                     <div className="doc_grid">
-                        {docList.map((doc, index) => {
-                            return <DlPdf key={index} name={doc} />;
+                        {docs.map((doc, index) => {
+                            return <DlPdf key={index} model="Page" name={doc} />;
                         })}
                     </div>
                 </div>

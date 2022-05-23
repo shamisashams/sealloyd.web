@@ -107,7 +107,7 @@ class DocumentationController extends Controller
     {
 
 
-        $page = Page::where('key', 'services')->firstOrFail();
+        $page = Page::where('key', 'circulars')->firstOrFail();
 
         $images = [];
         foreach ($page->sections as $sections) {
@@ -135,7 +135,7 @@ class DocumentationController extends Controller
 
             //            "image" => "imgg",
             //            "locale" => App::getLocale()
-        ], 'popular_products' => $products, 'images' => $images])->withViewData([
+        ], 'popular_products' => $products, 'images' => $images, 'docs' => $page->docs])->withViewData([
             'meta_title' => $page->meta_title,
             'meta_description' => $page->meta_description,
             'meta_keyword' => $page->meta_keyword,
