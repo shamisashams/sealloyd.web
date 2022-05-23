@@ -10,11 +10,11 @@ import { Link, usePage } from "@inertiajs/inertia-react";
 import "./OurTeam.css";
 
 const Office = ({ seo, staff, page }) => {
-    const { images, popular_products } = usePage().props;
+    const { images } = usePage().props;
     const sharedData = usePage().props.localizations;
     const renderHTML = (rawHTML) => React.createElement("div", { dangerouslySetInnerHTML: { __html: rawHTML } });
 
-
+    console.log(staff);
     // const members = [
     //     {
     //         img: '/assets/images/team/1.png',
@@ -60,11 +60,11 @@ const Office = ({ seo, staff, page }) => {
                             return (
                                 <div className="team_member" key={index}>
                                     <div className="img">
-                                        <img src={popular_products.latest_image != null
+                                        <img src={member.latest_image != null
                                             ? "/" +
-                                            popular_products.latest_image.path +
+                                            member.latest_image.path +
                                             "/" +
-                                            popular_products.latest_image.title
+                                            member.latest_image.title
                                             : null} alt="" />
                                     </div>
                                     <h4>{member.name}</h4>

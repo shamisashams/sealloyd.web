@@ -151,7 +151,7 @@ class DocumentationController extends Controller
         $rateservices = rateservice::create(
             $request->only(
                 'company_name',
-                'created_at',
+                // 'created_at',
                 'satisfied_dissatisfied',
                 'recomendations',
                 'repurchases',

@@ -11,7 +11,7 @@ class rateservice extends Model
     public $timestamps = false;
     protected $fillable = [
         'company_name',
-        'created_at',
+        // 'created_at',
         'satisfied_dissatisfied',
         'recomendations',
         'repurchases',
