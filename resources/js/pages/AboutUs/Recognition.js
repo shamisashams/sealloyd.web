@@ -21,19 +21,19 @@ const Recognition = ({ page, seo }) => {
             span: "- Non conventional vessels",
         },
         {
-            flag: '/assets/images/icons/flags/1.png',
+            flag: '/assets/images/icons/flags/2.png',
             name: "Sierra Leone",
         },
         {
-            flag: '/assets/images/icons/flags/1.png',
+            flag: '/assets/images/icons/flags/3.png',
             name: "Comoros",
         },
         {
-            flag: '/assets/images/icons/flags/1.png',
+            flag: '/assets/images/icons/flags/4.png',
             name: "Tanzania",
         },
         {
-            flag: '/assets/images/icons/flags/1.png',
+            flag: '/assets/images/icons/flags/5.png',
             name: "Moldova",
         },
     ];
@@ -76,7 +76,7 @@ const Recognition = ({ page, seo }) => {
                         {countries.map((country, index) => {
                             return (
                                 <div className="country" key={index}>
-                                    <img src='/assets/images/ports/1.png' alt="" />
+                                    <img src={country.flag} />
                                     <h6>{country.name}</h6>
                                     {country.span ? <span>{country.span}</span> : ""}
                                 </div>

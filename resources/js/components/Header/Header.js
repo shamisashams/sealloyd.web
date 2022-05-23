@@ -123,6 +123,7 @@ const Header = () => {
     };
     // const { pathname } = useLocation();
     let solid = false;
+    console.log(pathname);
     if (pathname == route('client.home.index')) {
         solid = true;
     }
@@ -173,7 +174,7 @@ const Header = () => {
                         })}
                     </div>
 
-                    {user === null ?<Link
+                    {user === null ? <Link
                         className={pathname === route('client.login') ? "nav_link active" : "nav_link"}
                         href={route('client.login')}
                     >

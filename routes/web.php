@@ -81,18 +81,21 @@ Route::prefix('{locale?}')
 
                 Route::resource('customer', \App\Http\Controllers\Admin\CustomerController::class);
                 Route::get('customer/{customer}/destroy', [\App\Http\Controllers\Admin\CustomerController::class, 'destroy'])->name('customer.destroy');
-                Route::get('customer/doc/{doc}/destroy',[\App\Http\Controllers\Admin\CustomerController::class,'docDelete'])->name('customer.delete-doc');
+                Route::get('customer/doc/{doc}/destroy', [\App\Http\Controllers\Admin\CustomerController::class, 'docDelete'])->name('customer.delete-doc');
 
                 Route::resource('vacancy', \App\Http\Controllers\Admin\VacancyController::class);
                 Route::get('vacancy/{vacancy}/destroy', [\App\Http\Controllers\Admin\VacancyController::class, 'destroy'])->name('vacancy.destroy');
-                Route::get('vacancy/doc/{doc}/destroy',[\App\Http\Controllers\Admin\VacancyController::class,'docDelete'])->name('vacancy.delete-doc');
-                Route::get('vacancy/{vacancy}/resumes',[\App\Http\Controllers\Admin\VacancyController::class,'viewResumes'])->name('vacancy.resumes');
+                Route::get('vacancy/doc/{doc}/destroy', [\App\Http\Controllers\Admin\VacancyController::class, 'docDelete'])->name('vacancy.delete-doc');
+                Route::get('vacancy/{vacancy}/resumes', [\App\Http\Controllers\Admin\VacancyController::class, 'viewResumes'])->name('vacancy.resumes');
 
                 Route::resource('skill', \App\Http\Controllers\Admin\SkillController::class);
                 Route::get('skill/{skill}/destroy', [\App\Http\Controllers\Admin\SkillController::class, 'destroy'])->name('skill.destroy');
 
                 //staff
-                Route::get('staff', [\App\Http\Controllers\Admin\StaffController::class, 'index'])->name('staff.index');
+                Route::resource('staff', \App\Http\Controllers\Admin\StaffController::class);
+
+                Route::get('staff/{staff}/destroy', [\App\Http\Controllers\Admin\staffController::class, 'destroy'])->name('staff.destroy');
+
                 Route::post('addstaff', [\App\Http\Controllers\Admin\StaffController::class, 'addStaff'])->name('staff.addstaff');
                 Route::post('editstaff', [\App\Http\Controllers\Admin\StaffController::class, 'editstaff'])->name('staff.editstaff');
 
@@ -132,7 +135,7 @@ Route::prefix('{locale?}')
 
             Route::get('/vacancy/{vacancy}', [OurTeamController::class, 'viewVacancy'])->name('client.vacancy.show');
 
-            Route::post('vacancy/upload_application',[OurTeamController::class,'appUpload'])->name('client.app-upload');
+            Route::post('vacancy/upload_application', [OurTeamController::class, 'appUpload'])->name('client.app-upload');
 
 
             // cabinet
@@ -140,8 +143,8 @@ Route::prefix('{locale?}')
 
             Route::post('/login', [LoginPageController::class, 'auth'])->name('client.auth');
 
-            Route::middleware('customer:customer')->group(function (){
-                Route::get('/cabinet', [\App\Http\Controllers\Client\CabinetController::class,'index'])->name('client.cabinet');
+            Route::middleware('customer:customer')->group(function () {
+                Route::get('/cabinet', [\App\Http\Controllers\Client\CabinetController::class, 'index'])->name('client.cabinet');
             });
 
             // Contact Page

@@ -1,149 +1,226 @@
 <?php
 
+/**
+ *  app/Http/Controllers/Admin/ProductController.php
+ *
+ * Date-Time: 30.07.21
+ * Time: 10:37
+ * @author Insite LLC <hello@insite.international>
+ */
+
 namespace App\Http\Controllers\Admin;
 
 use App\Http\Controllers\Controller;
-use App\Http\Requests\Admin\SettingRequest;
-use App\Models\Setting;
-use App\Rules\MatchOldPassword;
+use App\Http\Requests\Admin\CustomerRequest;
+use App\Http\Requests\Admin\ProductRequest;
+use App\Http\Requests\Admin\SkillRequest;
+use App\Http\Requests\Admin\StaffRequest;
+use App\Models\Category;
+use App\Models\Customer;
+use App\Models\File;
+use App\Models\Product;
+use App\Models\Skill;
+use App\Models\Staff;
+use App\Repositories\CategoryRepositoryInterface;
+use App\Repositories\Eloquent\CustomerRepository;
+use App\Repositories\Eloquent\StaffRepository;
+use App\Repositories\ProductRepositoryInterface;
 use Illuminate\Contracts\Foundation\Application;
 use Illuminate\Contracts\View\Factory;
 use Illuminate\Contracts\View\View;
 use Illuminate\Http\RedirectResponse;
 use Illuminate\Routing\Redirector;
 use Illuminate\Support\Arr;
-use App\Models\User;
-use App\Models\Staff;
+use Illuminate\Support\Facades\Storage;
+use ReflectionException;
 use Illuminate\Support\Facades\Hash;
-use Illuminate\Http\Request;
-use Illuminate\Support\Facades\DB;
-use App\Http\Requests\Admin\TranslationRequest;
-use App\Repositories\TranslationRepositoryInterface;
-
 
 class StaffController extends Controller
 {
     /**
-     * @var SettingRepositoryInterface
+     * @var ProductRepositoryInterface
      */
+    private $staffRepository;
 
 
-    /**
-     * @param SettingRepositoryInterface $settingRepository
-     */
-    public function __construct(TranslationRepositoryInterface $translationRepository)
-    {
-        $this->translationRepository = $translationRepository;
+
+
+    public function __construct(
+        StaffRepository $staffRepository
+    ) {
+        $this->staffRepository = $staffRepository;
     }
 
-
     /**
-     * @param SettingRequest $request
+     * Display a listing of the resource.
+     *
      * @return Application|Factory|View
      */
-    public function index(Request $request)
+    public function index(ProductRequest $request)
     {
-        /*return view('admin.pages.setting.index', [
-            'settings' => $this->settingRepository->getData($request, ['translations'])
+        /*return view('admin.pages.product.index', [
+            'products' => $this->productRepository->getData($request, ['translations', 'categories'])
         ]);*/
-        if ($request->input('id')) {
-            echo $request->input('id');
-            $deleted = DB::delete('delete from staffs where id = ?', [$request->input('id')]);
-            if ($deleted) {
-                return redirect(route('staff.index'));
-            } else {
-                return redirect(route('staff.index'));
-            }
-        }
 
-        $staff = Staff::all();
-        return view('admin.nowa.views.staff.index', compact('staff'), [
-            'translations' => $this->translationRepository->getData($request),
-            'languages' => $this->activeLanguages()
-        ]);
-    }
-    public function addStaff(Request $request)
-    {
-        // dd($request->post());
-        $staff = Staff::create(
-            $request->only(
-                'name',
-                'position',
-            )
-        );
-        // return redirect(route('client.services.evaluation', app()->getLocale()))->with('success', 'warmatebit');
-        if ($staff) {
-            return redirect(route('staff.index'));
-        }
-    }
-    public function editstaff(Request $request)
-    {
-        $update = Staff::where('id', $request->id)->update(array(
-            'name' => $request->name,
-            'position' => $request->position,
-        ));
-        if ($update) {
-            return redirect(route('staff.index'));
-        }
-        // dd($request->post());
-    }
-
-    /**
-     * @param string $locale
-     * @param Setting $setting
-     * @return Application|Factory|View
-     */
-    public function show(string $locale, Setting $setting)
-    {
-        return view('admin.pages.setting.show', [
-            'setting' => $setting,
+        return view('admin.nowa.views.staff.index', [
+            'data' => $this->staffRepository->getData($request),
         ]);
     }
 
-
     /**
-     * @param string $locale
-     * @param Setting $setting
+     * Show the form for creating a new resource.
+     *
      * @return Application|Factory|View
      */
-    public function edit(string $locale, Setting $setting)
+    public function create()
     {
-        $url = locale_route('setting.update', $setting->id, false);
+        $staff = $this->staffRepository->model;
+        $url = locale_route('staff.store', [], false);
+        $method = 'POST';
+
+        /*return view('admin.pages.product.form', [
+            'product' => $product,
+            'url' => $url,
+            'method' => $method,
+            'categories' => $this->categories
+        ]);*/
+
+        return view('admin.nowa.views.staff.form', [
+            'url' => $url,
+            'method' => $method,
+            'staff' => $staff,
+        ]);
+    }
+
+    /**
+     * Store a newly created resource in storage.
+     *
+     * @param ProductRequest $request
+     *
+     * @return Application|RedirectResponse|Redirector
+     * @throws ReflectionException
+     */
+    public function store(StaffRequest $request)
+    {
+
+        //dd($request->all());
+        $saveData = Arr::except($request->except('_token'), []);
+        //$saveData['status'] = isset($saveData['status']) && (bool)$saveData['status'];
+
+        $customer = $this->staffRepository->create($saveData);
+
+
+        //dd($saveData);
+
+
+        // Save Files
+        if ($request->hasFile('images')) {
+        }
+
+        if ($request->hasFile('files')) {
+        }
+
+        return redirect(locale_route('staff.index', $customer->id))->with('success', __('admin.create_successfully'));
+    }
+
+    /**
+     * Display the specified resource.
+     *
+     * @param string $locale
+     * @param Product $product
+     *
+     * @return Application|Factory|View
+     */
+    public function show(string $locale, Customer $product)
+    {
+        return view('admin.pages.product.show', [
+            'product' => $product,
+        ]);
+    }
+
+    /**
+     * Show the form for editing the specified resource.
+     *
+     * @param string $locale
+     * @param Category $category
+     *
+     * @return Application|Factory|View
+     */
+    public function edit(string $locale, Staff $staff)
+    {
+        $url = locale_route('staff.update', $staff->id, false);
         $method = 'PUT';
 
-        /*return view('admin.pages.setting.form', [
-            'setting' => $setting,
+        /*return view('admin.pages.product.form', [
+            'product' => $product,
             'url' => $url,
             'method' => $method,
+            'categories' => $this->categories
         ]);*/
 
-        return view('admin.nowa.views.setting.form', [
-            'setting' => $setting,
+        return view('admin.nowa.views.staff.form', [
+            'staff' => $staff,
             'url' => $url,
             'method' => $method,
         ]);
     }
 
+    /**
+     * Update the specified resource in storage.
+     *
+     * @param ProductRequest $request
+     * @param string $locale
+     * @param Product $product
+     * @return Application|RedirectResponse|Redirector
+     * @throws ReflectionException
+     */
+    public function update(StaffRequest $request, string $locale, Staff $staff)
+    {
+        //dd($request->all());
+        $saveData = Arr::except($request->except('_token'), []);
+        //$saveData['status'] = isset($saveData['status']) && (bool)$saveData['status'];
+
+        $saveData['password'] = Hash::make($request->password);
+        //dd($saveData);
+
+
+
+
+
+        if ($request->hasFile('files')) {
+        }
+
+
+
+
+        return redirect(locale_route('staff.index', $staff->id))->with('success', __('admin.update_successfully'));
+    }
 
     /**
-     * @param SettingRequest $request
+     * Remove the specified resource from storage.
+     *
      * @param string $locale
-     * @param Setting $setting
+     * @param Product $product
      * @return Application|RedirectResponse|Redirector
      */
-    public function update(\Illuminate\Http\Request $request)
+    public function destroy(string $locale, Customer $customer)
     {
+        if (!$this->customerRepository->delete($customer->id)) {
+            return redirect(locale_route('staff.index', $customer->id))->with('danger', __('admin.not_delete_message'));
+        }
+        return redirect(locale_route('staff.index'))->with('success', __('admin.delete_message'));
+    }
 
-        $request->validate([
-            'c_pass' => ['required', new MatchOldPassword()],
-            'n_pass' => ['required', 'min:5'],
-            'r_pass' => ['same:n_pass']
-        ]);
-        //dd($request->all());
+    public function docDelete($locale, $id)
+    {
+        $file = File::query()->where('id', $id)->firstOrFail();
+        $id = $file->fileable_id;
+        //dd($file);
+        if (Storage::exists('public/Customer/' . $file->fileable_id . '/files/' . $file->title)) {
+            Storage::delete('public/Customer/' . $file->fileable_id . '/files/' . $file->title);
+        }
 
-        User::find(auth()->user()->id)->update(['password' => Hash::make($request->n_pass)]);
-
-
-        return redirect(locale_route('password.index'))->with('success', __('admin.update_successfully'));
+        $file->delete();
+        return redirect(locale_route('customer.edit', $id))->with('success', __('admin.delete_message'));
     }
 }

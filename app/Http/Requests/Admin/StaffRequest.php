@@ -18,7 +18,7 @@ use Illuminate\Validation\Rule;
  * Class CategoryRequest
  * @package App\Http\Requests\Admin
  */
-class SkillRequest extends FormRequest
+class StaffRequest extends FormRequest
 {
     /**
      * Determine if the user is authorized to make this request.

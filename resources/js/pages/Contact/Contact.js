@@ -24,7 +24,7 @@ const Contact = ({ seo }) => {
     }
     return (
         <Layout seo={seo}>
-            <div className="aboutPage contactPage servicesPage">
+            <div className="aboutPage contactPage servicesPage" >
                 <div
                     className="showcase"
                     style={{
