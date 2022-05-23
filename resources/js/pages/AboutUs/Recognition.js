@@ -12,7 +12,7 @@ import { Link, usePage } from "@inertiajs/inertia-react";
 
 const Recognition = ({ page, seo }) => {
     const sharedData = usePage().props.localizations;
-    const renderHTML = (rawHTML) => React.createElement("div", { dangerouslySetInnerHTML: { __html: rawHTML } });
+    const renderHTML = (rawHTML) => React.createElement("p", { dangerouslySetInnerHTML: { __html: rawHTML } });
 
     const countries = [
         {
@@ -42,13 +42,12 @@ const Recognition = ({ page, seo }) => {
             <div className="aboutPage wrapper padding_top">
                 <div className="container">
                     <div className="font45 blue">
-                        რაიმე ტექსტი დროშების <br />
-                        აღიარების შესახებ
+                        {renderHTML(__('client.aboutus_recognition_header', sharedData).replace(/(?:\r\n|\r|\n)/g, '<br>'))}
                     </div>
                     <PagePath
-                        location1="მთავარი"
-                        location2="ჩვენ შესახებ"
-                        location3="დროშის აღიარებები"
+                        location1={__('client.nav_home',sharedData)}
+                        location2={__('client.nav_aboutus',sharedData)}
+                        location3={__('client.nav_recognition',sharedData)}
                     />
                     <div className="content" style={{ marginBottom: "50px" }}>
                         {/* <p>
@@ -66,12 +65,12 @@ const Recognition = ({ page, seo }) => {
                             მრავლობით ყურთმაჯები დავიბრუნო ივახშმეს უჩქეფს საბრძოლველად
                             მკათათვის იცოხებოდნენ კარისკაცი.
                         </p> */}
-                        <p>
+
                             {renderHTML(__('client.aboutus_recognition_maint_text', sharedData).replace(/(?:\r\n|\r|\n)/g, '<br>'))}
 
-                        </p>
+
                     </div>
-                    <h5>დროშები</h5>
+                    <h5>{__('client.nav_flags',sharedData)}</h5>
                     <div style={{ display: "block" }}>
                         {countries.map((country, index) => {
                             return (
