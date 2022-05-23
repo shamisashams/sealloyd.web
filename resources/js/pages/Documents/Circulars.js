@@ -43,7 +43,7 @@ const Circulars = ({ seo, docs }) => {
                         {renderHTML(__('client.documentation_circulars_main_text', sharedData).replace(/(?:\r\n|\r|\n)/g, '<br>'))}
 
                     </p>
-                    <div className="blue">ცირკულარები</div>
+                    <div className="blue">{__('client.circulars',sharedData)}</div>
                     <div className="doc_grid">
                         {docs.map((doc, index) => {
                             return <DlPdf key={index} model="Page" name={doc} />;

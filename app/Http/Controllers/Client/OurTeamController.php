@@ -180,22 +180,22 @@ class OurTeamController extends Controller
             "sliders" => $sliders->get(), "page" => $page, 'vacancies' => $vacancies,
             'vacancy' => $vacancy,
             "seo" => [
-                "title" => $page->meta_title,
-                "description" => $page->meta_description,
-                "keywords" => $page->meta_keyword,
-                "og_title" => $page->meta_og_title,
-                "og_description" => $page->meta_og_description,
+                "title" => $vacancy->title,
+                "description" => $vacancy->description,
+                "keywords" => $vacancy->title,
+                "og_title" => $vacancy->title,
+                "og_description" => $vacancy->description,
 
                 //            "image" => "imgg",
                 //            "locale" => App::getLocale()
             ], 'images' => $images
         ])->withViewData([
-            'meta_title' => $page->meta_title,
-            'meta_description' => $page->meta_description,
-            'meta_keyword' => $page->meta_keyword,
-            "image" => $page->file,
-            'og_title' => $page->meta_og_title,
-            'og_description' => $page->meta_og_description
+            'meta_title' => $vacancy->title,
+            'meta_description' => $vacancy->description,
+            'meta_keyword' => $vacancy->title,
+            "image" => $vacancy->file,
+            'og_title' => $vacancy->title,
+            'og_description' => $vacancy->description,
         ]);
     }
 

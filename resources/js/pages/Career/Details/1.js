@@ -50,11 +50,11 @@ const CareerDetail1 = ({seo}) => {
       <Layout seo={seo}>
           <div className="teamPage careerPage">
               <div className="wrapper">
-                  <div className="font45 blue">კარიერა</div>
+                  <div className="font45 blue">{renderHTML(__('client.career_title', sharedData).replace(/(?:\r\n|\r|\n)/g, '<br>'))}</div>
                   <PagePath
-                      location1="მთავარი"
-                      location2="ჩვენი გუნდი"
-                      location3="კარიერა"
+                      location1={__('client.nav_home',sharedData)}
+                      location2={__('client.nav_ourteam',sharedData)}
+                      location3={__('client.nav_career',sharedData)}
                   />
                   <div className="career_grid details">
                       <ExtendedVB
@@ -71,7 +71,7 @@ const CareerDetail1 = ({seo}) => {
                           vacancyId={vacancy.id}
                       />
                       <div className="other_vacancies">
-                          <h4>სხვა ვაკანსიები</h4>
+                          <h4>{__('client.career_other_vacancies',sharedData)}</h4>
                           {vacancies.map((box, index) => {
                               return (
                                   <VacancyBox

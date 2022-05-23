@@ -3706,10 +3706,10 @@ var CareerDetail1 = function CareerDetail1(_ref) {
     className: "wrapper"
   }, /*#__PURE__*/react__WEBPACK_IMPORTED_MODULE_0__.createElement("div", {
     className: "font45 blue"
-  }, "\u10D9\u10D0\u10E0\u10D8\u10D4\u10E0\u10D0"), /*#__PURE__*/react__WEBPACK_IMPORTED_MODULE_0__.createElement(_components_SmallComps_SmallComps__WEBPACK_IMPORTED_MODULE_3__.PagePath, {
-    location1: "\u10DB\u10D7\u10D0\u10D5\u10D0\u10E0\u10D8",
-    location2: "\u10E9\u10D5\u10D4\u10DC\u10D8 \u10D2\u10E3\u10DC\u10D3\u10D8",
-    location3: "\u10D9\u10D0\u10E0\u10D8\u10D4\u10E0\u10D0"
+  }, renderHTML(__('client.career_title', sharedData).replace(/(?:\r\n|\r|\n)/g, '<br>'))), /*#__PURE__*/react__WEBPACK_IMPORTED_MODULE_0__.createElement(_components_SmallComps_SmallComps__WEBPACK_IMPORTED_MODULE_3__.PagePath, {
+    location1: __('client.nav_home', sharedData),
+    location2: __('client.nav_ourteam', sharedData),
+    location3: __('client.nav_career', sharedData)
   }), /*#__PURE__*/react__WEBPACK_IMPORTED_MODULE_0__.createElement("div", {
     className: "career_grid details"
   }, /*#__PURE__*/react__WEBPACK_IMPORTED_MODULE_0__.createElement(_components_VacancyBox_VacancyBox__WEBPACK_IMPORTED_MODULE_1__.ExtendedVB, {
@@ -3726,7 +3726,7 @@ var CareerDetail1 = function CareerDetail1(_ref) {
     vacancyId: vacancy.id
   }), /*#__PURE__*/react__WEBPACK_IMPORTED_MODULE_0__.createElement("div", {
     className: "other_vacancies"
-  }, /*#__PURE__*/react__WEBPACK_IMPORTED_MODULE_0__.createElement("h4", null, "\u10E1\u10EE\u10D5\u10D0 \u10D5\u10D0\u10D9\u10D0\u10DC\u10E1\u10D8\u10D4\u10D1\u10D8"), vacancies.map(function (box, index) {
+  }, /*#__PURE__*/react__WEBPACK_IMPORTED_MODULE_0__.createElement("h4", null, __('client.career_other_vacancies', sharedData)), vacancies.map(function (box, index) {
     return /*#__PURE__*/react__WEBPACK_IMPORTED_MODULE_0__.createElement(_components_VacancyBox_VacancyBox__WEBPACK_IMPORTED_MODULE_1__.VacancyBox, {
       key: index,
       title: box.title,
@@ -4227,7 +4227,7 @@ var Circulars = function Circulars(_ref) {
     className: "container"
   }, renderHTML(__('client.documentation_circulars_main_text', sharedData).replace(/(?:\r\n|\r|\n)/g, '<br>'))), /*#__PURE__*/react__WEBPACK_IMPORTED_MODULE_0__.createElement("div", {
     className: "blue"
-  }, "\u10EA\u10D8\u10E0\u10D9\u10E3\u10DA\u10D0\u10E0\u10D4\u10D1\u10D8"), /*#__PURE__*/react__WEBPACK_IMPORTED_MODULE_0__.createElement("div", {
+  }, __('client.circulars', sharedData)), /*#__PURE__*/react__WEBPACK_IMPORTED_MODULE_0__.createElement("div", {
     className: "doc_grid"
   }, docs.map(function (doc, index) {
     return /*#__PURE__*/react__WEBPACK_IMPORTED_MODULE_0__.createElement(_components_SmallComps_SmallComps__WEBPACK_IMPORTED_MODULE_1__.DlPdf, {
@@ -6960,6 +6960,7 @@ __webpack_require__.r(__webpack_exports__);
 
 
 var VacancyBox = function VacancyBox(props) {
+  var sharedData = (0,_inertiajs_inertia_react__WEBPACK_IMPORTED_MODULE_1__.usePage)().props.localizations;
   return /*#__PURE__*/react__WEBPACK_IMPORTED_MODULE_0__.createElement("div", {
     className: "vacancy_box ",
     "data-aos": "fade-up"
@@ -6989,12 +6990,14 @@ var VacancyBox = function VacancyBox(props) {
     className: "inline_img",
     src: "/assets/images/icons/team/date.svg",
     alt: ""
-  }), /*#__PURE__*/react__WEBPACK_IMPORTED_MODULE_0__.createElement("p", null, "\u10D2\u10D0\u10DB\u10DD\u10E5\u10D5\u10D4\u10E7\u10DC\u10D3\u10D0 ", props.date)), /*#__PURE__*/react__WEBPACK_IMPORTED_MODULE_0__.createElement(_inertiajs_inertia_react__WEBPACK_IMPORTED_MODULE_1__.Link, {
+  }), /*#__PURE__*/react__WEBPACK_IMPORTED_MODULE_0__.createElement("p", null, __('client.vacancy_published', sharedData), " ", props.date)), /*#__PURE__*/react__WEBPACK_IMPORTED_MODULE_0__.createElement(_inertiajs_inertia_react__WEBPACK_IMPORTED_MODULE_1__.Link, {
     href: props.link,
     className: "details button"
-  }, "\u10D3\u10D4\u10E2\u10D0\u10DA\u10E3\u10E0\u10D0\u10D3")));
+  }, __('client.vacancy_detail_btn', sharedData))));
 };
 var ExtendedVB = function ExtendedVB(props) {
+  var sharedData = (0,_inertiajs_inertia_react__WEBPACK_IMPORTED_MODULE_1__.usePage)().props.localizations;
+
   var _useForm = (0,_inertiajs_inertia_react__WEBPACK_IMPORTED_MODULE_1__.useForm)({
     doc: null,
     vacancy_id: props.vacancyId
@@ -7030,16 +7033,16 @@ var ExtendedVB = function ExtendedVB(props) {
     className: "inline_img",
     src: "/assets/images/icons/team/time.svg",
     alt: ""
-  }), props.time)), /*#__PURE__*/react__WEBPACK_IMPORTED_MODULE_0__.createElement("p", null, "\u10E1\u10D0\u10DB\u10E3\u10E8\u10D0\u10DD\u10E1 \u10D0\u10E6\u10EC\u10D4\u10E0\u10D0"), /*#__PURE__*/react__WEBPACK_IMPORTED_MODULE_0__.createElement("p", {
+  }), props.time)), /*#__PURE__*/react__WEBPACK_IMPORTED_MODULE_0__.createElement("p", null, __('client.job_description', sharedData)), /*#__PURE__*/react__WEBPACK_IMPORTED_MODULE_0__.createElement("p", {
     className: "paragraph section"
-  }, props.paragraph), /*#__PURE__*/react__WEBPACK_IMPORTED_MODULE_0__.createElement("p", null, "\u10E1\u10E5\u10D8\u10DA\u10D4\u10D1\u10D8 \u10D3\u10D0 \u10D2\u10D0\u10DB\u10DD\u10EA\u10D3\u10D8\u10DA\u10D4\u10D1\u10D0"), /*#__PURE__*/react__WEBPACK_IMPORTED_MODULE_0__.createElement("div", {
+  }, props.paragraph), /*#__PURE__*/react__WEBPACK_IMPORTED_MODULE_0__.createElement("p", null, __('client.job_skills', sharedData)), /*#__PURE__*/react__WEBPACK_IMPORTED_MODULE_0__.createElement("div", {
     className: "skills section"
   }, props.skills.map(function (skill, index) {
     return /*#__PURE__*/react__WEBPACK_IMPORTED_MODULE_0__.createElement("div", {
       className: "skill",
       key: index
     }, skill.title);
-  })), /*#__PURE__*/react__WEBPACK_IMPORTED_MODULE_0__.createElement("p", null, "\u10D0\u10DC\u10D0\u10D6\u10E6\u10D0\u10E3\u10E0\u10D4\u10D1\u10D0"), /*#__PURE__*/react__WEBPACK_IMPORTED_MODULE_0__.createElement("div", {
+  })), /*#__PURE__*/react__WEBPACK_IMPORTED_MODULE_0__.createElement("p", null, __('client.job_remuneration', sharedData)), /*#__PURE__*/react__WEBPACK_IMPORTED_MODULE_0__.createElement("div", {
     className: "remuneration section"
   }, props.remuneration), /*#__PURE__*/react__WEBPACK_IMPORTED_MODULE_0__.createElement("div", {
     className: "section"
@@ -7063,13 +7066,13 @@ var ExtendedVB = function ExtendedVB(props) {
     className: "inline_img",
     src: "/assets/images/icons/team/upload.svg",
     alt: ""
-  }), "\u10D0\u10E2\u10D5\u10D8\u10E0\u10D7\u10D4 \u10E0\u10D4\u10D6\u10D8\u10E3\u10DB\u10D4 ", /*#__PURE__*/react__WEBPACK_IMPORTED_MODULE_0__.createElement("span", null, "(Application Form, CV, Certificates)")), /*#__PURE__*/react__WEBPACK_IMPORTED_MODULE_0__.createElement("button", {
+  }), __('client.resume_upload', sharedData), " ", /*#__PURE__*/react__WEBPACK_IMPORTED_MODULE_0__.createElement("span", null, "(", __('client.resume_upload_description', sharedData), ")")), /*#__PURE__*/react__WEBPACK_IMPORTED_MODULE_0__.createElement("button", {
     className: "button"
   }, /*#__PURE__*/react__WEBPACK_IMPORTED_MODULE_0__.createElement("img", {
     className: "inline_img",
     src: "/assets/images/icons/team/send.svg",
     alt: ""
-  }), "\u10D2\u10D0\u10D2\u10D6\u10D0\u10D5\u10DC\u10D4 \u10D2\u10D0\u10DC\u10D0\u10EA\u10EE\u10D0\u10D3\u10D8")), /*#__PURE__*/react__WEBPACK_IMPORTED_MODULE_0__.createElement("div", {
+  }), __('client.send_resume', sharedData))), /*#__PURE__*/react__WEBPACK_IMPORTED_MODULE_0__.createElement("div", {
     className: "bottom flex"
   }, /*#__PURE__*/react__WEBPACK_IMPORTED_MODULE_0__.createElement("div", {
     className: "date flex"
@@ -7077,13 +7080,13 @@ var ExtendedVB = function ExtendedVB(props) {
     className: "inline_img",
     src: "/assets/images/icons/team/date.svg",
     alt: ""
-  }), /*#__PURE__*/react__WEBPACK_IMPORTED_MODULE_0__.createElement("p", null, "\u10D2\u10D0\u10DB\u10DD\u10E5\u10D5\u10D4\u10E7\u10DC\u10D3\u10D0 ", props.date)), /*#__PURE__*/react__WEBPACK_IMPORTED_MODULE_0__.createElement("div", {
+  }), /*#__PURE__*/react__WEBPACK_IMPORTED_MODULE_0__.createElement("p", null, __('client.vacancy_published', sharedData), " ", props.date)), /*#__PURE__*/react__WEBPACK_IMPORTED_MODULE_0__.createElement("div", {
     className: "share flex"
   }, /*#__PURE__*/react__WEBPACK_IMPORTED_MODULE_0__.createElement("img", {
     className: "inline_img",
     src: "/assets/images/icons/team/share.svg",
     alt: ""
-  }), /*#__PURE__*/react__WEBPACK_IMPORTED_MODULE_0__.createElement("p", null, "\u10D2\u10D0\u10E3\u10D6\u10D8\u10D0\u10E0\u10D4 \u10DB\u10D4\u10D2\u10DD\u10D1\u10D0\u10E0\u10E1"))));
+  }), /*#__PURE__*/react__WEBPACK_IMPORTED_MODULE_0__.createElement("p", null, __('client.vacancy_share', sharedData)))));
 };
 
 /***/ }),

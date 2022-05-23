@@ -13,7 +13,7 @@ import { DlPdf } from "../SmallComps/SmallComps";
 
 export const VacancyBox = (props) => {
 
-
+    const sharedData = usePage().props.localizations;
 
     return (
         <div className="vacancy_box " data-aos="fade-up">
@@ -35,10 +35,10 @@ export const VacancyBox = (props) => {
             <div className="bottom flex">
                 <div className="date flex">
                     <img className="inline_img" src='/assets/images/icons/team/date.svg' alt="" />
-                    <p>გამოქვეყნდა {props.date}</p>
+                    <p>{__('client.vacancy_published',sharedData)} {props.date}</p>
                 </div>
                 <Link href={props.link} className="details button">
-                    დეტალურად
+                    {__('client.vacancy_detail_btn',sharedData)}
                 </Link>
             </div>
         </div>
@@ -46,6 +46,7 @@ export const VacancyBox = (props) => {
 };
 
 export const ExtendedVB = (props) => {
+    const sharedData = usePage().props.localizations;
     const { data, setData, post, progress } = useForm({
         doc: null,
         vacancy_id: props.vacancyId
@@ -71,9 +72,9 @@ export const ExtendedVB = (props) => {
                     {props.time}
                 </div>
             </div>
-            <p>სამუშაოს აღწერა</p>
+            <p>{__('client.job_description',sharedData)}</p>
             <p className="paragraph section">{props.paragraph}</p>
-            <p>სქილები და გამოცდილება</p>
+            <p>{__('client.job_skills',sharedData)}</p>
             <div className="skills section">
                 {props.skills.map((skill, index) => {
                     return (
@@ -83,7 +84,7 @@ export const ExtendedVB = (props) => {
                     );
                 })}
             </div>
-            <p>ანაზღაურება</p>
+            <p>{__('client.job_remuneration',sharedData)}</p>
             <div className="remuneration section">
                 {/*{props.salary} ₾ <span>({props.salaryInfo})</span>*/}
                 {props.remuneration}
@@ -102,23 +103,23 @@ export const ExtendedVB = (props) => {
             <div className="section">
                 <button onClick={submit} className="button grey">
                     <img className="inline_img" src='/assets/images/icons/team/upload.svg' alt="" />
-                    ატვირთე რეზიუმე <span>(Application Form, CV, Certificates)</span>
+                    {__('client.resume_upload',sharedData)} <span>({__('client.resume_upload_description',sharedData)})</span>
                 </button>
 
                 <button className="button">
                     <img className="inline_img" src='/assets/images/icons/team/send.svg' alt="" />
-                    გაგზავნე განაცხადი
+                    {__('client.send_resume',sharedData)}
                 </button>
             </div>
 
             <div className="bottom flex">
                 <div className="date flex">
                     <img className="inline_img" src='/assets/images/icons/team/date.svg' alt="" />
-                    <p>გამოქვეყნდა {props.date}</p>
+                    <p>{__('client.vacancy_published',sharedData)} {props.date}</p>
                 </div>
                 <div className="share flex">
                     <img className="inline_img" src='/assets/images/icons/team/share.svg' alt="" />
-                    <p>გაუზიარე მეგობარს</p>
+                    <p>{__('client.vacancy_share',sharedData)}</p>
                 </div>
             </div>
         </div>
