@@ -4256,280 +4256,9 @@ var Circulars = function Circulars(_ref) {
 /*!****************************************************!*\
   !*** ./resources/js/Pages/Documents/Evaluation.js ***!
   \****************************************************/
-/***/ ((__unused_webpack_module, __webpack_exports__, __webpack_require__) => {
+/***/ (() => {
 
-"use strict";
-__webpack_require__.r(__webpack_exports__);
-/* harmony export */ __webpack_require__.d(__webpack_exports__, {
-/* harmony export */   "default": () => (__WEBPACK_DEFAULT_EXPORT__)
-/* harmony export */ });
-/* harmony import */ var react__WEBPACK_IMPORTED_MODULE_0__ = __webpack_require__(/*! react */ "./node_modules/react/index.js");
-/* harmony import */ var _components_SmallComps_SmallComps__WEBPACK_IMPORTED_MODULE_1__ = __webpack_require__(/*! ../../components/SmallComps/SmallComps */ "./resources/js/components/SmallComps/SmallComps.js");
-/* harmony import */ var _Documents_css__WEBPACK_IMPORTED_MODULE_2__ = __webpack_require__(/*! ./Documents.css */ "./resources/js/Pages/Documents/Documents.css");
-/* harmony import */ var _Layouts_Layout__WEBPACK_IMPORTED_MODULE_3__ = __webpack_require__(/*! ../../Layouts/Layout */ "./resources/js/Layouts/Layout.js");
-/* harmony import */ var _inertiajs_inertia__WEBPACK_IMPORTED_MODULE_4__ = __webpack_require__(/*! @inertiajs/inertia */ "./node_modules/@inertiajs/inertia/dist/index.js");
-/* harmony import */ var sweetalert2__WEBPACK_IMPORTED_MODULE_5__ = __webpack_require__(/*! sweetalert2 */ "./node_modules/sweetalert2/dist/sweetalert2.all.js");
-/* harmony import */ var sweetalert2__WEBPACK_IMPORTED_MODULE_5___default = /*#__PURE__*/__webpack_require__.n(sweetalert2__WEBPACK_IMPORTED_MODULE_5__);
-/* harmony import */ var _inertiajs_inertia_react__WEBPACK_IMPORTED_MODULE_6__ = __webpack_require__(/*! @inertiajs/inertia-react */ "./node_modules/@inertiajs/inertia-react/dist/index.js");
-function ownKeys(object, enumerableOnly) { var keys = Object.keys(object); if (Object.getOwnPropertySymbols) { var symbols = Object.getOwnPropertySymbols(object); enumerableOnly && (symbols = symbols.filter(function (sym) { return Object.getOwnPropertyDescriptor(object, sym).enumerable; })), keys.push.apply(keys, symbols); } return keys; }
-
-function _objectSpread(target) { for (var i = 1; i < arguments.length; i++) { var source = null != arguments[i] ? arguments[i] : {}; i % 2 ? ownKeys(Object(source), !0).forEach(function (key) { _defineProperty(target, key, source[key]); }) : Object.getOwnPropertyDescriptors ? Object.defineProperties(target, Object.getOwnPropertyDescriptors(source)) : ownKeys(Object(source)).forEach(function (key) { Object.defineProperty(target, key, Object.getOwnPropertyDescriptor(source, key)); }); } return target; }
-
-function _defineProperty(obj, key, value) { if (key in obj) { Object.defineProperty(obj, key, { value: value, enumerable: true, configurable: true, writable: true }); } else { obj[key] = value; } return obj; }
-
-function _slicedToArray(arr, i) { return _arrayWithHoles(arr) || _iterableToArrayLimit(arr, i) || _unsupportedIterableToArray(arr, i) || _nonIterableRest(); }
-
-function _nonIterableRest() { throw new TypeError("Invalid attempt to destructure non-iterable instance.\nIn order to be iterable, non-array objects must have a [Symbol.iterator]() method."); }
-
-function _unsupportedIterableToArray(o, minLen) { if (!o) return; if (typeof o === "string") return _arrayLikeToArray(o, minLen); var n = Object.prototype.toString.call(o).slice(8, -1); if (n === "Object" && o.constructor) n = o.constructor.name; if (n === "Map" || n === "Set") return Array.from(o); if (n === "Arguments" || /^(?:Ui|I)nt(?:8|16|32)(?:Clamped)?Array$/.test(n)) return _arrayLikeToArray(o, minLen); }
-
-function _arrayLikeToArray(arr, len) { if (len == null || len > arr.length) len = arr.length; for (var i = 0, arr2 = new Array(len); i < len; i++) { arr2[i] = arr[i]; } return arr2; }
-
-function _iterableToArrayLimit(arr, i) { var _i = arr == null ? null : typeof Symbol !== "undefined" && arr[Symbol.iterator] || arr["@@iterator"]; if (_i == null) return; var _arr = []; var _n = true; var _d = false; var _s, _e; try { for (_i = _i.call(arr); !(_n = (_s = _i.next()).done); _n = true) { _arr.push(_s.value); if (i && _arr.length === i) break; } } catch (err) { _d = true; _e = err; } finally { try { if (!_n && _i["return"] != null) _i["return"](); } finally { if (_d) throw _e; } } return _arr; }
-
-function _arrayWithHoles(arr) { if (Array.isArray(arr)) return arr; }
-
-
-
-
-
-
-
-
-
-var Evaluation = function Evaluation(_ref) {
-  var seo = _ref.seo,
-      success = _ref.success;
-  var sharedData = (0,_inertiajs_inertia_react__WEBPACK_IMPORTED_MODULE_6__.usePage)().props.localizations;
-
-  var renderHTML = function renderHTML(rawHTML) {
-    return /*#__PURE__*/react__WEBPACK_IMPORTED_MODULE_0__.createElement("p", {
-      dangerouslySetInnerHTML: {
-        __html: rawHTML
-      }
-    });
-  };
-
-  var Swal = __webpack_require__(/*! sweetalert2 */ "./node_modules/sweetalert2/dist/sweetalert2.all.js");
-
-  var date = new Date();
-  var day = date.getDate();
-  var month = date.getMonth() + 1;
-  var year = date.getFullYear();
-  if (month < 10) month = "0" + month;
-  if (day < 10) day = "0" + day;
-  var today = year + "-" + month + "-" + day;
-
-  var _useState = (0,react__WEBPACK_IMPORTED_MODULE_0__.useState)({
-    company_name: "",
-    answer_1: "",
-    answer_2: "",
-    answer_3: "",
-    answer_4: "",
-    answer_5: "",
-    answer_6: "",
-    answer_7: "",
-    answer_8: ""
-  }),
-      _useState2 = _slicedToArray(_useState, 2),
-      values = _useState2[0],
-      setValues = _useState2[1];
-
-  function handleChange(e) {
-    var key = e.target.id;
-    var value = e.target.value;
-    setValues(function (values) {
-      return _objectSpread(_objectSpread({}, values), {}, _defineProperty({}, key, value));
-    });
-  }
-
-  function handleSubmit(e) {
-    e.preventDefault();
-    _inertiajs_inertia__WEBPACK_IMPORTED_MODULE_4__.Inertia.post(route('client.documentations.rateservices'), values);
-  }
-
-  var scale = [1, 2, 3, 4, 5];
-  var satisfaction = ["Excellent", "Very Good", "Good", "Fair", "Poor"];
-
-  if (success) {
-    Swal.fire({
-      title: 'success!',
-      text: 'წარმატებით დაემატა',
-      icon: 'success',
-      confirmButtonText: 'Cool'
-    });
-  }
-
-  return /*#__PURE__*/react__WEBPACK_IMPORTED_MODULE_0__.createElement(_Layouts_Layout__WEBPACK_IMPORTED_MODULE_3__["default"], {
-    seo: seo
-  }, /*#__PURE__*/react__WEBPACK_IMPORTED_MODULE_0__.createElement("div", {
-    className: "documents teamPage careerPage evaluation"
-  }, /*#__PURE__*/react__WEBPACK_IMPORTED_MODULE_0__.createElement("div", {
-    className: "wrapper"
-  }, /*#__PURE__*/react__WEBPACK_IMPORTED_MODULE_0__.createElement("div", {
-    className: "font45 blue"
-  }, renderHTML(__('client.evaluation_header', sharedData).replace(/(?:\r\n|\r|\n)/g, '<br>'))), /*#__PURE__*/react__WEBPACK_IMPORTED_MODULE_0__.createElement(_components_SmallComps_SmallComps__WEBPACK_IMPORTED_MODULE_1__.PagePath, {
-    location1: __('client.nav_home', sharedData),
-    location2: __('client.nav_documentation', sharedData),
-    location3: __('client.nav_evaluation', sharedData)
-  }), /*#__PURE__*/react__WEBPACK_IMPORTED_MODULE_0__.createElement("div", {
-    className: "content"
-  }, /*#__PURE__*/react__WEBPACK_IMPORTED_MODULE_0__.createElement("p", {
-    className: "op05 margin_bottom"
-  }, renderHTML(__('client.evaluation_text', sharedData).replace(/(?:\r\n|\r|\n)/g, '<br>'))), /*#__PURE__*/react__WEBPACK_IMPORTED_MODULE_0__.createElement("form", {
-    onSubmit: handleSubmit
-  }, /*#__PURE__*/react__WEBPACK_IMPORTED_MODULE_0__.createElement("input", {
-    id: "company_name",
-    type: "text",
-    placeholder: "Organization/Company name",
-    onChange: handleChange
-  }), /*#__PURE__*/react__WEBPACK_IMPORTED_MODULE_0__.createElement("input", {
-    id: "created_at",
-    type: "date",
-    className: "margin_bottom",
-    value: today
-  }), /*#__PURE__*/react__WEBPACK_IMPORTED_MODULE_0__.createElement("p", null, "On a scale of 1 to 5 where 1 represents \"Extremely dissatisfied\" and 5 represents \"Extremely Satisfied,\" how would you rate your level of overall satisfaction with Maritime Lloyd as a service supplier?"), /*#__PURE__*/react__WEBPACK_IMPORTED_MODULE_0__.createElement("div", {
-    className: "flex rating scale margin_bottom"
-  }, scale.map(function (item, index) {
-    return /*#__PURE__*/react__WEBPACK_IMPORTED_MODULE_0__.createElement("div", {
-      key: index,
-      className: "radio num"
-    }, /*#__PURE__*/react__WEBPACK_IMPORTED_MODULE_0__.createElement("label", {
-      className: "op05",
-      htmlFor: "rate_1_".concat(index)
-    }, item), /*#__PURE__*/react__WEBPACK_IMPORTED_MODULE_0__.createElement("input", {
-      type: "radio",
-      name: "rate_1" // id={`rate_1_${index}`}
-      ,
-      required: true,
-      id: "answer_1",
-      value: "".concat(++index),
-      onChange: handleChange
-    }));
-  })), /*#__PURE__*/react__WEBPACK_IMPORTED_MODULE_0__.createElement("p", null, "Why do you say that? What specifically are you satisfied or dissatisfied with Maritime Lloyd?"), /*#__PURE__*/react__WEBPACK_IMPORTED_MODULE_0__.createElement("input", {
-    id: "answer_2",
-    type: "text",
-    placeholder: "Enter response here",
-    className: "margin_bottom",
-    onChange: handleChange
-  }), /*#__PURE__*/react__WEBPACK_IMPORTED_MODULE_0__.createElement("p", null, "How likely are you to recommend Maritime Lloyd to your business partners/other ship owners? Would you say the chances are \u2026"), /*#__PURE__*/react__WEBPACK_IMPORTED_MODULE_0__.createElement("div", {
-    className: " rating satis margin_bottom"
-  }, satisfaction.map(function (item, index) {
-    return /*#__PURE__*/react__WEBPACK_IMPORTED_MODULE_0__.createElement("div", {
-      key: index,
-      className: "radio num"
-    }, /*#__PURE__*/react__WEBPACK_IMPORTED_MODULE_0__.createElement("input", {
-      type: "radio",
-      name: "rate_2" //  id={`rate_2_${index}`}
-      ,
-      required: true,
-      id: "answer_3",
-      value: item,
-      onChange: handleChange
-    }), /*#__PURE__*/react__WEBPACK_IMPORTED_MODULE_0__.createElement("label", {
-      className: "op05",
-      htmlFor: "rate_2_".concat(index)
-    }, item));
-  })), /*#__PURE__*/react__WEBPACK_IMPORTED_MODULE_0__.createElement("p", null, "How likely are you to repurchase services from Maritime Lloyd? Would you say the chances are \u2026"), /*#__PURE__*/react__WEBPACK_IMPORTED_MODULE_0__.createElement("div", {
-    className: " rating satis margin_bottom"
-  }, satisfaction.map(function (item, index) {
-    return /*#__PURE__*/react__WEBPACK_IMPORTED_MODULE_0__.createElement("div", {
-      key: index,
-      className: "radio num"
-    }, /*#__PURE__*/react__WEBPACK_IMPORTED_MODULE_0__.createElement("input", {
-      type: "radio",
-      name: "rate_3" // id={`rate_3_${index}`}
-      ,
-      required: true,
-      id: "answer_4",
-      value: item,
-      onChange: handleChange
-    }), /*#__PURE__*/react__WEBPACK_IMPORTED_MODULE_0__.createElement("label", {
-      className: "op05",
-      htmlFor: "rate_3_".concat(index)
-    }, item));
-  })), /*#__PURE__*/react__WEBPACK_IMPORTED_MODULE_0__.createElement("p", null, "How would you rate the overall quality of your relationship with Maritime Lloyd, considering all of your experiences with them? Would you say it is"), /*#__PURE__*/react__WEBPACK_IMPORTED_MODULE_0__.createElement("div", {
-    className: " rating satis margin_bottom"
-  }, satisfaction.map(function (item, index) {
-    return /*#__PURE__*/react__WEBPACK_IMPORTED_MODULE_0__.createElement("div", {
-      key: index,
-      className: "radio num"
-    }, /*#__PURE__*/react__WEBPACK_IMPORTED_MODULE_0__.createElement("input", {
-      type: "radio",
-      name: "rate_4" // id={`rate_4_${index}`}
-      ,
-      required: true,
-      id: "answer_5",
-      value: item,
-      onChange: handleChange
-    }), /*#__PURE__*/react__WEBPACK_IMPORTED_MODULE_0__.createElement("label", {
-      className: "op05",
-      htmlFor: "rate_4_".concat(index)
-    }, item));
-  })), /*#__PURE__*/react__WEBPACK_IMPORTED_MODULE_0__.createElement("p", null, "On a scale of 1 to 5 where 1 represents \"Extremely dissatisfied\" and 5 represents \"Extremely Satisfied,\" how would you rate your level of satisfaction with Maritime Lloyd in regards to customer service?"), /*#__PURE__*/react__WEBPACK_IMPORTED_MODULE_0__.createElement("div", {
-    className: "flex rating scale margin_bottom"
-  }, scale.map(function (item, index) {
-    return /*#__PURE__*/react__WEBPACK_IMPORTED_MODULE_0__.createElement("div", {
-      key: index,
-      className: "radio num"
-    }, /*#__PURE__*/react__WEBPACK_IMPORTED_MODULE_0__.createElement("label", {
-      className: "op05",
-      htmlFor: "rate_5_".concat(index)
-    }, item), /*#__PURE__*/react__WEBPACK_IMPORTED_MODULE_0__.createElement("input", {
-      type: "radio",
-      name: "rate_5" // id={`rate_5_${index}`}
-      ,
-      required: true,
-      id: "answer_6",
-      value: ++index,
-      onChange: handleChange
-    }));
-  })), /*#__PURE__*/react__WEBPACK_IMPORTED_MODULE_0__.createElement("p", null, "On a scale of 1 to 5 where 1 represents \"Extremely dissatisfied\" and 5 represents \"Extremely Satisfied,\" how would you rate your level of satisfaction with Maritime Lloyd in regards to price?"), /*#__PURE__*/react__WEBPACK_IMPORTED_MODULE_0__.createElement("div", {
-    className: "flex rating scale margin_bottom"
-  }, scale.map(function (item, index) {
-    return /*#__PURE__*/react__WEBPACK_IMPORTED_MODULE_0__.createElement("div", {
-      key: index,
-      className: "radio num"
-    }, /*#__PURE__*/react__WEBPACK_IMPORTED_MODULE_0__.createElement("label", {
-      className: "op05",
-      htmlFor: "rate_6_".concat(index)
-    }, item), /*#__PURE__*/react__WEBPACK_IMPORTED_MODULE_0__.createElement("input", {
-      type: "radio",
-      name: "rate_6" // id={`rate_6_${index}`}
-      ,
-      required: true,
-      id: "answer_7",
-      value: ++index,
-      onChange: handleChange
-    }));
-  })), /*#__PURE__*/react__WEBPACK_IMPORTED_MODULE_0__.createElement("p", null, "On a scale of 1 to 5 where 1 represents \"Extremely dissatisfied\" and 5 represents \"Extremely Satisfied,\" how would you rate your level of satisfaction with Maritime Lloyd in regards to value?"), /*#__PURE__*/react__WEBPACK_IMPORTED_MODULE_0__.createElement("div", {
-    className: "flex rating scale margin_bottom"
-  }, scale.map(function (item, index) {
-    return /*#__PURE__*/react__WEBPACK_IMPORTED_MODULE_0__.createElement("div", {
-      key: index,
-      className: "radio num"
-    }, /*#__PURE__*/react__WEBPACK_IMPORTED_MODULE_0__.createElement("label", {
-      className: "op05",
-      htmlFor: "rate_7_".concat(index)
-    }, item), /*#__PURE__*/react__WEBPACK_IMPORTED_MODULE_0__.createElement("input", {
-      type: "radio",
-      name: "rate_7" // id={`rate_7_${index}`}
-      ,
-      required: true,
-      id: "answer_8",
-      value: ++index,
-      onChange: handleChange
-    }));
-  })), /*#__PURE__*/react__WEBPACK_IMPORTED_MODULE_0__.createElement("div", {
-    className: "uppercase"
-  }, __('client.quest_bottom_txt1', sharedData)), /*#__PURE__*/react__WEBPACK_IMPORTED_MODULE_0__.createElement("p", {
-    className: "op05 margin_bottom"
-  }, __('client.quest_bottom_txt2', sharedData)), /*#__PURE__*/react__WEBPACK_IMPORTED_MODULE_0__.createElement(_components_SmallComps_SmallComps__WEBPACK_IMPORTED_MODULE_1__.SendButton, {
-    text: __('client.quest_send', sharedData)
-  }))))));
-};
-
-/* harmony default export */ const __WEBPACK_DEFAULT_EXPORT__ = (Evaluation);
+throw new Error("Module build failed (from ./node_modules/babel-loader/lib/index.js):\nSyntaxError: C:\\Users\\webmaster\\Desktop\\sea-lloyd\\resources\\js\\Pages\\Documents\\Evaluation.js: Unexpected token (7:0)\n\n\u001b[0m \u001b[90m  5 |\u001b[39m \u001b[36mimport\u001b[39m { \u001b[33mInertia\u001b[39m } \u001b[36mfrom\u001b[39m \u001b[32m'@inertiajs/inertia'\u001b[39m\u001b[0m\n\u001b[0m \u001b[90m  6 |\u001b[39m \u001b[36mimport\u001b[39m \u001b[33mSwal\u001b[39m \u001b[36mfrom\u001b[39m \u001b[32m'sweetalert2'\u001b[39m\u001b[0m\n\u001b[0m\u001b[31m\u001b[1m>\u001b[22m\u001b[39m\u001b[90m  7 |\u001b[39m \u001b[33m<<\u001b[39m\u001b[33m<<\u001b[39m\u001b[33m<<\u001b[39m\u001b[33m<\u001b[39m \u001b[33mUpdated\u001b[39m upstream\u001b[0m\n\u001b[0m \u001b[90m    |\u001b[39m \u001b[31m\u001b[1m^\u001b[22m\u001b[39m\u001b[0m\n\u001b[0m \u001b[90m  8 |\u001b[39m \u001b[36mimport\u001b[39m {usePage} \u001b[36mfrom\u001b[39m \u001b[32m\"@inertiajs/inertia-react\"\u001b[39m\u001b[33m;\u001b[39m\u001b[0m\n\u001b[0m \u001b[90m  9 |\u001b[39m\u001b[0m\n\u001b[0m \u001b[90m 10 |\u001b[39m \u001b[36mconst\u001b[39m \u001b[33mEvaluation\u001b[39m \u001b[33m=\u001b[39m ({ seo\u001b[33m,\u001b[39m success }) \u001b[33m=>\u001b[39m {\u001b[0m\n    at Parser._raise (C:\\Users\\webmaster\\Desktop\\sea-lloyd\\node_modules\\@babel\\core\\node_modules\\@babel\\parser\\lib\\index.js:476:17)\n    at Parser.raiseWithData (C:\\Users\\webmaster\\Desktop\\sea-lloyd\\node_modules\\@babel\\core\\node_modules\\@babel\\parser\\lib\\index.js:469:17)\n    at Parser.raise (C:\\Users\\webmaster\\Desktop\\sea-lloyd\\node_modules\\@babel\\core\\node_modules\\@babel\\parser\\lib\\index.js:430:17)\n    at Parser.unexpected (C:\\Users\\webmaster\\Desktop\\sea-lloyd\\node_modules\\@babel\\core\\node_modules\\@babel\\parser\\lib\\index.js:3789:16)\n    at Parser.parseExprAtom (C:\\Users\\webmaster\\Desktop\\sea-lloyd\\node_modules\\@babel\\core\\node_modules\\@babel\\parser\\lib\\index.js:12622:22)\n    at Parser.parseExprAtom (C:\\Users\\webmaster\\Desktop\\sea-lloyd\\node_modules\\@babel\\core\\node_modules\\@babel\\parser\\lib\\index.js:7812:20)\n    at Parser.parseExprSubscripts (C:\\Users\\webmaster\\Desktop\\sea-lloyd\\node_modules\\@babel\\core\\node_modules\\@babel\\parser\\lib\\index.js:12149:23)\n    at Parser.parseUpdate (C:\\Users\\webmaster\\Desktop\\sea-lloyd\\node_modules\\@babel\\core\\node_modules\\@babel\\parser\\lib\\index.js:12129:21)\n    at Parser.parseMaybeUnary (C:\\Users\\webmaster\\Desktop\\sea-lloyd\\node_modules\\@babel\\core\\node_modules\\@babel\\parser\\lib\\index.js:12104:23)\n    at Parser.parseMaybeUnaryOrPrivate (C:\\Users\\webmaster\\Desktop\\sea-lloyd\\node_modules\\@babel\\core\\node_modules\\@babel\\parser\\lib\\index.js:11901:61)");
 
 /***/ }),
 
@@ -4549,10 +4278,10 @@ __webpack_require__.r(__webpack_exports__);
 /* harmony import */ var _AppChecklist__WEBPACK_IMPORTED_MODULE_2__ = __webpack_require__(/*! ./AppChecklist */ "./resources/js/Pages/Documents/AppChecklist.js");
 /* harmony import */ var _AppInputs__WEBPACK_IMPORTED_MODULE_3__ = __webpack_require__(/*! ./AppInputs */ "./resources/js/Pages/Documents/AppInputs.js");
 /* harmony import */ var _inertiajs_inertia__WEBPACK_IMPORTED_MODULE_4__ = __webpack_require__(/*! @inertiajs/inertia */ "./node_modules/@inertiajs/inertia/dist/index.js");
-/* harmony import */ var _inertiajs_inertia_react__WEBPACK_IMPORTED_MODULE_5__ = __webpack_require__(/*! @inertiajs/inertia-react */ "./node_modules/@inertiajs/inertia-react/dist/index.js");
-/* harmony import */ var _Layouts_Layout__WEBPACK_IMPORTED_MODULE_6__ = __webpack_require__(/*! ../../Layouts/Layout */ "./resources/js/Layouts/Layout.js");
-/* harmony import */ var sweetalert2__WEBPACK_IMPORTED_MODULE_7__ = __webpack_require__(/*! sweetalert2 */ "./node_modules/sweetalert2/dist/sweetalert2.all.js");
-/* harmony import */ var sweetalert2__WEBPACK_IMPORTED_MODULE_7___default = /*#__PURE__*/__webpack_require__.n(sweetalert2__WEBPACK_IMPORTED_MODULE_7__);
+/* harmony import */ var _Layouts_Layout__WEBPACK_IMPORTED_MODULE_5__ = __webpack_require__(/*! ../../Layouts/Layout */ "./resources/js/Layouts/Layout.js");
+/* harmony import */ var sweetalert2__WEBPACK_IMPORTED_MODULE_6__ = __webpack_require__(/*! sweetalert2 */ "./node_modules/sweetalert2/dist/sweetalert2.all.js");
+/* harmony import */ var sweetalert2__WEBPACK_IMPORTED_MODULE_6___default = /*#__PURE__*/__webpack_require__.n(sweetalert2__WEBPACK_IMPORTED_MODULE_6__);
+/* harmony import */ var _inertiajs_inertia_react__WEBPACK_IMPORTED_MODULE_7__ = __webpack_require__(/*! @inertiajs/inertia-react */ "./node_modules/@inertiajs/inertia-react/dist/index.js");
 /* harmony import */ var _Documents_css__WEBPACK_IMPORTED_MODULE_8__ = __webpack_require__(/*! ./Documents.css */ "./resources/js/Pages/Documents/Documents.css");
 function ownKeys(object, enumerableOnly) { var keys = Object.keys(object); if (Object.getOwnPropertySymbols) { var symbols = Object.getOwnPropertySymbols(object); enumerableOnly && (symbols = symbols.filter(function (sym) { return Object.getOwnPropertyDescriptor(object, sym).enumerable; })), keys.push.apply(keys, symbols); } return keys; }
 
@@ -4587,7 +4316,17 @@ var OwnerApplication = function OwnerApplication(_ref) {
   var seo = _ref.seo,
       success = _ref.success,
       error = _ref.error;
-  var errors = (0,_inertiajs_inertia_react__WEBPACK_IMPORTED_MODULE_5__.usePage)().props.errors; // if (success) {
+
+  var renderHTML = function renderHTML(rawHTML) {
+    return /*#__PURE__*/react__WEBPACK_IMPORTED_MODULE_0__.createElement("div", {
+      dangerouslySetInnerHTML: {
+        __html: rawHTML
+      }
+    });
+  };
+
+  var sharedData = (0,_inertiajs_inertia_react__WEBPACK_IMPORTED_MODULE_7__.usePage)().props.localizations;
+  var errors = (0,_inertiajs_inertia_react__WEBPACK_IMPORTED_MODULE_7__.usePage)().props.errors; // if (success) {
   //     Swal.fire({
   //         title: 'წარმატებით დაემატა',
   //         text: '',
@@ -4608,121 +4347,121 @@ var OwnerApplication = function OwnerApplication(_ref) {
   // }
 
   var checklist = [{
-    title: "HULL & MACHINERY",
+    title: __('client.ownerapp_question_hull_machinery', sharedData),
     name: "hull_machinery",
-    checks: ["Special", "Annual", "Intermediate", "Dry dock/Tailshaft"]
+    checks: [__('client.app_option_special', sharedData), __('client.app_option_annual', sharedData), __('client.app_option_intermediate', sharedData), __('client.app_option_drydock', sharedData)]
   }, {
-    title: "CARGO GEAR",
+    title: __('client.ownerapp_question_cargo_gear', sharedData),
     name: 'cargo_gear',
-    checks: ["Renewal", "Annual", "Intermediate", "Occasional survey"]
+    checks: [__('client.app_option_remewal', sharedData), __('client.app_option_annual', sharedData), __('client.app_option_intermediate', sharedData), __('client.app_option_occasional', sharedData)]
   }, {
-    title: "LOAD LINE",
+    title: __('client.ownerapp_question_road_line', sharedData),
     name: 'load_line',
-    checks: ["Renewal", "Annual"]
+    checks: [__('client.app_option_remewal', sharedData), __('client.app_option_annual', sharedData)]
   }, {
-    title: "SAFETY CONSTRUCTION",
+    title: __('client.ownerapp_question_safety_construction', sharedData),
     name: 'safety_constructor',
-    checks: ["Renewal", "Annual", "Intermediate"]
+    checks: [__('client.app_option_remewal', sharedData), __('client.app_option_annual', sharedData), __('client.app_option_intermediate', sharedData)]
   }, {
-    title: "SAFETY EQUIPMENT",
+    title: __('client.ownerapp_question_safety_equipment', sharedData),
     name: 'safety_equipment',
-    checks: ["Renewal", "Annual", "Periodical"]
+    checks: [__('client.app_option_remewal', sharedData), __('client.app_option_annual', sharedData), __('client.app_option_periodical', sharedData)]
   }, {
-    title: "PASSENGER SAFETY",
+    title: __('client.ownerapp_question_passenger_safety', sharedData),
     name: 'passenger_safety',
-    checks: ["Renewal"]
+    checks: [__('client.app_option_remewal', sharedData)]
   }, {
-    title: "SAFETY RADIO",
+    title: __('client.ownerapp_question_safety_radio', sharedData),
     name: 'safety_radio',
-    checks: ["Renewal", "Periodical"]
+    checks: [__('client.app_option_remewal', sharedData), __('client.app_option_periodical', sharedData)]
   }, {
-    title: "MARPOL ANNEX I",
+    title: __('client.ownerapp_question_marpolo_anex_i', sharedData),
     name: 'marpol_annexi',
-    checks: ["Renewal", "Annual", "Intermediate"]
+    checks: [__('client.app_option_remewal', sharedData), __('client.app_option_annual', sharedData), __('client.app_option_intermediate', sharedData)]
   }, {
-    title: "MARPOL ANNEX II",
+    title: __('client.ownerapp_question_marpolo_anex_ii', sharedData),
     name: 'marpol_annexii',
-    checks: ["Renewal", "Annual", "Intermediate"]
+    checks: [__('client.app_option_remewal', sharedData), __('client.app_option_annual', sharedData), __('client.app_option_intermediate', sharedData)]
   }, {
-    title: "MARPOL ANNEX III (SEW)",
+    title: __('client.ownerapp_question_marpolo_anex_iii', sharedData),
     name: 'marpol_annexiii',
-    checks: ["Initial", "Renewal"]
+    checks: [__('client.app_option_initial', sharedData), __('client.app_option_remewal', sharedData)]
   }, {
-    title: "MARPOL ANNEX V (GAR)",
+    title: __('client.ownerapp_question_marpolo_anex_v', sharedData),
     name: 'marpol_annexv',
-    checks: ["Initial", "Renewal"]
+    checks: [__('client.app_option_initial', sharedData), __('client.app_option_remewal', sharedData)]
   }, {
-    title: "MARPOL ANNEX VI",
+    title: __('client.ownerapp_question_marpolo_anex_vi', sharedData),
     name: 'marpol_annex_vi',
-    checks: ["Renewal", "Annual"]
+    checks: [__('client.app_option_remewal', sharedData), __('client.app_option_annual', sharedData)]
   }, {
-    title: "ENERGY EFFICIENCY",
+    title: __('client.ownerapp_question_energy_efficiency', sharedData),
     name: 'energy_efficiency',
-    checks: ["Initial", "Renewal"]
+    checks: [__('client.app_option_initial', sharedData), __('client.app_option_remewal', sharedData)]
   }, {
-    title: "ENGINE IAPPC",
+    title: __('client.ownerapp_question_energy_iappc', sharedData),
     name: 'engine_iopc',
-    checks: ["Initial", "Renewal"]
+    checks: [__('client.app_option_initial', sharedData), __('client.app_option_remewal', sharedData)]
   }, {
-    title: "FISHING VESSEL",
+    title: __('client.ownerapp_question_fishing_vessel', sharedData),
     name: 'fishing_vessel',
-    checks: ["Initial", "Annual", "Renewal"]
+    checks: [__('client.app_option_initial', sharedData), __('client.app_option_annual', sharedData), __('client.app_option_remewal', sharedData)]
   }, {
-    title: "TONNAGE CERTIFICATE",
+    title: __('client.ownerapp_question_tonage_certificate', sharedData),
     name: 'tonnage_certificate',
-    checks: ["Study", "Re-issuance"]
+    checks: [__('client.app_option_stydy', sharedData), __('client.app_option_reissuance', sharedData)]
   }, {
-    title: "SOLID BULK CARGOES",
+    title: __('client.ownerapp_question_solid_bulk_cargoes', sharedData),
     name: 'solid_bulk_cards',
-    checks: ["A", "B", "C"]
+    checks: [__('client.app_option_a', sharedData), __('client.app_option_b', sharedData), __('client.app_option_c', sharedData)]
   }, {
-    title: "DANGEROUS GOODS",
+    title: __('client.ownerapp_question_dangerous_goods', sharedData),
     name: 'dangerous_goods',
-    checks: ["Initial", "Annual"]
+    checks: [__('client.app_option_initial', sharedData), __('client.app_option_annual', sharedData)]
   }, {
-    title: "DOC",
+    title: __('client.ownerapp_question_doc', sharedData),
     name: 'doc',
-    checks: ["Interim", "Initial", "Annual", "Renewal"]
+    checks: [__('client.app_option_interim', sharedData), __('client.app_option_initial', sharedData), __('client.app_option_annual', sharedData), __('client.app_option_remewal', sharedData)]
   }, {
-    title: "SMC",
+    title: __('client.ownerapp_question_smc', sharedData),
     name: 'smc',
-    checks: ["Interim", "Initial", "Intermediate", "Renewal/Additional"]
+    checks: [__('client.app_option_interim', sharedData), __('client.app_option_initial', sharedData), __('client.app_option_intermediate', sharedData), __('client.app_option_renewal_additional', sharedData)]
   }, {
-    title: "ISPS ON BOARD VERIFICATION",
+    title: __('client.ownerapp_question_isps_on_board_verification', sharedData),
     name: 'isps_on_board_verification',
-    checks: ["Interim", "Initial", "Intermediate", "Renewal/Additional"]
+    checks: [__('client.app_option_interim', sharedData), __('client.app_option_initial', sharedData), __('client.app_option_intermediate', sharedData), __('client.app_option_renewal_additional', sharedData)]
   }, {
-    title: "MLC 2006",
+    title: __('client.ownerapp_question_mlc_2006', sharedData),
     name: 'mlc_2006',
-    checks: ["Interim", "Initial", "Intermediate", "Renewal"]
+    checks: [__('client.app_option_interim', sharedData), __('client.app_option_initial', sharedData), __('client.app_option_intermediate', sharedData), __('client.app_option_remewal', sharedData)]
   }, {
-    title: "BALLAST WATER",
+    title: __('client.ownerapp_question_ballast_water', sharedData),
     name: 'ballast_water',
-    checks: ["Renewal", "Annual", "Intermediate"]
+    checks: [__('client.app_option_remewal', sharedData), __('client.app_option_annual', sharedData), __('client.app_option_intermediate', sharedData)]
   }, {
-    title: "ANTIFOULING SURVEY",
+    title: __('client.ownerapp_question_antifouling_survey', sharedData),
     name: 'antifouling_survey',
-    checks: ["Renewal", "Re-issuance"]
+    checks: [__('client.app_option_remewal', sharedData), __('client.app_option_reissuance', sharedData)]
   }, {
-    title: "EXEMPTION",
+    title: __('client.ownerapp_question_exemption', sharedData),
     name: 'exemption',
-    checks: ["Request"]
+    checks: [__('client.app_option_request', sharedData)]
   }, {
-    title: "CARGO SHIP SAFETY UNDER 500 GRT ",
+    title: __('client.ownerapp_question_cargo_ship_safety_under_500_grt', sharedData),
     name: 'cargo_ship_safety_under_500_grt',
-    checks: ["Renewal", "Annual", "Intermediate"]
+    checks: [__('client.app_option_remewal', sharedData), __('client.app_option_annual', sharedData), __('client.app_option_intermediate', sharedData)]
   }, {
-    title: "SEAWORTHINESS",
+    title: __('client.ownerapp_question_seaworthiness', sharedData),
     name: 'seaworthiness',
-    checks: ["Renewal", "Annual", "Intermediate"]
+    checks: [__('client.app_option_remewal', sharedData), __('client.app_option_annual', sharedData), __('client.app_option_intermediate', sharedData)]
   }, {
-    title: "HSC/DSC SAFETY",
+    title: __('client.ownerapp_question_hsc_dsc_safety', sharedData),
     name: 'hsc_dsc_safety',
-    checks: ["Renewal", "Annual", "Intermediate"]
+    checks: [__('client.app_option_remewal', sharedData), __('client.app_option_annual', sharedData), __('client.app_option_intermediate', sharedData)]
   }, {
-    title: "MANUAL APPROVAL (SPECIFY)",
+    title: __('client.ownerapp_question_manual approval', sharedData),
     name: 'manual approval',
-    checks: ["Approval"]
+    checks: [__('client.app_option_approval', sharedData)]
   }]; // let obj = {};
   // let a = document.querySelectorAll('.app_inputs input');
   // var value;
@@ -4854,7 +4593,7 @@ var OwnerApplication = function OwnerApplication(_ref) {
 
 
     if (!validform) {
-      sweetalert2__WEBPACK_IMPORTED_MODULE_7___default().fire({
+      sweetalert2__WEBPACK_IMPORTED_MODULE_6___default().fire({
         title: 'შეცდომა',
         text: 'გთხოვთ შეავსოთ ყველა ველი',
         icon: 'fail',
@@ -4863,7 +4602,7 @@ var OwnerApplication = function OwnerApplication(_ref) {
     }
 
     if (validform) {
-      sweetalert2__WEBPACK_IMPORTED_MODULE_7___default().fire({
+      sweetalert2__WEBPACK_IMPORTED_MODULE_6___default().fire({
         title: 'წარმატებით დაემატა',
         text: '',
         icon: 'success',
@@ -4876,7 +4615,7 @@ var OwnerApplication = function OwnerApplication(_ref) {
     }
   }
 
-  return /*#__PURE__*/react__WEBPACK_IMPORTED_MODULE_0__.createElement(_Layouts_Layout__WEBPACK_IMPORTED_MODULE_6__["default"], {
+  return /*#__PURE__*/react__WEBPACK_IMPORTED_MODULE_0__.createElement(_Layouts_Layout__WEBPACK_IMPORTED_MODULE_5__["default"], {
     seo: seo
   }, /*#__PURE__*/react__WEBPACK_IMPORTED_MODULE_0__.createElement("div", {
     className: "documents teamPage careerPage"
@@ -4903,35 +4642,35 @@ var OwnerApplication = function OwnerApplication(_ref) {
     type: "text",
     id: "name_of_ship",
     name: "name_of_ship",
-    placeholder: "name of ship",
+    placeholder: __('client.ownerapp_form_name_of_ship', sharedData),
     onChange: handleChange
   }), /*#__PURE__*/react__WEBPACK_IMPORTED_MODULE_0__.createElement("input", {
     type: "text",
     id: "ex_names",
     name: "ex_names",
-    placeholder: "ex names",
+    placeholder: __('client.ownerapp_form_ex_names', sharedData),
     onChange: handleChange
   }), /*#__PURE__*/react__WEBPACK_IMPORTED_MODULE_0__.createElement("input", {
     type: "number",
     id: "imo_no",
     name: "imo_no",
-    placeholder: "imo no",
+    placeholder: __('client.ownerapp_form_imo_no', sharedData),
     onChange: handleChange
   }), /*#__PURE__*/react__WEBPACK_IMPORTED_MODULE_0__.createElement("input", {
     type: "text",
     name: "type",
     id: "type",
-    placeholder: "type",
+    placeholder: __('client.ownerapp_form_type', sharedData),
     onChange: handleChange
   }), /*#__PURE__*/react__WEBPACK_IMPORTED_MODULE_0__.createElement("input", {
     type: "text",
-    placeholder: "existing flag",
+    placeholder: __('client.ownerapp_form_exitig_flag', sharedData),
     name: "existing_flag",
     id: "existing_flag",
     onChange: handleChange
   }), /*#__PURE__*/react__WEBPACK_IMPORTED_MODULE_0__.createElement("input", {
     type: "text",
-    placeholder: "Call Sign",
+    placeholder: __('client.ownerapp_form_call_sign', sharedData),
     name: "call_sign",
     id: "call_sign",
     onChange: handleChange
@@ -4939,43 +4678,43 @@ var OwnerApplication = function OwnerApplication(_ref) {
     className: "grid3"
   }, /*#__PURE__*/react__WEBPACK_IMPORTED_MODULE_0__.createElement("input", {
     type: "text",
-    placeholder: "grt",
+    placeholder: __('client.ownerapp_form_grt', sharedData),
     name: "grt",
     id: "grt",
     onChange: handleChange
   }), /*#__PURE__*/react__WEBPACK_IMPORTED_MODULE_0__.createElement("input", {
     type: "text",
-    placeholder: "nrt",
+    placeholder: __('client.ownerapp_form_nrt', sharedData),
     name: "nrt",
     id: "nrt",
     onChange: handleChange
   }), /*#__PURE__*/react__WEBPACK_IMPORTED_MODULE_0__.createElement("input", {
     type: "text",
-    placeholder: "DWT",
+    placeholder: __('client.ownerapp_form_dwt', sharedData),
     name: "dwt",
     id: "dwt",
     onChange: handleChange
   })), /*#__PURE__*/react__WEBPACK_IMPORTED_MODULE_0__.createElement("input", {
     type: "text",
-    placeholder: "Date Keel Laid",
+    placeholder: __('client.ownerapp_form_date_keel_laid', sharedData),
     name: "date_keel_laid",
     id: "date_keel_laid",
     onChange: handleChange
   }), /*#__PURE__*/react__WEBPACK_IMPORTED_MODULE_0__.createElement("input", {
     type: "text",
-    placeholder: "Build",
+    placeholder: __('client.ownerapp_form_build', sharedData),
     name: "build",
     id: "build",
     onChange: handleChange
   }), /*#__PURE__*/react__WEBPACK_IMPORTED_MODULE_0__.createElement("input", {
     type: "text",
-    placeholder: "Framing System",
+    placeholder: __('client.ownerapp_form_framing_system', sharedData),
     name: "framing_system",
     id: "framing_system",
     onChange: handleChange
   }), /*#__PURE__*/react__WEBPACK_IMPORTED_MODULE_0__.createElement("input", {
     type: "text",
-    placeholder: "Builders",
+    placeholder: __('client.ownerapp_form_builders', sharedData),
     name: "builders",
     id: "builders",
     onChange: handleChange
@@ -4983,13 +4722,13 @@ var OwnerApplication = function OwnerApplication(_ref) {
     className: "grid2"
   }, /*#__PURE__*/react__WEBPACK_IMPORTED_MODULE_0__.createElement("input", {
     type: "text",
-    placeholder: "LOA",
+    placeholder: __('client.ownerapp_form_loa', sharedData),
     name: "loa",
     id: "loa",
     onChange: handleChange
   }), /*#__PURE__*/react__WEBPACK_IMPORTED_MODULE_0__.createElement("input", {
     type: "text",
-    placeholder: "L.P.P",
+    placeholder: __('client.ownerapp_form_lpp', sharedData),
     name: "lpp",
     id: "lpp",
     onChange: handleChange
@@ -4997,19 +4736,19 @@ var OwnerApplication = function OwnerApplication(_ref) {
     className: "grid2"
   }, /*#__PURE__*/react__WEBPACK_IMPORTED_MODULE_0__.createElement("input", {
     type: "text",
-    placeholder: "Breath",
+    placeholder: __('client.ownerapp_form_breath', sharedData),
     name: "breath",
     id: "breath",
     onChange: handleChange
   }), /*#__PURE__*/react__WEBPACK_IMPORTED_MODULE_0__.createElement("input", {
     type: "text",
-    placeholder: "Depth",
+    placeholder: __('client.ownerapp_form_depth', sharedData),
     name: "depth",
     id: "depth",
     onChange: handleChange
   })), /*#__PURE__*/react__WEBPACK_IMPORTED_MODULE_0__.createElement("input", {
     type: "text",
-    placeholder: "Main Engine Builders",
+    placeholder: __('client.ownerapp_form_main_engine_builders', sharedData),
     name: "main_engine_builders",
     id: "main_engine_builders",
     onChange: handleChange
@@ -5017,49 +4756,49 @@ var OwnerApplication = function OwnerApplication(_ref) {
     className: "grid2"
   }, /*#__PURE__*/react__WEBPACK_IMPORTED_MODULE_0__.createElement("input", {
     type: "text",
-    placeholder: "Type",
+    placeholder: __('client.ownerapp_form_type', sharedData),
     name: "type2",
     id: "type2",
     onChange: handleChange
   }), /*#__PURE__*/react__WEBPACK_IMPORTED_MODULE_0__.createElement("input", {
     type: "text",
-    placeholder: "B.H.P",
+    placeholder: __('client.ownerapp_form_bhp', sharedData),
     name: "bhp",
     id: "bhp",
     onChange: handleChange
   })), /*#__PURE__*/react__WEBPACK_IMPORTED_MODULE_0__.createElement("input", {
     type: "text",
-    placeholder: "Number And Type of Generators",
+    placeholder: __('client.ownerapp_form_number_and_type_of_generators', sharedData),
     name: "number_and_type_of_generators",
     id: "number_and_type_of_generators",
     onChange: handleChange
   }), /*#__PURE__*/react__WEBPACK_IMPORTED_MODULE_0__.createElement("input", {
     type: "text",
-    placeholder: "Cargo Gear",
+    placeholder: __('client.ownerapp_form_cargogear', sharedData),
     name: "cargogear",
     id: "cargogear",
     onChange: handleChange
   }), /*#__PURE__*/react__WEBPACK_IMPORTED_MODULE_0__.createElement("input", {
     type: "text",
-    placeholder: "Owning Company",
+    placeholder: __('client.ownerapp_form_owning_company', sharedData),
     name: "owning_company",
     id: "owning_company",
     onChange: handleChange
   }), /*#__PURE__*/react__WEBPACK_IMPORTED_MODULE_0__.createElement("input", {
     type: "text",
-    placeholder: "Managing Company",
+    placeholder: __('client.ownerapp_form_managing_company', sharedData),
     name: "managing_company",
     id: "managing_company",
     onChange: handleChange
   }), /*#__PURE__*/react__WEBPACK_IMPORTED_MODULE_0__.createElement("input", {
     type: "text",
-    placeholder: "Place and Date of Surveys",
+    placeholder: __('client.ownerapp_form_place_date', sharedData),
     name: "place_date",
     id: "place_date",
     onChange: handleChange
   }), /*#__PURE__*/react__WEBPACK_IMPORTED_MODULE_0__.createElement("input", {
     type: "text",
-    placeholder: "Name of Applicant",
+    placeholder: __('client.ownerapp_form_name_of_applicant', sharedData),
     name: "name_of_applicant",
     id: "name_of_applicant",
     onChange: handleChange
@@ -7244,7 +6983,7 @@ __webpack_require__.r(__webpack_exports__);
 
 var ___CSS_LOADER_EXPORT___ = _node_modules_css_loader_dist_runtime_api_js__WEBPACK_IMPORTED_MODULE_0___default()(function(i){return i[1]});
 // Module
-___CSS_LOADER_EXPORT___.push([module.id, "@font-face {\n  font-family: \"nusxuri\";\n  src: url(/assets/fonts/TbcDin_Nusxuri_Regular.ttf);\n}\n@font-face {\n  font-family: \"mtavruli\";\n  src: url(/assets/fonts/tbcdinmtavrulibold.ttf);\n}\n*,\n*::after,\n*::before {\n  font-family: \"mtavruli\";\n  margin: 0;\n  padding: 0;\n  box-sizing: border-box;\n  scroll-behavior: smooth;\n}\n*::after,\n*::before {\n  position: absolute;\n  content: \"\";\n}\n/* width */\n::-webkit-scrollbar {\n  width: 7px;\n}\n\n/* Track */\n::-webkit-scrollbar-track {\n  background: #1c728f;\n}\n\n/* Handle */\n::-webkit-scrollbar-thumb {\n  background: #00bbffa9;\n}\n::-webkit-scrollbar-thumb:hover {\n  background: #00bdff;\n}\n\nhtml {\n  box-sizing: border-box;\n}\nbody {\n  font-family: \"mtavruli\";\n  font-weight: 400;\n  line-height: 1.3;\n  color: #1c3447;\n  background: #fff;\n  overflow-x: hidden;\n  scroll-behavior: smooth;\n  font-size: 16px;\n}\np {\n  font-family: \"nusxuri\";\n  font-weight: 100;\n  line-height: 1.5;\n  text-align: justify;\n}\nh1 {\n  font-weight: 600;\n}\nul {\n  list-style: none;\n}\na {\n  text-decoration: none;\n  color: inherit;\n}\ninput,\ntextarea,\nbutton {\n  outline: none;\n  border: none;\n  background: none;\n}\nbutton {\n  cursor: pointer;\n}\nselect {\n  border: none;\n  outline: none;\n}\nimg {\n  height: auto;\n  max-width: 100%;\n}\n.img {\n  overflow: hidden;\n}\n.img img {\n  width: 100%;\n  height: 100%;\n  -o-object-fit: cover;\n     object-fit: cover;\n}\n.map iframe {\n  width: 100%;\n  height: 100%;\n}\n.wrapper {\n  width: 1400px;\n  height: 100%;\n  margin: auto;\n}\n.container {\n  width: 800px;\n}\n.flex {\n  display: flex;\n  align-items: center;\n  justify-content: space-between;\n}\n.flex.centered {\n  justify-content: center;\n}\n.nux {\n  font-family: \"nusxuri\";\n}\n.font45 {\n  font-size: 45px;\n  margin-bottom: 30px;\n}\n.blue {\n  color: #22aabe;\n}\ninput,\ntextarea {\n  width: 100%;\n  border: 3px solid #eef2f9;\n  padding-left: 20px;\n  margin-bottom: 20px;\n  height: 40px;\n}\ntextarea {\n  height: 100px;\n  margin-bottom: 22px;\n  padding-top: 7px;\n}\n.padding_top {\n  padding-top: 82px;\n}\n.underline {\n  text-decoration: underline;\n}\n.uppercase {\n  text-transform: uppercase;\n}\n\n@media screen and (max-width: 1450px) {\n  .wrapper {\n    width: 95%;\n  }\n}\n@media screen and (max-width: 1200px) {\n  .padding_top {\n    padding-top: 79px;\n  }\n}\n@media screen and (max-width: 1000px) {\n  .font45 {\n    font-size: 30px;\n  }\n  .padding_top {\n    padding-top: 77px;\n  }\n}\n@media screen and (max-width: 850px) {\n  .container {\n    width: 100%;\n  }\n  body {\n    font-size: 14px;\n  }\n}\n@media screen and (max-width: 500px) {\n  input,\n  textarea {\n    padding-left: 15px;\n    margin-bottom: 11px;\n  }\n  .font45 {\n    font-size: 25px;\n    margin-bottom: 20px;\n  }\n}\n", ""]);
+___CSS_LOADER_EXPORT___.push([module.id, "@font-face {\r\n  font-family: \"nusxuri\";\r\n  src: url(/assets/fonts/TbcDin_Nusxuri_Regular.ttf);\r\n}\r\n@font-face {\r\n  font-family: \"mtavruli\";\r\n  src: url(/assets/fonts/tbcdinmtavrulibold.ttf);\r\n}\r\n*,\r\n*::after,\r\n*::before {\r\n  font-family: \"mtavruli\";\r\n  margin: 0;\r\n  padding: 0;\r\n  box-sizing: border-box;\r\n  scroll-behavior: smooth;\r\n}\r\n*::after,\r\n*::before {\r\n  position: absolute;\r\n  content: \"\";\r\n}\r\n/* width */\r\n::-webkit-scrollbar {\r\n  width: 7px;\r\n}\r\n\r\n/* Track */\r\n::-webkit-scrollbar-track {\r\n  background: #1c728f;\r\n}\r\n\r\n/* Handle */\r\n::-webkit-scrollbar-thumb {\r\n  background: #00bbffa9;\r\n}\r\n::-webkit-scrollbar-thumb:hover {\r\n  background: #00bdff;\r\n}\r\n\r\nhtml {\r\n  box-sizing: border-box;\r\n}\r\nbody {\r\n  font-family: \"mtavruli\";\r\n  font-weight: 400;\r\n  line-height: 1.3;\r\n  color: #1c3447;\r\n  background: #fff;\r\n  overflow-x: hidden;\r\n  scroll-behavior: smooth;\r\n  font-size: 16px;\r\n}\r\np {\r\n  font-family: \"nusxuri\";\r\n  font-weight: 100;\r\n  line-height: 1.5;\r\n  text-align: justify;\r\n}\r\nh1 {\r\n  font-weight: 600;\r\n}\r\nul {\r\n  list-style: none;\r\n}\r\na {\r\n  text-decoration: none;\r\n  color: inherit;\r\n}\r\ninput,\r\ntextarea,\r\nbutton {\r\n  outline: none;\r\n  border: none;\r\n  background: none;\r\n}\r\nbutton {\r\n  cursor: pointer;\r\n}\r\nselect {\r\n  border: none;\r\n  outline: none;\r\n}\r\nimg {\r\n  height: auto;\r\n  max-width: 100%;\r\n}\r\n.img {\r\n  overflow: hidden;\r\n}\r\n.img img {\r\n  width: 100%;\r\n  height: 100%;\r\n  -o-object-fit: cover;\r\n     object-fit: cover;\r\n}\r\n.map iframe {\r\n  width: 100%;\r\n  height: 100%;\r\n}\r\n.wrapper {\r\n  width: 1400px;\r\n  height: 100%;\r\n  margin: auto;\r\n}\r\n.container {\r\n  width: 800px;\r\n}\r\n.flex {\r\n  display: flex;\r\n  align-items: center;\r\n  justify-content: space-between;\r\n}\r\n.flex.centered {\r\n  justify-content: center;\r\n}\r\n.nux {\r\n  font-family: \"nusxuri\";\r\n}\r\n.font45 {\r\n  font-size: 45px;\r\n  margin-bottom: 30px;\r\n}\r\n.blue {\r\n  color: #22aabe;\r\n}\r\ninput,\r\ntextarea {\r\n  width: 100%;\r\n  border: 3px solid #eef2f9;\r\n  padding-left: 20px;\r\n  margin-bottom: 20px;\r\n  height: 40px;\r\n}\r\ntextarea {\r\n  height: 100px;\r\n  margin-bottom: 22px;\r\n  padding-top: 7px;\r\n}\r\n.padding_top {\r\n  padding-top: 82px;\r\n}\r\n.underline {\r\n  text-decoration: underline;\r\n}\r\n.uppercase {\r\n  text-transform: uppercase;\r\n}\r\n\r\n@media screen and (max-width: 1450px) {\r\n  .wrapper {\r\n    width: 95%;\r\n  }\r\n}\r\n@media screen and (max-width: 1200px) {\r\n  .padding_top {\r\n    padding-top: 79px;\r\n  }\r\n}\r\n@media screen and (max-width: 1000px) {\r\n  .font45 {\r\n    font-size: 30px;\r\n  }\r\n  .padding_top {\r\n    padding-top: 77px;\r\n  }\r\n}\r\n@media screen and (max-width: 850px) {\r\n  .container {\r\n    width: 100%;\r\n  }\r\n  body {\r\n    font-size: 14px;\r\n  }\r\n}\r\n@media screen and (max-width: 500px) {\r\n  input,\r\n  textarea {\r\n    padding-left: 15px;\r\n    margin-bottom: 11px;\r\n  }\r\n  .font45 {\r\n    font-size: 25px;\r\n    margin-bottom: 20px;\r\n  }\r\n}\r\n", ""]);
 // Exports
 /* harmony default export */ const __WEBPACK_DEFAULT_EXPORT__ = (___CSS_LOADER_EXPORT___);
 
@@ -7412,7 +7151,7 @@ __webpack_require__.r(__webpack_exports__);
 
 var ___CSS_LOADER_EXPORT___ = _node_modules_css_loader_dist_runtime_api_js__WEBPACK_IMPORTED_MODULE_0___default()(function(i){return i[1]});
 // Module
-___CSS_LOADER_EXPORT___.push([module.id, ".loginPage {\r\n    background: url(/assets/images/bgs/1.png) no-repeat;\r\n    background-position: top;\r\n    background-size: cover;\r\n    padding: 200px 0;\r\n}\r\n\r\n.login_box {\r\n    width: 536px;\r\n    background-color: #eef2f9;\r\n    border-radius: 10px;\r\n    box-shadow: 0 10px 15px #1e3b601f;\r\n    padding: 117px 100px;\r\n    margin: auto;\r\n}\r\n\r\n.login_box h5 {\r\n    text-align: center;\r\n    font-size: 20px;\r\n    margin-bottom: 20px;\r\n}\r\n\r\n.login_box input {\r\n    border-color: #fff;\r\n}\r\n\r\n.login_box p {\r\n    margin-bottom: 35px;\r\n    opacity: 0.7;\r\n}\r\n\r\n.login_box button {\r\n    background-color: #fff;\r\n    height: 50px;\r\n    margin-top: 20px;\r\n    margin-bottom: 40px;\r\n    width: 100%;\r\n}\r\n\r\n.login_box button img {\r\n    vertical-align: middle;\r\n    margin-left: 10px;\r\n}\r\n\r\n@media screen and (max-width: 1200px) {\r\n    .loginPage {\r\n        padding: 80px 0;\r\n    }\r\n\r\n    .login_box {\r\n        padding: 81px 67px;\r\n    }\r\n}\r\n\r\n@media screen and (max-width: 600px) {\r\n    .login_box {\r\n        width: 95%;\r\n        padding: 46px 23px;\r\n    }\r\n}\r\n", ""]);
+___CSS_LOADER_EXPORT___.push([module.id, ".loginPage {\n    background: url(/assets/images/bgs/1.png) no-repeat;\n    background-position: top;\n    background-size: cover;\n    padding: 200px 0;\n}\n\n.login_box {\n    width: 536px;\n    background-color: #eef2f9;\n    border-radius: 10px;\n    box-shadow: 0 10px 15px #1e3b601f;\n    padding: 117px 100px;\n    margin: auto;\n}\n\n.login_box h5 {\n    text-align: center;\n    font-size: 20px;\n    margin-bottom: 20px;\n}\n\n.login_box input {\n    border-color: #fff;\n}\n\n.login_box p {\n    margin-bottom: 35px;\n    opacity: 0.7;\n}\n\n.login_box button {\n    background-color: #fff;\n    height: 50px;\n    margin-top: 20px;\n    margin-bottom: 40px;\n    width: 100%;\n}\n\n.login_box button img {\n    vertical-align: middle;\n    margin-left: 10px;\n}\n\n@media screen and (max-width: 1200px) {\n    .loginPage {\n        padding: 80px 0;\n    }\n\n    .login_box {\n        padding: 81px 67px;\n    }\n}\n\n@media screen and (max-width: 600px) {\n    .login_box {\n        width: 95%;\n        padding: 46px 23px;\n    }\n}\n", ""]);
 // Exports
 /* harmony default export */ const __WEBPACK_DEFAULT_EXPORT__ = (___CSS_LOADER_EXPORT___);
 
@@ -7460,7 +7199,7 @@ __webpack_require__.r(__webpack_exports__);
 
 var ___CSS_LOADER_EXPORT___ = _node_modules_css_loader_dist_runtime_api_js__WEBPACK_IMPORTED_MODULE_0___default()(function(i){return i[1]});
 // Module
-___CSS_LOADER_EXPORT___.push([module.id, ".servicesPage {\r\n    background: url(/assets/images/bgs/3.png) no-repeat;\r\n    background-position: center;\r\n    background-size: cover;\r\n    background-attachment: fixed;\r\n    padding-top: 100px;\r\n}\r\n\r\n.servicesPage .ships_img {\r\n    margin: 50px 0;\r\n}\r\n\r\n.statorPage .content {\r\n    margin-bottom: 50px;\r\n}\r\n\r\n@media screen and (max-width: 600px) {\r\n    .servicesPage .ships_img {\r\n        margin: 32px 0;\r\n    }\r\n}\r\n", ""]);
+___CSS_LOADER_EXPORT___.push([module.id, ".servicesPage {\n    background: url(/assets/images/bgs/3.png) no-repeat;\n    background-position: center;\n    background-size: cover;\n    background-attachment: fixed;\n    padding-top: 100px;\n}\n\n.servicesPage .ships_img {\n    margin: 50px 0;\n}\n\n.statorPage .content {\n    margin-bottom: 50px;\n}\n\n@media screen and (max-width: 600px) {\n    .servicesPage .ships_img {\n        margin: 32px 0;\n    }\n}\n", ""]);
 // Exports
 /* harmony default export */ const __WEBPACK_DEFAULT_EXPORT__ = (___CSS_LOADER_EXPORT___);
 

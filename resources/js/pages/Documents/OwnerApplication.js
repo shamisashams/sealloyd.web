@@ -3,13 +3,17 @@ import { PagePath, SendButton } from "../../components/SmallComps/SmallComps";
 import AppChecklist from "./AppChecklist";
 import AppInputs from "./AppInputs";
 import { Inertia } from '@inertiajs/inertia'
-import { usePage } from '@inertiajs/inertia-react'
 import Layout from "../../Layouts/Layout";
 import Swal from 'sweetalert2'
+import { Link, usePage, useForm } from "@inertiajs/inertia-react";
+
 // import mail from "../../assets/images/icons/contact/mail.svg";
 import "./Documents.css";
 
 const OwnerApplication = ({ seo, success, error }) => {
+    const renderHTML = (rawHTML) => React.createElement("div", { dangerouslySetInnerHTML: { __html: rawHTML } });
+    const sharedData = usePage().props.localizations;
+
     const { errors } = usePage().props
     // if (success) {
     //     Swal.fire({
@@ -34,149 +38,149 @@ const OwnerApplication = ({ seo, success, error }) => {
 
     const checklist = [
         {
-            title: "HULL & MACHINERY",
+            title: __('client.ownerapp_question_hull_machinery', sharedData),
             name: "hull_machinery",
-            checks: ["Special", "Annual", "Intermediate", "Dry dock/Tailshaft"],
+            checks: [__('client.app_option_special', sharedData), __('client.app_option_annual', sharedData), __('client.app_option_intermediate', sharedData), __('client.app_option_drydock', sharedData)],
         },
         {
-            title: "CARGO GEAR",
+            title: __('client.ownerapp_question_cargo_gear', sharedData),
             name: 'cargo_gear',
-            checks: ["Renewal", "Annual", "Intermediate", "Occasional survey"],
+            checks: [__('client.app_option_remewal', sharedData), __('client.app_option_annual', sharedData), __('client.app_option_intermediate', sharedData), __('client.app_option_occasional', sharedData)],
         },
         {
-            title: "LOAD LINE",
+            title: __('client.ownerapp_question_road_line', sharedData),
             name: 'load_line',
-            checks: ["Renewal", "Annual"],
+            checks: [__('client.app_option_remewal', sharedData), __('client.app_option_annual', sharedData)],
         },
         {
-            title: "SAFETY CONSTRUCTION",
+            title: __('client.ownerapp_question_safety_construction', sharedData),
             name: 'safety_constructor',
-            checks: ["Renewal", "Annual", "Intermediate"],
+            checks: [__('client.app_option_remewal', sharedData), __('client.app_option_annual', sharedData), __('client.app_option_intermediate', sharedData)],
         },
         {
-            title: "SAFETY EQUIPMENT",
+            title: __('client.ownerapp_question_safety_equipment', sharedData),
             name: 'safety_equipment',
-            checks: ["Renewal", "Annual", "Periodical"],
+            checks: [__('client.app_option_remewal', sharedData), __('client.app_option_annual', sharedData), __('client.app_option_periodical', sharedData)],
         },
         {
-            title: "PASSENGER SAFETY",
+            title: __('client.ownerapp_question_passenger_safety', sharedData),
             name: 'passenger_safety',
-            checks: ["Renewal"],
+            checks: [__('client.app_option_remewal', sharedData)],
         },
         {
-            title: "SAFETY RADIO",
+            title: __('client.ownerapp_question_safety_radio', sharedData),
             name: 'safety_radio',
-            checks: ["Renewal", "Periodical"],
+            checks: [__('client.app_option_remewal', sharedData), __('client.app_option_periodical', sharedData)],
         },
         {
-            title: "MARPOL ANNEX I",
+            title: __('client.ownerapp_question_marpolo_anex_i', sharedData),
             name: 'marpol_annexi',
-            checks: ["Renewal", "Annual", "Intermediate"],
+            checks: [__('client.app_option_remewal', sharedData), __('client.app_option_annual', sharedData), __('client.app_option_intermediate', sharedData)],
         },
         {
-            title: "MARPOL ANNEX II",
+            title: __('client.ownerapp_question_marpolo_anex_ii', sharedData),
             name: 'marpol_annexii',
-            checks: ["Renewal", "Annual", "Intermediate"],
+            checks: [__('client.app_option_remewal', sharedData), __('client.app_option_annual', sharedData), __('client.app_option_intermediate', sharedData)],
         },
         {
-            title: "MARPOL ANNEX III (SEW)",
+            title: __('client.ownerapp_question_marpolo_anex_iii', sharedData),
             name: 'marpol_annexiii',
-            checks: ["Initial", "Renewal"],
+            checks: [__('client.app_option_initial', sharedData), __('client.app_option_remewal', sharedData)],
         },
         {
-            title: "MARPOL ANNEX V (GAR)",
+            title: __('client.ownerapp_question_marpolo_anex_v', sharedData),
             name: 'marpol_annexv',
-            checks: ["Initial", "Renewal"],
+            checks: [__('client.app_option_initial', sharedData), __('client.app_option_remewal', sharedData)],
         },
         {
-            title: "MARPOL ANNEX VI",
+            title: __('client.ownerapp_question_marpolo_anex_vi', sharedData),
             name: 'marpol_annex_vi',
-            checks: ["Renewal", "Annual"],
+            checks: [__('client.app_option_remewal', sharedData), __('client.app_option_annual', sharedData)],
         },
         {
-            title: "ENERGY EFFICIENCY",
+            title: __('client.ownerapp_question_energy_efficiency', sharedData),
             name: 'energy_efficiency',
-            checks: ["Initial", "Renewal"],
+            checks: [__('client.app_option_initial', sharedData), __('client.app_option_remewal', sharedData)],
         },
         {
-            title: "ENGINE IAPPC",
+            title: __('client.ownerapp_question_energy_iappc', sharedData),
             name: 'engine_iopc',
-            checks: ["Initial", "Renewal"],
+            checks: [__('client.app_option_initial', sharedData), __('client.app_option_remewal', sharedData)],
         },
         {
-            title: "FISHING VESSEL",
+            title: __('client.ownerapp_question_fishing_vessel', sharedData),
             name: 'fishing_vessel',
-            checks: ["Initial", "Annual", "Renewal"],
+            checks: [__('client.app_option_initial', sharedData), __('client.app_option_annual', sharedData), __('client.app_option_remewal', sharedData)],
         },
         {
-            title: "TONNAGE CERTIFICATE",
+            title: __('client.ownerapp_question_tonage_certificate', sharedData),
             name: 'tonnage_certificate',
-            checks: ["Study", "Re-issuance"],
+            checks: [__('client.app_option_stydy', sharedData), __('client.app_option_reissuance', sharedData)],
         },
         {
-            title: "SOLID BULK CARGOES",
+            title: __('client.ownerapp_question_solid_bulk_cargoes', sharedData),
             name: 'solid_bulk_cards',
-            checks: ["A", "B", "C"],
+            checks: [__('client.app_option_a', sharedData), __('client.app_option_b', sharedData), __('client.app_option_c', sharedData)],
         },
         {
-            title: "DANGEROUS GOODS",
+            title: __('client.ownerapp_question_dangerous_goods', sharedData),
             name: 'dangerous_goods',
-            checks: ["Initial", "Annual"],
+            checks: [__('client.app_option_initial', sharedData), __('client.app_option_annual', sharedData)],
         },
         {
-            title: "DOC",
+            title: __('client.ownerapp_question_doc', sharedData),
             name: 'doc',
-            checks: ["Interim", "Initial", "Annual", "Renewal"],
+            checks: [__('client.app_option_interim', sharedData), __('client.app_option_initial', sharedData), __('client.app_option_annual', sharedData), __('client.app_option_remewal', sharedData)],
         },
         {
-            title: "SMC",
+            title: __('client.ownerapp_question_smc', sharedData),
             name: 'smc',
-            checks: ["Interim", "Initial", "Intermediate", "Renewal/Additional"],
+            checks: [__('client.app_option_interim', sharedData), __('client.app_option_initial', sharedData), __('client.app_option_intermediate', sharedData), __('client.app_option_renewal_additional', sharedData)],
         },
         {
-            title: "ISPS ON BOARD VERIFICATION",
+            title: __('client.ownerapp_question_isps_on_board_verification', sharedData),
             name: 'isps_on_board_verification',
-            checks: ["Interim", "Initial", "Intermediate", "Renewal/Additional"],
+            checks: [__('client.app_option_interim', sharedData), __('client.app_option_initial', sharedData), __('client.app_option_intermediate', sharedData), __('client.app_option_renewal_additional', sharedData)],
         },
         {
-            title: "MLC 2006",
+            title: __('client.ownerapp_question_mlc_2006', sharedData),
             name: 'mlc_2006',
-            checks: ["Interim", "Initial", "Intermediate", "Renewal"],
+            checks: [__('client.app_option_interim', sharedData), __('client.app_option_initial', sharedData), __('client.app_option_intermediate', sharedData), __('client.app_option_remewal', sharedData)],
         },
         {
-            title: "BALLAST WATER",
+            title: __('client.ownerapp_question_ballast_water', sharedData),
             name: 'ballast_water',
-            checks: ["Renewal", "Annual", "Intermediate"],
+            checks: [__('client.app_option_remewal', sharedData), __('client.app_option_annual', sharedData), __('client.app_option_intermediate', sharedData)],
         },
         {
-            title: "ANTIFOULING SURVEY",
+            title: __('client.ownerapp_question_antifouling_survey', sharedData),
             name: 'antifouling_survey',
-            checks: ["Renewal", "Re-issuance"],
+            checks: [__('client.app_option_remewal', sharedData), __('client.app_option_reissuance', sharedData)],
         },
         {
-            title: "EXEMPTION",
+            title: __('client.ownerapp_question_exemption', sharedData),
             name: 'exemption',
-            checks: ["Request"],
+            checks: [__('client.app_option_request', sharedData)],
         },
         {
-            title: "CARGO SHIP SAFETY UNDER 500 GRT ",
+            title: __('client.ownerapp_question_cargo_ship_safety_under_500_grt', sharedData),
             name: 'cargo_ship_safety_under_500_grt',
-            checks: ["Renewal", "Annual", "Intermediate"],
+            checks: [__('client.app_option_remewal', sharedData), __('client.app_option_annual', sharedData), __('client.app_option_intermediate', sharedData)],
         },
         {
-            title: "SEAWORTHINESS",
+            title: __('client.ownerapp_question_seaworthiness', sharedData),
             name: 'seaworthiness',
-            checks: ["Renewal", "Annual", "Intermediate"],
+            checks: [__('client.app_option_remewal', sharedData), __('client.app_option_annual', sharedData), __('client.app_option_intermediate', sharedData)],
         },
         {
-            title: "HSC/DSC SAFETY",
+            title: __('client.ownerapp_question_hsc_dsc_safety', sharedData),
             name: 'hsc_dsc_safety',
-            checks: ["Renewal", "Annual", "Intermediate"],
+            checks: [__('client.app_option_remewal', sharedData), __('client.app_option_annual', sharedData), __('client.app_option_intermediate', sharedData)],
         },
         {
-            title: "MANUAL APPROVAL (SPECIFY)",
+            title: __('client.ownerapp_question_manual approval', sharedData),
             name: 'manual approval',
-            checks: ["Approval"],
+            checks: [__('client.app_option_approval', sharedData)],
         },
     ];
 
@@ -353,40 +357,40 @@ const OwnerApplication = ({ seo, success, error }) => {
 
                                 <div className="underline uppercase head">FOR ALL SHIPS</div>
                                 <div className="app_inputs">
-                                    <input type="text" id='name_of_ship' name='name_of_ship' placeholder="name of ship" onChange={handleChange} />
-                                    <input type="text" id='ex_names' name='ex_names' placeholder="ex names" onChange={handleChange} />
-                                    <input type="number" id='imo_no' name='imo_no' placeholder="imo no" onChange={handleChange} />
-                                    <input type="text" name='type' id='type' placeholder="type" onChange={handleChange} />
-                                    <input type="text" placeholder="existing flag" name="existing_flag" id='existing_flag' onChange={handleChange} />
-                                    <input type="text" placeholder="Call Sign" name="call_sign" id='call_sign' onChange={handleChange} />
+                                    <input type="text" id='name_of_ship' name='name_of_ship' placeholder={__('client.ownerapp_form_name_of_ship', sharedData)} onChange={handleChange} />
+                                    <input type="text" id='ex_names' name='ex_names' placeholder={__('client.ownerapp_form_ex_names', sharedData)} onChange={handleChange} />
+                                    <input type="number" id='imo_no' name='imo_no' placeholder={__('client.ownerapp_form_imo_no', sharedData)} onChange={handleChange} />
+                                    <input type="text" name='type' id='type' placeholder={__('client.ownerapp_form_type', sharedData)} onChange={handleChange} />
+                                    <input type="text" placeholder={__('client.ownerapp_form_exitig_flag', sharedData)} name="existing_flag" id='existing_flag' onChange={handleChange} />
+                                    <input type="text" placeholder={__('client.ownerapp_form_call_sign', sharedData)} name="call_sign" id='call_sign' onChange={handleChange} />
                                     <div className="grid3">
-                                        <input type="text" placeholder="grt" name="grt" id='grt' onChange={handleChange} />
-                                        <input type="text" placeholder="nrt" name="nrt" id='nrt' onChange={handleChange} />
-                                        <input type="text" placeholder="DWT" name="dwt" id='dwt' onChange={handleChange} />
+                                        <input type="text" placeholder={__('client.ownerapp_form_grt', sharedData)} name="grt" id='grt' onChange={handleChange} />
+                                        <input type="text" placeholder={__('client.ownerapp_form_nrt', sharedData)} name="nrt" id='nrt' onChange={handleChange} />
+                                        <input type="text" placeholder={__('client.ownerapp_form_dwt', sharedData)} name="dwt" id='dwt' onChange={handleChange} />
                                     </div>
-                                    <input type="text" placeholder="Date Keel Laid" name="date_keel_laid" id='date_keel_laid' onChange={handleChange} />
-                                    <input type="text" placeholder="Build" name="build" id='build' onChange={handleChange} />
-                                    <input type="text" placeholder="Framing System" name="framing_system" id='framing_system' onChange={handleChange} />
-                                    <input type="text" placeholder="Builders" name="builders" id='builders' onChange={handleChange} />
+                                    <input type="text" placeholder={__('client.ownerapp_form_date_keel_laid', sharedData)} name="date_keel_laid" id='date_keel_laid' onChange={handleChange} />
+                                    <input type="text" placeholder={__('client.ownerapp_form_build', sharedData)} name="build" id='build' onChange={handleChange} />
+                                    <input type="text" placeholder={__('client.ownerapp_form_framing_system', sharedData)} name="framing_system" id='framing_system' onChange={handleChange} />
+                                    <input type="text" placeholder={__('client.ownerapp_form_builders', sharedData)} name="builders" id='builders' onChange={handleChange} />
                                     <div className="grid2">
-                                        <input type="text" placeholder="LOA" name="loa" id='loa' onChange={handleChange} />
-                                        <input type="text" placeholder="L.P.P" name="lpp" id='lpp' onChange={handleChange} />
+                                        <input type="text" placeholder={__('client.ownerapp_form_loa', sharedData)} name="loa" id='loa' onChange={handleChange} />
+                                        <input type="text" placeholder={__('client.ownerapp_form_lpp', sharedData)} name="lpp" id='lpp' onChange={handleChange} />
                                     </div>
                                     <div className="grid2">
-                                        <input type="text" placeholder="Breath" name="breath" id='breath' onChange={handleChange} />
-                                        <input type="text" placeholder="Depth" name="depth" id='depth' onChange={handleChange} />
+                                        <input type="text" placeholder={__('client.ownerapp_form_breath', sharedData)} name="breath" id='breath' onChange={handleChange} />
+                                        <input type="text" placeholder={__('client.ownerapp_form_depth', sharedData)} name="depth" id='depth' onChange={handleChange} />
                                     </div>
-                                    <input type="text" placeholder="Main Engine Builders" name="main_engine_builders" id='main_engine_builders' onChange={handleChange} />
+                                    <input type="text" placeholder={__('client.ownerapp_form_main_engine_builders', sharedData)} name="main_engine_builders" id='main_engine_builders' onChange={handleChange} />
                                     <div className="grid2">
-                                        <input type="text" placeholder="Type" name="type2" id='type2' onChange={handleChange} />
-                                        <input type="text" placeholder="B.H.P" name="bhp" id='bhp' onChange={handleChange} />
+                                        <input type="text" placeholder={__('client.ownerapp_form_type', sharedData)} name="type2" id='type2' onChange={handleChange} />
+                                        <input type="text" placeholder={__('client.ownerapp_form_bhp', sharedData)} name="bhp" id='bhp' onChange={handleChange} />
                                     </div>
-                                    <input type="text" placeholder="Number And Type of Generators" name="number_and_type_of_generators" id='number_and_type_of_generators' onChange={handleChange} />
-                                    <input type="text" placeholder="Cargo Gear" name='cargogear' id='cargogear' onChange={handleChange} />
-                                    <input type="text" placeholder="Owning Company" name='owning_company' id='owning_company' onChange={handleChange} />
-                                    <input type="text" placeholder="Managing Company" name='managing_company' id='managing_company' onChange={handleChange} />
-                                    <input type="text" placeholder="Place and Date of Surveys" name='place_date' id='place_date' onChange={handleChange} />
-                                    <input type="text" placeholder="Name of Applicant" name='name_of_applicant' id='name_of_applicant' onChange={handleChange} />
+                                    <input type="text" placeholder={__('client.ownerapp_form_number_and_type_of_generators', sharedData)} name="number_and_type_of_generators" id='number_and_type_of_generators' onChange={handleChange} />
+                                    <input type="text" placeholder={__('client.ownerapp_form_cargogear', sharedData)} name='cargogear' id='cargogear' onChange={handleChange} />
+                                    <input type="text" placeholder={__('client.ownerapp_form_owning_company', sharedData)} name='owning_company' id='owning_company' onChange={handleChange} />
+                                    <input type="text" placeholder={__('client.ownerapp_form_managing_company', sharedData)} name='managing_company' id='managing_company' onChange={handleChange} />
+                                    <input type="text" placeholder={__('client.ownerapp_form_place_date', sharedData)} name='place_date' id='place_date' onChange={handleChange} />
+                                    <input type="text" placeholder={__('client.ownerapp_form_name_of_applicant', sharedData)} name='name_of_applicant' id='name_of_applicant' onChange={handleChange} />
                                     <input type="date" value={today} />
                                 </div>
                             </div>

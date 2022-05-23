@@ -4,11 +4,22 @@ import "./Documents.css";
 import Layout from "../../Layouts/Layout";
 import { Inertia } from '@inertiajs/inertia'
 import Swal from 'sweetalert2'
+<<<<<<< Updated upstream
 import {usePage} from "@inertiajs/inertia-react";
 
 const Evaluation = ({ seo, success }) => {
     const sharedData = usePage().props.localizations;
     const renderHTML = (rawHTML) => React.createElement("p", { dangerouslySetInnerHTML: { __html: rawHTML } });
+=======
+import { Link, usePage, useForm } from "@inertiajs/inertia-react";
+
+
+
+const Evaluation = ({ seo, success }) => {
+    const renderHTML = (rawHTML) => React.createElement("div", { dangerouslySetInnerHTML: { __html: rawHTML } });
+    const sharedData = usePage().props.localizations;
+
+>>>>>>> Stashed changes
     const Swal = require('sweetalert2')
 
     var date = new Date();
@@ -49,7 +60,7 @@ const Evaluation = ({ seo, success }) => {
     }
 
     const scale = [1, 2, 3, 4, 5];
-    const satisfaction = ["Excellent", "Very Good", "Good", "Fair", "Poor"];
+    const satisfaction = [__('client.evaluation_option_exellent', sharedData), __('client.evaluation_option_verygood', sharedData), __('client.evaluation_option_good', sharedData), __('client.evaluation_option_fair', sharedData), __('client.evaluation_option_poor', sharedData)];
     if (success) {
         Swal.fire({
             title: 'success!',
@@ -70,15 +81,25 @@ const Evaluation = ({ seo, success }) => {
                     />
                     <div className="content">
                         <p className="op05 margin_bottom">
+<<<<<<< Updated upstream
                             {renderHTML(__('client.evaluation_text', sharedData).replace(/(?:\r\n|\r|\n)/g, '<br>'))}
                         </p>
                         <form onSubmit={handleSubmit}>
                             <input id='company_name' type="text" placeholder="Organization/Company name" onChange={handleChange} />
                             <input id='created_at' type="date" className="margin_bottom" value={today} />
+=======
+                            {/* We hope you are pleased with the service that you have already
+                            received from MARITIME LLOYD. It is our aim to provide the most
+                            helpful and comprehensive service possible. To help us, please would
+                            you complete this short questionnaire? */}
+                            {renderHTML(__('client.evaluation_main_text', sharedData).replace(/(?:\r\n|\r|\n)/g, '<br>'))}
+                        </p>
+                        <form onSubmit={handleSubmit}>
+                            <input id='company_name' type="text" placeholder={__('client.evaluation_form_company_name', sharedData)} onChange={handleChange} />
+                            <input id='created_at' type="date" className="margin_bottom" value={today} onChange={handleChange} />
+>>>>>>> Stashed changes
                             <p>
-                                On a scale of 1 to 5 where 1 represents "Extremely dissatisfied" and
-                                5 represents "Extremely Satisfied," how would you rate your level of
-                                overall satisfaction with Maritime Lloyd as a service supplier?
+                                {renderHTML(__('client.evaluation_question_1', sharedData).replace(/(?:\r\n|\r|\n)/g, '<br>'))}
                             </p>
                             <div className="flex rating scale margin_bottom">
                                 {scale.map((item, index) => {
@@ -99,19 +120,21 @@ const Evaluation = ({ seo, success }) => {
                                 })}
                             </div>
                             <p>
-                                Why do you say that? What specifically are you satisfied or
-                                dissatisfied with Maritime Lloyd?
+                                {/* Why do you say that? What specifically are you satisfied or
+                                dissatisfied with Maritime Lloyd? */}
+                                {renderHTML(__('client.evaluation_question_2', sharedData).replace(/(?:\r\n|\r|\n)/g, '<br>'))}
                             </p>
                             <input
                                 id='answer_2'
                                 type="text"
-                                placeholder="Enter response here"
+                                placeholder={__('client.evaluation_form_enter_response_here', sharedData)}
                                 className="margin_bottom"
                                 onChange={handleChange}
                             />
                             <p>
-                                How likely are you to recommend Maritime Lloyd to your business
-                                partners/other ship owners? Would you say the chances are …
+                                {/* How likely are you to recommend Maritime Lloyd to your business
+                                partners/other ship owners? Would you say the chances are … */}
+                                {renderHTML(__('client.evaluation_question_3', sharedData).replace(/(?:\r\n|\r|\n)/g, '<br>'))}
                             </p>
                             <div className=" rating satis margin_bottom">
                                 {satisfaction.map((item, index) => {
@@ -132,8 +155,9 @@ const Evaluation = ({ seo, success }) => {
                                 })}
                             </div>
                             <p>
-                                How likely are you to repurchase services from Maritime Lloyd? Would
-                                you say the chances are …
+                                {/* How likely are you to repurchase services from Maritime Lloyd? Would
+                                you say the chances are … */}
+                                {renderHTML(__('client.evaluation_question_4', sharedData).replace(/(?:\r\n|\r|\n)/g, '<br>'))}
                             </p>
                             <div className=" rating satis margin_bottom">
                                 {satisfaction.map((item, index) => {
@@ -154,9 +178,10 @@ const Evaluation = ({ seo, success }) => {
                                 })}
                             </div>
                             <p>
-                                How would you rate the overall quality of your relationship with
+                                {/* How would you rate the overall quality of your relationship with
                                 Maritime Lloyd, considering all of your experiences with them? Would
-                                you say it is
+                                you say it is */}
+                                {renderHTML(__('client.evaluation_question_5', sharedData).replace(/(?:\r\n|\r|\n)/g, '<br>'))}
                             </p>
                             <div className=" rating satis margin_bottom">
                                 {satisfaction.map((item, index) => {
@@ -169,7 +194,7 @@ const Evaluation = ({ seo, success }) => {
                                                 value={item}
                                                 onChange={handleChange}
                                             />
-                                            <label className="op05" htmlFor={`rate_4_${index}`}>
+                                            <label className="op05" htmlFor={`rate_5_${index}`}>
                                                 {item}
                                             </label>
                                         </div>
@@ -177,9 +202,10 @@ const Evaluation = ({ seo, success }) => {
                                 })}
                             </div>
                             <p>
-                                On a scale of 1 to 5 where 1 represents "Extremely dissatisfied" and
+                                {/* On a scale of 1 to 5 where 1 represents "Extremely dissatisfied" and
                                 5 represents "Extremely Satisfied," how would you rate your level of
-                                satisfaction with Maritime Lloyd in regards to customer service?
+                                satisfaction with Maritime Lloyd in regards to customer service? */}
+                                {renderHTML(__('client.evaluation_question_6', sharedData).replace(/(?:\r\n|\r|\n)/g, '<br>'))}
                             </p>
                             <div className="flex rating scale margin_bottom">
                                 {scale.map((item, index) => {
@@ -200,9 +226,10 @@ const Evaluation = ({ seo, success }) => {
                                 })}
                             </div>
                             <p>
-                                On a scale of 1 to 5 where 1 represents "Extremely dissatisfied" and
+                                {/* On a scale of 1 to 5 where 1 represents "Extremely dissatisfied" and
                                 5 represents "Extremely Satisfied," how would you rate your level of
-                                satisfaction with Maritime Lloyd in regards to price?
+                                satisfaction with Maritime Lloyd in regards to price? */}
+                                {renderHTML(__('client.evaluation_question_7', sharedData).replace(/(?:\r\n|\r|\n)/g, '<br>'))}
                             </p>
                             <div className="flex rating scale margin_bottom">
                                 {scale.map((item, index) => {
@@ -223,9 +250,10 @@ const Evaluation = ({ seo, success }) => {
                                 })}
                             </div>
                             <p>
-                                On a scale of 1 to 5 where 1 represents "Extremely dissatisfied" and
+                                {/* On a scale of 1 to 5 where 1 represents "Extremely dissatisfied" and
                                 5 represents "Extremely Satisfied," how would you rate your level of
-                                satisfaction with Maritime Lloyd in regards to value?
+                                satisfaction with Maritime Lloyd in regards to value? */}
+                                {renderHTML(__('client.evaluation_question_8', sharedData).replace(/(?:\r\n|\r|\n)/g, '<br>'))}
                             </p>
                             <div className="flex rating scale margin_bottom">
                                 {scale.map((item, index) => {
