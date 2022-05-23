@@ -7,6 +7,7 @@ import { Inertia } from '@inertiajs/inertia'
 import { Link, usePage } from "@inertiajs/inertia-react";
 
 export const Form = () => {
+    const sharedData = usePage().props.localizations;
     // const { data, setData, post, processing, errors } = useForm({
     //     name: '',
     //     lastname: '',
@@ -64,7 +65,7 @@ export const Form = () => {
     }
     return (
         <div className="form">
-            <h5 data-aos="fade-right">კითხვების შემთხვევაში მოგვწერეთ</h5>
+            <h5 data-aos="fade-right">{__('client.home_form_header',sharedData)}</h5>
             <form onSubmit={handleSubmit}>
                 {/* {inputs.map((input, index) => {
                     return (
@@ -75,18 +76,18 @@ export const Form = () => {
                         />
                     );
                 })} */}
-                <input placeholder="სახელი" id="name" type="text" onChange={handleChange} />
+                <input placeholder={__('client.home_form_name',sharedData)} id="name" type="text" onChange={handleChange} />
                 {errors.name && <div className='alert-danger'>{errors.name}</div>}
-                <input id="lastname" placeholder="გვარი" type="text" onChange={handleChange} />
+                <input id="lastname" placeholder={__('client.home_form_surname',sharedData)} type="text" onChange={handleChange} />
                 {errors.lastname && <div className='alert-danger'>{errors.lastname}</div>}
-                <input id="mail" placeholder="ელ.ფოსტა" type="mail" onChange={handleChange} />
+                <input id="mail" placeholder={__('client.home_form_email',sharedData)} type="mail" onChange={handleChange} />
                 {/* {errors.mail && <div>{errors.mail}</div>} */}
-                <input id="phone" placeholder="ტელეფონი" type="number" onChange={handleChange} />
+                <input id="phone" placeholder={__('client.home_form_phone',sharedData)} type="number" onChange={handleChange} />
                 {/* {errors.phone && <div>{errors.phone}</div>} */}
-                <textarea id="message" placeholder="შეტყობინება" onChange={handleChange}></textarea>
+                <textarea id="message" placeholder={__('client.home_form_message',sharedData)} onChange={handleChange}></textarea>
                 {/* {errors.messege && <div>{errors.messege}</div>} */}
                 <button type='submit' className="flex">
-                    <span>გაგზავნა</span>
+                    <span>{__('client.home_form_send',sharedData)}</span>
                     <div className="flex centered">
                         <img src='/assets/images/icons/other/arr.svg' alt="" />
                     </div>

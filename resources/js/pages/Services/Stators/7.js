@@ -14,11 +14,11 @@ const Stator7 = ({ seo }) => {
             <div className="servicesPage">
                 <div className="aboutPage wrapper statorPage">
                     <div className="container">
-                        <div className="font45 blue">Energy efficiency</div>
+                        <div className="font45 blue">{__('client.stator7_header',sharedData)}</div>
                         <PagePath
-                            location1="მთავარი"
-                            location2="სერვისი"
-                            location3="სტატუტორი"
+                            location1={__('client.nav_home',sharedData)}
+                            location2={__('client.nav_services',sharedData)}
+                            location3={__('client.nav_stators',sharedData)}
                         />
                         <div className="content">
                             {/* <p>
@@ -38,7 +38,7 @@ const Stator7 = ({ seo }) => {
                                 2022.
                             </p> */}
                             <p>
-                                {renderHTML(__('client.services_nav_stators7_main_text', sharedData).replace(/(?:\r\n|\r|\n)/g, '<br>'))}
+                                {renderHTML(__('client.stator7_main_text', sharedData).replace(/(?:\r\n|\r|\n)/g, '<br>'))}
                             </p>
                         </div>
                     </div>

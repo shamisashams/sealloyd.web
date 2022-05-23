@@ -5697,13 +5697,13 @@ var Stator1 = function Stator1(_ref) {
     className: "container"
   }, /*#__PURE__*/react__WEBPACK_IMPORTED_MODULE_0__.createElement("div", {
     className: "font45 blue"
-  }, __('client.nav_home', sharedData)), /*#__PURE__*/react__WEBPACK_IMPORTED_MODULE_0__.createElement(_components_SmallComps_SmallComps__WEBPACK_IMPORTED_MODULE_1__.PagePath, {
+  }, __('client.stator1_header', sharedData)), /*#__PURE__*/react__WEBPACK_IMPORTED_MODULE_0__.createElement(_components_SmallComps_SmallComps__WEBPACK_IMPORTED_MODULE_1__.PagePath, {
     location1: __('client.nav_home', sharedData),
     location2: __('client.nav_services', sharedData),
     location3: __('client.nav_stators', sharedData)
   }), /*#__PURE__*/react__WEBPACK_IMPORTED_MODULE_0__.createElement("div", {
     className: "content"
-  }, renderHTML(__('client.services_nav_stators_main_text', sharedData).replace(/(?:\r\n|\r|\n)/g, '<br>')))), /*#__PURE__*/react__WEBPACK_IMPORTED_MODULE_0__.createElement(_components_StatorBoxes_StatorBoxes__WEBPACK_IMPORTED_MODULE_2__.StatorBoxes, null))));
+  }, renderHTML(__('client.stator1_main_text', sharedData).replace(/(?:\r\n|\r|\n)/g, '<br>')))), /*#__PURE__*/react__WEBPACK_IMPORTED_MODULE_0__.createElement(_components_StatorBoxes_StatorBoxes__WEBPACK_IMPORTED_MODULE_2__.StatorBoxes, null))));
 };
 
 /* harmony default export */ const __WEBPACK_DEFAULT_EXPORT__ = (Stator1);
@@ -5756,13 +5756,13 @@ var Stator2 = function Stator2(_ref) {
     className: "container"
   }, /*#__PURE__*/react__WEBPACK_IMPORTED_MODULE_0__.createElement("div", {
     className: "font45 blue"
-  }, "Marpol"), /*#__PURE__*/react__WEBPACK_IMPORTED_MODULE_0__.createElement(_components_SmallComps_SmallComps__WEBPACK_IMPORTED_MODULE_1__.PagePath, {
-    location1: "\u10DB\u10D7\u10D0\u10D5\u10D0\u10E0\u10D8",
-    location2: "\u10E1\u10D4\u10E0\u10D5\u10D8\u10E1\u10D8",
-    location3: "\u10E1\u10E2\u10D0\u10E2\u10E3\u10E2\u10DD\u10E0\u10D8"
+  }, __('client.stator2_header', sharedData)), /*#__PURE__*/react__WEBPACK_IMPORTED_MODULE_0__.createElement(_components_SmallComps_SmallComps__WEBPACK_IMPORTED_MODULE_1__.PagePath, {
+    location1: __('client.nav_home', sharedData),
+    location2: __('client.nav_services', sharedData),
+    location3: __('client.nav_stators', sharedData)
   }), /*#__PURE__*/react__WEBPACK_IMPORTED_MODULE_0__.createElement("div", {
     className: "content"
-  }, /*#__PURE__*/react__WEBPACK_IMPORTED_MODULE_0__.createElement("p", null, /*#__PURE__*/react__WEBPACK_IMPORTED_MODULE_0__.createElement("p", null, renderHTML(__('client.services_nav_stators2_main_text', sharedData).replace(/(?:\r\n|\r|\n)/g, '<br>')))))), /*#__PURE__*/react__WEBPACK_IMPORTED_MODULE_0__.createElement(_components_StatorBoxes_StatorBoxes__WEBPACK_IMPORTED_MODULE_2__.StatorBoxes, null))));
+  }, /*#__PURE__*/react__WEBPACK_IMPORTED_MODULE_0__.createElement("p", null, /*#__PURE__*/react__WEBPACK_IMPORTED_MODULE_0__.createElement("p", null, renderHTML(__('client.stator2_main_text', sharedData).replace(/(?:\r\n|\r|\n)/g, '<br>')))))), /*#__PURE__*/react__WEBPACK_IMPORTED_MODULE_0__.createElement(_components_StatorBoxes_StatorBoxes__WEBPACK_IMPORTED_MODULE_2__.StatorBoxes, null))));
 };
 
 /* harmony default export */ const __WEBPACK_DEFAULT_EXPORT__ = (Stator2);
@@ -5815,13 +5815,13 @@ var Stator3 = function Stator3(_ref) {
     className: "container"
   }, /*#__PURE__*/react__WEBPACK_IMPORTED_MODULE_0__.createElement("div", {
     className: "font45 blue"
-  }, "ISM code"), /*#__PURE__*/react__WEBPACK_IMPORTED_MODULE_0__.createElement(_components_SmallComps_SmallComps__WEBPACK_IMPORTED_MODULE_1__.PagePath, {
-    location1: "\u10DB\u10D7\u10D0\u10D5\u10D0\u10E0\u10D8",
-    location2: "\u10E1\u10D4\u10E0\u10D5\u10D8\u10E1\u10D8",
-    location3: "\u10E1\u10E2\u10D0\u10E2\u10E3\u10E2\u10DD\u10E0\u10D8"
+  }, __('client.stator3_header', sharedData)), /*#__PURE__*/react__WEBPACK_IMPORTED_MODULE_0__.createElement(_components_SmallComps_SmallComps__WEBPACK_IMPORTED_MODULE_1__.PagePath, {
+    location1: __('client.nav_home', sharedData),
+    location2: __('client.nav_services', sharedData),
+    location3: __('client.nav_stators', sharedData)
   }), /*#__PURE__*/react__WEBPACK_IMPORTED_MODULE_0__.createElement("div", {
     className: "content"
-  }, /*#__PURE__*/react__WEBPACK_IMPORTED_MODULE_0__.createElement("p", null, renderHTML(__('client.services_nav_stators3_main_text', sharedData).replace(/(?:\r\n|\r|\n)/g, '<br>'))))), /*#__PURE__*/react__WEBPACK_IMPORTED_MODULE_0__.createElement(_components_StatorBoxes_StatorBoxes__WEBPACK_IMPORTED_MODULE_2__.StatorBoxes, null))));
+  }, /*#__PURE__*/react__WEBPACK_IMPORTED_MODULE_0__.createElement("p", null, renderHTML(__('client.stator3_main_text', sharedData).replace(/(?:\r\n|\r|\n)/g, '<br>'))))), /*#__PURE__*/react__WEBPACK_IMPORTED_MODULE_0__.createElement(_components_StatorBoxes_StatorBoxes__WEBPACK_IMPORTED_MODULE_2__.StatorBoxes, null))));
 };
 
 /* harmony default export */ const __WEBPACK_DEFAULT_EXPORT__ = (Stator3);
@@ -5874,13 +5874,13 @@ var Stator4 = function Stator4(_ref) {
     className: "container"
   }, /*#__PURE__*/react__WEBPACK_IMPORTED_MODULE_0__.createElement("div", {
     className: "font45 blue"
-  }, "Ballast Water management"), /*#__PURE__*/react__WEBPACK_IMPORTED_MODULE_0__.createElement(_components_SmallComps_SmallComps__WEBPACK_IMPORTED_MODULE_1__.PagePath, {
-    location1: "\u10DB\u10D7\u10D0\u10D5\u10D0\u10E0\u10D8",
-    location2: "\u10E1\u10D4\u10E0\u10D5\u10D8\u10E1\u10D8",
-    location3: "\u10E1\u10E2\u10D0\u10E2\u10E3\u10E2\u10DD\u10E0\u10D8"
+  }, __('client.stator4_header', sharedData)), /*#__PURE__*/react__WEBPACK_IMPORTED_MODULE_0__.createElement(_components_SmallComps_SmallComps__WEBPACK_IMPORTED_MODULE_1__.PagePath, {
+    location1: __('client.nav_home', sharedData),
+    location2: __('client.nav_services', sharedData),
+    location3: __('client.nav_stators', sharedData)
   }), /*#__PURE__*/react__WEBPACK_IMPORTED_MODULE_0__.createElement("div", {
     className: "content"
-  }, /*#__PURE__*/react__WEBPACK_IMPORTED_MODULE_0__.createElement("p", null, renderHTML(__('client.services_nav_stators4_main_text', sharedData).replace(/(?:\r\n|\r|\n)/g, '<br>'))))), /*#__PURE__*/react__WEBPACK_IMPORTED_MODULE_0__.createElement(_components_StatorBoxes_StatorBoxes__WEBPACK_IMPORTED_MODULE_2__.StatorBoxes, null))));
+  }, /*#__PURE__*/react__WEBPACK_IMPORTED_MODULE_0__.createElement("p", null, renderHTML(__('client.stator4_main_text', sharedData).replace(/(?:\r\n|\r|\n)/g, '<br>'))))), /*#__PURE__*/react__WEBPACK_IMPORTED_MODULE_0__.createElement(_components_StatorBoxes_StatorBoxes__WEBPACK_IMPORTED_MODULE_2__.StatorBoxes, null))));
 };
 
 /* harmony default export */ const __WEBPACK_DEFAULT_EXPORT__ = (Stator4);
@@ -5933,13 +5933,13 @@ var Stator5 = function Stator5(_ref) {
     className: "container"
   }, /*#__PURE__*/react__WEBPACK_IMPORTED_MODULE_0__.createElement("div", {
     className: "font45 blue"
-  }, "ISPS Code"), /*#__PURE__*/react__WEBPACK_IMPORTED_MODULE_0__.createElement(_components_SmallComps_SmallComps__WEBPACK_IMPORTED_MODULE_1__.PagePath, {
-    location1: "\u10DB\u10D7\u10D0\u10D5\u10D0\u10E0\u10D8",
-    location2: "\u10E1\u10D4\u10E0\u10D5\u10D8\u10E1\u10D8",
-    location3: "\u10E1\u10E2\u10D0\u10E2\u10E3\u10E2\u10DD\u10E0\u10D8"
+  }, __('client.stator5_header', sharedData)), /*#__PURE__*/react__WEBPACK_IMPORTED_MODULE_0__.createElement(_components_SmallComps_SmallComps__WEBPACK_IMPORTED_MODULE_1__.PagePath, {
+    location1: __('client.nav_home', sharedData),
+    location2: __('client.nav_services', sharedData),
+    location3: __('client.nav_stators', sharedData)
   }), /*#__PURE__*/react__WEBPACK_IMPORTED_MODULE_0__.createElement("div", {
     className: "content"
-  }, /*#__PURE__*/react__WEBPACK_IMPORTED_MODULE_0__.createElement("p", null, renderHTML(__('client.services_nav_stators5_main_text', sharedData).replace(/(?:\r\n|\r|\n)/g, '<br>'))))), /*#__PURE__*/react__WEBPACK_IMPORTED_MODULE_0__.createElement(_components_StatorBoxes_StatorBoxes__WEBPACK_IMPORTED_MODULE_2__.StatorBoxes, null))));
+  }, /*#__PURE__*/react__WEBPACK_IMPORTED_MODULE_0__.createElement("p", null, renderHTML(__('client.stator5_main_text', sharedData).replace(/(?:\r\n|\r|\n)/g, '<br>'))))), /*#__PURE__*/react__WEBPACK_IMPORTED_MODULE_0__.createElement(_components_StatorBoxes_StatorBoxes__WEBPACK_IMPORTED_MODULE_2__.StatorBoxes, null))));
 };
 
 /* harmony default export */ const __WEBPACK_DEFAULT_EXPORT__ = (Stator5);
@@ -5992,13 +5992,13 @@ var Stator6 = function Stator6(_ref) {
     className: "container"
   }, /*#__PURE__*/react__WEBPACK_IMPORTED_MODULE_0__.createElement("div", {
     className: "font45 blue"
-  }, "ILO MLC, 2006"), /*#__PURE__*/react__WEBPACK_IMPORTED_MODULE_0__.createElement(_components_SmallComps_SmallComps__WEBPACK_IMPORTED_MODULE_1__.PagePath, {
-    location1: "\u10DB\u10D7\u10D0\u10D5\u10D0\u10E0\u10D8",
-    location2: "\u10E1\u10D4\u10E0\u10D5\u10D8\u10E1\u10D8",
-    location3: "\u10E1\u10E2\u10D0\u10E2\u10E3\u10E2\u10DD\u10E0\u10D8"
+  }, __('client.stator6_header', sharedData)), /*#__PURE__*/react__WEBPACK_IMPORTED_MODULE_0__.createElement(_components_SmallComps_SmallComps__WEBPACK_IMPORTED_MODULE_1__.PagePath, {
+    location1: __('client.nav_home', sharedData),
+    location2: __('client.nav_services', sharedData),
+    location3: __('client.nav_stators', sharedData)
   }), /*#__PURE__*/react__WEBPACK_IMPORTED_MODULE_0__.createElement("div", {
     className: "content"
-  }, /*#__PURE__*/react__WEBPACK_IMPORTED_MODULE_0__.createElement("p", null, renderHTML(__('client.services_nav_stators6_main_text', sharedData).replace(/(?:\r\n|\r|\n)/g, '<br>'))))), /*#__PURE__*/react__WEBPACK_IMPORTED_MODULE_0__.createElement(_components_StatorBoxes_StatorBoxes__WEBPACK_IMPORTED_MODULE_2__.StatorBoxes, null))));
+  }, /*#__PURE__*/react__WEBPACK_IMPORTED_MODULE_0__.createElement("p", null, renderHTML(__('client.stator6_main_text', sharedData).replace(/(?:\r\n|\r|\n)/g, '<br>'))))), /*#__PURE__*/react__WEBPACK_IMPORTED_MODULE_0__.createElement(_components_StatorBoxes_StatorBoxes__WEBPACK_IMPORTED_MODULE_2__.StatorBoxes, null))));
 };
 
 /* harmony default export */ const __WEBPACK_DEFAULT_EXPORT__ = (Stator6);
@@ -6051,13 +6051,13 @@ var Stator7 = function Stator7(_ref) {
     className: "container"
   }, /*#__PURE__*/react__WEBPACK_IMPORTED_MODULE_0__.createElement("div", {
     className: "font45 blue"
-  }, "Energy efficiency"), /*#__PURE__*/react__WEBPACK_IMPORTED_MODULE_0__.createElement(_components_SmallComps_SmallComps__WEBPACK_IMPORTED_MODULE_1__.PagePath, {
-    location1: "\u10DB\u10D7\u10D0\u10D5\u10D0\u10E0\u10D8",
-    location2: "\u10E1\u10D4\u10E0\u10D5\u10D8\u10E1\u10D8",
-    location3: "\u10E1\u10E2\u10D0\u10E2\u10E3\u10E2\u10DD\u10E0\u10D8"
+  }, __('client.stator7_header', sharedData)), /*#__PURE__*/react__WEBPACK_IMPORTED_MODULE_0__.createElement(_components_SmallComps_SmallComps__WEBPACK_IMPORTED_MODULE_1__.PagePath, {
+    location1: __('client.nav_home', sharedData),
+    location2: __('client.nav_services', sharedData),
+    location3: __('client.nav_stators', sharedData)
   }), /*#__PURE__*/react__WEBPACK_IMPORTED_MODULE_0__.createElement("div", {
     className: "content"
-  }, /*#__PURE__*/react__WEBPACK_IMPORTED_MODULE_0__.createElement("p", null, renderHTML(__('client.services_nav_stators7_main_text', sharedData).replace(/(?:\r\n|\r|\n)/g, '<br>'))))), /*#__PURE__*/react__WEBPACK_IMPORTED_MODULE_0__.createElement(_components_StatorBoxes_StatorBoxes__WEBPACK_IMPORTED_MODULE_2__.StatorBoxes, null))));
+  }, /*#__PURE__*/react__WEBPACK_IMPORTED_MODULE_0__.createElement("p", null, renderHTML(__('client.stator7_main_text', sharedData).replace(/(?:\r\n|\r|\n)/g, '<br>'))))), /*#__PURE__*/react__WEBPACK_IMPORTED_MODULE_0__.createElement(_components_StatorBoxes_StatorBoxes__WEBPACK_IMPORTED_MODULE_2__.StatorBoxes, null))));
 };
 
 /* harmony default export */ const __WEBPACK_DEFAULT_EXPORT__ = (Stator7);
@@ -6110,13 +6110,13 @@ var Stator8 = function Stator8(_ref) {
     className: "container"
   }, /*#__PURE__*/react__WEBPACK_IMPORTED_MODULE_0__.createElement("div", {
     className: "font45 blue"
-  }, "HazMat"), /*#__PURE__*/react__WEBPACK_IMPORTED_MODULE_0__.createElement(_components_SmallComps_SmallComps__WEBPACK_IMPORTED_MODULE_1__.PagePath, {
-    location1: "\u10DB\u10D7\u10D0\u10D5\u10D0\u10E0\u10D8",
-    location2: "\u10E1\u10D4\u10E0\u10D5\u10D8\u10E1\u10D8",
-    location3: "\u10E1\u10E2\u10D0\u10E2\u10E3\u10E2\u10DD\u10E0\u10D8"
+  }, __('client.stator8_header', sharedData)), /*#__PURE__*/react__WEBPACK_IMPORTED_MODULE_0__.createElement(_components_SmallComps_SmallComps__WEBPACK_IMPORTED_MODULE_1__.PagePath, {
+    location1: __('client.nav_home', sharedData),
+    location2: __('client.nav_services', sharedData),
+    location3: __('client.nav_stators', sharedData)
   }), /*#__PURE__*/react__WEBPACK_IMPORTED_MODULE_0__.createElement("div", {
     className: "content"
-  }, /*#__PURE__*/react__WEBPACK_IMPORTED_MODULE_0__.createElement("p", null, renderHTML(__('client.services_nav_stators8_main_text', sharedData).replace(/(?:\r\n|\r|\n)/g, '<br>'))))), /*#__PURE__*/react__WEBPACK_IMPORTED_MODULE_0__.createElement(_components_StatorBoxes_StatorBoxes__WEBPACK_IMPORTED_MODULE_2__.StatorBoxes, null))));
+  }, /*#__PURE__*/react__WEBPACK_IMPORTED_MODULE_0__.createElement("p", null, renderHTML(__('client.stator8_main_text', sharedData).replace(/(?:\r\n|\r|\n)/g, '<br>'))))), /*#__PURE__*/react__WEBPACK_IMPORTED_MODULE_0__.createElement(_components_StatorBoxes_StatorBoxes__WEBPACK_IMPORTED_MODULE_2__.StatorBoxes, null))));
 };
 
 /* harmony default export */ const __WEBPACK_DEFAULT_EXPORT__ = (Stator8);
@@ -6361,7 +6361,7 @@ function _arrayWithHoles(arr) { if (Array.isArray(arr)) return arr; }
 
 
 var Form = function Form() {
-  // const { data, setData, post, processing, errors } = useForm({
+  var sharedData = (0,_inertiajs_inertia_react__WEBPACK_IMPORTED_MODULE_3__.usePage)().props.localizations; // const { data, setData, post, processing, errors } = useForm({
   //     name: '',
   //     lastname: '',
   //     mail: '',
@@ -6394,6 +6394,7 @@ var Form = function Form() {
   //         data: "phone"
   //     },
   // ];
+
   var errors = (0,_inertiajs_inertia_react__WEBPACK_IMPORTED_MODULE_3__.usePage)().props.errors;
 
   var _useState = (0,react__WEBPACK_IMPORTED_MODULE_0__.useState)({
@@ -6422,10 +6423,10 @@ var Form = function Form() {
     className: "form"
   }, /*#__PURE__*/react__WEBPACK_IMPORTED_MODULE_0__.createElement("h5", {
     "data-aos": "fade-right"
-  }, "\u10D9\u10D8\u10D7\u10EE\u10D5\u10D4\u10D1\u10D8\u10E1 \u10E8\u10D4\u10DB\u10D7\u10EE\u10D5\u10D4\u10D5\u10D0\u10E8\u10D8 \u10DB\u10DD\u10D2\u10D5\u10EC\u10D4\u10E0\u10D4\u10D7"), /*#__PURE__*/react__WEBPACK_IMPORTED_MODULE_0__.createElement("form", {
+  }, __('client.home_form_header', sharedData)), /*#__PURE__*/react__WEBPACK_IMPORTED_MODULE_0__.createElement("form", {
     onSubmit: handleSubmit
   }, /*#__PURE__*/react__WEBPACK_IMPORTED_MODULE_0__.createElement("input", {
-    placeholder: "\u10E1\u10D0\u10EE\u10D4\u10DA\u10D8",
+    placeholder: __('client.home_form_name', sharedData),
     id: "name",
     type: "text",
     onChange: handleChange
@@ -6433,29 +6434,29 @@ var Form = function Form() {
     className: "alert-danger"
   }, errors.name), /*#__PURE__*/react__WEBPACK_IMPORTED_MODULE_0__.createElement("input", {
     id: "lastname",
-    placeholder: "\u10D2\u10D5\u10D0\u10E0\u10D8",
+    placeholder: __('client.home_form_surname', sharedData),
     type: "text",
     onChange: handleChange
   }), errors.lastname && /*#__PURE__*/react__WEBPACK_IMPORTED_MODULE_0__.createElement("div", {
     className: "alert-danger"
   }, errors.lastname), /*#__PURE__*/react__WEBPACK_IMPORTED_MODULE_0__.createElement("input", {
     id: "mail",
-    placeholder: "\u10D4\u10DA.\u10E4\u10DD\u10E1\u10E2\u10D0",
+    placeholder: __('client.home_form_email', sharedData),
     type: "mail",
     onChange: handleChange
   }), /*#__PURE__*/react__WEBPACK_IMPORTED_MODULE_0__.createElement("input", {
     id: "phone",
-    placeholder: "\u10E2\u10D4\u10DA\u10D4\u10E4\u10DD\u10DC\u10D8",
+    placeholder: __('client.home_form_phone', sharedData),
     type: "number",
     onChange: handleChange
   }), /*#__PURE__*/react__WEBPACK_IMPORTED_MODULE_0__.createElement("textarea", {
     id: "message",
-    placeholder: "\u10E8\u10D4\u10E2\u10E7\u10DD\u10D1\u10D8\u10DC\u10D4\u10D1\u10D0",
+    placeholder: __('client.home_form_message', sharedData),
     onChange: handleChange
   }), /*#__PURE__*/react__WEBPACK_IMPORTED_MODULE_0__.createElement("button", {
     type: "submit",
     className: "flex"
-  }, /*#__PURE__*/react__WEBPACK_IMPORTED_MODULE_0__.createElement("span", null, "\u10D2\u10D0\u10D2\u10D6\u10D0\u10D5\u10DC\u10D0"), /*#__PURE__*/react__WEBPACK_IMPORTED_MODULE_0__.createElement("div", {
+  }, /*#__PURE__*/react__WEBPACK_IMPORTED_MODULE_0__.createElement("span", null, __('client.home_form_send', sharedData)), /*#__PURE__*/react__WEBPACK_IMPORTED_MODULE_0__.createElement("div", {
     className: "flex centered"
   }, /*#__PURE__*/react__WEBPACK_IMPORTED_MODULE_0__.createElement("img", {
     src: "/assets/images/icons/other/arr.svg",
@@ -7234,7 +7235,7 @@ __webpack_require__.r(__webpack_exports__);
 
 var ___CSS_LOADER_EXPORT___ = _node_modules_css_loader_dist_runtime_api_js__WEBPACK_IMPORTED_MODULE_0___default()(function(i){return i[1]});
 // Module
-___CSS_LOADER_EXPORT___.push([module.id, "@font-face {\r\n  font-family: \"nusxuri\";\r\n  src: url(/assets/fonts/TbcDin_Nusxuri_Regular.ttf);\r\n}\r\n@font-face {\r\n  font-family: \"mtavruli\";\r\n  src: url(/assets/fonts/tbcdinmtavrulibold.ttf);\r\n}\r\n*,\r\n*::after,\r\n*::before {\r\n  font-family: \"mtavruli\";\r\n  margin: 0;\r\n  padding: 0;\r\n  box-sizing: border-box;\r\n  scroll-behavior: smooth;\r\n}\r\n*::after,\r\n*::before {\r\n  position: absolute;\r\n  content: \"\";\r\n}\r\n/* width */\r\n::-webkit-scrollbar {\r\n  width: 7px;\r\n}\r\n\r\n/* Track */\r\n::-webkit-scrollbar-track {\r\n  background: #1c728f;\r\n}\r\n\r\n/* Handle */\r\n::-webkit-scrollbar-thumb {\r\n  background: #00bbffa9;\r\n}\r\n::-webkit-scrollbar-thumb:hover {\r\n  background: #00bdff;\r\n}\r\n\r\nhtml {\r\n  box-sizing: border-box;\r\n}\r\nbody {\r\n  font-family: \"mtavruli\";\r\n  font-weight: 400;\r\n  line-height: 1.3;\r\n  color: #1c3447;\r\n  background: #fff;\r\n  overflow-x: hidden;\r\n  scroll-behavior: smooth;\r\n  font-size: 16px;\r\n}\r\np {\r\n  font-family: \"nusxuri\";\r\n  font-weight: 100;\r\n  line-height: 1.5;\r\n  text-align: justify;\r\n}\r\nh1 {\r\n  font-weight: 600;\r\n}\r\nul {\r\n  list-style: none;\r\n}\r\na {\r\n  text-decoration: none;\r\n  color: inherit;\r\n}\r\ninput,\r\ntextarea,\r\nbutton {\r\n  outline: none;\r\n  border: none;\r\n  background: none;\r\n}\r\nbutton {\r\n  cursor: pointer;\r\n}\r\nselect {\r\n  border: none;\r\n  outline: none;\r\n}\r\nimg {\r\n  height: auto;\r\n  max-width: 100%;\r\n}\r\n.img {\r\n  overflow: hidden;\r\n}\r\n.img img {\r\n  width: 100%;\r\n  height: 100%;\r\n  -o-object-fit: cover;\r\n     object-fit: cover;\r\n}\r\n.map iframe {\r\n  width: 100%;\r\n  height: 100%;\r\n}\r\n.wrapper {\r\n  width: 1400px;\r\n  height: 100%;\r\n  margin: auto;\r\n}\r\n.container {\r\n  width: 800px;\r\n}\r\n.flex {\r\n  display: flex;\r\n  align-items: center;\r\n  justify-content: space-between;\r\n}\r\n.flex.centered {\r\n  justify-content: center;\r\n}\r\n.nux {\r\n  font-family: \"nusxuri\";\r\n}\r\n.font45 {\r\n  font-size: 45px;\r\n  margin-bottom: 30px;\r\n}\r\n.blue {\r\n  color: #22aabe;\r\n}\r\ninput,\r\ntextarea {\r\n  width: 100%;\r\n  border: 3px solid #eef2f9;\r\n  padding-left: 20px;\r\n  margin-bottom: 20px;\r\n  height: 40px;\r\n}\r\ntextarea {\r\n  height: 100px;\r\n  margin-bottom: 22px;\r\n  padding-top: 7px;\r\n}\r\n.padding_top {\r\n  padding-top: 82px;\r\n}\r\n.underline {\r\n  text-decoration: underline;\r\n}\r\n.uppercase {\r\n  text-transform: uppercase;\r\n}\r\n\r\n@media screen and (max-width: 1450px) {\r\n  .wrapper {\r\n    width: 95%;\r\n  }\r\n}\r\n@media screen and (max-width: 1200px) {\r\n  .padding_top {\r\n    padding-top: 79px;\r\n  }\r\n}\r\n@media screen and (max-width: 1000px) {\r\n  .font45 {\r\n    font-size: 30px;\r\n  }\r\n  .padding_top {\r\n    padding-top: 77px;\r\n  }\r\n}\r\n@media screen and (max-width: 850px) {\r\n  .container {\r\n    width: 100%;\r\n  }\r\n  body {\r\n    font-size: 14px;\r\n  }\r\n}\r\n@media screen and (max-width: 500px) {\r\n  input,\r\n  textarea {\r\n    padding-left: 15px;\r\n    margin-bottom: 11px;\r\n  }\r\n  .font45 {\r\n    font-size: 25px;\r\n    margin-bottom: 20px;\r\n  }\r\n}\r\n", ""]);
+___CSS_LOADER_EXPORT___.push([module.id, "@font-face {\n  font-family: \"nusxuri\";\n  src: url(/assets/fonts/TbcDin_Nusxuri_Regular.ttf);\n}\n@font-face {\n  font-family: \"mtavruli\";\n  src: url(/assets/fonts/tbcdinmtavrulibold.ttf);\n}\n*,\n*::after,\n*::before {\n  font-family: \"mtavruli\";\n  margin: 0;\n  padding: 0;\n  box-sizing: border-box;\n  scroll-behavior: smooth;\n}\n*::after,\n*::before {\n  position: absolute;\n  content: \"\";\n}\n/* width */\n::-webkit-scrollbar {\n  width: 7px;\n}\n\n/* Track */\n::-webkit-scrollbar-track {\n  background: #1c728f;\n}\n\n/* Handle */\n::-webkit-scrollbar-thumb {\n  background: #00bbffa9;\n}\n::-webkit-scrollbar-thumb:hover {\n  background: #00bdff;\n}\n\nhtml {\n  box-sizing: border-box;\n}\nbody {\n  font-family: \"mtavruli\";\n  font-weight: 400;\n  line-height: 1.3;\n  color: #1c3447;\n  background: #fff;\n  overflow-x: hidden;\n  scroll-behavior: smooth;\n  font-size: 16px;\n}\np {\n  font-family: \"nusxuri\";\n  font-weight: 100;\n  line-height: 1.5;\n  text-align: justify;\n}\nh1 {\n  font-weight: 600;\n}\nul {\n  list-style: none;\n}\na {\n  text-decoration: none;\n  color: inherit;\n}\ninput,\ntextarea,\nbutton {\n  outline: none;\n  border: none;\n  background: none;\n}\nbutton {\n  cursor: pointer;\n}\nselect {\n  border: none;\n  outline: none;\n}\nimg {\n  height: auto;\n  max-width: 100%;\n}\n.img {\n  overflow: hidden;\n}\n.img img {\n  width: 100%;\n  height: 100%;\n  -o-object-fit: cover;\n     object-fit: cover;\n}\n.map iframe {\n  width: 100%;\n  height: 100%;\n}\n.wrapper {\n  width: 1400px;\n  height: 100%;\n  margin: auto;\n}\n.container {\n  width: 800px;\n}\n.flex {\n  display: flex;\n  align-items: center;\n  justify-content: space-between;\n}\n.flex.centered {\n  justify-content: center;\n}\n.nux {\n  font-family: \"nusxuri\";\n}\n.font45 {\n  font-size: 45px;\n  margin-bottom: 30px;\n}\n.blue {\n  color: #22aabe;\n}\ninput,\ntextarea {\n  width: 100%;\n  border: 3px solid #eef2f9;\n  padding-left: 20px;\n  margin-bottom: 20px;\n  height: 40px;\n}\ntextarea {\n  height: 100px;\n  margin-bottom: 22px;\n  padding-top: 7px;\n}\n.padding_top {\n  padding-top: 82px;\n}\n.underline {\n  text-decoration: underline;\n}\n.uppercase {\n  text-transform: uppercase;\n}\n\n@media screen and (max-width: 1450px) {\n  .wrapper {\n    width: 95%;\n  }\n}\n@media screen and (max-width: 1200px) {\n  .padding_top {\n    padding-top: 79px;\n  }\n}\n@media screen and (max-width: 1000px) {\n  .font45 {\n    font-size: 30px;\n  }\n  .padding_top {\n    padding-top: 77px;\n  }\n}\n@media screen and (max-width: 850px) {\n  .container {\n    width: 100%;\n  }\n  body {\n    font-size: 14px;\n  }\n}\n@media screen and (max-width: 500px) {\n  input,\n  textarea {\n    padding-left: 15px;\n    margin-bottom: 11px;\n  }\n  .font45 {\n    font-size: 25px;\n    margin-bottom: 20px;\n  }\n}\n", ""]);
 // Exports
 /* harmony default export */ const __WEBPACK_DEFAULT_EXPORT__ = (___CSS_LOADER_EXPORT___);
 
@@ -7402,7 +7403,7 @@ __webpack_require__.r(__webpack_exports__);
 
 var ___CSS_LOADER_EXPORT___ = _node_modules_css_loader_dist_runtime_api_js__WEBPACK_IMPORTED_MODULE_0___default()(function(i){return i[1]});
 // Module
-___CSS_LOADER_EXPORT___.push([module.id, ".loginPage {\n    background: url(/assets/images/bgs/1.png) no-repeat;\n    background-position: top;\n    background-size: cover;\n    padding: 200px 0;\n}\n\n.login_box {\n    width: 536px;\n    background-color: #eef2f9;\n    border-radius: 10px;\n    box-shadow: 0 10px 15px #1e3b601f;\n    padding: 117px 100px;\n    margin: auto;\n}\n\n.login_box h5 {\n    text-align: center;\n    font-size: 20px;\n    margin-bottom: 20px;\n}\n\n.login_box input {\n    border-color: #fff;\n}\n\n.login_box p {\n    margin-bottom: 35px;\n    opacity: 0.7;\n}\n\n.login_box button {\n    background-color: #fff;\n    height: 50px;\n    margin-top: 20px;\n    margin-bottom: 40px;\n    width: 100%;\n}\n\n.login_box button img {\n    vertical-align: middle;\n    margin-left: 10px;\n}\n\n@media screen and (max-width: 1200px) {\n    .loginPage {\n        padding: 80px 0;\n    }\n\n    .login_box {\n        padding: 81px 67px;\n    }\n}\n\n@media screen and (max-width: 600px) {\n    .login_box {\n        width: 95%;\n        padding: 46px 23px;\n    }\n}\n", ""]);
+___CSS_LOADER_EXPORT___.push([module.id, ".loginPage {\r\n    background: url(/assets/images/bgs/1.png) no-repeat;\r\n    background-position: top;\r\n    background-size: cover;\r\n    padding: 200px 0;\r\n}\r\n\r\n.login_box {\r\n    width: 536px;\r\n    background-color: #eef2f9;\r\n    border-radius: 10px;\r\n    box-shadow: 0 10px 15px #1e3b601f;\r\n    padding: 117px 100px;\r\n    margin: auto;\r\n}\r\n\r\n.login_box h5 {\r\n    text-align: center;\r\n    font-size: 20px;\r\n    margin-bottom: 20px;\r\n}\r\n\r\n.login_box input {\r\n    border-color: #fff;\r\n}\r\n\r\n.login_box p {\r\n    margin-bottom: 35px;\r\n    opacity: 0.7;\r\n}\r\n\r\n.login_box button {\r\n    background-color: #fff;\r\n    height: 50px;\r\n    margin-top: 20px;\r\n    margin-bottom: 40px;\r\n    width: 100%;\r\n}\r\n\r\n.login_box button img {\r\n    vertical-align: middle;\r\n    margin-left: 10px;\r\n}\r\n\r\n@media screen and (max-width: 1200px) {\r\n    .loginPage {\r\n        padding: 80px 0;\r\n    }\r\n\r\n    .login_box {\r\n        padding: 81px 67px;\r\n    }\r\n}\r\n\r\n@media screen and (max-width: 600px) {\r\n    .login_box {\r\n        width: 95%;\r\n        padding: 46px 23px;\r\n    }\r\n}\r\n", ""]);
 // Exports
 /* harmony default export */ const __WEBPACK_DEFAULT_EXPORT__ = (___CSS_LOADER_EXPORT___);
 
@@ -7450,7 +7451,7 @@ __webpack_require__.r(__webpack_exports__);
 
 var ___CSS_LOADER_EXPORT___ = _node_modules_css_loader_dist_runtime_api_js__WEBPACK_IMPORTED_MODULE_0___default()(function(i){return i[1]});
 // Module
-___CSS_LOADER_EXPORT___.push([module.id, ".servicesPage {\n    background: url(/assets/images/bgs/3.png) no-repeat;\n    background-position: center;\n    background-size: cover;\n    background-attachment: fixed;\n    padding-top: 100px;\n}\n\n.servicesPage .ships_img {\n    margin: 50px 0;\n}\n\n.statorPage .content {\n    margin-bottom: 50px;\n}\n\n@media screen and (max-width: 600px) {\n    .servicesPage .ships_img {\n        margin: 32px 0;\n    }\n}\n", ""]);
+___CSS_LOADER_EXPORT___.push([module.id, ".servicesPage {\r\n    background: url(/assets/images/bgs/3.png) no-repeat;\r\n    background-position: center;\r\n    background-size: cover;\r\n    background-attachment: fixed;\r\n    padding-top: 100px;\r\n}\r\n\r\n.servicesPage .ships_img {\r\n    margin: 50px 0;\r\n}\r\n\r\n.statorPage .content {\r\n    margin-bottom: 50px;\r\n}\r\n\r\n@media screen and (max-width: 600px) {\r\n    .servicesPage .ships_img {\r\n        margin: 32px 0;\r\n    }\r\n}\r\n", ""]);
 // Exports
 /* harmony default export */ const __WEBPACK_DEFAULT_EXPORT__ = (___CSS_LOADER_EXPORT___);
 

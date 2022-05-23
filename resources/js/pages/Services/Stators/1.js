@@ -16,7 +16,7 @@ const Stator1 = ({ page, seo }) => {
             <div className="servicesPage">
                 <div className="aboutPage wrapper statorPage">
                     <div className="container">
-                        <div className="font45 blue">{__('client.nav_home',sharedData)}</div>
+                        <div className="font45 blue">{__('client.stator1_header',sharedData)}</div>
                         <PagePath
                             location1={__('client.nav_home',sharedData)}
                             location2={__('client.nav_services',sharedData)}
@@ -44,7 +44,7 @@ const Stator1 = ({ page, seo }) => {
                                 6. Exemption Certificate
                             </p> */}
 
-                                {renderHTML(__('client.services_nav_stators_main_text', sharedData).replace(/(?:\r\n|\r|\n)/g, '<br>'))}
+                                {renderHTML(__('client.stator1_main_text', sharedData).replace(/(?:\r\n|\r|\n)/g, '<br>'))}
 
                         </div>
                     </div>
