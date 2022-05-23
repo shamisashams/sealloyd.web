@@ -17,7 +17,7 @@ class Rateservices extends Migration
         Schema::create('rateservices', function (Blueprint $table) {
             $table->id();
             $table->string('company_name');
-            $table->date('created_at');
+            // $table->date('created_at');
             $table->double('satisfied_dissatisfied', 8, 2);
             $table->string('recomendations');
             $table->string('repurchases');
@@ -26,7 +26,7 @@ class Rateservices extends Migration
             $table->string('satisfied_service');
             $table->string('satisfied_price');
             $table->string('satisfied_value');
-            // $table->timestamps();
+            $table->timestamps();
         });
     }
 

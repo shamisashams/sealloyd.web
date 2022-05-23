@@ -126,7 +126,7 @@ const Header = () => {
     console.log(pathname)
     let solid = false;
     console.log(pathname);
-    if (pathname == route('client.home.index')) {
+    if (pathname == route('client.home.index'), currentLocale || pathname == route('client.login'), currentLocale) {
         solid = true;
     }
     return (

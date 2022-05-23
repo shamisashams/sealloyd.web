@@ -12,7 +12,7 @@ use Illuminate\Support\Facades\App;
 use Illuminate\Database\Eloquent\Builder;
 use Inertia\Inertia;
 use App\Repositories\Eloquent\ProductRepository;
-use App\Models\staff;
+use App\Models\Staff;
 
 
 
@@ -45,7 +45,8 @@ class OurTeamController extends Controller
         return Inertia::render(
             'OurTeam/Office',
             [
-                "staff" => staff::all(),
+                // "staff" => Staff::all(),
+                "staff" => Staff::with('latestImage')->get(),
                 "sliders" => $sliders->get(),
                 "page" => $page,
                 "seo" => [
@@ -57,7 +58,6 @@ class OurTeamController extends Controller
                     //            "image" => "imgg",
                     //            "locale" => App::getLocale()
                 ],
-                'popular_products' => $products, 'images' => $images
             ]
         )->withViewData([
             'meta_title' => $page->meta_title,

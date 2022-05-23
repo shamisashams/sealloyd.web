@@ -8,6 +8,17 @@ import Swal from 'sweetalert2'
 const Evaluation = ({ seo, success }) => {
     const Swal = require('sweetalert2')
 
+    var date = new Date();
+
+    var day = date.getDate();
+    var month = date.getMonth() + 1;
+    var year = date.getFullYear();
+
+    if (month < 10) month = "0" + month;
+    if (day < 10) day = "0" + day;
+
+    var today = year + "-" + month + "-" + day;
+
     const [values, setValues] = useState({
         company_name: "",
         created_at: "",
@@ -64,7 +75,7 @@ const Evaluation = ({ seo, success }) => {
                         </p>
                         <form onSubmit={handleSubmit}>
                             <input id='company_name' type="text" placeholder="Organization/Company name" onChange={handleChange} />
-                            <input id='created_at' type="date" className="margin_bottom" onChange={handleChange} />
+                            <input id='created_at' type="date" className="margin_bottom" value={today} onChange={handleChange} />
                             <p>
                                 On a scale of 1 to 5 where 1 represents "Extremely dissatisfied" and
                                 5 represents "Extremely Satisfied," how would you rate your level of
