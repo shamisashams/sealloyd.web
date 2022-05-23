@@ -4,8 +4,11 @@ import "./Documents.css";
 import Layout from "../../Layouts/Layout";
 import { Inertia } from '@inertiajs/inertia'
 import Swal from 'sweetalert2'
+import {usePage} from "@inertiajs/inertia-react";
 
 const Evaluation = ({ seo, success }) => {
+    const sharedData = usePage().props.localizations;
+    const renderHTML = (rawHTML) => React.createElement("p", { dangerouslySetInnerHTML: { __html: rawHTML } });
     const Swal = require('sweetalert2')
 
     var date = new Date();
@@ -21,15 +24,14 @@ const Evaluation = ({ seo, success }) => {
 
     const [values, setValues] = useState({
         company_name: "",
-        created_at: "",
-        satisfied_dissatisfied: "",
-        recomendations: "",
-        repurchases: "",
-        rate_quality: "",
-        satisfied: "",
-        satisfied_service: "",
-        satisfied_price: "",
-        satisfied_value: "",
+        answer_1: "",
+        answer_2: "",
+        answer_3: "",
+        answer_4: "",
+        answer_5: "",
+        answer_6: "",
+        answer_7: "",
+        answer_8: "",
     })
 
     function handleChange(e) {
@@ -60,22 +62,19 @@ const Evaluation = ({ seo, success }) => {
         <Layout seo={seo}>
             <div className="documents teamPage careerPage evaluation">
                 <div className="wrapper">
-                    <div className="font45 blue">მომსახურების შეფასება</div>
+                    <div className="font45 blue">{renderHTML(__('client.evaluation_header', sharedData).replace(/(?:\r\n|\r|\n)/g, '<br>'))}</div>
                     <PagePath
-                        location1="მთავარი"
-                        location2="დოკუმენტაცია"
-                        location3="მომსახურების შეფასება"
+                        location1={__('client.nav_home',sharedData)}
+                        location2={__('client.nav_documentation',sharedData)}
+                        location3={__('client.nav_evaluation',sharedData)}
                     />
                     <div className="content">
                         <p className="op05 margin_bottom">
-                            We hope you are pleased with the service that you have already
-                            received from MARITIME LLOYD. It is our aim to provide the most
-                            helpful and comprehensive service possible. To help us, please would
-                            you complete this short questionnaire?
+                            {renderHTML(__('client.evaluation_text', sharedData).replace(/(?:\r\n|\r|\n)/g, '<br>'))}
                         </p>
                         <form onSubmit={handleSubmit}>
                             <input id='company_name' type="text" placeholder="Organization/Company name" onChange={handleChange} />
-                            <input id='created_at' type="date" className="margin_bottom" value={today} onChange={handleChange} />
+                            <input id='created_at' type="date" className="margin_bottom" value={today} />
                             <p>
                                 On a scale of 1 to 5 where 1 represents "Extremely dissatisfied" and
                                 5 represents "Extremely Satisfied," how would you rate your level of
@@ -91,7 +90,7 @@ const Evaluation = ({ seo, success }) => {
                                             <input type="radio" name="rate_1"
                                                 // id={`rate_1_${index}`}
                                                 required
-                                                id='satisfied_dissatisfied'
+                                                id='answer_1'
                                                 value={`${++index}`}
                                                 onChange={handleChange}
                                             />
@@ -104,7 +103,7 @@ const Evaluation = ({ seo, success }) => {
                                 dissatisfied with Maritime Lloyd?
                             </p>
                             <input
-                                id='recomendations'
+                                id='answer_2'
                                 type="text"
                                 placeholder="Enter response here"
                                 className="margin_bottom"
@@ -121,7 +120,7 @@ const Evaluation = ({ seo, success }) => {
                                             <input type="radio" name="rate_2"
                                                 //  id={`rate_2_${index}`}
                                                 required
-                                                id='repurchases'
+                                                id='answer_3'
                                                 value={item}
                                                 onChange={handleChange}
                                             />
@@ -143,7 +142,7 @@ const Evaluation = ({ seo, success }) => {
                                             <input type="radio" name="rate_3"
                                                 // id={`rate_3_${index}`}
                                                 required
-                                                id='rate_quality'
+                                                id='answer_4'
                                                 value={item}
                                                 onChange={handleChange}
                                             />
@@ -166,7 +165,7 @@ const Evaluation = ({ seo, success }) => {
                                             <input type="radio" name="rate_4"
                                                 // id={`rate_4_${index}`}
                                                 required
-                                                id='satisfied'
+                                                id='answer_5'
                                                 value={item}
                                                 onChange={handleChange}
                                             />
@@ -192,7 +191,7 @@ const Evaluation = ({ seo, success }) => {
                                             <input type="radio" name="rate_5"
                                                 // id={`rate_5_${index}`}
                                                 required
-                                                id='satisfied_service'
+                                                id='answer_6'
                                                 value={++index}
                                                 onChange={handleChange}
                                             />
@@ -215,7 +214,7 @@ const Evaluation = ({ seo, success }) => {
                                             <input type="radio" name="rate_6"
                                                 // id={`rate_6_${index}`}
                                                 required
-                                                id='satisfied_price'
+                                                id='answer_7'
                                                 value={++index}
                                                 onChange={handleChange}
                                             />
@@ -238,7 +237,7 @@ const Evaluation = ({ seo, success }) => {
                                             <input type="radio" name="rate_7"
                                                 // id={`rate_7_${index}`}
                                                 required
-                                                id='satisfied_value'
+                                                id='answer_8'
                                                 value={++index}
                                                 onChange={handleChange}
                                             />
@@ -247,12 +246,12 @@ const Evaluation = ({ seo, success }) => {
                                 })}
                             </div>
                             <div className="uppercase">
-                                THANK YOU FOR TAKING THE TIME TO COMPLETE THIS QUESTIONNAIRE.
+                                {__('client.quest_bottom_txt1',sharedData)}
                             </div>
                             <p className="op05 margin_bottom">
-                                Your Comments Will Be Treated as Fully Confidential.
+                                {__('client.quest_bottom_txt2',sharedData)}
                             </p>
-                            <SendButton text="Send Answers Now" />
+                            <SendButton text={__('client.quest_send',sharedData)} />
                         </form>
                     </div>
                 </div>

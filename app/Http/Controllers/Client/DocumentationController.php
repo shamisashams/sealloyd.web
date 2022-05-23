@@ -148,18 +148,20 @@ class DocumentationController extends Controller
     // add rateservices to db
     public function add_rateservices(Request $request)
     {
+
+       // dd($request->all());
         $rateservices = rateservice::create(
             $request->only(
                 'company_name',
                 // 'created_at',
-                'satisfied_dissatisfied',
-                'recomendations',
-                'repurchases',
-                'rate_quality',
-                'satisfied',
-                'satisfied_service',
-                'satisfied_price',
-                'satisfied_value',
+                'answer_1',
+                'answer_2',
+                'answer_3',
+                'answer_4',
+                'answer_5',
+                'answer_6',
+                'answer_7',
+                'answer_8',
             )
         );
         return redirect(route('client.services.evaluation', app()->getLocale()))->with('success', 'warmatebit');

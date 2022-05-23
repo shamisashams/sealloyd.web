@@ -4270,6 +4270,7 @@ __webpack_require__.r(__webpack_exports__);
 /* harmony import */ var _inertiajs_inertia__WEBPACK_IMPORTED_MODULE_4__ = __webpack_require__(/*! @inertiajs/inertia */ "./node_modules/@inertiajs/inertia/dist/index.js");
 /* harmony import */ var sweetalert2__WEBPACK_IMPORTED_MODULE_5__ = __webpack_require__(/*! sweetalert2 */ "./node_modules/sweetalert2/dist/sweetalert2.all.js");
 /* harmony import */ var sweetalert2__WEBPACK_IMPORTED_MODULE_5___default = /*#__PURE__*/__webpack_require__.n(sweetalert2__WEBPACK_IMPORTED_MODULE_5__);
+/* harmony import */ var _inertiajs_inertia_react__WEBPACK_IMPORTED_MODULE_6__ = __webpack_require__(/*! @inertiajs/inertia-react */ "./node_modules/@inertiajs/inertia-react/dist/index.js");
 function ownKeys(object, enumerableOnly) { var keys = Object.keys(object); if (Object.getOwnPropertySymbols) { var symbols = Object.getOwnPropertySymbols(object); enumerableOnly && (symbols = symbols.filter(function (sym) { return Object.getOwnPropertyDescriptor(object, sym).enumerable; })), keys.push.apply(keys, symbols); } return keys; }
 
 function _objectSpread(target) { for (var i = 1; i < arguments.length; i++) { var source = null != arguments[i] ? arguments[i] : {}; i % 2 ? ownKeys(Object(source), !0).forEach(function (key) { _defineProperty(target, key, source[key]); }) : Object.getOwnPropertyDescriptors ? Object.defineProperties(target, Object.getOwnPropertyDescriptors(source)) : ownKeys(Object(source)).forEach(function (key) { Object.defineProperty(target, key, Object.getOwnPropertyDescriptor(source, key)); }); } return target; }
@@ -4295,9 +4296,19 @@ function _arrayWithHoles(arr) { if (Array.isArray(arr)) return arr; }
 
 
 
+
 var Evaluation = function Evaluation(_ref) {
   var seo = _ref.seo,
       success = _ref.success;
+  var sharedData = (0,_inertiajs_inertia_react__WEBPACK_IMPORTED_MODULE_6__.usePage)().props.localizations;
+
+  var renderHTML = function renderHTML(rawHTML) {
+    return /*#__PURE__*/react__WEBPACK_IMPORTED_MODULE_0__.createElement("p", {
+      dangerouslySetInnerHTML: {
+        __html: rawHTML
+      }
+    });
+  };
 
   var Swal = __webpack_require__(/*! sweetalert2 */ "./node_modules/sweetalert2/dist/sweetalert2.all.js");
 
@@ -4311,15 +4322,14 @@ var Evaluation = function Evaluation(_ref) {
 
   var _useState = (0,react__WEBPACK_IMPORTED_MODULE_0__.useState)({
     company_name: "",
-    created_at: "",
-    satisfied_dissatisfied: "",
-    recomendations: "",
-    repurchases: "",
-    rate_quality: "",
-    satisfied: "",
-    satisfied_service: "",
-    satisfied_price: "",
-    satisfied_value: ""
+    answer_1: "",
+    answer_2: "",
+    answer_3: "",
+    answer_4: "",
+    answer_5: "",
+    answer_6: "",
+    answer_7: "",
+    answer_8: ""
   }),
       _useState2 = _slicedToArray(_useState, 2),
       values = _useState2[0],
@@ -4358,15 +4368,15 @@ var Evaluation = function Evaluation(_ref) {
     className: "wrapper"
   }, /*#__PURE__*/react__WEBPACK_IMPORTED_MODULE_0__.createElement("div", {
     className: "font45 blue"
-  }, "\u10DB\u10DD\u10DB\u10E1\u10D0\u10EE\u10E3\u10E0\u10D4\u10D1\u10D8\u10E1 \u10E8\u10D4\u10E4\u10D0\u10E1\u10D4\u10D1\u10D0"), /*#__PURE__*/react__WEBPACK_IMPORTED_MODULE_0__.createElement(_components_SmallComps_SmallComps__WEBPACK_IMPORTED_MODULE_1__.PagePath, {
-    location1: "\u10DB\u10D7\u10D0\u10D5\u10D0\u10E0\u10D8",
-    location2: "\u10D3\u10DD\u10D9\u10E3\u10DB\u10D4\u10DC\u10E2\u10D0\u10EA\u10D8\u10D0",
-    location3: "\u10DB\u10DD\u10DB\u10E1\u10D0\u10EE\u10E3\u10E0\u10D4\u10D1\u10D8\u10E1 \u10E8\u10D4\u10E4\u10D0\u10E1\u10D4\u10D1\u10D0"
+  }, renderHTML(__('client.evaluation_header', sharedData).replace(/(?:\r\n|\r|\n)/g, '<br>'))), /*#__PURE__*/react__WEBPACK_IMPORTED_MODULE_0__.createElement(_components_SmallComps_SmallComps__WEBPACK_IMPORTED_MODULE_1__.PagePath, {
+    location1: __('client.nav_home', sharedData),
+    location2: __('client.nav_documentation', sharedData),
+    location3: __('client.nav_evaluation', sharedData)
   }), /*#__PURE__*/react__WEBPACK_IMPORTED_MODULE_0__.createElement("div", {
     className: "content"
   }, /*#__PURE__*/react__WEBPACK_IMPORTED_MODULE_0__.createElement("p", {
     className: "op05 margin_bottom"
-  }, "We hope you are pleased with the service that you have already received from MARITIME LLOYD. It is our aim to provide the most helpful and comprehensive service possible. To help us, please would you complete this short questionnaire?"), /*#__PURE__*/react__WEBPACK_IMPORTED_MODULE_0__.createElement("form", {
+  }, renderHTML(__('client.evaluation_text', sharedData).replace(/(?:\r\n|\r|\n)/g, '<br>'))), /*#__PURE__*/react__WEBPACK_IMPORTED_MODULE_0__.createElement("form", {
     onSubmit: handleSubmit
   }, /*#__PURE__*/react__WEBPACK_IMPORTED_MODULE_0__.createElement("input", {
     id: "company_name",
@@ -4377,8 +4387,7 @@ var Evaluation = function Evaluation(_ref) {
     id: "created_at",
     type: "date",
     className: "margin_bottom",
-    value: today,
-    onChange: handleChange
+    value: today
   }), /*#__PURE__*/react__WEBPACK_IMPORTED_MODULE_0__.createElement("p", null, "On a scale of 1 to 5 where 1 represents \"Extremely dissatisfied\" and 5 represents \"Extremely Satisfied,\" how would you rate your level of overall satisfaction with Maritime Lloyd as a service supplier?"), /*#__PURE__*/react__WEBPACK_IMPORTED_MODULE_0__.createElement("div", {
     className: "flex rating scale margin_bottom"
   }, scale.map(function (item, index) {
@@ -4393,12 +4402,12 @@ var Evaluation = function Evaluation(_ref) {
       name: "rate_1" // id={`rate_1_${index}`}
       ,
       required: true,
-      id: "satisfied_dissatisfied",
+      id: "answer_1",
       value: "".concat(++index),
       onChange: handleChange
     }));
   })), /*#__PURE__*/react__WEBPACK_IMPORTED_MODULE_0__.createElement("p", null, "Why do you say that? What specifically are you satisfied or dissatisfied with Maritime Lloyd?"), /*#__PURE__*/react__WEBPACK_IMPORTED_MODULE_0__.createElement("input", {
-    id: "recomendations",
+    id: "answer_2",
     type: "text",
     placeholder: "Enter response here",
     className: "margin_bottom",
@@ -4414,7 +4423,7 @@ var Evaluation = function Evaluation(_ref) {
       name: "rate_2" //  id={`rate_2_${index}`}
       ,
       required: true,
-      id: "repurchases",
+      id: "answer_3",
       value: item,
       onChange: handleChange
     }), /*#__PURE__*/react__WEBPACK_IMPORTED_MODULE_0__.createElement("label", {
@@ -4432,7 +4441,7 @@ var Evaluation = function Evaluation(_ref) {
       name: "rate_3" // id={`rate_3_${index}`}
       ,
       required: true,
-      id: "rate_quality",
+      id: "answer_4",
       value: item,
       onChange: handleChange
     }), /*#__PURE__*/react__WEBPACK_IMPORTED_MODULE_0__.createElement("label", {
@@ -4450,7 +4459,7 @@ var Evaluation = function Evaluation(_ref) {
       name: "rate_4" // id={`rate_4_${index}`}
       ,
       required: true,
-      id: "satisfied",
+      id: "answer_5",
       value: item,
       onChange: handleChange
     }), /*#__PURE__*/react__WEBPACK_IMPORTED_MODULE_0__.createElement("label", {
@@ -4471,7 +4480,7 @@ var Evaluation = function Evaluation(_ref) {
       name: "rate_5" // id={`rate_5_${index}`}
       ,
       required: true,
-      id: "satisfied_service",
+      id: "answer_6",
       value: ++index,
       onChange: handleChange
     }));
@@ -4489,7 +4498,7 @@ var Evaluation = function Evaluation(_ref) {
       name: "rate_6" // id={`rate_6_${index}`}
       ,
       required: true,
-      id: "satisfied_price",
+      id: "answer_7",
       value: ++index,
       onChange: handleChange
     }));
@@ -4507,16 +4516,16 @@ var Evaluation = function Evaluation(_ref) {
       name: "rate_7" // id={`rate_7_${index}`}
       ,
       required: true,
-      id: "satisfied_value",
+      id: "answer_8",
       value: ++index,
       onChange: handleChange
     }));
   })), /*#__PURE__*/react__WEBPACK_IMPORTED_MODULE_0__.createElement("div", {
     className: "uppercase"
-  }, "THANK YOU FOR TAKING THE TIME TO COMPLETE THIS QUESTIONNAIRE."), /*#__PURE__*/react__WEBPACK_IMPORTED_MODULE_0__.createElement("p", {
+  }, __('client.quest_bottom_txt1', sharedData)), /*#__PURE__*/react__WEBPACK_IMPORTED_MODULE_0__.createElement("p", {
     className: "op05 margin_bottom"
-  }, "Your Comments Will Be Treated as Fully Confidential."), /*#__PURE__*/react__WEBPACK_IMPORTED_MODULE_0__.createElement(_components_SmallComps_SmallComps__WEBPACK_IMPORTED_MODULE_1__.SendButton, {
-    text: "Send Answers Now"
+  }, __('client.quest_bottom_txt2', sharedData)), /*#__PURE__*/react__WEBPACK_IMPORTED_MODULE_0__.createElement(_components_SmallComps_SmallComps__WEBPACK_IMPORTED_MODULE_1__.SendButton, {
+    text: __('client.quest_send', sharedData)
   }))))));
 };
 
