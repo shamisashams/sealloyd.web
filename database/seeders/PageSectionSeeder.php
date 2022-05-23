@@ -6,7 +6,7 @@ use Illuminate\Database\Seeder;
 use App\Models\PageSection;
 use App\Models\Page;
 
-class PageSectionsSeeder extends Seeder
+class PageSectionSeeder extends Seeder
 {
     /**
      * Run the database seeds.
@@ -19,26 +19,40 @@ class PageSectionsSeeder extends Seeder
         //
         $pages = [
             [
-                'key' => 'home'
+                'key' => 'purpose',
             ],
             [
-                'key' => 'about'
+                'key' => 'ethics'
             ],
             [
-                'key' => 'contact'
+                'key' => 'politics'
             ],
             [
-                'key' => 'products'
+                'key' => 'services'
+            ],
+            [
+                'key' => 'certification'
+            ],
+            [
+                'key' => 'comprecognition'
+            ],
+            [
+                'key' => 'contact',
+                'count' => 3
             ]
 
 
         ];
 
         $in = [];
-
+        $pageSections = [];
         foreach ($pages as $item){
             $in[] = $item['key'];
+            $pageSections[$item['key']] = $item;
         }
+
+        //print_r($pageSections);
+        //dd(3);
 
         $pages = Page::whereIn('key',$in)->get();
 
@@ -47,23 +61,17 @@ class PageSectionsSeeder extends Seeder
         $ins = [];
         $key = 0;
         foreach ($pages as $item){
-            switch ($item->key){
-                case 'home':
-                    for ($i = 0; $i < 3; $i++){
-                        $ins[$key]['page_id'] = $item->id;
-                        $key++;
-                    }
-                    break;
-                case 'about':
-                    for ($i = 0; $i < 3; $i++){
-                        $ins[$key]['page_id'] = $item->id;
-                        $key++;
-                    }
-                    break;
-                default:
+
+            if(isset($pageSections[$item->key]['count'])){
+                for ($i = 0; $i < $pageSections[$item->key]['count']; $i++){
                     $ins[$key]['page_id'] = $item->id;
                     $key++;
+                }
+            } else {
+                $ins[$key]['page_id'] = $item->id;
+                $key++;
             }
+
 
         }
         //dd($ins);

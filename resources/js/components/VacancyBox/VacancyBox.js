@@ -93,14 +93,14 @@ export const ExtendedVB = (props) => {
                 <DlPdf model="Vacancy" name={props.pdfName} />
             </div>
 
-            <form onSubmit={submit}>
+            <form id="upload_resume_f">
                 <input type="file" filename={data.doc} onChange={e => setData("doc", e.target.files[0])} />
 
-                <button type="submit">Submit</button>
+
             </form>
 
             <div className="section">
-                <button className="button grey">
+                <button onClick={submit} className="button grey">
                     <img className="inline_img" src='/assets/images/icons/team/upload.svg' alt="" />
                     ატვირთე რეზიუმე <span>(Application Form, CV, Certificates)</span>
                 </button>
