@@ -148,7 +148,7 @@ class LoginPageController extends Controller
     public function politics()
     {
 
-        $page = Page::where('key', 'services')->firstOrFail();
+        $page = Page::where('key', 'politics')->firstOrFail();
 
         $images = [];
         foreach ($page->sections as $sections) {
@@ -200,6 +200,14 @@ class LoginPageController extends Controller
             }
         }
 
+        $docs = $page->docs;
+
+        /*foreach ($page->docs as $doc) {
+
+            $docs[] = asset($doc->getFileUrlAttribute());
+
+        }*/
+
         $sliders = Slider::query()->where("status", 1)->with(['file', 'translations']);
         //        dd($page->file);
         //        dd(App::getLocale());
@@ -217,7 +225,7 @@ class LoginPageController extends Controller
 
             //            "image" => "imgg",
             //            "locale" => App::getLocale()
-        ], 'popular_products' => $products, 'images' => $images])->withViewData([
+        ], 'popular_products' => $products, 'images' => $images, 'docs' => $docs])->withViewData([
             'meta_title' => $page->meta_title,
             'meta_description' => $page->meta_description,
             'meta_keyword' => $page->meta_keyword,

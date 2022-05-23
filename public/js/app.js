@@ -3221,17 +3221,19 @@ __webpack_require__.r(__webpack_exports__);
 
 
 var Management = function Management(_ref) {
-  var seo = _ref.seo;
+  var seo = _ref.seo,
+      docs = _ref.docs;
   var sharedData = (0,_inertiajs_inertia_react__WEBPACK_IMPORTED_MODULE_4__.usePage)().props.localizations;
 
   var renderHTML = function renderHTML(rawHTML) {
-    return /*#__PURE__*/react__WEBPACK_IMPORTED_MODULE_0__.createElement("div", {
+    return /*#__PURE__*/react__WEBPACK_IMPORTED_MODULE_0__.createElement("p", {
       dangerouslySetInnerHTML: {
         __html: rawHTML
       }
     });
   };
 
+  console.log(docs);
   return /*#__PURE__*/react__WEBPACK_IMPORTED_MODULE_0__.createElement(_Layouts_Layout__WEBPACK_IMPORTED_MODULE_2__["default"], {
     seo: seo
   }, /*#__PURE__*/react__WEBPACK_IMPORTED_MODULE_0__.createElement("div", {
@@ -3240,22 +3242,25 @@ var Management = function Management(_ref) {
     className: "container"
   }, /*#__PURE__*/react__WEBPACK_IMPORTED_MODULE_0__.createElement("div", {
     className: "font45 blue"
-  }, "\u10E0\u10D0\u10D8\u10DB\u10D4 \u10E2\u10D4\u10E5\u10E1\u10E2\u10D8 \u10D9\u10DD\u10DB\u10DE\u10D0\u10DC\u10D8\u10D8\u10E1 ", /*#__PURE__*/react__WEBPACK_IMPORTED_MODULE_0__.createElement("br", null), " \u10DB\u10D8\u10D6\u10DC\u10D4\u10D1\u10D8\u10E1 \u10E8\u10D4\u10E1\u10D0\u10EE\u10D4\u10D1"), /*#__PURE__*/react__WEBPACK_IMPORTED_MODULE_0__.createElement(_components_SmallComps_SmallComps__WEBPACK_IMPORTED_MODULE_1__.PagePath, {
-    location1: "\u10DB\u10D7\u10D0\u10D5\u10D0\u10E0\u10D8",
-    location2: "\u10E9\u10D5\u10D4\u10DC \u10E8\u10D4\u10E1\u10D0\u10EE\u10D4\u10D1",
-    location3: "\u10EE\u10D0\u10E0\u10D8\u10E1\u10EE\u10D8\u10E1 \u10DB\u10D4\u10DC\u10D4\u10EF\u10DB\u10D4\u10DC\u10E2\u10D8\u10E1 \u10E1\u10D8\u10E1\u10E2\u10D4\u10DB\u10D0"
+  }, renderHTML(__('client.aboutus_managment_header', sharedData).replace(/(?:\r\n|\r|\n)/g, '<br>'))), /*#__PURE__*/react__WEBPACK_IMPORTED_MODULE_0__.createElement(_components_SmallComps_SmallComps__WEBPACK_IMPORTED_MODULE_1__.PagePath, {
+    location1: __('client.nav_home', sharedData),
+    location2: __('client.nav_aboutus', sharedData),
+    location3: __('client.nav_managment', sharedData)
   }), /*#__PURE__*/react__WEBPACK_IMPORTED_MODULE_0__.createElement("div", {
     className: "content",
     style: {
       marginBottom: "50px"
     }
-  }, /*#__PURE__*/react__WEBPACK_IMPORTED_MODULE_0__.createElement("p", null, renderHTML(__('client.aboutus_managment_main_text', sharedData).replace(/(?:\r\n|\r|\n)/g, '<br>')))), /*#__PURE__*/react__WEBPACK_IMPORTED_MODULE_0__.createElement("div", {
+  }, renderHTML(__('client.aboutus_managment_main_text', sharedData).replace(/(?:\r\n|\r|\n)/g, '<br>'))), /*#__PURE__*/react__WEBPACK_IMPORTED_MODULE_0__.createElement("div", {
     className: "blue",
     style: {
       marginBottom: "20px"
     }
-  }, "\u10D3\u10DD\u10D9\u10E3\u10DB\u10D4\u10DC\u10E2\u10D0\u10EA\u10D8\u10D0"), /*#__PURE__*/react__WEBPACK_IMPORTED_MODULE_0__.createElement(_components_SmallComps_SmallComps__WEBPACK_IMPORTED_MODULE_1__.DlPdf, {
-    name: "\u10D3\u10DD\u10D9\u10E3\u10DB\u10D4\u10DC\u10E2\u10D8\u10E1 \u10D3\u10D0\u10E1\u10D0\u10EE\u10D4\u10DA\u10D4\u10D1\u10D0"
+  }, __('client.aboutus_managment_docs', sharedData)), docs.map(function (doc, index) {
+    return /*#__PURE__*/react__WEBPACK_IMPORTED_MODULE_0__.createElement(_components_SmallComps_SmallComps__WEBPACK_IMPORTED_MODULE_1__.DlPdf, {
+      model: "Page",
+      name: doc
+    });
   }))));
 };
 
@@ -3287,11 +3292,12 @@ __webpack_require__.r(__webpack_exports__);
 
 
 var Politics = function Politics(_ref) {
-  var seo = _ref.seo;
+  var seo = _ref.seo,
+      images = _ref.images;
   var sharedData = (0,_inertiajs_inertia_react__WEBPACK_IMPORTED_MODULE_4__.usePage)().props.localizations;
 
   var renderHTML = function renderHTML(rawHTML) {
-    return /*#__PURE__*/react__WEBPACK_IMPORTED_MODULE_0__.createElement("div", {
+    return /*#__PURE__*/react__WEBPACK_IMPORTED_MODULE_0__.createElement("p", {
       dangerouslySetInnerHTML: {
         __html: rawHTML
       }
@@ -3305,16 +3311,16 @@ var Politics = function Politics(_ref) {
   }, /*#__PURE__*/react__WEBPACK_IMPORTED_MODULE_0__.createElement("div", {
     className: "showcase",
     style: {
-      background: "url('/assets/images/ports/1.png') no-repeat",
+      background: "url('" + images[0] + "') no-repeat",
       backgroundPosition: "center",
       backgroundSize: "cover"
     }
   }, /*#__PURE__*/react__WEBPACK_IMPORTED_MODULE_0__.createElement("div", {
     className: "wrapper"
   }, /*#__PURE__*/react__WEBPACK_IMPORTED_MODULE_0__.createElement(_components_SmallComps_SmallComps__WEBPACK_IMPORTED_MODULE_1__.PagePath, {
-    location1: "\u10DB\u10D7\u10D0\u10D5\u10D0\u10E0\u10D8",
-    location2: "\u10E9\u10D5\u10D4\u10DC \u10E8\u10D4\u10E1\u10D0\u10EE\u10D4\u10D1",
-    location3: "\u10DE\u10DD\u10DA\u10D8\u10E2\u10D8\u10D9\u10D0"
+    location1: __('client.nav_home', sharedData),
+    location2: __('client.nav_aboutus', sharedData),
+    location3: __('client.nav_politics', sharedData)
   }))), /*#__PURE__*/react__WEBPACK_IMPORTED_MODULE_0__.createElement("div", {
     className: "wrapper"
   }, /*#__PURE__*/react__WEBPACK_IMPORTED_MODULE_0__.createElement("div", {
@@ -3322,7 +3328,7 @@ var Politics = function Politics(_ref) {
     style: {
       margin: "auto"
     }
-  }, /*#__PURE__*/react__WEBPACK_IMPORTED_MODULE_0__.createElement("p", null, renderHTML(__('client.aboutus_policits_main_text', sharedData).replace(/(?:\r\n|\r|\n)/g, '<br>')))))));
+  }, renderHTML(__('client.aboutus_policits_main_text', sharedData).replace(/(?:\r\n|\r|\n)/g, '<br>'))))));
 };
 
 /* harmony default export */ const __WEBPACK_DEFAULT_EXPORT__ = (Politics);

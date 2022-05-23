@@ -5,22 +5,23 @@ import "./AboutUs.css";
 import { Link, usePage } from "@inertiajs/inertia-react";
 
 
-const Management = ({ seo }) => {
+const Management = ({ seo, docs }) => {
 
     const sharedData = usePage().props.localizations;
-    const renderHTML = (rawHTML) => React.createElement("div", { dangerouslySetInnerHTML: { __html: rawHTML } });
+    const renderHTML = (rawHTML) => React.createElement("p", { dangerouslySetInnerHTML: { __html: rawHTML } });
 
+    console.log(docs)
     return (
         <Layout seo={seo}>
             <div className="aboutPage wrapper padding_top">
                 <div className="container">
                     <div className="font45 blue">
-                        რაიმე ტექსტი კომპანიის <br /> მიზნების შესახებ
+                        {renderHTML(__('client.aboutus_managment_header', sharedData).replace(/(?:\r\n|\r|\n)/g, '<br>'))}
                     </div>
                     <PagePath
-                        location1="მთავარი"
-                        location2="ჩვენ შესახებ"
-                        location3="ხარისხის მენეჯმენტის სისტემა"
+                        location1={__('client.nav_home',sharedData)}
+                        location2={__('client.nav_aboutus',sharedData)}
+                        location3={__('client.nav_managment',sharedData)}
                     />
                     <div className="content" style={{ marginBottom: "50px" }}>
                         {/* <p>
@@ -38,15 +39,18 @@ const Management = ({ seo }) => {
                             მრავლობით ყურთმაჯები დავიბრუნო ივახშმეს უჩქეფს საბრძოლველად
                             მკათათვის იცოხებოდნენ კარისკაცი.
                         </p> */}
-                        <p>
+
                             {renderHTML(__('client.aboutus_managment_main_text', sharedData).replace(/(?:\r\n|\r|\n)/g, '<br>'))}
 
-                        </p>
+
                     </div>
                     <div className="blue" style={{ marginBottom: "20px" }}>
-                        დოკუმენტაცია
+                        {__('client.aboutus_managment_docs', sharedData)}
                     </div>
-                    <DlPdf name="დოკუმენტის დასახელება" />
+                    {docs.map((doc , index) => {
+                        return <DlPdf model="Page" name={doc} />
+                    })}
+
                 </div>
             </div>
         </Layout>
