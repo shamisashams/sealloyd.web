@@ -178,9 +178,11 @@ class StaffController extends Controller
         $saveData['status'] = isset($saveData['status']) && (bool)$saveData['status'];
 
 
-        //dd($saveData);
+        //dd($staff->id);
 
-        $this->staffRepository->update($staff->id, $saveData);
+        if($this->staffRepository->update($staff->id, $saveData)){
+
+        }
 
         $this->staffRepository->saveFiles($staff->id, $request);
 
