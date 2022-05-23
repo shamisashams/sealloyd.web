@@ -115,7 +115,7 @@
                                                     <i class="fa fa-edit">შეცვლა</i>
                                                 </a>
 
-                                                <a href="{{locale_route('skill.destroy',$item->id)}}"
+                                                <a href="{{locale_route('staff.destroy',$item->id)}}"
                                                    onclick="return confirm('Are you sure?')" class="pl-3">
                                                     <i class="fa fa-edit">წაშლა</i>
                                                 </a>

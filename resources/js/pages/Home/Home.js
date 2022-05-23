@@ -16,6 +16,8 @@ import PortsMap from "../../components/PortsMap/PortsMap";
 const Home = ({ page, seo }) => {
     const renderHTML = (rawHTML) => React.createElement("div", { dangerouslySetInnerHTML: { __html: rawHTML } });
     const sharedData = usePage().props.localizations;
+    const { images } = usePage().props;
+    console.log(images[0], 'essaaa');
     return (
         <Layout seo={seo}>
             <div className="homePage">
@@ -68,9 +70,11 @@ const Home = ({ page, seo }) => {
                     </div>
                 </div>
                 <div className="form_section ">
+
                     <div className="abs_img img">
-                        <img src='/assets/images/home/2.png' alt="" />
+                        <img src={images[1]} alt="error" />
                     </div>
+                    {/* <img src={images[3]} alt='error'></img> */}
                     <div className="wrapper">
                         <Form />
                     </div>
