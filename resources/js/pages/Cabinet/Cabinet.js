@@ -6,6 +6,8 @@ import { Link, usePage } from "@inertiajs/inertia-react";
 
 const Cabinet = ({ seo }) => {
     const {user, docs} = usePage().props;
+    const renderHTML = (rawHTML) => React.createElement("p", { dangerouslySetInnerHTML: { __html: rawHTML } });
+    const sharedData = usePage().props.localizations;
     console.log(docs)
     const docList = [
         "დოკუმენტის გრძელი დასახელება რომე...",
@@ -21,20 +23,13 @@ const Cabinet = ({ seo }) => {
         <Layout seo={seo}>
             <div className="documents teamPage careerPage">
                 <div className="wrapper">
-                    <div className="title blue">პირადი კაბინეტი</div>
+                    <div className="title blue">{__('client.user_cabinet',sharedData)}</div>
 
                     <p className="container">
-                        <div>მოგესალმებით!</div> <br />
-                        ლორემ იპსუმ ქვეყნიური თვითიდენტიფიკაციისა მესამის რიტუალური
-                        გაუშტერდათ, მიწუნებს სასახლეებზე მრავლობით. გაუშტერდათ განიცდიდი
-                        მებრძოლები, ზეციური რეტროსპექტივას დეტალების გაგაკეთებინებს წერა,
-                        ქადილით მზაკვრობისა ჩაესვენა მეთვრამეტე რათა მართალსა. შესახვედრათ
-                        შემაშინა შეგაწუხებს ღიჭინი, შესაბრალისი ეპისკოპოსებსა, არეალს
-                        გაგაკეთებინებს ახრამუნებდა სიამაყე შშავს. ქადილით მისძახა
-                        ეპისკოპოსებსა ბრინკაი ვიღებდი წინამძღოლის ყურთმაჯები ეამა არეალს,
-                        მკალავიშვილის მეთვრამეტე.
+                        <div>{__('client.user_cabinet_welcome',sharedData)}</div> <br />
+                        {renderHTML(__('client.user_cabinet_text', sharedData).replace(/(?:\r\n|\r|\n)/g, '<br>'))}
                     </p>
-                    <div className="blue">ცირკულარები</div>
+                    <div className="blue">{__('client.circulars',sharedData)}</div>
                     <div className="doc_grid">
                         {docs.map((doc, index) => {
                             return <DlPdf key={index} model="Customer" name={doc} />;

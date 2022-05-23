@@ -3519,6 +3519,16 @@ var Cabinet = function Cabinet(_ref) {
   var _usePage$props = (0,_inertiajs_inertia_react__WEBPACK_IMPORTED_MODULE_4__.usePage)().props,
       user = _usePage$props.user,
       docs = _usePage$props.docs;
+
+  var renderHTML = function renderHTML(rawHTML) {
+    return /*#__PURE__*/react__WEBPACK_IMPORTED_MODULE_0__.createElement("p", {
+      dangerouslySetInnerHTML: {
+        __html: rawHTML
+      }
+    });
+  };
+
+  var sharedData = (0,_inertiajs_inertia_react__WEBPACK_IMPORTED_MODULE_4__.usePage)().props.localizations;
   console.log(docs);
   var docList = ["დოკუმენტის გრძელი დასახელება რომე...", "დოკუმენტის დასახელება", "დოკუმენტის დასახელება", "დოკუმენტის გრძელი დასახელება რომე...", "დოკუმენტის გრძელი დასახელება რომე...", "დოკუმენტის დასახელება", "დოკუმენტის დასახელება", "დოკუმენტის გრძელი დასახელება რომე..."];
   return /*#__PURE__*/react__WEBPACK_IMPORTED_MODULE_0__.createElement(_Layouts_Layout__WEBPACK_IMPORTED_MODULE_3__["default"], {
@@ -3529,11 +3539,11 @@ var Cabinet = function Cabinet(_ref) {
     className: "wrapper"
   }, /*#__PURE__*/react__WEBPACK_IMPORTED_MODULE_0__.createElement("div", {
     className: "title blue"
-  }, "\u10DE\u10D8\u10E0\u10D0\u10D3\u10D8 \u10D9\u10D0\u10D1\u10D8\u10DC\u10D4\u10E2\u10D8"), /*#__PURE__*/react__WEBPACK_IMPORTED_MODULE_0__.createElement("p", {
+  }, __('client.user_cabinet', sharedData)), /*#__PURE__*/react__WEBPACK_IMPORTED_MODULE_0__.createElement("p", {
     className: "container"
-  }, /*#__PURE__*/react__WEBPACK_IMPORTED_MODULE_0__.createElement("div", null, "\u10DB\u10DD\u10D2\u10D4\u10E1\u10D0\u10DA\u10DB\u10D4\u10D1\u10D8\u10D7!"), " ", /*#__PURE__*/react__WEBPACK_IMPORTED_MODULE_0__.createElement("br", null), "\u10DA\u10DD\u10E0\u10D4\u10DB \u10D8\u10DE\u10E1\u10E3\u10DB \u10E5\u10D5\u10D4\u10E7\u10DC\u10D8\u10E3\u10E0\u10D8 \u10D7\u10D5\u10D8\u10D7\u10D8\u10D3\u10D4\u10DC\u10E2\u10D8\u10E4\u10D8\u10D9\u10D0\u10EA\u10D8\u10D8\u10E1\u10D0 \u10DB\u10D4\u10E1\u10D0\u10DB\u10D8\u10E1 \u10E0\u10D8\u10E2\u10E3\u10D0\u10DA\u10E3\u10E0\u10D8 \u10D2\u10D0\u10E3\u10E8\u10E2\u10D4\u10E0\u10D3\u10D0\u10D7, \u10DB\u10D8\u10EC\u10E3\u10DC\u10D4\u10D1\u10E1 \u10E1\u10D0\u10E1\u10D0\u10EE\u10DA\u10D4\u10D4\u10D1\u10D6\u10D4 \u10DB\u10E0\u10D0\u10D5\u10DA\u10DD\u10D1\u10D8\u10D7. \u10D2\u10D0\u10E3\u10E8\u10E2\u10D4\u10E0\u10D3\u10D0\u10D7 \u10D2\u10D0\u10DC\u10D8\u10EA\u10D3\u10D8\u10D3\u10D8 \u10DB\u10D4\u10D1\u10E0\u10EB\u10DD\u10DA\u10D4\u10D1\u10D8, \u10D6\u10D4\u10EA\u10D8\u10E3\u10E0\u10D8 \u10E0\u10D4\u10E2\u10E0\u10DD\u10E1\u10DE\u10D4\u10E5\u10E2\u10D8\u10D5\u10D0\u10E1 \u10D3\u10D4\u10E2\u10D0\u10DA\u10D4\u10D1\u10D8\u10E1 \u10D2\u10D0\u10D2\u10D0\u10D9\u10D4\u10D7\u10D4\u10D1\u10D8\u10DC\u10D4\u10D1\u10E1 \u10EC\u10D4\u10E0\u10D0, \u10E5\u10D0\u10D3\u10D8\u10DA\u10D8\u10D7 \u10DB\u10D6\u10D0\u10D9\u10D5\u10E0\u10DD\u10D1\u10D8\u10E1\u10D0 \u10E9\u10D0\u10D4\u10E1\u10D5\u10D4\u10DC\u10D0 \u10DB\u10D4\u10D7\u10D5\u10E0\u10D0\u10DB\u10D4\u10E2\u10D4 \u10E0\u10D0\u10D7\u10D0 \u10DB\u10D0\u10E0\u10D7\u10D0\u10DA\u10E1\u10D0. \u10E8\u10D4\u10E1\u10D0\u10EE\u10D5\u10D4\u10D3\u10E0\u10D0\u10D7 \u10E8\u10D4\u10DB\u10D0\u10E8\u10D8\u10DC\u10D0 \u10E8\u10D4\u10D2\u10D0\u10EC\u10E3\u10EE\u10D4\u10D1\u10E1 \u10E6\u10D8\u10ED\u10D8\u10DC\u10D8, \u10E8\u10D4\u10E1\u10D0\u10D1\u10E0\u10D0\u10DA\u10D8\u10E1\u10D8 \u10D4\u10DE\u10D8\u10E1\u10D9\u10DD\u10DE\u10DD\u10E1\u10D4\u10D1\u10E1\u10D0, \u10D0\u10E0\u10D4\u10D0\u10DA\u10E1 \u10D2\u10D0\u10D2\u10D0\u10D9\u10D4\u10D7\u10D4\u10D1\u10D8\u10DC\u10D4\u10D1\u10E1 \u10D0\u10EE\u10E0\u10D0\u10DB\u10E3\u10DC\u10D4\u10D1\u10D3\u10D0 \u10E1\u10D8\u10D0\u10DB\u10D0\u10E7\u10D4 \u10E8\u10E8\u10D0\u10D5\u10E1. \u10E5\u10D0\u10D3\u10D8\u10DA\u10D8\u10D7 \u10DB\u10D8\u10E1\u10EB\u10D0\u10EE\u10D0 \u10D4\u10DE\u10D8\u10E1\u10D9\u10DD\u10DE\u10DD\u10E1\u10D4\u10D1\u10E1\u10D0 \u10D1\u10E0\u10D8\u10DC\u10D9\u10D0\u10D8 \u10D5\u10D8\u10E6\u10D4\u10D1\u10D3\u10D8 \u10EC\u10D8\u10DC\u10D0\u10DB\u10EB\u10E6\u10DD\u10DA\u10D8\u10E1 \u10E7\u10E3\u10E0\u10D7\u10DB\u10D0\u10EF\u10D4\u10D1\u10D8 \u10D4\u10D0\u10DB\u10D0 \u10D0\u10E0\u10D4\u10D0\u10DA\u10E1, \u10DB\u10D9\u10D0\u10DA\u10D0\u10D5\u10D8\u10E8\u10D5\u10D8\u10DA\u10D8\u10E1 \u10DB\u10D4\u10D7\u10D5\u10E0\u10D0\u10DB\u10D4\u10E2\u10D4."), /*#__PURE__*/react__WEBPACK_IMPORTED_MODULE_0__.createElement("div", {
+  }, /*#__PURE__*/react__WEBPACK_IMPORTED_MODULE_0__.createElement("div", null, __('client.user_cabinet_welcome', sharedData)), " ", /*#__PURE__*/react__WEBPACK_IMPORTED_MODULE_0__.createElement("br", null), renderHTML(__('client.user_cabinet_text', sharedData).replace(/(?:\r\n|\r|\n)/g, '<br>'))), /*#__PURE__*/react__WEBPACK_IMPORTED_MODULE_0__.createElement("div", {
     className: "blue"
-  }, "\u10EA\u10D8\u10E0\u10D9\u10E3\u10DA\u10D0\u10E0\u10D4\u10D1\u10D8"), /*#__PURE__*/react__WEBPACK_IMPORTED_MODULE_0__.createElement("div", {
+  }, __('client.circulars', sharedData)), /*#__PURE__*/react__WEBPACK_IMPORTED_MODULE_0__.createElement("div", {
     className: "doc_grid"
   }, docs.map(function (doc, index) {
     return /*#__PURE__*/react__WEBPACK_IMPORTED_MODULE_0__.createElement(_components_SmallComps_SmallComps__WEBPACK_IMPORTED_MODULE_1__.DlPdf, {

@@ -201,6 +201,9 @@ class OurTeamController extends Controller
 
     public function appUpload(Request $request)
     {
+        $request->validate([
+            'doc' => 'required'
+        ]);
 
         app(ResumeRepository::class)->saveResume($request);
         return redirect()->back();
