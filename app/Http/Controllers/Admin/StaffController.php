@@ -13,7 +13,6 @@ namespace App\Http\Controllers\Admin;
 use App\Http\Controllers\Controller;
 use App\Http\Requests\Admin\CustomerRequest;
 use App\Http\Requests\Admin\ProductRequest;
-use App\Http\Requests\Admin\SkillRequest;
 use App\Http\Requests\Admin\StaffRequest;
 use App\Models\Category;
 use App\Models\Customer;
@@ -196,10 +195,10 @@ class StaffController extends Controller
      * @param Product $product
      * @return Application|RedirectResponse|Redirector
      */
-    public function destroy(string $locale, Customer $customer)
+    public function destroy(string $locale, Staff $staff)
     {
-        if (!$this->customerRepository->delete($customer->id)) {
-            return redirect(locale_route('staff.index', $customer->id))->with('danger', __('admin.not_delete_message'));
+        if (!$this->staffRepository->delete($staff->id)) {
+            return redirect(locale_route('staff.index', $staff->id))->with('danger', __('admin.not_delete_message'));
         }
         return redirect(locale_route('staff.index'))->with('success', __('admin.delete_message'));
     }

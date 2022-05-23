@@ -11,25 +11,25 @@ import "./Documents.css";
 
 const OwnerApplication = ({ seo, success, error }) => {
     const { errors } = usePage().props
-    if (success) {
-        Swal.fire({
-            title: 'წარმატებით დაემატა',
-            text: '',
-            icon: 'success',
-            confirmButtonText: 'Cool'
-        })
-        setTimeout(() => {
-            location.reload();
-        }, 2000);
-    } else if (error) {
-        Swal.fire({
-            title: 'შეცდომა!',
-            text: '',
-            icon: 'fail',
-            confirmButtonText: 'Cool'
-        })
-        location.reload()
-    }
+    // if (success) {
+    //     Swal.fire({
+    //         title: 'წარმატებით დაემატა',
+    //         text: '',
+    //         icon: 'success',
+    //         confirmButtonText: 'Cool'
+    //     })
+    //     setTimeout(() => {
+    //         location.reload();
+    //     }, 2000);
+    // } else if (error) {
+    //     Swal.fire({
+    //         title: 'შეცდომა!',
+    //         text: '',
+    //         icon: 'fail',
+    //         confirmButtonText: 'Cool'
+    //     })
+    //     location.reload()
+    // }
 
 
     const checklist = [
@@ -288,18 +288,27 @@ const OwnerApplication = ({ seo, success, error }) => {
         // let formInputs = form.elements;
         let validform = true;
         let a = document.querySelectorAll('.app_inputs input')
+        let x = document.ownerapplication
+
+        for (let j = 0; j < checklist.length; j++) {
+            var options = x[checklist[j].name];
+            for (let k = 0; k < options.length; k++) {
+                let check = options.value;
+                if (check == "") {
+                    validform = false;
+                    break;
+                }
+            }
+
+        }
+
         for (let i = 0; i < a.length; i++) {
             if (a[i].value == "") {
                 validform = false;
-                Swal.fire({
-                    title: 'შეცდომა',
-                    text: 'გთხოვთ შეავსოთ ყველა ველი',
-                    icon: 'fail',
-                    confirmButtonText: 'Cool'
-                })
                 break;
             }
         }
+        // if (!validform || !valid) {
         if (!validform) {
             Swal.fire({
                 title: 'შეცდომა',
@@ -308,8 +317,18 @@ const OwnerApplication = ({ seo, success, error }) => {
                 confirmButtonText: 'Cool'
             })
         }
+
         if (validform) {
+            Swal.fire({
+                title: 'წარმატებით დაემატა',
+                text: '',
+                icon: 'success',
+                confirmButtonText: 'Cool'
+            })
             Inertia.post(route('client.documentations.sendapplication'), values)
+            setTimeout(() => {
+                location.reload()
+            }, 1500);
         }
     }
 

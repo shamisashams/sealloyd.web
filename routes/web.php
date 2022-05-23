@@ -72,7 +72,7 @@ Route::prefix('{locale?}')
                 // Page
                 Route::resource('page', PageController::class);
                 Route::get('page/{page}/destroy', [PageController::class, 'destroy'])->name('page.destroy');
-                Route::get('page/doc/{doc}/destroy',[PageController::class,'docDelete'])->name('page.delete-doc');
+                Route::get('page/doc/{doc}/destroy', [PageController::class, 'docDelete'])->name('page.delete-doc');
 
 
                 Route::get('setting/active', [SettingController::class, 'setActive'])->name('setting.active');
@@ -94,6 +94,8 @@ Route::prefix('{locale?}')
 
                 //staff
                 Route::resource('staff', \App\Http\Controllers\Admin\StaffController::class);
+                Route::get('staff/{staff}/destroy', [\App\Http\Controllers\Admin\StaffController::class, 'destroy'])->name('staff.destroy');
+
 
                 Route::get('staff/{staff}/destroy', [\App\Http\Controllers\Admin\staffController::class, 'destroy'])->name('staff.destroy');
 

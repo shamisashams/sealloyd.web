@@ -20,6 +20,7 @@ class PageSectionSeeder extends Seeder
         $pages = [
             [
                 'key' => 'purpose',
+                'count' => 3
             ],
             [
                 'key' => 'ethics'
@@ -45,7 +46,7 @@ class PageSectionSeeder extends Seeder
 
         $in = [];
         $pageSections = [];
-        foreach ($pages as $item){
+        foreach ($pages as $item) {
             $in[] = $item['key'];
             $pageSections[$item['key']] = $item;
         }
@@ -53,16 +54,16 @@ class PageSectionSeeder extends Seeder
         //print_r($pageSections);
         //dd(3);
 
-        $pages = Page::whereIn('key',$in)->get();
+        $pages = Page::whereIn('key', $in)->get();
 
 
 
         $ins = [];
         $key = 0;
-        foreach ($pages as $item){
+        foreach ($pages as $item) {
 
-            if(isset($pageSections[$item->key]['count'])){
-                for ($i = 0; $i < $pageSections[$item->key]['count']; $i++){
+            if (isset($pageSections[$item->key]['count'])) {
+                for ($i = 0; $i < $pageSections[$item->key]['count']; $i++) {
                     $ins[$key]['page_id'] = $item->id;
                     $key++;
                 }
@@ -70,8 +71,6 @@ class PageSectionSeeder extends Seeder
                 $ins[$key]['page_id'] = $item->id;
                 $key++;
             }
-
-
         }
         //dd($ins);
         PageSection::insert($ins);

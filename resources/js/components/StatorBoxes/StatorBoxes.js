@@ -13,19 +13,19 @@ export const StatorBoxes = () => {
     let link = window.location.pathname;
     let a = link.split('/');
     const stators = [
-        "Solas",
-        "Marpol",
-        "ISM code",
-        "Ballast Water management",
-        "ISPS Code",
-        "ILO MLC, 2006",
-        "Energy efficiency",
-        "HazMat",
+        __('client.statorbox_solas', sharedData),
+        __('client.statorbox_marpol', sharedData),
+        __('client.statorbox_ismcode', sharedData),
+        __('client.statorbox_Ballastwater', sharedData),
+        __('client.statorbox_ispscode', sharedData),
+        __('client.statorbox_ilomlc', sharedData),
+        __('client.statorbox_energyefficiency', sharedData),
+        __('client.statorbox_hazmat', sharedData),
     ];
     return (
         <div className="stator_grid">
             <div className="first_box" data-aos="zoom-in">
-                <h6>სტატუტორი</h6>
+                <h6> {__('client.statorbox_stator', sharedData)}</h6>
                 {/* <p>
                     Founded in Norway in 1861, Wilhelmsen is now a comprehensive global
                     maritime group providing essential products and services to
