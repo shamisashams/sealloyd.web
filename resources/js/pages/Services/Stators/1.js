@@ -9,18 +9,18 @@ import "../../AboutUs/AboutUs.css";
 
 const Stator1 = ({ page, seo }) => {
     const sharedData = usePage().props.localizations;
-    const renderHTML = (rawHTML) => React.createElement("div", { dangerouslySetInnerHTML: { __html: rawHTML } });
+    const renderHTML = (rawHTML) => React.createElement("p", { dangerouslySetInnerHTML: { __html: rawHTML } });
 
     return (
         <Layout seo={seo}>
             <div className="servicesPage">
                 <div className="aboutPage wrapper statorPage">
                     <div className="container">
-                        <div className="font45 blue">Solas</div>
+                        <div className="font45 blue">{__('client.nav_home',sharedData)}</div>
                         <PagePath
-                            location1="მთავარი"
-                            location2="სერვისი"
-                            location3="სტატუტორი"
+                            location1={__('client.nav_home',sharedData)}
+                            location2={__('client.nav_services',sharedData)}
+                            location3={__('client.nav_stators',sharedData)}
                         />
                         <div className="content">
                             {/* <p>
@@ -43,9 +43,9 @@ const Stator1 = ({ page, seo }) => {
                                 5. Cargo Ship Safety Certificate <br />
                                 6. Exemption Certificate
                             </p> */}
-                            <p>
+
                                 {renderHTML(__('client.services_nav_stators_main_text', sharedData).replace(/(?:\r\n|\r|\n)/g, '<br>'))}
-                            </p>
+
                         </div>
                     </div>
                     <StatorBoxes />

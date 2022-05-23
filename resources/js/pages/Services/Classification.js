@@ -7,20 +7,20 @@ import "./Services.css";
 import { Link, usePage } from "@inertiajs/inertia-react";
 
 
-const Classification = ({ seo }) => {
+const Classification = ({ seo, images }) => {
     const sharedData = usePage().props.localizations;
-    const renderHTML = (rawHTML) => React.createElement("div", { dangerouslySetInnerHTML: { __html: rawHTML } });
+    const renderHTML = (rawHTML) => React.createElement("p", { dangerouslySetInnerHTML: { __html: rawHTML } });
 
     return (
         <Layout seo={seo}>
             <div className="servicesPage ">
                 <div className=" aboutPage wrapper">
-                    <img className="ships_img" src='/assets/images/bgs/2.png' alt="" />
+                    <img className="ships_img" src={images[0]} alt="" />
                     <div className="container">
                         <PagePath
-                            location1="მთავარი"
-                            location2="სერვისი"
-                            location3="გემების კლასიფიკაცია"
+                            location1={__('client.nav_home',sharedData)}
+                            location2={__('client.nav_services',sharedData)}
+                            location3={__('client.nav_clasification',sharedData)}
                         />
                         <div className="content">
                             {/* <p>
@@ -55,9 +55,9 @@ const Classification = ({ seo }) => {
                                 and 1988. SOLAS is the most important of all international
                                 treaties concerning the safety of merchant ships.
                             </p> */}
-                            <p>
+
                                 {renderHTML(__('client.services_nav_clasification_main_text', sharedData).replace(/(?:\r\n|\r|\n)/g, '<br>'))}
-                            </p>
+
                         </div>
                     </div>
                 </div>

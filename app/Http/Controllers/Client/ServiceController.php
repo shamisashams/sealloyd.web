@@ -133,7 +133,7 @@ class ServiceController extends Controller
     //   certification page render
     public function Certification()
     {
-        $page = Page::where('key', 'home')->firstOrFail();
+        $page = Page::where('key', 'certification')->firstOrFail();
         $images = [];
         foreach ($page->sections as $sections) {
             if ($sections->file) {

@@ -5,20 +5,20 @@ import { Link, usePage } from "@inertiajs/inertia-react";
 
 // import Img1 from "../../assets/images/ports/5.png";
 import "../AboutUs/AboutUs.css";
-const CompRecognition = ({ seo }) => {
+const CompRecognition = ({ seo, images }) => {
     const sharedData = usePage().props.localizations;
-    const renderHTML = (rawHTML) => React.createElement("div", { dangerouslySetInnerHTML: { __html: rawHTML } });
+    const renderHTML = (rawHTML) => React.createElement("p", { dangerouslySetInnerHTML: { __html: rawHTML } });
     return (
         <Layout seo={seo}>
             <div className="aboutPage wrapper padding_top">
                 <div className="container">
-                    <div className="font45 blue">კომპანიების აღიარება</div>
+                    <div className="font45 blue">{renderHTML(__('client.services_nav_comprecognition_header', sharedData).replace(/(?:\r\n|\r|\n)/g, '<br>'))}</div>
                     <PagePath
-                        location1="მთავარი"
-                        location2="სერვისი"
-                        location3="კომპანიების აღიარება"
+                        location1={__('client.nav_home',sharedData)}
+                        location2={__('client.nav_services',sharedData)}
+                        location3={__('client.nav_comprecognition',sharedData)}
                     />
-                    <img src='/assets/images/bgs/2.png' alt="" />
+                    <img src={images[0]} alt="" />
                     <div className="content">
                         {/* <p>
                             ლორემ იპსუმ ქვეყნიური თვითიდენტიფიკაციისა მესამის რიტუალური
@@ -65,9 +65,9 @@ const CompRecognition = ({ seo }) => {
                             დამიხედე ამოტივტივდებაო მარტოკა ღიჯინი მათთაგან, მოუჭირა იუბილარს
                             იქადაგებს ემატებიან ბურჟუები გულგახეთქილნი.
                         </p> */}
-                        <p>
+
                             {renderHTML(__('client.services_nav_comprecognition_main_text', sharedData).replace(/(?:\r\n|\r|\n)/g, '<br>'))}
-                        </p>
+
                     </div>
                 </div>
             </div>
