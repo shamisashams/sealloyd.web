@@ -115,9 +115,7 @@ class StaffController extends Controller
 
         // Save Files
         if ($request->hasFile('images')) {
-        }
-
-        if ($request->hasFile('files')) {
+            $customer = $this->staffRepository->saveFiles($customer->id, $request);
         }
 
         return redirect(locale_route('staff.index', $customer->id))->with('success', __('admin.create_successfully'));
@@ -178,19 +176,14 @@ class StaffController extends Controller
     {
         //dd($request->all());
         $saveData = Arr::except($request->except('_token'), []);
-        //$saveData['status'] = isset($saveData['status']) && (bool)$saveData['status'];
+        $saveData['status'] = isset($saveData['status']) && (bool)$saveData['status'];
 
-        $saveData['password'] = Hash::make($request->password);
+
         //dd($saveData);
 
+        $this->staffRepository->update($staff->id, $saveData);
 
-
-
-
-        if ($request->hasFile('files')) {
-        }
-
-
+        $this->staffRepository->saveFiles($staff->id, $request);
 
 
         return redirect(locale_route('staff.index', $staff->id))->with('success', __('admin.update_successfully'));

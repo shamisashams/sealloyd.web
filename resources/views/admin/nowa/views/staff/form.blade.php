@@ -73,10 +73,23 @@
                                         ?>
                                         <div class="tab-pane {{$active}}" id="lang-{{$locale}}">
                                             <div class="form-group">
+                                                <label class="form-label">@lang('admin.name')</label>
                                                 <input type="text" name="{{$locale.'[name]'}}" class="form-control" placeholder="@lang('admin.name')" value="{{$staff->translate($locale)->name ?? ''}}">
+
+                                            </div>
+                                            @error($locale.'.name')
+                                            <small class="text-danger">
+                                                <div class="error">
+                                                    {{$message}}
+                                                </div>
+                                            </small>
+                                            @enderror
+
+                                            <div class="form-group">
+                                                <label class="form-label">@lang('admin.position')</label>
                                                 <input type="text" name="{{$locale.'[position]'}}" class="form-control" placeholder="@lang('admin.position')" value="{{$staff->translate($locale)->position ?? ''}}">
                                             </div>
-                                            @error($locale.'.title')
+                                            @error($locale.'.position')
                                             <small class="text-danger">
                                                 <div class="error">
                                                     {{$message}}

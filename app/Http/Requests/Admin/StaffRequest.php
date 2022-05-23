@@ -43,7 +43,7 @@ class StaffRequest extends FormRequest
         }
 
         return [
-            config('translatable.fallback_locale') . '.title' => 'required',
+            config('translatable.fallback_locale') . '.name' => 'required',
             //'slug' => ['required', 'alpha_dash', Rule::unique('vacancies', 'slug')->ignore($this->vacancy)],
         ];
     }

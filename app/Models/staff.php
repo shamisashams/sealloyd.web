@@ -18,7 +18,7 @@ class Staff extends Model
     use Translatable, HasFactory, ScopeFilter;
     use HasFactory;
     protected $table = 'staffs';
-    // protected fillable = ['status'];
+     protected $fillable = ['status'];
 
     public function getFilterScopes(): array
     {
