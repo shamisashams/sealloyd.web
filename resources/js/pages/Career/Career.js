@@ -39,11 +39,11 @@ const Career = ({ seo }) => {
         <Layout seo={seo}>
             <div className="teamPage careerPage">
                 <div className="wrapper">
-                    <div className="font45 blue">კარიერა</div>
+                    <div className="font45 blue">{renderHTML(__('client.ourteam_career_header', sharedData).replace(/(?:\r\n|\r|\n)/g, '<br>'))}</div>
                     <PagePath
-                        location1="მთავარი"
-                        location2="ჩვენი გუნდი"
-                        location3="კარიერა"
+                        location1={__('client.nav_home',sharedData)}
+                        location2={__('client.nav_ourteam',sharedData)}
+                        location3={__('client.nav_career',sharedData)}
                     />
                     <div className="career_grid">
                         {vacancies.map((box, index) => {
