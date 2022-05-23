@@ -13,10 +13,10 @@ import { StatorBoxes } from "../../components/StatorBoxes/StatorBoxes";
 // import { Link } from "react-router-dom";
 import { Link, usePage } from "@inertiajs/inertia-react";
 import PortsMap from "../../components/PortsMap/PortsMap";
-const Home = ({ page, seo }) => {
+const Home = ({ page, seo, images }) => {
     const renderHTML = (rawHTML) => React.createElement("div", { dangerouslySetInnerHTML: { __html: rawHTML } });
     const sharedData = usePage().props.localizations;
-    const { images } = usePage().props;
+    // const { images } = usePage().props;
     console.log(images[0], 'essaaa');
     return (
         <Layout seo={seo}>

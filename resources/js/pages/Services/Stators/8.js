@@ -3,8 +3,12 @@ import { PagePath } from "../../../components/SmallComps/SmallComps";
 import { StatorBoxes } from "../../../components/StatorBoxes/StatorBoxes";
 import "../../AboutUs/AboutUs.css";
 import Layout from "../../../Layouts/Layout";
+import { Link, usePage } from "@inertiajs/inertia-react";
+
 
 const Stator8 = ({ seo }) => {
+    const sharedData = usePage().props.localizations;
+    const renderHTML = (rawHTML) => React.createElement("div", { dangerouslySetInnerHTML: { __html: rawHTML } });
     return (
         <Layout seo={seo}>
             <div className="servicesPage">
@@ -17,7 +21,7 @@ const Stator8 = ({ seo }) => {
                             location3="სტატუტორი"
                         />
                         <div className="content">
-                            <p>
+                            {/* <p>
                                 The EU Ship Recycling Regulation came into force on 31 December
                                 2020 and effects any in-service ship of 500 GT or over calling at
                                 any EU* port or anchorage (regardless of flag). It requires that
@@ -29,6 +33,9 @@ const Stator8 = ({ seo }) => {
                                 ships and achieve compliance with both (EU SRR) and the Hong Kong
                                 Convention (HKC) for the Safe and Environmentally Sound Recycling
                                 of Ships.
+                            </p> */}
+                            <p>
+                                {renderHTML(__('client.services_nav_stators8_main_text', sharedData).replace(/(?:\r\n|\r|\n)/g, '<br>'))}
                             </p>
                         </div>
                     </div>

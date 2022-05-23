@@ -3,8 +3,12 @@ import { PagePath } from "../../../components/SmallComps/SmallComps";
 import { StatorBoxes } from "../../../components/StatorBoxes/StatorBoxes";
 import Layout from "../../../Layouts/Layout";
 import "../../AboutUs/AboutUs.css";
+import { Link, usePage } from "@inertiajs/inertia-react";
+
 
 const Stator3 = ({ seo }) => {
+    const sharedData = usePage().props.localizations;
+    const renderHTML = (rawHTML) => React.createElement("div", { dangerouslySetInnerHTML: { __html: rawHTML } });
     return (
         <Layout seo={seo}>
             <div className="servicesPage">
@@ -17,7 +21,7 @@ const Stator3 = ({ seo }) => {
                             location3="სტატუტორი"
                         />
                         <div className="content">
-                            <p>
+                            {/* <p>
                                 was adopted by the IMO through Resolution A.741 (18) on the 4th of
                                 November 1993. The ISM Code has been enforced for all types of
                                 ships of 500 gross tonnage. The aim of ISM Code is to provide
@@ -32,6 +36,9 @@ const Stator3 = ({ seo }) => {
                                 ISM Code. Correspondingly, a Safety Management Certificate (SMC)
                                 is issued to a ship which prove that, its shipboard management
                                 operates in accordance with the approved Safety Management System.
+                            </p> */}
+                            <p>
+                                {renderHTML(__('client.services_nav_stators3_main_text', sharedData).replace(/(?:\r\n|\r|\n)/g, '<br>'))}
                             </p>
                         </div>
                     </div>

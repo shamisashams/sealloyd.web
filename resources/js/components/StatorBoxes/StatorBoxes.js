@@ -3,9 +3,10 @@ import React from "react";
 import { Inertia } from "@inertiajs/inertia";
 import { Link, usePage } from "@inertiajs/inertia-react";
 import "./StatorBoxes.css";
+
 // import Bg from "../../assets/images/stators/bg.png";
 
-export const StatorBoxes = () => {
+export const StatorBoxes = ({ seo, images }) => {
     const renderHTML = (rawHTML) => React.createElement("div", { dangerouslySetInnerHTML: { __html: rawHTML } });
     const sharedData = usePage().props.localizations;
 

@@ -3,8 +3,12 @@ import { PagePath } from "../../../components/SmallComps/SmallComps";
 import { StatorBoxes } from "../../../components/StatorBoxes/StatorBoxes";
 import Layout from "../../../Layouts/Layout";
 import "../../AboutUs/AboutUs.css";
+import { Link, usePage } from "@inertiajs/inertia-react";
+
 
 const Stator4 = ({ seo }) => {
+    const sharedData = usePage().props.localizations;
+    const renderHTML = (rawHTML) => React.createElement("div", { dangerouslySetInnerHTML: { __html: rawHTML } });
     return (
         <Layout seo={seo}>
             <div className="servicesPage">
@@ -17,7 +21,7 @@ const Stator4 = ({ seo }) => {
                             location3="სტატუტორი"
                         />
                         <div className="content">
-                            <p>
+                            {/* <p>
                                 The Ballast Water Management Convention have an impact right
                                 across the shipping industry, affecting a wide variety of people,
                                 and presenting different challenges and pressures. The BWMC, 2004
@@ -42,6 +46,9 @@ const Stator4 = ({ seo }) => {
                                 • an “International Ballast Water Management Certificate” with a
                                 five-year validity and subject to annual, intermediate and renewal
                                 surveys. <br />
+                            </p> */}
+                            <p>
+                                {renderHTML(__('client.services_nav_stators4_main_text', sharedData).replace(/(?:\r\n|\r|\n)/g, '<br>'))}
                             </p>
                         </div>
                     </div>

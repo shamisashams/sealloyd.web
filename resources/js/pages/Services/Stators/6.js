@@ -3,8 +3,12 @@ import { PagePath } from "../../../components/SmallComps/SmallComps";
 import { StatorBoxes } from "../../../components/StatorBoxes/StatorBoxes";
 import "../../AboutUs/AboutUs.css";
 import Layout from "../../../Layouts/Layout";
+import { Link, usePage } from "@inertiajs/inertia-react";
+
 
 const Stator6 = ({ seo }) => {
+    const sharedData = usePage().props.localizations;
+    const renderHTML = (rawHTML) => React.createElement("div", { dangerouslySetInnerHTML: { __html: rawHTML } });
     return (
         <Layout seo={seo}>
             <div className="servicesPage">
@@ -17,7 +21,7 @@ const Stator6 = ({ seo }) => {
                             location3="სტატუტორი"
                         />
                         <div className="content">
-                            <p>
+                            {/* <p>
                                 The International Labour Organisation (ILO) adopted Maritime
                                 Labour Convention, 2006 (MLC, 2006) to help ensure that all
                                 seafarers, regardless of their nationality and the flag of the
@@ -43,6 +47,9 @@ const Stator6 = ({ seo }) => {
                                 Labour Certificates. We are also able to provide early reviews of
                                 your DMLC Part II in order to facilitate the inspection process on
                                 board.
+                            </p> */}
+                            <p>
+                                {renderHTML(__('client.services_nav_stators6_main_text', sharedData).replace(/(?:\r\n|\r|\n)/g, '<br>'))}
                             </p>
                         </div>
                     </div>
