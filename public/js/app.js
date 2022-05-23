@@ -3762,7 +3762,9 @@ __webpack_require__.r(__webpack_exports__);
 
 
 var Contact = function Contact(_ref) {
-  var seo = _ref.seo;
+  var page = _ref.page,
+      seo = _ref.seo;
+  console.log(page);
 
   var _useForm = (0,_inertiajs_inertia_react__WEBPACK_IMPORTED_MODULE_5__.useForm)({
     name: '',

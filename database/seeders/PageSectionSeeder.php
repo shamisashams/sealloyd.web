@@ -38,7 +38,6 @@ class PageSectionSeeder extends Seeder
             ],
             [
                 'key' => 'contact',
-                'count' => 3
             ]
 
 

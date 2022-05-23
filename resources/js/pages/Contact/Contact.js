@@ -9,7 +9,8 @@ import "./Contact.css";
 import Layout from "../../Layouts/Layout";
 import { useForm } from '@inertiajs/inertia-react'
 
-const Contact = ({ seo }) => {
+const Contact = ({ page, seo }) => {
+    console.log(page)
     const { data, setData, post, processing, errors } = useForm({
         name: '',
         lastname: '',
