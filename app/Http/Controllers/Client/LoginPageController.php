@@ -107,7 +107,7 @@ class LoginPageController extends Controller
     public function ethics()
     {
 
-        $page = Page::where('key', 'services')->firstOrFail();
+        $page = Page::where('key', 'ethics')->firstOrFail();
 
         $images = [];
         foreach ($page->sections as $sections) {

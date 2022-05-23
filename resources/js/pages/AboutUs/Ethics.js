@@ -5,25 +5,25 @@ import Layout from "../../Layouts/Layout";
 import "./AboutUs.css";
 import { Link, usePage } from "@inertiajs/inertia-react";
 
-const Ethics = ({ seo }) => {
+const Ethics = ({ seo, images }) => {
     const sharedData = usePage().props.localizations;
-    const renderHTML = (rawHTML) => React.createElement("div", { dangerouslySetInnerHTML: { __html: rawHTML } });
+    const renderHTML = (rawHTML) => React.createElement("p", { dangerouslySetInnerHTML: { __html: rawHTML } });
     return (
         <Layout seo={seo}>
             <div className="aboutPage padding_top">
                 <div
                     className="showcase"
                     style={{
-                        background: `url('/assets/images/ports/1.png') no-repeat`,
+                        background: `url('`+ images[0] +`') no-repeat`,
                         backgroundPosition: "center",
                         backgroundSize: "cover",
                     }}
                 >
                     <div className="wrapper">
                         <PagePath
-                            location1="მთავარი"
-                            location2="ჩვენ შესახებ"
-                            location3="ეთიკის  კოდექსი"
+                            location1={__('client.nav_home',sharedData)}
+                            location2={__('client.nav_aboutus',sharedData)}
+                            location3={__('client.nav_ethics',sharedData)}
                         />
                     </div>
                 </div>
@@ -74,9 +74,9 @@ const Ethics = ({ seo }) => {
                             დამიხედე ამოტივტივდებაო მარტოკა ღიჯინი მათთაგან, მოუჭირა იუბილარს
                             იქადაგებს ემატებიან ბურჟუები გულგახეთქილნი.
                         </p> */}
-                        <p>
+
                             {renderHTML(__('client.aboutus_ethics_main_text', sharedData).replace(/(?:\r\n|\r|\n)/g, '<br>'))}
-                        </p>
+
                     </div>
                 </div>
             </div>
