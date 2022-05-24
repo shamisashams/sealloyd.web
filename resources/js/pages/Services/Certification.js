@@ -2,23 +2,33 @@ import React from "react";
 import { PagePath } from "../../components/SmallComps/SmallComps";
 import Layout from "../../Layouts/Layout";
 import { Link, usePage } from "@inertiajs/inertia-react";
+import "./Services.css";
 
 // import Img1 from "../../assets/images/ports/4.png";
 import "../AboutUs/AboutUs.css";
 const Certification = ({ seo, images }) => {
-
     const sharedData = usePage().props.localizations;
-    const renderHTML = (rawHTML) => React.createElement("p", { dangerouslySetInnerHTML: { __html: rawHTML } });
+    const renderHTML = (rawHTML) =>
+        React.createElement("p", {
+            dangerouslySetInnerHTML: { __html: rawHTML },
+        });
 
     return (
         <Layout seo={seo}>
             <div className="aboutPage wrapper padding_top">
                 <div className="container">
-                    <div className="font45 blue">{renderHTML(__('client.services_certification_header', sharedData).replace(/(?:\r\n|\r|\n)/g, '<br>'))}</div>
+                    <div className="font45 blue">
+                        {renderHTML(
+                            __(
+                                "client.services_certification_header",
+                                sharedData
+                            ).replace(/(?:\r\n|\r|\n)/g, "<br>")
+                        )}
+                    </div>
                     <PagePath
-                        location1={__('client.nav_home',sharedData)}
-                        location2={__('client.nav_services',sharedData)}
-                        location3={__('client.nav_certifications',sharedData)}
+                        location1={__("client.nav_home", sharedData)}
+                        location2={__("client.nav_services", sharedData)}
+                        location3={__("client.nav_certifications", sharedData)}
                     />
                     <img src={images[0]} alt="" />
                     <div className="content">
@@ -68,8 +78,12 @@ const Certification = ({ seo, images }) => {
                             იქადაგებს ემატებიან ბურჟუები გულგახეთქილნი.
                         </p> */}
 
-                            {renderHTML(__('client.services_certification_main_text', sharedData).replace(/(?:\r\n|\r|\n)/g, '<br>'))}
-
+                        {renderHTML(
+                            __(
+                                "client.services_certification_main_text",
+                                sharedData
+                            ).replace(/(?:\r\n|\r|\n)/g, "<br>")
+                        )}
                     </div>
                 </div>
             </div>
