@@ -122,7 +122,8 @@ const Header = () => {
     };
     // const { pathname } = useLocation();
     let solid = false;
-    if (pathname == route('client.home.index') || pathname == route('client.login')) {
+    let base_url = window.location.origin;
+    if (pathname == `${base_url}/${currentLocale}` || pathname == `${base_url}/${currentLocale}/login`) {
         solid = true;
     }
     return (
