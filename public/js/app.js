@@ -5512,7 +5512,9 @@ __webpack_require__.r(__webpack_exports__);
 /* harmony import */ var _components_SmallComps_SmallComps__WEBPACK_IMPORTED_MODULE_1__ = __webpack_require__(/*! ../../components/SmallComps/SmallComps */ "./resources/js/components/SmallComps/SmallComps.js");
 /* harmony import */ var _Layouts_Layout__WEBPACK_IMPORTED_MODULE_2__ = __webpack_require__(/*! ../../Layouts/Layout */ "./resources/js/Layouts/Layout.js");
 /* harmony import */ var _inertiajs_inertia_react__WEBPACK_IMPORTED_MODULE_3__ = __webpack_require__(/*! @inertiajs/inertia-react */ "./node_modules/@inertiajs/inertia-react/dist/index.js");
-/* harmony import */ var _AboutUs_AboutUs_css__WEBPACK_IMPORTED_MODULE_4__ = __webpack_require__(/*! ../AboutUs/AboutUs.css */ "./resources/js/Pages/AboutUs/AboutUs.css");
+/* harmony import */ var _Services_css__WEBPACK_IMPORTED_MODULE_4__ = __webpack_require__(/*! ./Services.css */ "./resources/js/Pages/Services/Services.css");
+/* harmony import */ var _AboutUs_AboutUs_css__WEBPACK_IMPORTED_MODULE_5__ = __webpack_require__(/*! ../AboutUs/AboutUs.css */ "./resources/js/Pages/AboutUs/AboutUs.css");
+
 
 
 
@@ -5541,16 +5543,16 @@ var Certification = function Certification(_ref) {
     className: "container"
   }, /*#__PURE__*/react__WEBPACK_IMPORTED_MODULE_0__.createElement("div", {
     className: "font45 blue"
-  }, renderHTML(__('client.services_certification_header', sharedData).replace(/(?:\r\n|\r|\n)/g, '<br>'))), /*#__PURE__*/react__WEBPACK_IMPORTED_MODULE_0__.createElement(_components_SmallComps_SmallComps__WEBPACK_IMPORTED_MODULE_1__.PagePath, {
-    location1: __('client.nav_home', sharedData),
-    location2: __('client.nav_services', sharedData),
-    location3: __('client.nav_certifications', sharedData)
+  }, renderHTML(__("client.services_certification_header", sharedData).replace(/(?:\r\n|\r|\n)/g, "<br>"))), /*#__PURE__*/react__WEBPACK_IMPORTED_MODULE_0__.createElement(_components_SmallComps_SmallComps__WEBPACK_IMPORTED_MODULE_1__.PagePath, {
+    location1: __("client.nav_home", sharedData),
+    location2: __("client.nav_services", sharedData),
+    location3: __("client.nav_certifications", sharedData)
   }), /*#__PURE__*/react__WEBPACK_IMPORTED_MODULE_0__.createElement("img", {
     src: images[0],
     alt: ""
   }), /*#__PURE__*/react__WEBPACK_IMPORTED_MODULE_0__.createElement("div", {
     className: "content"
-  }, renderHTML(__('client.services_certification_main_text', sharedData).replace(/(?:\r\n|\r|\n)/g, '<br>'))))));
+  }, renderHTML(__("client.services_certification_main_text", sharedData).replace(/(?:\r\n|\r|\n)/g, "<br>"))))));
 };
 
 /* harmony default export */ const __WEBPACK_DEFAULT_EXPORT__ = (Certification);
@@ -5635,7 +5637,9 @@ __webpack_require__.r(__webpack_exports__);
 /* harmony import */ var _components_SmallComps_SmallComps__WEBPACK_IMPORTED_MODULE_1__ = __webpack_require__(/*! ../../components/SmallComps/SmallComps */ "./resources/js/components/SmallComps/SmallComps.js");
 /* harmony import */ var _Layouts_Layout__WEBPACK_IMPORTED_MODULE_2__ = __webpack_require__(/*! ../../Layouts/Layout */ "./resources/js/Layouts/Layout.js");
 /* harmony import */ var _inertiajs_inertia_react__WEBPACK_IMPORTED_MODULE_3__ = __webpack_require__(/*! @inertiajs/inertia-react */ "./node_modules/@inertiajs/inertia-react/dist/index.js");
-/* harmony import */ var _AboutUs_AboutUs_css__WEBPACK_IMPORTED_MODULE_4__ = __webpack_require__(/*! ../AboutUs/AboutUs.css */ "./resources/js/Pages/AboutUs/AboutUs.css");
+/* harmony import */ var _Services_css__WEBPACK_IMPORTED_MODULE_4__ = __webpack_require__(/*! ./Services.css */ "./resources/js/Pages/Services/Services.css");
+/* harmony import */ var _AboutUs_AboutUs_css__WEBPACK_IMPORTED_MODULE_5__ = __webpack_require__(/*! ../AboutUs/AboutUs.css */ "./resources/js/Pages/AboutUs/AboutUs.css");
+
 
 
 
@@ -5664,16 +5668,16 @@ var CompRecognition = function CompRecognition(_ref) {
     className: "container"
   }, /*#__PURE__*/react__WEBPACK_IMPORTED_MODULE_0__.createElement("div", {
     className: "font45 blue"
-  }, renderHTML(__('client.services_nav_comprecognition_header', sharedData).replace(/(?:\r\n|\r|\n)/g, '<br>'))), /*#__PURE__*/react__WEBPACK_IMPORTED_MODULE_0__.createElement(_components_SmallComps_SmallComps__WEBPACK_IMPORTED_MODULE_1__.PagePath, {
-    location1: __('client.nav_home', sharedData),
-    location2: __('client.nav_services', sharedData),
-    location3: __('client.nav_comprecognition', sharedData)
+  }, renderHTML(__("client.services_nav_comprecognition_header", sharedData).replace(/(?:\r\n|\r|\n)/g, "<br>"))), /*#__PURE__*/react__WEBPACK_IMPORTED_MODULE_0__.createElement(_components_SmallComps_SmallComps__WEBPACK_IMPORTED_MODULE_1__.PagePath, {
+    location1: __("client.nav_home", sharedData),
+    location2: __("client.nav_services", sharedData),
+    location3: __("client.nav_comprecognition", sharedData)
   }), /*#__PURE__*/react__WEBPACK_IMPORTED_MODULE_0__.createElement("img", {
     src: images[0],
     alt: ""
   }), /*#__PURE__*/react__WEBPACK_IMPORTED_MODULE_0__.createElement("div", {
     className: "content"
-  }, renderHTML(__('client.services_nav_comprecognition_main_text', sharedData).replace(/(?:\r\n|\r|\n)/g, '<br>'))))));
+  }, renderHTML(__("client.services_nav_comprecognition_main_text", sharedData).replace(/(?:\r\n|\r|\n)/g, "<br>"))))));
 };
 
 /* harmony default export */ const __WEBPACK_DEFAULT_EXPORT__ = (CompRecognition);
@@ -5696,7 +5700,9 @@ __webpack_require__.r(__webpack_exports__);
 /* harmony import */ var _components_StatorBoxes_StatorBoxes__WEBPACK_IMPORTED_MODULE_2__ = __webpack_require__(/*! ../../../components/StatorBoxes/StatorBoxes */ "./resources/js/components/StatorBoxes/StatorBoxes.js");
 /* harmony import */ var _Layouts_Layout__WEBPACK_IMPORTED_MODULE_3__ = __webpack_require__(/*! ../../../Layouts/Layout */ "./resources/js/Layouts/Layout.js");
 /* harmony import */ var _inertiajs_inertia_react__WEBPACK_IMPORTED_MODULE_4__ = __webpack_require__(/*! @inertiajs/inertia-react */ "./node_modules/@inertiajs/inertia-react/dist/index.js");
-/* harmony import */ var _AboutUs_AboutUs_css__WEBPACK_IMPORTED_MODULE_5__ = __webpack_require__(/*! ../../AboutUs/AboutUs.css */ "./resources/js/Pages/AboutUs/AboutUs.css");
+/* harmony import */ var _Services_css__WEBPACK_IMPORTED_MODULE_5__ = __webpack_require__(/*! ../Services.css */ "./resources/js/Pages/Services/Services.css");
+/* harmony import */ var _AboutUs_AboutUs_css__WEBPACK_IMPORTED_MODULE_6__ = __webpack_require__(/*! ../../AboutUs/AboutUs.css */ "./resources/js/Pages/AboutUs/AboutUs.css");
+
 
 
 
@@ -5727,13 +5733,13 @@ var Stator1 = function Stator1(_ref) {
     className: "container"
   }, /*#__PURE__*/react__WEBPACK_IMPORTED_MODULE_0__.createElement("div", {
     className: "font45 blue"
-  }, __('client.stator1_header', sharedData)), /*#__PURE__*/react__WEBPACK_IMPORTED_MODULE_0__.createElement(_components_SmallComps_SmallComps__WEBPACK_IMPORTED_MODULE_1__.PagePath, {
-    location1: __('client.nav_home', sharedData),
-    location2: __('client.nav_services', sharedData),
-    location3: __('client.nav_stators', sharedData)
+  }, __("client.stator1_header", sharedData)), /*#__PURE__*/react__WEBPACK_IMPORTED_MODULE_0__.createElement(_components_SmallComps_SmallComps__WEBPACK_IMPORTED_MODULE_1__.PagePath, {
+    location1: __("client.nav_home", sharedData),
+    location2: __("client.nav_services", sharedData),
+    location3: __("client.nav_stators", sharedData)
   }), /*#__PURE__*/react__WEBPACK_IMPORTED_MODULE_0__.createElement("div", {
     className: "content"
-  }, renderHTML(__('client.stator1_main_text', sharedData).replace(/(?:\r\n|\r|\n)/g, '<br>')))), /*#__PURE__*/react__WEBPACK_IMPORTED_MODULE_0__.createElement(_components_StatorBoxes_StatorBoxes__WEBPACK_IMPORTED_MODULE_2__.StatorBoxes, null))));
+  }, renderHTML(__("client.stator1_main_text", sharedData).replace(/(?:\r\n|\r|\n)/g, "<br>")))), /*#__PURE__*/react__WEBPACK_IMPORTED_MODULE_0__.createElement(_components_StatorBoxes_StatorBoxes__WEBPACK_IMPORTED_MODULE_2__.StatorBoxes, null))));
 };
 
 /* harmony default export */ const __WEBPACK_DEFAULT_EXPORT__ = (Stator1);
@@ -5756,7 +5762,9 @@ __webpack_require__.r(__webpack_exports__);
 /* harmony import */ var _components_StatorBoxes_StatorBoxes__WEBPACK_IMPORTED_MODULE_2__ = __webpack_require__(/*! ../../../components/StatorBoxes/StatorBoxes */ "./resources/js/components/StatorBoxes/StatorBoxes.js");
 /* harmony import */ var _Layouts_Layout__WEBPACK_IMPORTED_MODULE_3__ = __webpack_require__(/*! ../../../Layouts/Layout */ "./resources/js/Layouts/Layout.js");
 /* harmony import */ var _inertiajs_inertia_react__WEBPACK_IMPORTED_MODULE_4__ = __webpack_require__(/*! @inertiajs/inertia-react */ "./node_modules/@inertiajs/inertia-react/dist/index.js");
-/* harmony import */ var _AboutUs_AboutUs_css__WEBPACK_IMPORTED_MODULE_5__ = __webpack_require__(/*! ../../AboutUs/AboutUs.css */ "./resources/js/Pages/AboutUs/AboutUs.css");
+/* harmony import */ var _Services_css__WEBPACK_IMPORTED_MODULE_5__ = __webpack_require__(/*! ../Services.css */ "./resources/js/Pages/Services/Services.css");
+/* harmony import */ var _AboutUs_AboutUs_css__WEBPACK_IMPORTED_MODULE_6__ = __webpack_require__(/*! ../../AboutUs/AboutUs.css */ "./resources/js/Pages/AboutUs/AboutUs.css");
+
 
 
 
@@ -5786,13 +5794,13 @@ var Stator2 = function Stator2(_ref) {
     className: "container"
   }, /*#__PURE__*/react__WEBPACK_IMPORTED_MODULE_0__.createElement("div", {
     className: "font45 blue"
-  }, __('client.stator2_header', sharedData)), /*#__PURE__*/react__WEBPACK_IMPORTED_MODULE_0__.createElement(_components_SmallComps_SmallComps__WEBPACK_IMPORTED_MODULE_1__.PagePath, {
-    location1: __('client.nav_home', sharedData),
-    location2: __('client.nav_services', sharedData),
-    location3: __('client.nav_stators', sharedData)
+  }, __("client.stator2_header", sharedData)), /*#__PURE__*/react__WEBPACK_IMPORTED_MODULE_0__.createElement(_components_SmallComps_SmallComps__WEBPACK_IMPORTED_MODULE_1__.PagePath, {
+    location1: __("client.nav_home", sharedData),
+    location2: __("client.nav_services", sharedData),
+    location3: __("client.nav_stators", sharedData)
   }), /*#__PURE__*/react__WEBPACK_IMPORTED_MODULE_0__.createElement("div", {
     className: "content"
-  }, /*#__PURE__*/react__WEBPACK_IMPORTED_MODULE_0__.createElement("p", null, /*#__PURE__*/react__WEBPACK_IMPORTED_MODULE_0__.createElement("p", null, renderHTML(__('client.stator2_main_text', sharedData).replace(/(?:\r\n|\r|\n)/g, '<br>')))))), /*#__PURE__*/react__WEBPACK_IMPORTED_MODULE_0__.createElement(_components_StatorBoxes_StatorBoxes__WEBPACK_IMPORTED_MODULE_2__.StatorBoxes, null))));
+  }, /*#__PURE__*/react__WEBPACK_IMPORTED_MODULE_0__.createElement("p", null, /*#__PURE__*/react__WEBPACK_IMPORTED_MODULE_0__.createElement("p", null, renderHTML(__("client.stator2_main_text", sharedData).replace(/(?:\r\n|\r|\n)/g, "<br>")))))), /*#__PURE__*/react__WEBPACK_IMPORTED_MODULE_0__.createElement(_components_StatorBoxes_StatorBoxes__WEBPACK_IMPORTED_MODULE_2__.StatorBoxes, null))));
 };
 
 /* harmony default export */ const __WEBPACK_DEFAULT_EXPORT__ = (Stator2);
@@ -5816,6 +5824,8 @@ __webpack_require__.r(__webpack_exports__);
 /* harmony import */ var _Layouts_Layout__WEBPACK_IMPORTED_MODULE_3__ = __webpack_require__(/*! ../../../Layouts/Layout */ "./resources/js/Layouts/Layout.js");
 /* harmony import */ var _AboutUs_AboutUs_css__WEBPACK_IMPORTED_MODULE_4__ = __webpack_require__(/*! ../../AboutUs/AboutUs.css */ "./resources/js/Pages/AboutUs/AboutUs.css");
 /* harmony import */ var _inertiajs_inertia_react__WEBPACK_IMPORTED_MODULE_5__ = __webpack_require__(/*! @inertiajs/inertia-react */ "./node_modules/@inertiajs/inertia-react/dist/index.js");
+/* harmony import */ var _Services_css__WEBPACK_IMPORTED_MODULE_6__ = __webpack_require__(/*! ../Services.css */ "./resources/js/Pages/Services/Services.css");
+
 
 
 
@@ -5845,13 +5855,13 @@ var Stator3 = function Stator3(_ref) {
     className: "container"
   }, /*#__PURE__*/react__WEBPACK_IMPORTED_MODULE_0__.createElement("div", {
     className: "font45 blue"
-  }, __('client.stator3_header', sharedData)), /*#__PURE__*/react__WEBPACK_IMPORTED_MODULE_0__.createElement(_components_SmallComps_SmallComps__WEBPACK_IMPORTED_MODULE_1__.PagePath, {
-    location1: __('client.nav_home', sharedData),
-    location2: __('client.nav_services', sharedData),
-    location3: __('client.nav_stators', sharedData)
+  }, __("client.stator3_header", sharedData)), /*#__PURE__*/react__WEBPACK_IMPORTED_MODULE_0__.createElement(_components_SmallComps_SmallComps__WEBPACK_IMPORTED_MODULE_1__.PagePath, {
+    location1: __("client.nav_home", sharedData),
+    location2: __("client.nav_services", sharedData),
+    location3: __("client.nav_stators", sharedData)
   }), /*#__PURE__*/react__WEBPACK_IMPORTED_MODULE_0__.createElement("div", {
     className: "content"
-  }, /*#__PURE__*/react__WEBPACK_IMPORTED_MODULE_0__.createElement("p", null, renderHTML(__('client.stator3_main_text', sharedData).replace(/(?:\r\n|\r|\n)/g, '<br>'))))), /*#__PURE__*/react__WEBPACK_IMPORTED_MODULE_0__.createElement(_components_StatorBoxes_StatorBoxes__WEBPACK_IMPORTED_MODULE_2__.StatorBoxes, null))));
+  }, /*#__PURE__*/react__WEBPACK_IMPORTED_MODULE_0__.createElement("p", null, renderHTML(__("client.stator3_main_text", sharedData).replace(/(?:\r\n|\r|\n)/g, "<br>"))))), /*#__PURE__*/react__WEBPACK_IMPORTED_MODULE_0__.createElement(_components_StatorBoxes_StatorBoxes__WEBPACK_IMPORTED_MODULE_2__.StatorBoxes, null))));
 };
 
 /* harmony default export */ const __WEBPACK_DEFAULT_EXPORT__ = (Stator3);
@@ -5875,6 +5885,8 @@ __webpack_require__.r(__webpack_exports__);
 /* harmony import */ var _Layouts_Layout__WEBPACK_IMPORTED_MODULE_3__ = __webpack_require__(/*! ../../../Layouts/Layout */ "./resources/js/Layouts/Layout.js");
 /* harmony import */ var _AboutUs_AboutUs_css__WEBPACK_IMPORTED_MODULE_4__ = __webpack_require__(/*! ../../AboutUs/AboutUs.css */ "./resources/js/Pages/AboutUs/AboutUs.css");
 /* harmony import */ var _inertiajs_inertia_react__WEBPACK_IMPORTED_MODULE_5__ = __webpack_require__(/*! @inertiajs/inertia-react */ "./node_modules/@inertiajs/inertia-react/dist/index.js");
+/* harmony import */ var _Services_css__WEBPACK_IMPORTED_MODULE_6__ = __webpack_require__(/*! ../Services.css */ "./resources/js/Pages/Services/Services.css");
+
 
 
 
@@ -5904,13 +5916,13 @@ var Stator4 = function Stator4(_ref) {
     className: "container"
   }, /*#__PURE__*/react__WEBPACK_IMPORTED_MODULE_0__.createElement("div", {
     className: "font45 blue"
-  }, __('client.stator4_header', sharedData)), /*#__PURE__*/react__WEBPACK_IMPORTED_MODULE_0__.createElement(_components_SmallComps_SmallComps__WEBPACK_IMPORTED_MODULE_1__.PagePath, {
-    location1: __('client.nav_home', sharedData),
-    location2: __('client.nav_services', sharedData),
-    location3: __('client.nav_stators', sharedData)
+  }, __("client.stator4_header", sharedData)), /*#__PURE__*/react__WEBPACK_IMPORTED_MODULE_0__.createElement(_components_SmallComps_SmallComps__WEBPACK_IMPORTED_MODULE_1__.PagePath, {
+    location1: __("client.nav_home", sharedData),
+    location2: __("client.nav_services", sharedData),
+    location3: __("client.nav_stators", sharedData)
   }), /*#__PURE__*/react__WEBPACK_IMPORTED_MODULE_0__.createElement("div", {
     className: "content"
-  }, /*#__PURE__*/react__WEBPACK_IMPORTED_MODULE_0__.createElement("p", null, renderHTML(__('client.stator4_main_text', sharedData).replace(/(?:\r\n|\r|\n)/g, '<br>'))))), /*#__PURE__*/react__WEBPACK_IMPORTED_MODULE_0__.createElement(_components_StatorBoxes_StatorBoxes__WEBPACK_IMPORTED_MODULE_2__.StatorBoxes, null))));
+  }, /*#__PURE__*/react__WEBPACK_IMPORTED_MODULE_0__.createElement("p", null, renderHTML(__("client.stator4_main_text", sharedData).replace(/(?:\r\n|\r|\n)/g, "<br>"))))), /*#__PURE__*/react__WEBPACK_IMPORTED_MODULE_0__.createElement(_components_StatorBoxes_StatorBoxes__WEBPACK_IMPORTED_MODULE_2__.StatorBoxes, null))));
 };
 
 /* harmony default export */ const __WEBPACK_DEFAULT_EXPORT__ = (Stator4);
@@ -5934,6 +5946,8 @@ __webpack_require__.r(__webpack_exports__);
 /* harmony import */ var _AboutUs_AboutUs_css__WEBPACK_IMPORTED_MODULE_3__ = __webpack_require__(/*! ../../AboutUs/AboutUs.css */ "./resources/js/Pages/AboutUs/AboutUs.css");
 /* harmony import */ var _Layouts_Layout__WEBPACK_IMPORTED_MODULE_4__ = __webpack_require__(/*! ../../../Layouts/Layout */ "./resources/js/Layouts/Layout.js");
 /* harmony import */ var _inertiajs_inertia_react__WEBPACK_IMPORTED_MODULE_5__ = __webpack_require__(/*! @inertiajs/inertia-react */ "./node_modules/@inertiajs/inertia-react/dist/index.js");
+/* harmony import */ var _Services_css__WEBPACK_IMPORTED_MODULE_6__ = __webpack_require__(/*! ../Services.css */ "./resources/js/Pages/Services/Services.css");
+
 
 
 
@@ -5963,13 +5977,13 @@ var Stator5 = function Stator5(_ref) {
     className: "container"
   }, /*#__PURE__*/react__WEBPACK_IMPORTED_MODULE_0__.createElement("div", {
     className: "font45 blue"
-  }, __('client.stator5_header', sharedData)), /*#__PURE__*/react__WEBPACK_IMPORTED_MODULE_0__.createElement(_components_SmallComps_SmallComps__WEBPACK_IMPORTED_MODULE_1__.PagePath, {
-    location1: __('client.nav_home', sharedData),
-    location2: __('client.nav_services', sharedData),
-    location3: __('client.nav_stators', sharedData)
+  }, __("client.stator5_header", sharedData)), /*#__PURE__*/react__WEBPACK_IMPORTED_MODULE_0__.createElement(_components_SmallComps_SmallComps__WEBPACK_IMPORTED_MODULE_1__.PagePath, {
+    location1: __("client.nav_home", sharedData),
+    location2: __("client.nav_services", sharedData),
+    location3: __("client.nav_stators", sharedData)
   }), /*#__PURE__*/react__WEBPACK_IMPORTED_MODULE_0__.createElement("div", {
     className: "content"
-  }, /*#__PURE__*/react__WEBPACK_IMPORTED_MODULE_0__.createElement("p", null, renderHTML(__('client.stator5_main_text', sharedData).replace(/(?:\r\n|\r|\n)/g, '<br>'))))), /*#__PURE__*/react__WEBPACK_IMPORTED_MODULE_0__.createElement(_components_StatorBoxes_StatorBoxes__WEBPACK_IMPORTED_MODULE_2__.StatorBoxes, null))));
+  }, /*#__PURE__*/react__WEBPACK_IMPORTED_MODULE_0__.createElement("p", null, renderHTML(__("client.stator5_main_text", sharedData).replace(/(?:\r\n|\r|\n)/g, "<br>"))))), /*#__PURE__*/react__WEBPACK_IMPORTED_MODULE_0__.createElement(_components_StatorBoxes_StatorBoxes__WEBPACK_IMPORTED_MODULE_2__.StatorBoxes, null))));
 };
 
 /* harmony default export */ const __WEBPACK_DEFAULT_EXPORT__ = (Stator5);
@@ -5993,6 +6007,8 @@ __webpack_require__.r(__webpack_exports__);
 /* harmony import */ var _AboutUs_AboutUs_css__WEBPACK_IMPORTED_MODULE_3__ = __webpack_require__(/*! ../../AboutUs/AboutUs.css */ "./resources/js/Pages/AboutUs/AboutUs.css");
 /* harmony import */ var _Layouts_Layout__WEBPACK_IMPORTED_MODULE_4__ = __webpack_require__(/*! ../../../Layouts/Layout */ "./resources/js/Layouts/Layout.js");
 /* harmony import */ var _inertiajs_inertia_react__WEBPACK_IMPORTED_MODULE_5__ = __webpack_require__(/*! @inertiajs/inertia-react */ "./node_modules/@inertiajs/inertia-react/dist/index.js");
+/* harmony import */ var _Services_css__WEBPACK_IMPORTED_MODULE_6__ = __webpack_require__(/*! ../Services.css */ "./resources/js/Pages/Services/Services.css");
+
 
 
 
@@ -6022,13 +6038,13 @@ var Stator6 = function Stator6(_ref) {
     className: "container"
   }, /*#__PURE__*/react__WEBPACK_IMPORTED_MODULE_0__.createElement("div", {
     className: "font45 blue"
-  }, __('client.stator6_header', sharedData)), /*#__PURE__*/react__WEBPACK_IMPORTED_MODULE_0__.createElement(_components_SmallComps_SmallComps__WEBPACK_IMPORTED_MODULE_1__.PagePath, {
-    location1: __('client.nav_home', sharedData),
-    location2: __('client.nav_services', sharedData),
-    location3: __('client.nav_stators', sharedData)
+  }, __("client.stator6_header", sharedData)), /*#__PURE__*/react__WEBPACK_IMPORTED_MODULE_0__.createElement(_components_SmallComps_SmallComps__WEBPACK_IMPORTED_MODULE_1__.PagePath, {
+    location1: __("client.nav_home", sharedData),
+    location2: __("client.nav_services", sharedData),
+    location3: __("client.nav_stators", sharedData)
   }), /*#__PURE__*/react__WEBPACK_IMPORTED_MODULE_0__.createElement("div", {
     className: "content"
-  }, /*#__PURE__*/react__WEBPACK_IMPORTED_MODULE_0__.createElement("p", null, renderHTML(__('client.stator6_main_text', sharedData).replace(/(?:\r\n|\r|\n)/g, '<br>'))))), /*#__PURE__*/react__WEBPACK_IMPORTED_MODULE_0__.createElement(_components_StatorBoxes_StatorBoxes__WEBPACK_IMPORTED_MODULE_2__.StatorBoxes, null))));
+  }, /*#__PURE__*/react__WEBPACK_IMPORTED_MODULE_0__.createElement("p", null, renderHTML(__("client.stator6_main_text", sharedData).replace(/(?:\r\n|\r|\n)/g, "<br>"))))), /*#__PURE__*/react__WEBPACK_IMPORTED_MODULE_0__.createElement(_components_StatorBoxes_StatorBoxes__WEBPACK_IMPORTED_MODULE_2__.StatorBoxes, null))));
 };
 
 /* harmony default export */ const __WEBPACK_DEFAULT_EXPORT__ = (Stator6);
@@ -6052,6 +6068,8 @@ __webpack_require__.r(__webpack_exports__);
 /* harmony import */ var _AboutUs_AboutUs_css__WEBPACK_IMPORTED_MODULE_3__ = __webpack_require__(/*! ../../AboutUs/AboutUs.css */ "./resources/js/Pages/AboutUs/AboutUs.css");
 /* harmony import */ var _Layouts_Layout__WEBPACK_IMPORTED_MODULE_4__ = __webpack_require__(/*! ../../../Layouts/Layout */ "./resources/js/Layouts/Layout.js");
 /* harmony import */ var _inertiajs_inertia_react__WEBPACK_IMPORTED_MODULE_5__ = __webpack_require__(/*! @inertiajs/inertia-react */ "./node_modules/@inertiajs/inertia-react/dist/index.js");
+/* harmony import */ var _Services_css__WEBPACK_IMPORTED_MODULE_6__ = __webpack_require__(/*! ../Services.css */ "./resources/js/Pages/Services/Services.css");
+
 
 
 
@@ -6081,13 +6099,13 @@ var Stator7 = function Stator7(_ref) {
     className: "container"
   }, /*#__PURE__*/react__WEBPACK_IMPORTED_MODULE_0__.createElement("div", {
     className: "font45 blue"
-  }, __('client.stator7_header', sharedData)), /*#__PURE__*/react__WEBPACK_IMPORTED_MODULE_0__.createElement(_components_SmallComps_SmallComps__WEBPACK_IMPORTED_MODULE_1__.PagePath, {
-    location1: __('client.nav_home', sharedData),
-    location2: __('client.nav_services', sharedData),
-    location3: __('client.nav_stators', sharedData)
+  }, __("client.stator7_header", sharedData)), /*#__PURE__*/react__WEBPACK_IMPORTED_MODULE_0__.createElement(_components_SmallComps_SmallComps__WEBPACK_IMPORTED_MODULE_1__.PagePath, {
+    location1: __("client.nav_home", sharedData),
+    location2: __("client.nav_services", sharedData),
+    location3: __("client.nav_stators", sharedData)
   }), /*#__PURE__*/react__WEBPACK_IMPORTED_MODULE_0__.createElement("div", {
     className: "content"
-  }, /*#__PURE__*/react__WEBPACK_IMPORTED_MODULE_0__.createElement("p", null, renderHTML(__('client.stator7_main_text', sharedData).replace(/(?:\r\n|\r|\n)/g, '<br>'))))), /*#__PURE__*/react__WEBPACK_IMPORTED_MODULE_0__.createElement(_components_StatorBoxes_StatorBoxes__WEBPACK_IMPORTED_MODULE_2__.StatorBoxes, null))));
+  }, /*#__PURE__*/react__WEBPACK_IMPORTED_MODULE_0__.createElement("p", null, renderHTML(__("client.stator7_main_text", sharedData).replace(/(?:\r\n|\r|\n)/g, "<br>"))))), /*#__PURE__*/react__WEBPACK_IMPORTED_MODULE_0__.createElement(_components_StatorBoxes_StatorBoxes__WEBPACK_IMPORTED_MODULE_2__.StatorBoxes, null))));
 };
 
 /* harmony default export */ const __WEBPACK_DEFAULT_EXPORT__ = (Stator7);
@@ -6111,6 +6129,8 @@ __webpack_require__.r(__webpack_exports__);
 /* harmony import */ var _AboutUs_AboutUs_css__WEBPACK_IMPORTED_MODULE_3__ = __webpack_require__(/*! ../../AboutUs/AboutUs.css */ "./resources/js/Pages/AboutUs/AboutUs.css");
 /* harmony import */ var _Layouts_Layout__WEBPACK_IMPORTED_MODULE_4__ = __webpack_require__(/*! ../../../Layouts/Layout */ "./resources/js/Layouts/Layout.js");
 /* harmony import */ var _inertiajs_inertia_react__WEBPACK_IMPORTED_MODULE_5__ = __webpack_require__(/*! @inertiajs/inertia-react */ "./node_modules/@inertiajs/inertia-react/dist/index.js");
+/* harmony import */ var _Services_css__WEBPACK_IMPORTED_MODULE_6__ = __webpack_require__(/*! ../Services.css */ "./resources/js/Pages/Services/Services.css");
+
 
 
 
@@ -6140,13 +6160,13 @@ var Stator8 = function Stator8(_ref) {
     className: "container"
   }, /*#__PURE__*/react__WEBPACK_IMPORTED_MODULE_0__.createElement("div", {
     className: "font45 blue"
-  }, __('client.stator8_header', sharedData)), /*#__PURE__*/react__WEBPACK_IMPORTED_MODULE_0__.createElement(_components_SmallComps_SmallComps__WEBPACK_IMPORTED_MODULE_1__.PagePath, {
-    location1: __('client.nav_home', sharedData),
-    location2: __('client.nav_services', sharedData),
-    location3: __('client.nav_stators', sharedData)
+  }, __("client.stator8_header", sharedData)), /*#__PURE__*/react__WEBPACK_IMPORTED_MODULE_0__.createElement(_components_SmallComps_SmallComps__WEBPACK_IMPORTED_MODULE_1__.PagePath, {
+    location1: __("client.nav_home", sharedData),
+    location2: __("client.nav_services", sharedData),
+    location3: __("client.nav_stators", sharedData)
   }), /*#__PURE__*/react__WEBPACK_IMPORTED_MODULE_0__.createElement("div", {
     className: "content"
-  }, /*#__PURE__*/react__WEBPACK_IMPORTED_MODULE_0__.createElement("p", null, renderHTML(__('client.stator8_main_text', sharedData).replace(/(?:\r\n|\r|\n)/g, '<br>'))))), /*#__PURE__*/react__WEBPACK_IMPORTED_MODULE_0__.createElement(_components_StatorBoxes_StatorBoxes__WEBPACK_IMPORTED_MODULE_2__.StatorBoxes, null))));
+  }, /*#__PURE__*/react__WEBPACK_IMPORTED_MODULE_0__.createElement("p", null, renderHTML(__("client.stator8_main_text", sharedData).replace(/(?:\r\n|\r|\n)/g, "<br>"))))), /*#__PURE__*/react__WEBPACK_IMPORTED_MODULE_0__.createElement(_components_StatorBoxes_StatorBoxes__WEBPACK_IMPORTED_MODULE_2__.StatorBoxes, null))));
 };
 
 /* harmony default export */ const __WEBPACK_DEFAULT_EXPORT__ = (Stator8);
@@ -7429,7 +7449,7 @@ __webpack_require__.r(__webpack_exports__);
 
 var ___CSS_LOADER_EXPORT___ = _node_modules_css_loader_dist_runtime_api_js__WEBPACK_IMPORTED_MODULE_0___default()(function(i){return i[1]});
 // Module
-___CSS_LOADER_EXPORT___.push([module.id, ".loginPage {\n    background: url(/assets/images/bgs/1.png) no-repeat;\n    background-position: top;\n    background-size: cover;\n    padding: 200px 0;\n}\n\n.login_box {\n    width: 536px;\n    background-color: #eef2f9;\n    border-radius: 10px;\n    box-shadow: 0 10px 15px #1e3b601f;\n    padding: 117px 100px;\n    margin: auto;\n}\n\n.login_box h5 {\n    text-align: center;\n    font-size: 20px;\n    margin-bottom: 20px;\n}\n\n.login_box input {\n    border-color: #fff;\n}\n\n.login_box p {\n    margin-bottom: 35px;\n    opacity: 0.7;\n}\n\n.login_box button {\n    background-color: #fff;\n    height: 50px;\n    margin-top: 20px;\n    margin-bottom: 40px;\n    width: 100%;\n}\n\n.login_box button img {\n    vertical-align: middle;\n    margin-left: 10px;\n}\n\n@media screen and (max-width: 1200px) {\n    .loginPage {\n        padding: 80px 0;\n    }\n\n    .login_box {\n        padding: 81px 67px;\n    }\n}\n\n@media screen and (max-width: 600px) {\n    .login_box {\n        width: 95%;\n        padding: 46px 23px;\n    }\n}\n", ""]);
+___CSS_LOADER_EXPORT___.push([module.id, ".loginPage {\r\n    background: url(/assets/images/bgs/1.png) no-repeat;\r\n    background-position: top;\r\n    background-size: cover;\r\n    padding: 200px 0;\r\n}\r\n\r\n.login_box {\r\n    width: 536px;\r\n    background-color: #eef2f9;\r\n    border-radius: 10px;\r\n    box-shadow: 0 10px 15px #1e3b601f;\r\n    padding: 117px 100px;\r\n    margin: auto;\r\n}\r\n\r\n.login_box h5 {\r\n    text-align: center;\r\n    font-size: 20px;\r\n    margin-bottom: 20px;\r\n}\r\n\r\n.login_box input {\r\n    border-color: #fff;\r\n}\r\n\r\n.login_box p {\r\n    margin-bottom: 35px;\r\n    opacity: 0.7;\r\n}\r\n\r\n.login_box button {\r\n    background-color: #fff;\r\n    height: 50px;\r\n    margin-top: 20px;\r\n    margin-bottom: 40px;\r\n    width: 100%;\r\n}\r\n\r\n.login_box button img {\r\n    vertical-align: middle;\r\n    margin-left: 10px;\r\n}\r\n\r\n@media screen and (max-width: 1200px) {\r\n    .loginPage {\r\n        padding: 80px 0;\r\n    }\r\n\r\n    .login_box {\r\n        padding: 81px 67px;\r\n    }\r\n}\r\n\r\n@media screen and (max-width: 600px) {\r\n    .login_box {\r\n        width: 95%;\r\n        padding: 46px 23px;\r\n    }\r\n}\r\n", ""]);
 // Exports
 /* harmony default export */ const __WEBPACK_DEFAULT_EXPORT__ = (___CSS_LOADER_EXPORT___);
 
@@ -7477,7 +7497,7 @@ __webpack_require__.r(__webpack_exports__);
 
 var ___CSS_LOADER_EXPORT___ = _node_modules_css_loader_dist_runtime_api_js__WEBPACK_IMPORTED_MODULE_0___default()(function(i){return i[1]});
 // Module
-___CSS_LOADER_EXPORT___.push([module.id, ".servicesPage {\n    background: url(/assets/images/bgs/3.png) no-repeat;\n    background-position: center;\n    background-size: cover;\n    background-attachment: fixed;\n    padding-top: 100px;\n}\n\n.servicesPage .ships_img {\n    margin: 50px 0;\n}\n\n.statorPage .content {\n    margin-bottom: 50px;\n}\n\n@media screen and (max-width: 600px) {\n    .servicesPage .ships_img {\n        margin: 32px 0;\n    }\n}\n", ""]);
+___CSS_LOADER_EXPORT___.push([module.id, ".servicesPage {\r\n    background: url(/assets/images/bgs/3.png) no-repeat;\r\n    background-position: center;\r\n    background-size: cover;\r\n    background-attachment: fixed;\r\n    padding-top: 100px;\r\n}\r\n\r\n.servicesPage .ships_img {\r\n    margin: 50px 0;\r\n}\r\n\r\n.statorPage .content {\r\n    margin-bottom: 50px;\r\n}\r\n\r\n@media screen and (max-width: 600px) {\r\n    .servicesPage .ships_img {\r\n        margin: 32px 0;\r\n    }\r\n}\r\n", ""]);
 // Exports
 /* harmony default export */ const __WEBPACK_DEFAULT_EXPORT__ = (___CSS_LOADER_EXPORT___);
 
@@ -45960,7 +45980,7 @@ webpackContext.id = "./resources/js/Pages sync recursive ^\\.\\/.*$";
 /***/ ((module) => {
 
 "use strict";
-module.exports = JSON.parse('{"name":"axios","version":"0.21.4","description":"Promise based HTTP client for the browser and node.js","main":"index.js","scripts":{"test":"grunt test","start":"node ./sandbox/server.js","build":"NODE_ENV=production grunt build","preversion":"npm test","version":"npm run build && grunt version && git add -A dist && git add CHANGELOG.md bower.json package.json","postversion":"git push && git push --tags","examples":"node ./examples/server.js","coveralls":"cat coverage/lcov.info | ./node_modules/coveralls/bin/coveralls.js","fix":"eslint --fix lib/**/*.js"},"repository":{"type":"git","url":"https://github.com/axios/axios.git"},"keywords":["xhr","http","ajax","promise","node"],"author":"Matt Zabriskie","license":"MIT","bugs":{"url":"https://github.com/axios/axios/issues"},"homepage":"https://axios-http.com","devDependencies":{"coveralls":"^3.0.0","es6-promise":"^4.2.4","grunt":"^1.3.0","grunt-banner":"^0.6.0","grunt-cli":"^1.2.0","grunt-contrib-clean":"^1.1.0","grunt-contrib-watch":"^1.0.0","grunt-eslint":"^23.0.0","grunt-karma":"^4.0.0","grunt-mocha-test":"^0.13.3","grunt-ts":"^6.0.0-beta.19","grunt-webpack":"^4.0.2","istanbul-instrumenter-loader":"^1.0.0","jasmine-core":"^2.4.1","karma":"^6.3.2","karma-chrome-launcher":"^3.1.0","karma-firefox-launcher":"^2.1.0","karma-jasmine":"^1.1.1","karma-jasmine-ajax":"^0.1.13","karma-safari-launcher":"^1.0.0","karma-sauce-launcher":"^4.3.6","karma-sinon":"^1.0.5","karma-sourcemap-loader":"^0.3.8","karma-webpack":"^4.0.2","load-grunt-tasks":"^3.5.2","minimist":"^1.2.0","mocha":"^8.2.1","sinon":"^4.5.0","terser-webpack-plugin":"^4.2.3","typescript":"^4.0.5","url-search-params":"^0.10.0","webpack":"^4.44.2","webpack-dev-server":"^3.11.0"},"browser":{"./lib/adapters/http.js":"./lib/adapters/xhr.js"},"jsdelivr":"dist/axios.min.js","unpkg":"dist/axios.min.js","typings":"./index.d.ts","dependencies":{"follow-redirects":"^1.14.0"},"bundlesize":[{"path":"./dist/axios.min.js","threshold":"5kB"}]}');
+module.exports = JSON.parse('{"_from":"axios@0.21.4","_id":"axios@0.21.4","_inBundle":false,"_integrity":"sha512-ut5vewkiu8jjGBdqpM44XxjuCjq9LAKeHVmoVfHVzy8eHgxxq8SbAVQNovDA8mVi05kP0Ea/n/UzcSHcTJQfNg==","_location":"/axios","_phantomChildren":{},"_requested":{"type":"version","registry":true,"raw":"axios@0.21.4","name":"axios","escapedName":"axios","rawSpec":"0.21.4","saveSpec":null,"fetchSpec":"0.21.4"},"_requiredBy":["#DEV:/","/@inertiajs/inertia"],"_resolved":"https://registry.npmjs.org/axios/-/axios-0.21.4.tgz","_shasum":"c67b90dc0568e5c1cf2b0b858c43ba28e2eda575","_spec":"axios@0.21.4","_where":"C:\\\\Users\\\\Shamisa\\\\Desktop\\\\local-projects\\\\sea-lloyd","author":{"name":"Matt Zabriskie"},"browser":{"./lib/adapters/http.js":"./lib/adapters/xhr.js"},"bugs":{"url":"https://github.com/axios/axios/issues"},"bundleDependencies":false,"bundlesize":[{"path":"./dist/axios.min.js","threshold":"5kB"}],"dependencies":{"follow-redirects":"^1.14.0"},"deprecated":false,"description":"Promise based HTTP client for the browser and node.js","devDependencies":{"coveralls":"^3.0.0","es6-promise":"^4.2.4","grunt":"^1.3.0","grunt-banner":"^0.6.0","grunt-cli":"^1.2.0","grunt-contrib-clean":"^1.1.0","grunt-contrib-watch":"^1.0.0","grunt-eslint":"^23.0.0","grunt-karma":"^4.0.0","grunt-mocha-test":"^0.13.3","grunt-ts":"^6.0.0-beta.19","grunt-webpack":"^4.0.2","istanbul-instrumenter-loader":"^1.0.0","jasmine-core":"^2.4.1","karma":"^6.3.2","karma-chrome-launcher":"^3.1.0","karma-firefox-launcher":"^2.1.0","karma-jasmine":"^1.1.1","karma-jasmine-ajax":"^0.1.13","karma-safari-launcher":"^1.0.0","karma-sauce-launcher":"^4.3.6","karma-sinon":"^1.0.5","karma-sourcemap-loader":"^0.3.8","karma-webpack":"^4.0.2","load-grunt-tasks":"^3.5.2","minimist":"^1.2.0","mocha":"^8.2.1","sinon":"^4.5.0","terser-webpack-plugin":"^4.2.3","typescript":"^4.0.5","url-search-params":"^0.10.0","webpack":"^4.44.2","webpack-dev-server":"^3.11.0"},"homepage":"https://axios-http.com","jsdelivr":"dist/axios.min.js","keywords":["xhr","http","ajax","promise","node"],"license":"MIT","main":"index.js","name":"axios","repository":{"type":"git","url":"git+https://github.com/axios/axios.git"},"scripts":{"build":"NODE_ENV=production grunt build","coveralls":"cat coverage/lcov.info | ./node_modules/coveralls/bin/coveralls.js","examples":"node ./examples/server.js","fix":"eslint --fix lib/**/*.js","postversion":"git push && git push --tags","preversion":"npm test","start":"node ./sandbox/server.js","test":"grunt test","version":"npm run build && grunt version && git add -A dist && git add CHANGELOG.md bower.json package.json"},"typings":"./index.d.ts","unpkg":"dist/axios.min.js","version":"0.21.4"}');
 
 /***/ })
 
