@@ -74,7 +74,7 @@ const Evaluation = ({ seo, success }) => {
                         </p>
                         <form onSubmit={handleSubmit}>
                             <input id='company_name' type="text" placeholder="Organization/Company name" onChange={handleChange} required />
-                            <input id='created_at' type="date" className="margin_bottom" value={today} />
+                            <input id='created_at' type="date" className="margin_bottom" value={today} readOnly />
                             <p>
                                 {renderHTML(__('client.evaluation_question_1', sharedData).replace(/(?:\r\n|\r|\n)/g, '<br>'))}
                             </p>

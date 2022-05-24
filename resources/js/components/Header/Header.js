@@ -114,7 +114,6 @@ const Header = () => {
     const { url, component } = usePage();
 
     const { pathname, currentLocale, user } = usePage().props;
-    console.log(user)
     let url_ = new URL(pathname);
     let pathname_ = url_.pathname;
     const [menu, setMenu] = useState(false);
@@ -122,11 +121,8 @@ const Header = () => {
         setMenu(!menu);
     };
     // const { pathname } = useLocation();
-    console.log(route('client.home.index'))
-    console.log(pathname)
     let solid = false;
-    console.log(pathname);
-    if (pathname == route('client.home.index'), currentLocale || pathname == route('client.login'), currentLocale) {
+    if (pathname == route('client.home.index') || pathname == route('client.login')) {
         solid = true;
     }
     return (

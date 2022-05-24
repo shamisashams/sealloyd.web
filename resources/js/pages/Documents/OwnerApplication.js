@@ -394,7 +394,7 @@ const OwnerApplication = ({ seo, success, error }) => {
                                     <input type="text" placeholder={__('client.ownerapp_form_managing_company', sharedData)} name='managing_company' id='managing_company' onChange={handleChange} />
                                     <input type="text" placeholder={__('client.ownerapp_form_place_date', sharedData)} name='place_date' id='place_date' onChange={handleChange} />
                                     <input type="text" placeholder={__('client.ownerapp_form_name_of_applicant', sharedData)} name='name_of_applicant' id='name_of_applicant' onChange={handleChange} />
-                                    <input type="date" value={today} />
+                                    <input type="date" value={today} readOnly />
                                 </div>
                             </div>
 
