@@ -177,11 +177,11 @@ const OwnerApplication = ({ seo, success, error }) => {
             name: 'hsc_dsc_safety',
             checks: [__('client.app_option_remewal', sharedData), __('client.app_option_annual', sharedData), __('client.app_option_intermediate', sharedData)],
         },
-        {
-            title: __('client.ownerapp_question_manual approval', sharedData),
-            name: 'manual_approval',
-            checks: [__('client.app_option_approval', sharedData)],
-        },
+        // {
+        //     title: __('client.ownerapp_question_manual approval', sharedData),
+        //     name: 'manual_approval',
+        //     checks: [__('client.app_option_approval', sharedData)],
+        // },
     ];
 
     // let obj = {};
@@ -276,60 +276,39 @@ const OwnerApplication = ({ seo, success, error }) => {
         }))
     }
 
-    let radio = document.querySelectorAll('#radio_container');
 
-    function GetElementInsideContainer(containerID, childID) {
-        var elm = document.getElementById(childID);
-        var parent = elm ? elm.parentNode : {};
-        return (parent.id && parent.id === containerID) ? elm : {};
-    }
-    GetElementInsideContainer('app_checklist', 'radio_container')
-    // let assa = radio[0].getElementsByClassName("checkbox")
-
+    const [formSubmitted, setFormSubmitted] = useState(false);
+    // let checkbox_approval = false;
     function handleSubmit(e) {
         e.preventDefault()
-        // let form = document.forms["ownerapplication"];
-        // let formInputs = form.elements;
-        let validform = true;
-        let a = document.querySelectorAll('.app_inputs input')
-        let x = document.ownerapplication
-
-        for (let j = 0; j < checklist.length; j++) {
-            var options = x[checklist[j].name];
-            for (let k = 0; k < options.length; k++) {
-                let check = options.value;
-                if (check == "") {
-                    validform = false;
-                    break;
-                }
-            }
-
-        }
-
-        for (let i = 0; i < a.length; i++) {
-            if (a[i].value == "") {
-                validform = false;
-                break;
+        let validForm = true
+        let validFormsubmit = true
+        let form = document.ownerapplication
+        for (const key in values) {
+            if (form[key].value == "") {
+                validForm = false
             }
         }
-        // if (!validform || !valid) {
-        if (!validform) {
+        if (!form.manual_approval.checked) {
+            validFormsubmit = false
+            setFormSubmitted(true);
+            console.log(formSubmitted);
+        }
+        if (!validForm) {
             Swal.fire({
                 title: 'შეცდომა',
                 text: 'გთხოვთ შეავსოთ ყველა ველი',
                 icon: 'fail',
                 confirmButtonText: 'Cool'
             })
-        }
-
-        if (validform) {
+        } else if (validFormsubmit) {
+            Inertia.post(route('client.documentations.sendapplication'), values)
             Swal.fire({
                 title: 'წარმატებით დაემატა',
                 text: '',
                 icon: 'success',
                 confirmButtonText: 'Cool'
             })
-            Inertia.post(route('client.documentations.sendapplication'), values)
             setTimeout(() => {
                 location.reload()
             }, 1500);
@@ -394,7 +373,7 @@ const OwnerApplication = ({ seo, success, error }) => {
                                     <input type="text" placeholder={__('client.ownerapp_form_managing_company', sharedData)} name='managing_company' id='managing_company' onChange={handleChange} />
                                     <input type="text" placeholder={__('client.ownerapp_form_place_date', sharedData)} name='place_date' id='place_date' onChange={handleChange} />
                                     <input type="text" placeholder={__('client.ownerapp_form_name_of_applicant', sharedData)} name='name_of_applicant' id='name_of_applicant' onChange={handleChange} />
-                                    <input type="date" value={today} />
+                                    <input type="date" value={today} readOnly />
                                 </div>
                             </div>
 
@@ -428,10 +407,14 @@ const OwnerApplication = ({ seo, success, error }) => {
                                 </div>
                                 <div className="bottom flex">
                                     <div className="check">
-                                        <input type="checkbox" name="" id="terms_conditions" />
+                                        <input type="checkbox" name="manual_approval" id="manual_approval" onChange={handleChange} />
                                         <label htmlFor="terms_conditions">
-                                            By Checking this Box I Accapt Terms and Conditions
+                                            {/* By Checking this Box I Accapt Terms and Conditions */}
+                                            {__('client.app_option_approval', sharedData)}
                                         </label>
+                                        {formSubmitted &&
+                                            <p className="alert-danger p-1 mt-1">accept this term</p>
+                                        }
                                     </div>
                                     <SendButton text="Send Now" type='submit' />
                                 </div>

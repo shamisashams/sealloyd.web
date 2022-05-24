@@ -45,7 +45,35 @@ const Evaluation = ({ seo, success }) => {
 
     function handleSubmit(e) {
         e.preventDefault()
-        Inertia.post(route('client.documentations.rateservices'), values)
+        var forms = document.evaluation;
+        let validForm = true;
+        // console.log(forms.answer_1.value);
+        for (const key in values) {
+            console.log(forms[key].value);
+            if (forms[key].value == "") {
+                validForm = false;
+            }
+        }
+        if (!validForm) {
+            Swal.fire({
+                title: 'error!',
+                text: 'გთხოვთ შეავსოთ ყველა ველი',
+                icon: 'fail',
+                confirmButtonText: 'Cool'
+            })
+        } else {
+            Swal.fire({
+                title: 'success!',
+                text: 'წარმატებით დაემატა!',
+                icon: 'success',
+                confirmButtonText: 'Cool'
+            })
+            Inertia.post(route('client.documentations.rateservices'), values)
+            setTimeout(() => {
+                location.reload()
+            }, 1500);
+        }
+
     }
 
     const scale = [1, 2, 3, 4, 5];
@@ -72,9 +100,9 @@ const Evaluation = ({ seo, success }) => {
                         <p className="op05 margin_bottom">
                             {renderHTML(__('client.evaluation_text', sharedData).replace(/(?:\r\n|\r|\n)/g, '<br>'))}
                         </p>
-                        <form onSubmit={handleSubmit}>
-                            <input id='company_name' type="text" placeholder="Organization/Company name" onChange={handleChange} required />
-                            <input id='created_at' type="date" className="margin_bottom" value={today} />
+                        <form onSubmit={handleSubmit} name='evaluation'>
+                            <input id='company_name' type="text" name='company_name' placeholder="Organization/Company name" onChange={handleChange} />
+                            <input id='created_at' type="date" className="margin_bottom" value={today} readOnly />
                             <p>
                                 {renderHTML(__('client.evaluation_question_1', sharedData).replace(/(?:\r\n|\r|\n)/g, '<br>'))}
                             </p>
@@ -85,9 +113,10 @@ const Evaluation = ({ seo, success }) => {
                                             <label className="op05" htmlFor={`rate_1_${index}`}>
                                                 {item}
                                             </label>
-                                            <input type="radio" name="rate_1"
+                                            <input
+                                                type="radio"
+                                                name="answer_1"
                                                 // id={`rate_1_${index}`}
-                                                required
                                                 id='answer_1'
                                                 value={`${++index}`}
                                                 onChange={handleChange}
@@ -103,6 +132,7 @@ const Evaluation = ({ seo, success }) => {
                             </p>
                             <input
                                 id='answer_2'
+                                name='answer_2'
                                 type="text"
                                 placeholder={__('client.evaluation_form_enter_response_here', sharedData)}
                                 className="margin_bottom"
@@ -117,9 +147,9 @@ const Evaluation = ({ seo, success }) => {
                                 {satisfaction.map((item, index) => {
                                     return (
                                         <div key={index} className="radio num">
-                                            <input type="radio" name="rate_2"
+                                            <input type="radio"
                                                 //  id={`rate_2_${index}`}
-                                                required
+                                                name='answer_3'
                                                 id='answer_3'
                                                 value={item}
                                                 onChange={handleChange}
@@ -140,9 +170,9 @@ const Evaluation = ({ seo, success }) => {
                                 {satisfaction.map((item, index) => {
                                     return (
                                         <div key={index} className="radio num">
-                                            <input type="radio" name="rate_3"
-                                                // id={`rate_3_${index}`}
-                                                required
+                                            <input type="radio"
+                                                name="answer_4"
+                                                // id={`rate_3_${index}`
                                                 id='answer_4'
                                                 value={item}
                                                 onChange={handleChange}
@@ -164,9 +194,10 @@ const Evaluation = ({ seo, success }) => {
                                 {satisfaction.map((item, index) => {
                                     return (
                                         <div key={index} className="radio num">
-                                            <input type="radio" name="rate_4"
+                                            <input type="radio"
+                                                name="answer_5"
                                                 // id={`rate_4_${index}`}
-                                                required
+
                                                 id='answer_5'
                                                 value={item}
                                                 onChange={handleChange}
@@ -191,9 +222,9 @@ const Evaluation = ({ seo, success }) => {
                                             <label className="op05" htmlFor={`rate_5_${index}`}>
                                                 {item}
                                             </label>
-                                            <input type="radio" name="rate_5"
+                                            <input type="radio"
+                                                name="answer_6"
                                                 // id={`rate_5_${index}`}
-                                                required
                                                 id='answer_6'
                                                 value={++index}
                                                 onChange={handleChange}
@@ -215,9 +246,9 @@ const Evaluation = ({ seo, success }) => {
                                             <label className="op05" htmlFor={`rate_6_${index}`}>
                                                 {item}
                                             </label>
-                                            <input type="radio" name="rate_6"
+                                            <input type="radio" name="answer_7"
                                                 // id={`rate_6_${index}`}
-                                                required
+
                                                 id='answer_7'
                                                 value={++index}
                                                 onChange={handleChange}
@@ -239,9 +270,9 @@ const Evaluation = ({ seo, success }) => {
                                             <label className="op05" htmlFor={`rate_7_${index}`}>
                                                 {item}
                                             </label>
-                                            <input type="radio" name="rate_7"
+                                            <input type="radio" name="answer_8"
                                                 // id={`rate_7_${index}`}
-                                                required
+
                                                 id='answer_8'
                                                 value={++index}
                                                 onChange={handleChange}

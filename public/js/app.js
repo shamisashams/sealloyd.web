@@ -4345,7 +4345,36 @@ var Evaluation = function Evaluation(_ref) {
 
   function handleSubmit(e) {
     e.preventDefault();
-    _inertiajs_inertia__WEBPACK_IMPORTED_MODULE_4__.Inertia.post(route('client.documentations.rateservices'), values);
+    var forms = document.evaluation;
+    var validForm = true; // console.log(forms.answer_1.value);
+
+    for (var key in values) {
+      console.log(forms[key].value);
+
+      if (forms[key].value == "") {
+        validForm = false;
+      }
+    }
+
+    if (!validForm) {
+      Swal.fire({
+        title: 'error!',
+        text: 'გთხოვთ შეავსოთ ყველა ველი',
+        icon: 'fail',
+        confirmButtonText: 'Cool'
+      });
+    } else {
+      Swal.fire({
+        title: 'success!',
+        text: 'წარმატებით დაემატა!',
+        icon: 'success',
+        confirmButtonText: 'Cool'
+      });
+      _inertiajs_inertia__WEBPACK_IMPORTED_MODULE_4__.Inertia.post(route('client.documentations.rateservices'), values);
+      setTimeout(function () {
+        location.reload();
+      }, 1500);
+    }
   }
 
   var scale = [1, 2, 3, 4, 5];
@@ -4377,18 +4406,20 @@ var Evaluation = function Evaluation(_ref) {
   }, /*#__PURE__*/react__WEBPACK_IMPORTED_MODULE_0__.createElement("p", {
     className: "op05 margin_bottom"
   }, renderHTML(__('client.evaluation_text', sharedData).replace(/(?:\r\n|\r|\n)/g, '<br>'))), /*#__PURE__*/react__WEBPACK_IMPORTED_MODULE_0__.createElement("form", {
-    onSubmit: handleSubmit
+    onSubmit: handleSubmit,
+    name: "evaluation"
   }, /*#__PURE__*/react__WEBPACK_IMPORTED_MODULE_0__.createElement("input", {
     id: "company_name",
     type: "text",
+    name: "company_name",
     placeholder: "Organization/Company name",
-    onChange: handleChange,
-    required: true
+    onChange: handleChange
   }), /*#__PURE__*/react__WEBPACK_IMPORTED_MODULE_0__.createElement("input", {
     id: "created_at",
     type: "date",
     className: "margin_bottom",
-    value: today
+    value: today,
+    readOnly: true
   }), /*#__PURE__*/react__WEBPACK_IMPORTED_MODULE_0__.createElement("p", null, renderHTML(__('client.evaluation_question_1', sharedData).replace(/(?:\r\n|\r|\n)/g, '<br>'))), /*#__PURE__*/react__WEBPACK_IMPORTED_MODULE_0__.createElement("div", {
     className: "flex rating scale margin_bottom"
   }, scale.map(function (item, index) {
@@ -4400,15 +4431,15 @@ var Evaluation = function Evaluation(_ref) {
       htmlFor: "rate_1_".concat(index)
     }, item), /*#__PURE__*/react__WEBPACK_IMPORTED_MODULE_0__.createElement("input", {
       type: "radio",
-      name: "rate_1" // id={`rate_1_${index}`}
+      name: "answer_1" // id={`rate_1_${index}`}
       ,
-      required: true,
       id: "answer_1",
       value: "".concat(++index),
       onChange: handleChange
     }));
   })), /*#__PURE__*/react__WEBPACK_IMPORTED_MODULE_0__.createElement("p", null, renderHTML(__('client.evaluation_question_2', sharedData).replace(/(?:\r\n|\r|\n)/g, '<br>'))), /*#__PURE__*/react__WEBPACK_IMPORTED_MODULE_0__.createElement("input", {
     id: "answer_2",
+    name: "answer_2",
     type: "text",
     placeholder: __('client.evaluation_form_enter_response_here', sharedData),
     className: "margin_bottom",
@@ -4420,10 +4451,9 @@ var Evaluation = function Evaluation(_ref) {
       key: index,
       className: "radio num"
     }, /*#__PURE__*/react__WEBPACK_IMPORTED_MODULE_0__.createElement("input", {
-      type: "radio",
-      name: "rate_2" //  id={`rate_2_${index}`}
+      type: "radio" //  id={`rate_2_${index}`}
       ,
-      required: true,
+      name: "answer_3",
       id: "answer_3",
       value: item,
       onChange: handleChange
@@ -4439,9 +4469,8 @@ var Evaluation = function Evaluation(_ref) {
       className: "radio num"
     }, /*#__PURE__*/react__WEBPACK_IMPORTED_MODULE_0__.createElement("input", {
       type: "radio",
-      name: "rate_3" // id={`rate_3_${index}`}
+      name: "answer_4" // id={`rate_3_${index}`
       ,
-      required: true,
       id: "answer_4",
       value: item,
       onChange: handleChange
@@ -4457,9 +4486,8 @@ var Evaluation = function Evaluation(_ref) {
       className: "radio num"
     }, /*#__PURE__*/react__WEBPACK_IMPORTED_MODULE_0__.createElement("input", {
       type: "radio",
-      name: "rate_4" // id={`rate_4_${index}`}
+      name: "answer_5" // id={`rate_4_${index}`}
       ,
-      required: true,
       id: "answer_5",
       value: item,
       onChange: handleChange
@@ -4478,9 +4506,8 @@ var Evaluation = function Evaluation(_ref) {
       htmlFor: "rate_5_".concat(index)
     }, item), /*#__PURE__*/react__WEBPACK_IMPORTED_MODULE_0__.createElement("input", {
       type: "radio",
-      name: "rate_5" // id={`rate_5_${index}`}
+      name: "answer_6" // id={`rate_5_${index}`}
       ,
-      required: true,
       id: "answer_6",
       value: ++index,
       onChange: handleChange
@@ -4496,9 +4523,8 @@ var Evaluation = function Evaluation(_ref) {
       htmlFor: "rate_6_".concat(index)
     }, item), /*#__PURE__*/react__WEBPACK_IMPORTED_MODULE_0__.createElement("input", {
       type: "radio",
-      name: "rate_6" // id={`rate_6_${index}`}
+      name: "answer_7" // id={`rate_6_${index}`}
       ,
-      required: true,
       id: "answer_7",
       value: ++index,
       onChange: handleChange
@@ -4514,9 +4540,8 @@ var Evaluation = function Evaluation(_ref) {
       htmlFor: "rate_7_".concat(index)
     }, item), /*#__PURE__*/react__WEBPACK_IMPORTED_MODULE_0__.createElement("input", {
       type: "radio",
-      name: "rate_7" // id={`rate_7_${index}`}
+      name: "answer_8" // id={`rate_7_${index}`}
       ,
-      required: true,
       id: "answer_8",
       value: ++index,
       onChange: handleChange
@@ -4730,11 +4755,12 @@ var OwnerApplication = function OwnerApplication(_ref) {
     title: __('client.ownerapp_question_hsc_dsc_safety', sharedData),
     name: 'hsc_dsc_safety',
     checks: [__('client.app_option_remewal', sharedData), __('client.app_option_annual', sharedData), __('client.app_option_intermediate', sharedData)]
-  }, {
-    title: __('client.ownerapp_question_manual approval', sharedData),
-    name: 'manual_approval',
-    checks: [__('client.app_option_approval', sharedData)]
-  }]; // let obj = {};
+  } // {
+  //     title: __('client.ownerapp_question_manual approval', sharedData),
+  //     name: 'manual_approval',
+  //     checks: [__('client.app_option_approval', sharedData)],
+  // },
+  ]; // let obj = {};
   // let a = document.querySelectorAll('.app_inputs input');
   // var value;
   // a.forEach((e) => {
@@ -4825,62 +4851,45 @@ var OwnerApplication = function OwnerApplication(_ref) {
     });
   }
 
-  var radio = document.querySelectorAll('#radio_container');
+  var _useState3 = (0,react__WEBPACK_IMPORTED_MODULE_0__.useState)(false),
+      _useState4 = _slicedToArray(_useState3, 2),
+      formSubmitted = _useState4[0],
+      setFormSubmitted = _useState4[1]; // let checkbox_approval = false;
 
-  function GetElementInsideContainer(containerID, childID) {
-    var elm = document.getElementById(childID);
-    var parent = elm ? elm.parentNode : {};
-    return parent.id && parent.id === containerID ? elm : {};
-  }
-
-  GetElementInsideContainer('app_checklist', 'radio_container'); // let assa = radio[0].getElementsByClassName("checkbox")
 
   function handleSubmit(e) {
-    e.preventDefault(); // let form = document.forms["ownerapplication"];
-    // let formInputs = form.elements;
+    e.preventDefault();
+    var validForm = true;
+    var validFormsubmit = true;
+    var form = document.ownerapplication;
 
-    var validform = true;
-    var a = document.querySelectorAll('.app_inputs input');
-    var x = document.ownerapplication;
-
-    for (var j = 0; j < checklist.length; j++) {
-      var options = x[checklist[j].name];
-
-      for (var k = 0; k < options.length; k++) {
-        var check = options.value;
-
-        if (check == "") {
-          validform = false;
-          break;
-        }
+    for (var key in values) {
+      if (form[key].value == "") {
+        validForm = false;
       }
     }
 
-    for (var i = 0; i < a.length; i++) {
-      if (a[i].value == "") {
-        validform = false;
-        break;
-      }
-    } // if (!validform || !valid) {
+    if (!form.manual_approval.checked) {
+      validFormsubmit = false;
+      setFormSubmitted(true);
+      console.log(formSubmitted);
+    }
 
-
-    if (!validform) {
+    if (!validForm) {
       sweetalert2__WEBPACK_IMPORTED_MODULE_6___default().fire({
         title: 'შეცდომა',
         text: 'გთხოვთ შეავსოთ ყველა ველი',
         icon: 'fail',
         confirmButtonText: 'Cool'
       });
-    }
-
-    if (validform) {
+    } else if (validFormsubmit) {
+      _inertiajs_inertia__WEBPACK_IMPORTED_MODULE_4__.Inertia.post(route('client.documentations.sendapplication'), values);
       sweetalert2__WEBPACK_IMPORTED_MODULE_6___default().fire({
         title: 'წარმატებით დაემატა',
         text: '',
         icon: 'success',
         confirmButtonText: 'Cool'
       });
-      _inertiajs_inertia__WEBPACK_IMPORTED_MODULE_4__.Inertia.post(route('client.documentations.sendapplication'), values);
       setTimeout(function () {
         location.reload();
       }, 1500);
@@ -5076,7 +5085,8 @@ var OwnerApplication = function OwnerApplication(_ref) {
     onChange: handleChange
   }), /*#__PURE__*/react__WEBPACK_IMPORTED_MODULE_0__.createElement("input", {
     type: "date",
-    value: today
+    value: today,
+    readOnly: true
   }))), /*#__PURE__*/react__WEBPACK_IMPORTED_MODULE_0__.createElement("div", {
     className: "checkboxes"
   }, /*#__PURE__*/react__WEBPACK_IMPORTED_MODULE_0__.createElement("div", {
@@ -5111,11 +5121,14 @@ var OwnerApplication = function OwnerApplication(_ref) {
     className: "check"
   }, /*#__PURE__*/react__WEBPACK_IMPORTED_MODULE_0__.createElement("input", {
     type: "checkbox",
-    name: "",
-    id: "terms_conditions"
+    name: "manual_approval",
+    id: "manual_approval",
+    onChange: handleChange
   }), /*#__PURE__*/react__WEBPACK_IMPORTED_MODULE_0__.createElement("label", {
     htmlFor: "terms_conditions"
-  }, "By Checking this Box I Accapt Terms and Conditions")), /*#__PURE__*/react__WEBPACK_IMPORTED_MODULE_0__.createElement(_components_SmallComps_SmallComps__WEBPACK_IMPORTED_MODULE_1__.SendButton, {
+  }, __('client.app_option_approval', sharedData)), formSubmitted && /*#__PURE__*/react__WEBPACK_IMPORTED_MODULE_0__.createElement("p", {
+    className: "alert-danger p-1 mt-1"
+  }, "accept this term")), /*#__PURE__*/react__WEBPACK_IMPORTED_MODULE_0__.createElement(_components_SmallComps_SmallComps__WEBPACK_IMPORTED_MODULE_1__.SendButton, {
     text: "Send Now",
     type: "submit"
   }))))), /*#__PURE__*/react__WEBPACK_IMPORTED_MODULE_0__.createElement("div", {
@@ -6617,7 +6630,6 @@ var Header = function Header() {
       pathname = _usePage$props.pathname,
       currentLocale = _usePage$props.currentLocale,
       user = _usePage$props.user;
-  console.log(user);
   var url_ = new URL(pathname);
   var pathname_ = url_.pathname;
 
@@ -6631,12 +6643,9 @@ var Header = function Header() {
   }; // const { pathname } = useLocation();
 
 
-  console.log(route('client.home.index'));
-  console.log(pathname);
   var solid = false;
-  console.log(pathname);
 
-  if (pathname == route('client.home.index'), currentLocale || pathname == route('client.login'), currentLocale) {
+  if (pathname == route('client.home.index') || pathname == route('client.login')) {
     solid = true;
   }
 
@@ -7423,7 +7432,7 @@ __webpack_require__.r(__webpack_exports__);
 
 var ___CSS_LOADER_EXPORT___ = _node_modules_css_loader_dist_runtime_api_js__WEBPACK_IMPORTED_MODULE_0___default()(function(i){return i[1]});
 // Module
-___CSS_LOADER_EXPORT___.push([module.id, ".loginPage {\r\n    background: url(/assets/images/bgs/1.png) no-repeat;\r\n    background-position: top;\r\n    background-size: cover;\r\n    padding: 200px 0;\r\n}\r\n\r\n.login_box {\r\n    width: 536px;\r\n    background-color: #eef2f9;\r\n    border-radius: 10px;\r\n    box-shadow: 0 10px 15px #1e3b601f;\r\n    padding: 117px 100px;\r\n    margin: auto;\r\n}\r\n\r\n.login_box h5 {\r\n    text-align: center;\r\n    font-size: 20px;\r\n    margin-bottom: 20px;\r\n}\r\n\r\n.login_box input {\r\n    border-color: #fff;\r\n}\r\n\r\n.login_box p {\r\n    margin-bottom: 35px;\r\n    opacity: 0.7;\r\n}\r\n\r\n.login_box button {\r\n    background-color: #fff;\r\n    height: 50px;\r\n    margin-top: 20px;\r\n    margin-bottom: 40px;\r\n    width: 100%;\r\n}\r\n\r\n.login_box button img {\r\n    vertical-align: middle;\r\n    margin-left: 10px;\r\n}\r\n\r\n@media screen and (max-width: 1200px) {\r\n    .loginPage {\r\n        padding: 80px 0;\r\n    }\r\n\r\n    .login_box {\r\n        padding: 81px 67px;\r\n    }\r\n}\r\n\r\n@media screen and (max-width: 600px) {\r\n    .login_box {\r\n        width: 95%;\r\n        padding: 46px 23px;\r\n    }\r\n}\r\n", ""]);
+___CSS_LOADER_EXPORT___.push([module.id, ".loginPage {\n    background: url(/assets/images/bgs/1.png) no-repeat;\n    background-position: top;\n    background-size: cover;\n    padding: 200px 0;\n}\n\n.login_box {\n    width: 536px;\n    background-color: #eef2f9;\n    border-radius: 10px;\n    box-shadow: 0 10px 15px #1e3b601f;\n    padding: 117px 100px;\n    margin: auto;\n}\n\n.login_box h5 {\n    text-align: center;\n    font-size: 20px;\n    margin-bottom: 20px;\n}\n\n.login_box input {\n    border-color: #fff;\n}\n\n.login_box p {\n    margin-bottom: 35px;\n    opacity: 0.7;\n}\n\n.login_box button {\n    background-color: #fff;\n    height: 50px;\n    margin-top: 20px;\n    margin-bottom: 40px;\n    width: 100%;\n}\n\n.login_box button img {\n    vertical-align: middle;\n    margin-left: 10px;\n}\n\n@media screen and (max-width: 1200px) {\n    .loginPage {\n        padding: 80px 0;\n    }\n\n    .login_box {\n        padding: 81px 67px;\n    }\n}\n\n@media screen and (max-width: 600px) {\n    .login_box {\n        width: 95%;\n        padding: 46px 23px;\n    }\n}\n", ""]);
 // Exports
 /* harmony default export */ const __WEBPACK_DEFAULT_EXPORT__ = (___CSS_LOADER_EXPORT___);
 
@@ -7471,7 +7480,7 @@ __webpack_require__.r(__webpack_exports__);
 
 var ___CSS_LOADER_EXPORT___ = _node_modules_css_loader_dist_runtime_api_js__WEBPACK_IMPORTED_MODULE_0___default()(function(i){return i[1]});
 // Module
-___CSS_LOADER_EXPORT___.push([module.id, ".servicesPage {\r\n    background: url(/assets/images/bgs/3.png) no-repeat;\r\n    background-position: center;\r\n    background-size: cover;\r\n    background-attachment: fixed;\r\n    padding-top: 100px;\r\n}\r\n\r\n.servicesPage .ships_img {\r\n    margin: 50px 0;\r\n}\r\n\r\n.statorPage .content {\r\n    margin-bottom: 50px;\r\n}\r\n\r\n@media screen and (max-width: 600px) {\r\n    .servicesPage .ships_img {\r\n        margin: 32px 0;\r\n    }\r\n}\r\n", ""]);
+___CSS_LOADER_EXPORT___.push([module.id, ".servicesPage {\n    background: url(/assets/images/bgs/3.png) no-repeat;\n    background-position: center;\n    background-size: cover;\n    background-attachment: fixed;\n    padding-top: 100px;\n}\n\n.servicesPage .ships_img {\n    margin: 50px 0;\n}\n\n.statorPage .content {\n    margin-bottom: 50px;\n}\n\n@media screen and (max-width: 600px) {\n    .servicesPage .ships_img {\n        margin: 32px 0;\n    }\n}\n", ""]);
 // Exports
 /* harmony default export */ const __WEBPACK_DEFAULT_EXPORT__ = (___CSS_LOADER_EXPORT___);
 
@@ -45954,7 +45963,7 @@ webpackContext.id = "./resources/js/Pages sync recursive ^\\.\\/.*$";
 /***/ ((module) => {
 
 "use strict";
-module.exports = JSON.parse('{"_from":"axios@0.21.4","_id":"axios@0.21.4","_inBundle":false,"_integrity":"sha512-ut5vewkiu8jjGBdqpM44XxjuCjq9LAKeHVmoVfHVzy8eHgxxq8SbAVQNovDA8mVi05kP0Ea/n/UzcSHcTJQfNg==","_location":"/axios","_phantomChildren":{},"_requested":{"type":"version","registry":true,"raw":"axios@0.21.4","name":"axios","escapedName":"axios","rawSpec":"0.21.4","saveSpec":null,"fetchSpec":"0.21.4"},"_requiredBy":["#DEV:/","/@inertiajs/inertia"],"_resolved":"https://registry.npmjs.org/axios/-/axios-0.21.4.tgz","_shasum":"c67b90dc0568e5c1cf2b0b858c43ba28e2eda575","_spec":"axios@0.21.4","_where":"C:\\\\Users\\\\Shamisa\\\\Desktop\\\\local-projects\\\\sea-lloyd","author":{"name":"Matt Zabriskie"},"browser":{"./lib/adapters/http.js":"./lib/adapters/xhr.js"},"bugs":{"url":"https://github.com/axios/axios/issues"},"bundleDependencies":false,"bundlesize":[{"path":"./dist/axios.min.js","threshold":"5kB"}],"dependencies":{"follow-redirects":"^1.14.0"},"deprecated":false,"description":"Promise based HTTP client for the browser and node.js","devDependencies":{"coveralls":"^3.0.0","es6-promise":"^4.2.4","grunt":"^1.3.0","grunt-banner":"^0.6.0","grunt-cli":"^1.2.0","grunt-contrib-clean":"^1.1.0","grunt-contrib-watch":"^1.0.0","grunt-eslint":"^23.0.0","grunt-karma":"^4.0.0","grunt-mocha-test":"^0.13.3","grunt-ts":"^6.0.0-beta.19","grunt-webpack":"^4.0.2","istanbul-instrumenter-loader":"^1.0.0","jasmine-core":"^2.4.1","karma":"^6.3.2","karma-chrome-launcher":"^3.1.0","karma-firefox-launcher":"^2.1.0","karma-jasmine":"^1.1.1","karma-jasmine-ajax":"^0.1.13","karma-safari-launcher":"^1.0.0","karma-sauce-launcher":"^4.3.6","karma-sinon":"^1.0.5","karma-sourcemap-loader":"^0.3.8","karma-webpack":"^4.0.2","load-grunt-tasks":"^3.5.2","minimist":"^1.2.0","mocha":"^8.2.1","sinon":"^4.5.0","terser-webpack-plugin":"^4.2.3","typescript":"^4.0.5","url-search-params":"^0.10.0","webpack":"^4.44.2","webpack-dev-server":"^3.11.0"},"homepage":"https://axios-http.com","jsdelivr":"dist/axios.min.js","keywords":["xhr","http","ajax","promise","node"],"license":"MIT","main":"index.js","name":"axios","repository":{"type":"git","url":"git+https://github.com/axios/axios.git"},"scripts":{"build":"NODE_ENV=production grunt build","coveralls":"cat coverage/lcov.info | ./node_modules/coveralls/bin/coveralls.js","examples":"node ./examples/server.js","fix":"eslint --fix lib/**/*.js","postversion":"git push && git push --tags","preversion":"npm test","start":"node ./sandbox/server.js","test":"grunt test","version":"npm run build && grunt version && git add -A dist && git add CHANGELOG.md bower.json package.json"},"typings":"./index.d.ts","unpkg":"dist/axios.min.js","version":"0.21.4"}');
+module.exports = JSON.parse('{"name":"axios","version":"0.21.4","description":"Promise based HTTP client for the browser and node.js","main":"index.js","scripts":{"test":"grunt test","start":"node ./sandbox/server.js","build":"NODE_ENV=production grunt build","preversion":"npm test","version":"npm run build && grunt version && git add -A dist && git add CHANGELOG.md bower.json package.json","postversion":"git push && git push --tags","examples":"node ./examples/server.js","coveralls":"cat coverage/lcov.info | ./node_modules/coveralls/bin/coveralls.js","fix":"eslint --fix lib/**/*.js"},"repository":{"type":"git","url":"https://github.com/axios/axios.git"},"keywords":["xhr","http","ajax","promise","node"],"author":"Matt Zabriskie","license":"MIT","bugs":{"url":"https://github.com/axios/axios/issues"},"homepage":"https://axios-http.com","devDependencies":{"coveralls":"^3.0.0","es6-promise":"^4.2.4","grunt":"^1.3.0","grunt-banner":"^0.6.0","grunt-cli":"^1.2.0","grunt-contrib-clean":"^1.1.0","grunt-contrib-watch":"^1.0.0","grunt-eslint":"^23.0.0","grunt-karma":"^4.0.0","grunt-mocha-test":"^0.13.3","grunt-ts":"^6.0.0-beta.19","grunt-webpack":"^4.0.2","istanbul-instrumenter-loader":"^1.0.0","jasmine-core":"^2.4.1","karma":"^6.3.2","karma-chrome-launcher":"^3.1.0","karma-firefox-launcher":"^2.1.0","karma-jasmine":"^1.1.1","karma-jasmine-ajax":"^0.1.13","karma-safari-launcher":"^1.0.0","karma-sauce-launcher":"^4.3.6","karma-sinon":"^1.0.5","karma-sourcemap-loader":"^0.3.8","karma-webpack":"^4.0.2","load-grunt-tasks":"^3.5.2","minimist":"^1.2.0","mocha":"^8.2.1","sinon":"^4.5.0","terser-webpack-plugin":"^4.2.3","typescript":"^4.0.5","url-search-params":"^0.10.0","webpack":"^4.44.2","webpack-dev-server":"^3.11.0"},"browser":{"./lib/adapters/http.js":"./lib/adapters/xhr.js"},"jsdelivr":"dist/axios.min.js","unpkg":"dist/axios.min.js","typings":"./index.d.ts","dependencies":{"follow-redirects":"^1.14.0"},"bundlesize":[{"path":"./dist/axios.min.js","threshold":"5kB"}]}');
 
 /***/ })
 
