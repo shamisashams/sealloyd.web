@@ -4732,7 +4732,7 @@ var OwnerApplication = function OwnerApplication(_ref) {
     checks: [__('client.app_option_remewal', sharedData), __('client.app_option_annual', sharedData), __('client.app_option_intermediate', sharedData)]
   }, {
     title: __('client.ownerapp_question_manual approval', sharedData),
-    name: 'manual approval',
+    name: 'manual_approval',
     checks: [__('client.app_option_approval', sharedData)]
   }]; // let obj = {};
   // let a = document.querySelectorAll('.app_inputs input');

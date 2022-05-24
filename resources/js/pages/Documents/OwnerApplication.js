@@ -179,7 +179,7 @@ const OwnerApplication = ({ seo, success, error }) => {
         },
         {
             title: __('client.ownerapp_question_manual approval', sharedData),
-            name: 'manual approval',
+            name: 'manual_approval',
             checks: [__('client.app_option_approval', sharedData)],
         },
     ];

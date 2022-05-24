@@ -149,7 +149,7 @@ class DocumentationController extends Controller
     public function add_rateservices(Request $request)
     {
 
-       // dd($request->all());
+        // dd($request->all());
         $rateservices = rateservice::create(
             $request->only(
                 'company_name',
@@ -188,7 +188,7 @@ class DocumentationController extends Controller
                                 satisfaction with Maritime Lloyd in regards to value?'
         ];
 
-       /* if ($rateservices) {
+        /* if ($rateservices) {
             $mailTo = Setting::where(['key' => 'email'])->first();
             if (($mailTo !== null) && $mailTo->value) {
                 Mail::to($mailTo->value)->send(new ContactEmail($rateservices));
@@ -321,7 +321,7 @@ class DocumentationController extends Controller
                 'cargo_ship_safety_under_500_grt',
                 'seaworthiness',
                 'hsc_dsc_safety',
-                // 'manual_approval',
+                'manual_approval',
             )
         );
 
