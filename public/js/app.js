@@ -4378,16 +4378,14 @@ var Evaluation = function Evaluation(_ref) {
   }
 
   var scale = [1, 2, 3, 4, 5];
-  var satisfaction = [__('client.evaluation_option_exellent', sharedData), __('client.evaluation_option_verygood', sharedData), __('client.evaluation_option_good', sharedData), __('client.evaluation_option_fair', sharedData), __('client.evaluation_option_poor', sharedData)];
-
-  if (success) {
-    Swal.fire({
-      title: 'success!',
-      text: 'წარმატებით დაემატა',
-      icon: 'success',
-      confirmButtonText: 'Cool'
-    });
-  }
+  var satisfaction = [__('client.evaluation_option_exellent', sharedData), __('client.evaluation_option_verygood', sharedData), __('client.evaluation_option_good', sharedData), __('client.evaluation_option_fair', sharedData), __('client.evaluation_option_poor', sharedData)]; // if (success) {
+  //     Swal.fire({
+  //         title: 'success!',
+  //         text: 'წარმატებით დაემატა',
+  //         icon: 'success',
+  //         confirmButtonText: 'Cool'
+  //     })
+  // }
 
   return /*#__PURE__*/react__WEBPACK_IMPORTED_MODULE_0__.createElement(_Layouts_Layout__WEBPACK_IMPORTED_MODULE_3__["default"], {
     seo: seo
@@ -4872,7 +4870,6 @@ var OwnerApplication = function OwnerApplication(_ref) {
     if (!form.manual_approval.checked) {
       validFormsubmit = false;
       setFormSubmitted(true);
-      console.log(formSubmitted);
     }
 
     if (!validForm) {

@@ -292,7 +292,6 @@ const OwnerApplication = ({ seo, success, error }) => {
         if (!form.manual_approval.checked) {
             validFormsubmit = false
             setFormSubmitted(true);
-            console.log(formSubmitted);
         }
         if (!validForm) {
             Swal.fire({

@@ -78,14 +78,14 @@ const Evaluation = ({ seo, success }) => {
 
     const scale = [1, 2, 3, 4, 5];
     const satisfaction = [__('client.evaluation_option_exellent', sharedData), __('client.evaluation_option_verygood', sharedData), __('client.evaluation_option_good', sharedData), __('client.evaluation_option_fair', sharedData), __('client.evaluation_option_poor', sharedData)];
-    if (success) {
-        Swal.fire({
-            title: 'success!',
-            text: 'წარმატებით დაემატა',
-            icon: 'success',
-            confirmButtonText: 'Cool'
-        })
-    }
+    // if (success) {
+    //     Swal.fire({
+    //         title: 'success!',
+    //         text: 'წარმატებით დაემატა',
+    //         icon: 'success',
+    //         confirmButtonText: 'Cool'
+    //     })
+    // }
     return (
         <Layout seo={seo}>
             <div className="documents teamPage careerPage evaluation">
