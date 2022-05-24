@@ -4345,7 +4345,36 @@ var Evaluation = function Evaluation(_ref) {
 
   function handleSubmit(e) {
     e.preventDefault();
-    _inertiajs_inertia__WEBPACK_IMPORTED_MODULE_4__.Inertia.post(route('client.documentations.rateservices'), values);
+    var forms = document.evaluation;
+    var validForm = true; // console.log(forms.answer_1.value);
+
+    for (var key in values) {
+      console.log(forms[key].value);
+
+      if (forms[key].value == "") {
+        validForm = false;
+      }
+    }
+
+    if (!validForm) {
+      Swal.fire({
+        title: 'error!',
+        text: 'გთხოვთ შეავსოთ ყველა ველი',
+        icon: 'fail',
+        confirmButtonText: 'Cool'
+      });
+    } else {
+      Swal.fire({
+        title: 'success!',
+        text: 'წარმატებით დაემატა!',
+        icon: 'success',
+        confirmButtonText: 'Cool'
+      });
+      _inertiajs_inertia__WEBPACK_IMPORTED_MODULE_4__.Inertia.post(route('client.documentations.rateservices'), values);
+      setTimeout(function () {
+        location.reload();
+      }, 1500);
+    }
   }
 
   var scale = [1, 2, 3, 4, 5];
@@ -4377,13 +4406,14 @@ var Evaluation = function Evaluation(_ref) {
   }, /*#__PURE__*/react__WEBPACK_IMPORTED_MODULE_0__.createElement("p", {
     className: "op05 margin_bottom"
   }, renderHTML(__('client.evaluation_text', sharedData).replace(/(?:\r\n|\r|\n)/g, '<br>'))), /*#__PURE__*/react__WEBPACK_IMPORTED_MODULE_0__.createElement("form", {
-    onSubmit: handleSubmit
+    onSubmit: handleSubmit,
+    name: "evaluation"
   }, /*#__PURE__*/react__WEBPACK_IMPORTED_MODULE_0__.createElement("input", {
     id: "company_name",
     type: "text",
+    name: "company_name",
     placeholder: "Organization/Company name",
-    onChange: handleChange,
-    required: true
+    onChange: handleChange
   }), /*#__PURE__*/react__WEBPACK_IMPORTED_MODULE_0__.createElement("input", {
     id: "created_at",
     type: "date",
@@ -4401,15 +4431,15 @@ var Evaluation = function Evaluation(_ref) {
       htmlFor: "rate_1_".concat(index)
     }, item), /*#__PURE__*/react__WEBPACK_IMPORTED_MODULE_0__.createElement("input", {
       type: "radio",
-      name: "rate_1" // id={`rate_1_${index}`}
+      name: "answer_1" // id={`rate_1_${index}`}
       ,
-      required: true,
       id: "answer_1",
       value: "".concat(++index),
       onChange: handleChange
     }));
   })), /*#__PURE__*/react__WEBPACK_IMPORTED_MODULE_0__.createElement("p", null, renderHTML(__('client.evaluation_question_2', sharedData).replace(/(?:\r\n|\r|\n)/g, '<br>'))), /*#__PURE__*/react__WEBPACK_IMPORTED_MODULE_0__.createElement("input", {
     id: "answer_2",
+    name: "answer_2",
     type: "text",
     placeholder: __('client.evaluation_form_enter_response_here', sharedData),
     className: "margin_bottom",
@@ -4421,10 +4451,9 @@ var Evaluation = function Evaluation(_ref) {
       key: index,
       className: "radio num"
     }, /*#__PURE__*/react__WEBPACK_IMPORTED_MODULE_0__.createElement("input", {
-      type: "radio",
-      name: "rate_2" //  id={`rate_2_${index}`}
+      type: "radio" //  id={`rate_2_${index}`}
       ,
-      required: true,
+      name: "answer_3",
       id: "answer_3",
       value: item,
       onChange: handleChange
@@ -4440,9 +4469,8 @@ var Evaluation = function Evaluation(_ref) {
       className: "radio num"
     }, /*#__PURE__*/react__WEBPACK_IMPORTED_MODULE_0__.createElement("input", {
       type: "radio",
-      name: "rate_3" // id={`rate_3_${index}`}
+      name: "answer_4" // id={`rate_3_${index}`
       ,
-      required: true,
       id: "answer_4",
       value: item,
       onChange: handleChange
@@ -4458,9 +4486,8 @@ var Evaluation = function Evaluation(_ref) {
       className: "radio num"
     }, /*#__PURE__*/react__WEBPACK_IMPORTED_MODULE_0__.createElement("input", {
       type: "radio",
-      name: "rate_4" // id={`rate_4_${index}`}
+      name: "answer_5" // id={`rate_4_${index}`}
       ,
-      required: true,
       id: "answer_5",
       value: item,
       onChange: handleChange
@@ -4479,9 +4506,8 @@ var Evaluation = function Evaluation(_ref) {
       htmlFor: "rate_5_".concat(index)
     }, item), /*#__PURE__*/react__WEBPACK_IMPORTED_MODULE_0__.createElement("input", {
       type: "radio",
-      name: "rate_5" // id={`rate_5_${index}`}
+      name: "answer_6" // id={`rate_5_${index}`}
       ,
-      required: true,
       id: "answer_6",
       value: ++index,
       onChange: handleChange
@@ -4497,9 +4523,8 @@ var Evaluation = function Evaluation(_ref) {
       htmlFor: "rate_6_".concat(index)
     }, item), /*#__PURE__*/react__WEBPACK_IMPORTED_MODULE_0__.createElement("input", {
       type: "radio",
-      name: "rate_6" // id={`rate_6_${index}`}
+      name: "answer_7" // id={`rate_6_${index}`}
       ,
-      required: true,
       id: "answer_7",
       value: ++index,
       onChange: handleChange
@@ -4515,9 +4540,8 @@ var Evaluation = function Evaluation(_ref) {
       htmlFor: "rate_7_".concat(index)
     }, item), /*#__PURE__*/react__WEBPACK_IMPORTED_MODULE_0__.createElement("input", {
       type: "radio",
-      name: "rate_7" // id={`rate_7_${index}`}
+      name: "answer_8" // id={`rate_7_${index}`}
       ,
-      required: true,
       id: "answer_8",
       value: ++index,
       onChange: handleChange
@@ -4731,11 +4755,12 @@ var OwnerApplication = function OwnerApplication(_ref) {
     title: __('client.ownerapp_question_hsc_dsc_safety', sharedData),
     name: 'hsc_dsc_safety',
     checks: [__('client.app_option_remewal', sharedData), __('client.app_option_annual', sharedData), __('client.app_option_intermediate', sharedData)]
-  }, {
-    title: __('client.ownerapp_question_manual approval', sharedData),
-    name: 'manual_approval',
-    checks: [__('client.app_option_approval', sharedData)]
-  }]; // let obj = {};
+  } // {
+  //     title: __('client.ownerapp_question_manual approval', sharedData),
+  //     name: 'manual_approval',
+  //     checks: [__('client.app_option_approval', sharedData)],
+  // },
+  ]; // let obj = {};
   // let a = document.querySelectorAll('.app_inputs input');
   // var value;
   // a.forEach((e) => {
@@ -4826,62 +4851,45 @@ var OwnerApplication = function OwnerApplication(_ref) {
     });
   }
 
-  var radio = document.querySelectorAll('#radio_container');
+  var _useState3 = (0,react__WEBPACK_IMPORTED_MODULE_0__.useState)(false),
+      _useState4 = _slicedToArray(_useState3, 2),
+      formSubmitted = _useState4[0],
+      setFormSubmitted = _useState4[1]; // let checkbox_approval = false;
 
-  function GetElementInsideContainer(containerID, childID) {
-    var elm = document.getElementById(childID);
-    var parent = elm ? elm.parentNode : {};
-    return parent.id && parent.id === containerID ? elm : {};
-  }
-
-  GetElementInsideContainer('app_checklist', 'radio_container'); // let assa = radio[0].getElementsByClassName("checkbox")
 
   function handleSubmit(e) {
-    e.preventDefault(); // let form = document.forms["ownerapplication"];
-    // let formInputs = form.elements;
+    e.preventDefault();
+    var validForm = true;
+    var validFormsubmit = true;
+    var form = document.ownerapplication;
 
-    var validform = true;
-    var a = document.querySelectorAll('.app_inputs input');
-    var x = document.ownerapplication;
-
-    for (var j = 0; j < checklist.length; j++) {
-      var options = x[checklist[j].name];
-
-      for (var k = 0; k < options.length; k++) {
-        var check = options.value;
-
-        if (check == "") {
-          validform = false;
-          break;
-        }
+    for (var key in values) {
+      if (form[key].value == "") {
+        validForm = false;
       }
     }
 
-    for (var i = 0; i < a.length; i++) {
-      if (a[i].value == "") {
-        validform = false;
-        break;
-      }
-    } // if (!validform || !valid) {
+    if (!form.manual_approval.checked) {
+      validFormsubmit = false;
+      setFormSubmitted(true);
+      console.log(formSubmitted);
+    }
 
-
-    if (!validform) {
+    if (!validForm) {
       sweetalert2__WEBPACK_IMPORTED_MODULE_6___default().fire({
         title: 'შეცდომა',
         text: 'გთხოვთ შეავსოთ ყველა ველი',
         icon: 'fail',
         confirmButtonText: 'Cool'
       });
-    }
-
-    if (validform) {
+    } else if (validFormsubmit) {
+      _inertiajs_inertia__WEBPACK_IMPORTED_MODULE_4__.Inertia.post(route('client.documentations.sendapplication'), values);
       sweetalert2__WEBPACK_IMPORTED_MODULE_6___default().fire({
         title: 'წარმატებით დაემატა',
         text: '',
         icon: 'success',
         confirmButtonText: 'Cool'
       });
-      _inertiajs_inertia__WEBPACK_IMPORTED_MODULE_4__.Inertia.post(route('client.documentations.sendapplication'), values);
       setTimeout(function () {
         location.reload();
       }, 1500);
@@ -5113,11 +5121,14 @@ var OwnerApplication = function OwnerApplication(_ref) {
     className: "check"
   }, /*#__PURE__*/react__WEBPACK_IMPORTED_MODULE_0__.createElement("input", {
     type: "checkbox",
-    name: "",
-    id: "terms_conditions"
+    name: "manual_approval",
+    id: "manual_approval",
+    onChange: handleChange
   }), /*#__PURE__*/react__WEBPACK_IMPORTED_MODULE_0__.createElement("label", {
     htmlFor: "terms_conditions"
-  }, "By Checking this Box I Accapt Terms and Conditions")), /*#__PURE__*/react__WEBPACK_IMPORTED_MODULE_0__.createElement(_components_SmallComps_SmallComps__WEBPACK_IMPORTED_MODULE_1__.SendButton, {
+  }, __('client.app_option_approval', sharedData)), formSubmitted && /*#__PURE__*/react__WEBPACK_IMPORTED_MODULE_0__.createElement("p", {
+    className: "alert-danger p-1 mt-1"
+  }, "accept this term")), /*#__PURE__*/react__WEBPACK_IMPORTED_MODULE_0__.createElement(_components_SmallComps_SmallComps__WEBPACK_IMPORTED_MODULE_1__.SendButton, {
     text: "Send Now",
     type: "submit"
   }))))), /*#__PURE__*/react__WEBPACK_IMPORTED_MODULE_0__.createElement("div", {
