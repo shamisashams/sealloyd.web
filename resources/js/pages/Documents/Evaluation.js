@@ -4,22 +4,11 @@ import "./Documents.css";
 import Layout from "../../Layouts/Layout";
 import { Inertia } from '@inertiajs/inertia'
 import Swal from 'sweetalert2'
-<<<<<<< Updated upstream
-import {usePage} from "@inertiajs/inertia-react";
+import { usePage } from "@inertiajs/inertia-react";
 
 const Evaluation = ({ seo, success }) => {
     const sharedData = usePage().props.localizations;
     const renderHTML = (rawHTML) => React.createElement("p", { dangerouslySetInnerHTML: { __html: rawHTML } });
-=======
-import { Link, usePage, useForm } from "@inertiajs/inertia-react";
-
-
-
-const Evaluation = ({ seo, success }) => {
-    const renderHTML = (rawHTML) => React.createElement("div", { dangerouslySetInnerHTML: { __html: rawHTML } });
-    const sharedData = usePage().props.localizations;
-
->>>>>>> Stashed changes
     const Swal = require('sweetalert2')
 
     var date = new Date();
@@ -75,29 +64,17 @@ const Evaluation = ({ seo, success }) => {
                 <div className="wrapper">
                     <div className="font45 blue">{renderHTML(__('client.evaluation_header', sharedData).replace(/(?:\r\n|\r|\n)/g, '<br>'))}</div>
                     <PagePath
-                        location1={__('client.nav_home',sharedData)}
-                        location2={__('client.nav_documentation',sharedData)}
-                        location3={__('client.nav_evaluation',sharedData)}
+                        location1={__('client.nav_home', sharedData)}
+                        location2={__('client.nav_documentation', sharedData)}
+                        location3={__('client.nav_evaluation', sharedData)}
                     />
                     <div className="content">
                         <p className="op05 margin_bottom">
-<<<<<<< Updated upstream
                             {renderHTML(__('client.evaluation_text', sharedData).replace(/(?:\r\n|\r|\n)/g, '<br>'))}
                         </p>
                         <form onSubmit={handleSubmit}>
-                            <input id='company_name' type="text" placeholder="Organization/Company name" onChange={handleChange} />
+                            <input id='company_name' type="text" placeholder="Organization/Company name" onChange={handleChange} required />
                             <input id='created_at' type="date" className="margin_bottom" value={today} />
-=======
-                            {/* We hope you are pleased with the service that you have already
-                            received from MARITIME LLOYD. It is our aim to provide the most
-                            helpful and comprehensive service possible. To help us, please would
-                            you complete this short questionnaire? */}
-                            {renderHTML(__('client.evaluation_main_text', sharedData).replace(/(?:\r\n|\r|\n)/g, '<br>'))}
-                        </p>
-                        <form onSubmit={handleSubmit}>
-                            <input id='company_name' type="text" placeholder={__('client.evaluation_form_company_name', sharedData)} onChange={handleChange} />
-                            <input id='created_at' type="date" className="margin_bottom" value={today} onChange={handleChange} />
->>>>>>> Stashed changes
                             <p>
                                 {renderHTML(__('client.evaluation_question_1', sharedData).replace(/(?:\r\n|\r|\n)/g, '<br>'))}
                             </p>
@@ -274,12 +251,12 @@ const Evaluation = ({ seo, success }) => {
                                 })}
                             </div>
                             <div className="uppercase">
-                                {__('client.quest_bottom_txt1',sharedData)}
+                                {__('client.quest_bottom_txt1', sharedData)}
                             </div>
                             <p className="op05 margin_bottom">
-                                {__('client.quest_bottom_txt2',sharedData)}
+                                {__('client.quest_bottom_txt2', sharedData)}
                             </p>
-                            <SendButton text={__('client.quest_send',sharedData)} />
+                            <SendButton text={__('client.quest_send', sharedData)} />
                         </form>
                     </div>
                 </div>

@@ -341,11 +341,14 @@ const OwnerApplication = ({ seo, success, error }) => {
         <Layout seo={seo}>
             <div className="documents teamPage careerPage">
                 <div className="wrapper">
-                    <div className="font45 blue">გემთმფლობელის აპლიკაცია</div>
+                    <div className="font45 blue">
+                        {/* გემთმფლობელის აპლიკაცია */}
+                        {__('client.ownerapp_header_main_text', sharedData)}
+                    </div>
                     <PagePath
-                        location1="მთავარი"
-                        location2="დოკუმენტაცია"
-                        location3="გემთმფლობელის აპლიკაცია"
+                        location1={__('client.nav_home', sharedData)}
+                        location2={__('client.nav_documentation', sharedData)}
+                        location3={__('client.nav_office', sharedData)}
                     />
                     <p>
                         Dear Sirs, <br />

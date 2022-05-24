@@ -41,11 +41,14 @@ const Office = ({ seo, staff, page }) => {
         <Layout seo={seo}>
             <div className="teamPage">
                 <div className="wrapper">
-                    <div className="font45 blue">ბათუმის სათაო ოფისი</div>
+                    <div className="font45 blue">
+                        {/* ბათუმის სათაო ოფისი */}
+                        {__('client.ourteam_office_header_maint_text', sharedData)}
+                    </div>
                     <PagePath
-                        location1="მთავარი"
-                        location2="ჩვენი გუნდი"
-                        location3="ბათუმის სათაო ოფისი"
+                        location1={__('client.nav_home', sharedData)}
+                        location2={__('client.nav_documentation', sharedData)}
+                        location3={__('client.nav_office', sharedData)}
                     />
                     {/* <p>
                         Our team is comprised of leading industry experts with specialized
