@@ -1,53 +1,53 @@
 .page_path {
-  justify-content: flex-start;
-  margin-bottom: 30px;
+    justify-content: flex-start !important;
+    margin-bottom: 30px;
 }
 .page_path svg {
-  margin: 0 15px;
+    margin: 0 15px;
 }
 .page_path .op07 {
-  opacity: 0.3;
+    opacity: 0.3;
 }
 .dl_pdf {
-  justify-content: flex-start;
-  width: fit-content;
+    justify-content: flex-start;
+    width: fit-content;
 }
 .dl_pdf img {
-  margin-right: 10px;
-  vertical-align: middle;
+    margin-right: 10px;
+    vertical-align: middle;
 }
 .dl_pdf p {
-  text-align: left;
-  margin-bottom: 10px;
+    text-align: left;
+    margin-bottom: 10px;
 }
 .send_button {
-  background-color: #22aabe;
-  border-radius: 3px;
-  color: #fff;
-  font-size: 16px;
-  height: 45px;
-  width: 350px;
-  transition: 0.3s;
+    background-color: #22aabe;
+    border-radius: 3px;
+    color: #fff;
+    font-size: 16px;
+    height: 45px;
+    width: 350px;
+    transition: 0.3s;
 }
 .send_button img {
-  margin-right: 15px;
-  vertical-align: middle;
+    margin-right: 15px;
+    vertical-align: middle;
 }
 .send_button:active {
-  transform: translateY(3px) scale(0.95);
+    transform: translateY(3px) scale(0.95);
 }
 
 @media screen and (max-width: 500px) {
-  .page_path {
-    font-size: 12px;
-    margin-bottom: 20px;
-  }
-  .page_path svg {
-    margin: 0 8px;
-  }
+    .page_path {
+        font-size: 12px;
+        margin-bottom: 20px;
+    }
+    .page_path svg {
+        margin: 0 8px;
+    }
 }
 @media screen and (max-width: 400px) {
-  .send_button {
-    width: 100%;
-  }
+    .send_button {
+        width: 100%;
+    }
 }
