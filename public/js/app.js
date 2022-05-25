@@ -4870,6 +4870,8 @@ var OwnerApplication = function OwnerApplication(_ref) {
     if (!form.manual_approval.checked) {
       validFormsubmit = false;
       setFormSubmitted(true);
+    } else {
+      setFormSubmitted(false);
     }
 
     if (!validForm) {
@@ -6668,7 +6670,10 @@ var Header = function Header() {
   }
 
   return /*#__PURE__*/react__WEBPACK_IMPORTED_MODULE_0__.createElement("div", {
-    className: solid ? "header solid" : "header"
+    className: solid ? "header solid" : "header",
+    style: {
+      'z-index': '999999999999999999999999'
+    }
   }, /*#__PURE__*/react__WEBPACK_IMPORTED_MODULE_0__.createElement("div", {
     className: "wrapper flex"
   }, /*#__PURE__*/react__WEBPACK_IMPORTED_MODULE_0__.createElement(_inertiajs_inertia_react__WEBPACK_IMPORTED_MODULE_1__.Link, {

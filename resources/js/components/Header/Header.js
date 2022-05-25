@@ -128,7 +128,7 @@ const Header = () => {
     }
     return (
 
-        <div className={solid ? "header solid" : "header"}>
+        <div className={solid ? "header solid" : "header"} style={{ 'z-index': '999999999999999999999999' }}>
             <div className="wrapper flex">
                 <Link href={route('client.home.index')}>
                     <img src='/assets/images/logo/1.png' alt="" />
@@ -208,7 +208,7 @@ const Header = () => {
                     <Languages></Languages>
                 </div>
             </div>
-        </div>
+        </div >
 
     );
 };

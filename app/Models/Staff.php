@@ -53,6 +53,7 @@ class Staff extends Model
         'slug',
     ];
 
+    // this adds image
     public function latestImage()
     {
         return $this->morphOne(File::class, 'fileable')->latestOfMany();
