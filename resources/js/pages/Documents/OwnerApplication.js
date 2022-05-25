@@ -300,7 +300,7 @@ const OwnerApplication = ({ seo, success, error }) => {
                 title: 'შეცდომა',
                 text: 'გთხოვთ შეავსოთ ყველა ველი',
                 icon: 'fail',
-                confirmButtonText: 'Cool'
+                confirmButtonText: 'გასაგებია'
             })
         } else if (validFormsubmit) {
             Inertia.post(route('client.documentations.sendapplication'), values)
@@ -308,7 +308,7 @@ const OwnerApplication = ({ seo, success, error }) => {
                 title: 'წარმატებით დაემატა',
                 text: '',
                 icon: 'success',
-                confirmButtonText: 'Cool'
+                confirmButtonText: 'გასაგებია'
             })
             setTimeout(() => {
                 location.reload()

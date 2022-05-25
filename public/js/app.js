@@ -4361,14 +4361,14 @@ var Evaluation = function Evaluation(_ref) {
         title: 'error!',
         text: 'გთხოვთ შეავსოთ ყველა ველი',
         icon: 'fail',
-        confirmButtonText: 'Cool'
+        confirmButtonText: 'გასაგებია'
       });
     } else {
       Swal.fire({
         title: 'success!',
         text: 'წარმატებით დაემატა!',
         icon: 'success',
-        confirmButtonText: 'Cool'
+        confirmButtonText: 'გასაგებია'
       });
       _inertiajs_inertia__WEBPACK_IMPORTED_MODULE_4__.Inertia.post(route('client.documentations.rateservices'), values);
       setTimeout(function () {
@@ -4879,7 +4879,7 @@ var OwnerApplication = function OwnerApplication(_ref) {
         title: 'შეცდომა',
         text: 'გთხოვთ შეავსოთ ყველა ველი',
         icon: 'fail',
-        confirmButtonText: 'Cool'
+        confirmButtonText: 'გასაგებია'
       });
     } else if (validFormsubmit) {
       _inertiajs_inertia__WEBPACK_IMPORTED_MODULE_4__.Inertia.post(route('client.documentations.sendapplication'), values);
@@ -4887,7 +4887,7 @@ var OwnerApplication = function OwnerApplication(_ref) {
         title: 'წარმატებით დაემატა',
         text: '',
         icon: 'success',
-        confirmButtonText: 'Cool'
+        confirmButtonText: 'გასაგებია'
       });
       setTimeout(function () {
         location.reload();

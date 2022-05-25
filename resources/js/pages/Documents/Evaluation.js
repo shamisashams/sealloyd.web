@@ -59,14 +59,14 @@ const Evaluation = ({ seo, success }) => {
                 title: 'error!',
                 text: 'გთხოვთ შეავსოთ ყველა ველი',
                 icon: 'fail',
-                confirmButtonText: 'Cool'
+                confirmButtonText: 'გასაგებია'
             })
         } else {
             Swal.fire({
                 title: 'success!',
                 text: 'წარმატებით დაემატა!',
                 icon: 'success',
-                confirmButtonText: 'Cool'
+                confirmButtonText: 'გასაგებია'
             })
             Inertia.post(route('client.documentations.rateservices'), values)
             setTimeout(() => {
