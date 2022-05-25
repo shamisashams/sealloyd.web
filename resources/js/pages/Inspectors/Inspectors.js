@@ -19,10 +19,15 @@ const Inspectors = ({ seo }) => {
                             {/* აღიარებული ინსპექტორები */}
                             {renderHTML(__('client.ourteam_inspectors_accepted_inspectors', sharedData).replace(/(?:\r\n|\r|\n)/g, '<br>'))}
                         </div>
-                        <PagePath
+                        {/* <PagePath
                             location1="მთავარი"
                             location2="ჩვენი გუნდი"
                             location3="აღიარებული ინსპექტორები"
+                        /> */}
+                        <PagePath
+                            location1={__('client.nav_home', sharedData)}
+                            location2={__('client.nav_ourteam', sharedData)}
+                            location3={__('client.nav_inspectors', sharedData)}
                         />
                         <div className="bottom">
                             <div className="font45">

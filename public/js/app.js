@@ -5299,9 +5299,9 @@ var Inspectors = function Inspectors(_ref) {
   }, /*#__PURE__*/react__WEBPACK_IMPORTED_MODULE_0__.createElement("div", {
     className: "font45 title"
   }, renderHTML(__('client.ourteam_inspectors_accepted_inspectors', sharedData).replace(/(?:\r\n|\r|\n)/g, '<br>'))), /*#__PURE__*/react__WEBPACK_IMPORTED_MODULE_0__.createElement(_components_SmallComps_SmallComps__WEBPACK_IMPORTED_MODULE_2__.PagePath, {
-    location1: "\u10DB\u10D7\u10D0\u10D5\u10D0\u10E0\u10D8",
-    location2: "\u10E9\u10D5\u10D4\u10DC\u10D8 \u10D2\u10E3\u10DC\u10D3\u10D8",
-    location3: "\u10D0\u10E6\u10D8\u10D0\u10E0\u10D4\u10D1\u10E3\u10DA\u10D8 \u10D8\u10DC\u10E1\u10DE\u10D4\u10E5\u10E2\u10DD\u10E0\u10D4\u10D1\u10D8"
+    location1: __('client.nav_home', sharedData),
+    location2: __('client.nav_ourteam', sharedData),
+    location3: __('client.nav_inspectors', sharedData)
   }), /*#__PURE__*/react__WEBPACK_IMPORTED_MODULE_0__.createElement("div", {
     className: "bottom"
   }, /*#__PURE__*/react__WEBPACK_IMPORTED_MODULE_0__.createElement("div", {
