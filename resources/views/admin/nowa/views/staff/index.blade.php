@@ -40,7 +40,7 @@
                                 <thead>
                                 <tr>
                                     <th>@lang('admin.id')</th>
-                                    <th>@lang('admin.status')</th>
+                                    {{-- <th>@lang('admin.status')</th> --}}
                                     <th>@lang('admin.title')</th>
                                     <th>@lang('admin.actions')</th>
                                 </tr>
@@ -53,13 +53,13 @@
                                                value="{{Request::get('id')}}"
                                                class="validate {{$errors->has('id') ? '' : 'valid'}}">
                                     </th>
-                                    <th>
+                                    {{-- <th>
                                         <select class="form-control" name="status" onchange="this.form.submit()">
                                             <option value="" {{Request::get('status') === '' ? 'selected' :''}}>@lang('admin.any')</option>
                                             <option value="1" {{Request::get('status') === '1' ? 'selected' :''}}>@lang('admin.active')</option>
                                             <option value="0" {{Request::get('status') === '0' ? 'selected' :''}}>@lang('admin.not_active')</option>
                                         </select>
-                                    </th>
+                                    </th> --}}
                                     <th>
                                         <input class="form-control" type="text" name="title" onchange="this.form.submit()"
                                                value="{{Request::get('title')}}"
@@ -73,13 +73,13 @@
                                     @foreach($data as $item)
                                         <tr>
                                             <th scope="row">{{$item->id}}</th>
-                                            <td>
+                                            {{-- <td>
                                                 @if($item->status)
                                                     <span class="green-text">@lang('admin.active')</span>
                                                 @else
                                                     <span class="red-text">@lang('admin.not_active')</span>
                                                 @endif
-                                            </td>
+                                            </td> --}}
                                             <td>
                                                 <div class="panel panel-primary tabs-style-2">
                                                     <div class=" tab-menu-heading">

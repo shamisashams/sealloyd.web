@@ -34,9 +34,9 @@ class SettingSeeder extends Seeder
             [
                 'key' => 'facebook'
             ],
-            [
-                'key' => 'instagram'
-            ]
+            // [
+            //     'key' => 'instagram'
+            // ]
 
         ];
 

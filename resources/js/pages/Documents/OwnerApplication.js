@@ -10,10 +10,9 @@ import { Link, usePage, useForm } from "@inertiajs/inertia-react";
 // import mail from "../../assets/images/icons/contact/mail.svg";
 import "./Documents.css";
 
-const OwnerApplication = ({ seo, success, error }) => {
+const OwnerApplication = ({ info, seo, success, error }) => {
     const renderHTML = (rawHTML) => React.createElement("div", { dangerouslySetInnerHTML: { __html: rawHTML } });
     const sharedData = usePage().props.localizations;
-
     const { errors } = usePage().props
     // if (success) {
     //     Swal.fire({
@@ -331,14 +330,18 @@ const OwnerApplication = ({ seo, success, error }) => {
                         location3={__('client.nav_office', sharedData)}
                     />
                     <p>
-                        Dear Sirs, <br />
-                        Please proceed with classification/statutory survey
+                        {/* Dear Sirs, <br />
+                        Please proceed with classification/statutory survey */}
+                        {renderHTML(__('client.ownerapp_dear_sirs_please_proceed', sharedData).replace(/(?:\r\n|\r|\n)/g, '<br>'))}
                     </p>
                     <form name='ownerapplication' onSubmit={handleSubmit}>
                         <div className="flex main">
                             <div className="inputs">
 
-                                <div className="underline uppercase head">FOR ALL SHIPS</div>
+                                <div className="underline uppercase head">
+                                    {/* FOR ALL SHIPS */}
+                                    {__('client.ownerapp_for_all_ships', sharedData)}
+                                </div>
                                 <div className="app_inputs">
                                     <input type="text" id='name_of_ship' name='name_of_ship' placeholder={__('client.ownerapp_form_name_of_ship', sharedData)} onChange={handleChange} />
                                     <input type="text" id='ex_names' name='ex_names' placeholder={__('client.ownerapp_form_ex_names', sharedData)} onChange={handleChange} />
@@ -380,7 +383,12 @@ const OwnerApplication = ({ seo, success, error }) => {
 
                             <div className="checkboxes">
                                 <div className="underline uppercase head">
-                                    Surveys requested <span>Check whatever is applicable*</span>
+                                    {/* Surveys requested */}
+                                    {__('client.ownerapp_surveys_requested', sharedData)}
+                                    <span>
+                                        {/* Check whatever is applicable* */}
+                                        {__('client.ownerapp_check_whatever_is_applicable', sharedData)}
+                                    </span>
                                 </div>
 
                                 <div className="app_checklist" id="app_checklist">
@@ -424,15 +432,22 @@ const OwnerApplication = ({ seo, success, error }) => {
                     </form>
 
                     <div className="required_docs">
-                        Please send us with application form following Documents:
+                        {/* Please send us with application form following Documents:
                         <ul>
                             <li>1. Latest Survey Status</li>
                             <li>2. Latest Ship Construction Certificate</li>
                             <li>3. Flag Registration Letter</li>
-                        </ul>
+                        </ul> */}
+
+                        {renderHTML(__('client.app_after_form_text', sharedData).replace(/(?:\r\n|\r|\n)/g, '<br>'))}
+
+
                         <a href="#">
                             <img src='/assets/images/icons/contact/mail.svg' alt="" />
-                            <span>stat@geolloyd.com</span>
+                            <span>
+                                {/* stat@geolloyd.com */}
+                                {info.email.value}
+                            </span>
                         </a>
                     </div>
                 </div>

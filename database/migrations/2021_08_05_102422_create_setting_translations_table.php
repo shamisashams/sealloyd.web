@@ -20,7 +20,7 @@ class CreateSettingTranslationsTable extends Migration
 
             $table->string("value")->nullable();
 
-            $table->unique(['setting_id','locale']);
+            $table->unique(['setting_id', 'locale']);
             $table->foreign('setting_id')
                 ->references('id')
                 ->on('settings')

@@ -4409,8 +4409,9 @@ var Evaluation = function Evaluation(_ref) {
   }, /*#__PURE__*/react__WEBPACK_IMPORTED_MODULE_0__.createElement("input", {
     id: "company_name",
     type: "text",
-    name: "company_name",
-    placeholder: "Organization/Company name",
+    name: "company_name" // placeholder="Organization/Company name"
+    ,
+    placeholder: __('client.evaluation_form_organizations_company_name', sharedData),
     onChange: handleChange
   }), /*#__PURE__*/react__WEBPACK_IMPORTED_MODULE_0__.createElement("input", {
     id: "created_at",
@@ -4608,7 +4609,8 @@ function _arrayWithHoles(arr) { if (Array.isArray(arr)) return arr; }
 
 
 var OwnerApplication = function OwnerApplication(_ref) {
-  var seo = _ref.seo,
+  var info = _ref.info,
+      seo = _ref.seo,
       success = _ref.success,
       error = _ref.error;
 
@@ -4907,7 +4909,7 @@ var OwnerApplication = function OwnerApplication(_ref) {
     location1: __('client.nav_home', sharedData),
     location2: __('client.nav_documentation', sharedData),
     location3: __('client.nav_office', sharedData)
-  }), /*#__PURE__*/react__WEBPACK_IMPORTED_MODULE_0__.createElement("p", null, "Dear Sirs, ", /*#__PURE__*/react__WEBPACK_IMPORTED_MODULE_0__.createElement("br", null), "Please proceed with classification/statutory survey"), /*#__PURE__*/react__WEBPACK_IMPORTED_MODULE_0__.createElement("form", {
+  }), /*#__PURE__*/react__WEBPACK_IMPORTED_MODULE_0__.createElement("p", null, renderHTML(__('client.ownerapp_dear_sirs_please_proceed', sharedData).replace(/(?:\r\n|\r|\n)/g, '<br>'))), /*#__PURE__*/react__WEBPACK_IMPORTED_MODULE_0__.createElement("form", {
     name: "ownerapplication",
     onSubmit: handleSubmit
   }, /*#__PURE__*/react__WEBPACK_IMPORTED_MODULE_0__.createElement("div", {
@@ -4916,7 +4918,7 @@ var OwnerApplication = function OwnerApplication(_ref) {
     className: "inputs"
   }, /*#__PURE__*/react__WEBPACK_IMPORTED_MODULE_0__.createElement("div", {
     className: "underline uppercase head"
-  }, "FOR ALL SHIPS"), /*#__PURE__*/react__WEBPACK_IMPORTED_MODULE_0__.createElement("div", {
+  }, __('client.ownerapp_for_all_ships', sharedData)), /*#__PURE__*/react__WEBPACK_IMPORTED_MODULE_0__.createElement("div", {
     className: "app_inputs"
   }, /*#__PURE__*/react__WEBPACK_IMPORTED_MODULE_0__.createElement("input", {
     type: "text",
@@ -5090,7 +5092,7 @@ var OwnerApplication = function OwnerApplication(_ref) {
     className: "checkboxes"
   }, /*#__PURE__*/react__WEBPACK_IMPORTED_MODULE_0__.createElement("div", {
     className: "underline uppercase head"
-  }, "Surveys requested ", /*#__PURE__*/react__WEBPACK_IMPORTED_MODULE_0__.createElement("span", null, "Check whatever is applicable*")), /*#__PURE__*/react__WEBPACK_IMPORTED_MODULE_0__.createElement("div", {
+  }, __('client.ownerapp_surveys_requested', sharedData), /*#__PURE__*/react__WEBPACK_IMPORTED_MODULE_0__.createElement("span", null, __('client.ownerapp_check_whatever_is_applicable', sharedData))), /*#__PURE__*/react__WEBPACK_IMPORTED_MODULE_0__.createElement("div", {
     className: "app_checklist",
     id: "app_checklist"
   }, checklist.map(function (item, index) {
@@ -5132,12 +5134,12 @@ var OwnerApplication = function OwnerApplication(_ref) {
     type: "submit"
   }))))), /*#__PURE__*/react__WEBPACK_IMPORTED_MODULE_0__.createElement("div", {
     className: "required_docs"
-  }, "Please send us with application form following Documents:", /*#__PURE__*/react__WEBPACK_IMPORTED_MODULE_0__.createElement("ul", null, /*#__PURE__*/react__WEBPACK_IMPORTED_MODULE_0__.createElement("li", null, "1. Latest Survey Status"), /*#__PURE__*/react__WEBPACK_IMPORTED_MODULE_0__.createElement("li", null, "2. Latest Ship Construction Certificate"), /*#__PURE__*/react__WEBPACK_IMPORTED_MODULE_0__.createElement("li", null, "3. Flag Registration Letter")), /*#__PURE__*/react__WEBPACK_IMPORTED_MODULE_0__.createElement("a", {
+  }, renderHTML(__('client.app_after_form_text', sharedData).replace(/(?:\r\n|\r|\n)/g, '<br>')), /*#__PURE__*/react__WEBPACK_IMPORTED_MODULE_0__.createElement("a", {
     href: "#"
   }, /*#__PURE__*/react__WEBPACK_IMPORTED_MODULE_0__.createElement("img", {
     src: "/assets/images/icons/contact/mail.svg",
     alt: ""
-  }), /*#__PURE__*/react__WEBPACK_IMPORTED_MODULE_0__.createElement("span", null, "stat@geolloyd.com"))))));
+  }), /*#__PURE__*/react__WEBPACK_IMPORTED_MODULE_0__.createElement("span", null, info.email.value))))));
 };
 
 /* harmony default export */ const __WEBPACK_DEFAULT_EXPORT__ = (OwnerApplication);
@@ -5206,7 +5208,7 @@ var Home = function Home(_ref) {
     className: "beach_bg"
   }), /*#__PURE__*/react__WEBPACK_IMPORTED_MODULE_0__.createElement("div", {
     className: "scroll_down"
-  }, /*#__PURE__*/react__WEBPACK_IMPORTED_MODULE_0__.createElement("p", null, "scroll down for more"), /*#__PURE__*/react__WEBPACK_IMPORTED_MODULE_0__.createElement("img", {
+  }, /*#__PURE__*/react__WEBPACK_IMPORTED_MODULE_0__.createElement("p", null, renderHTML(__('client.home_scroll_down_for_more', sharedData).replace(/(?:\r\n|\r|\n)/g, '<br>'))), /*#__PURE__*/react__WEBPACK_IMPORTED_MODULE_0__.createElement("img", {
     src: "/assets/images/icons/other/down.png",
     alt: ""
   }))), /*#__PURE__*/react__WEBPACK_IMPORTED_MODULE_0__.createElement("div", {
@@ -5296,7 +5298,7 @@ var Inspectors = function Inspectors(_ref) {
     className: "content"
   }, /*#__PURE__*/react__WEBPACK_IMPORTED_MODULE_0__.createElement("div", {
     className: "font45 title"
-  }, "\u10D0\u10E6\u10D8\u10D0\u10E0\u10D4\u10D1\u10E3\u10DA\u10D8 \u10D8\u10DC\u10E1\u10DE\u10D4\u10E5\u10E2\u10DD\u10E0\u10D4\u10D1\u10D8"), /*#__PURE__*/react__WEBPACK_IMPORTED_MODULE_0__.createElement(_components_SmallComps_SmallComps__WEBPACK_IMPORTED_MODULE_2__.PagePath, {
+  }, renderHTML(__('client.ourteam_inspectors_accepted_inspectors', sharedData).replace(/(?:\r\n|\r|\n)/g, '<br>'))), /*#__PURE__*/react__WEBPACK_IMPORTED_MODULE_0__.createElement(_components_SmallComps_SmallComps__WEBPACK_IMPORTED_MODULE_2__.PagePath, {
     location1: "\u10DB\u10D7\u10D0\u10D5\u10D0\u10E0\u10D8",
     location2: "\u10E9\u10D5\u10D4\u10DC\u10D8 \u10D2\u10E3\u10DC\u10D3\u10D8",
     location3: "\u10D0\u10E6\u10D8\u10D0\u10E0\u10D4\u10D1\u10E3\u10DA\u10D8 \u10D8\u10DC\u10E1\u10DE\u10D4\u10E5\u10E2\u10DD\u10E0\u10D4\u10D1\u10D8"
@@ -5304,7 +5306,7 @@ var Inspectors = function Inspectors(_ref) {
     className: "bottom"
   }, /*#__PURE__*/react__WEBPACK_IMPORTED_MODULE_0__.createElement("div", {
     className: "font45"
-  }, "\u10D0\u10E6\u10D8\u10D0\u10E0\u10D4\u10D1\u10E3\u10DA\u10D8 ", /*#__PURE__*/react__WEBPACK_IMPORTED_MODULE_0__.createElement("br", null), "\u10D8\u10DC\u10E1\u10DE\u10D4\u10E5\u10E2\u10DD\u10E0\u10D4\u10D1\u10D8"), /*#__PURE__*/react__WEBPACK_IMPORTED_MODULE_0__.createElement("p", null, renderHTML(__('client.ourteam_inspectors_main_text', sharedData).replace(/(?:\r\n|\r|\n)/g, '<br>'))))))));
+  }, renderHTML(__('client.ourteam_inspectors_accepted_inspectors_main_text', sharedData).replace(/(?:\r\n|\r|\n)/g, '<br>'))), /*#__PURE__*/react__WEBPACK_IMPORTED_MODULE_0__.createElement("p", null, renderHTML(__('client.ourteam_inspectors_main_text', sharedData).replace(/(?:\r\n|\r|\n)/g, '<br>'))))))));
 };
 
 /* harmony default export */ const __WEBPACK_DEFAULT_EXPORT__ = (Inspectors);
@@ -5326,6 +5328,7 @@ __webpack_require__.r(__webpack_exports__);
 /* harmony import */ var _inertiajs_inertia__WEBPACK_IMPORTED_MODULE_1__ = __webpack_require__(/*! @inertiajs/inertia */ "./node_modules/@inertiajs/inertia/dist/index.js");
 /* harmony import */ var _Login_css__WEBPACK_IMPORTED_MODULE_2__ = __webpack_require__(/*! ./Login.css */ "./resources/js/Pages/Login/Login.css");
 /* harmony import */ var _Layouts_Layout__WEBPACK_IMPORTED_MODULE_3__ = __webpack_require__(/*! ../../Layouts/Layout */ "./resources/js/Layouts/Layout.js");
+/* harmony import */ var _inertiajs_inertia_react__WEBPACK_IMPORTED_MODULE_4__ = __webpack_require__(/*! @inertiajs/inertia-react */ "./node_modules/@inertiajs/inertia-react/dist/index.js");
 function ownKeys(object, enumerableOnly) { var keys = Object.keys(object); if (Object.getOwnPropertySymbols) { var symbols = Object.getOwnPropertySymbols(object); enumerableOnly && (symbols = symbols.filter(function (sym) { return Object.getOwnPropertyDescriptor(object, sym).enumerable; })), keys.push.apply(keys, symbols); } return keys; }
 
 function _objectSpread(target) { for (var i = 1; i < arguments.length; i++) { var source = null != arguments[i] ? arguments[i] : {}; i % 2 ? ownKeys(Object(source), !0).forEach(function (key) { _defineProperty(target, key, source[key]); }) : Object.getOwnPropertyDescriptors ? Object.defineProperties(target, Object.getOwnPropertyDescriptors(source)) : ownKeys(Object(source)).forEach(function (key) { Object.defineProperty(target, key, Object.getOwnPropertyDescriptor(source, key)); }); } return target; }
@@ -5350,8 +5353,18 @@ function _arrayWithHoles(arr) { if (Array.isArray(arr)) return arr; }
 
 
 
+
 var Login = function Login(_ref) {
   var seo = _ref.seo;
+  var sharedData = (0,_inertiajs_inertia_react__WEBPACK_IMPORTED_MODULE_4__.usePage)().props.localizations;
+
+  var renderHTML = function renderHTML(rawHTML) {
+    return /*#__PURE__*/react__WEBPACK_IMPORTED_MODULE_0__.createElement("div", {
+      dangerouslySetInnerHTML: {
+        __html: rawHTML
+      }
+    });
+  };
 
   var _useState = (0,react__WEBPACK_IMPORTED_MODULE_0__.useState)({
     email: "",
@@ -5380,19 +5393,19 @@ var Login = function Login(_ref) {
     className: "loginPage"
   }, /*#__PURE__*/react__WEBPACK_IMPORTED_MODULE_0__.createElement("div", {
     className: "login_box"
-  }, /*#__PURE__*/react__WEBPACK_IMPORTED_MODULE_0__.createElement("h5", null, "\u10DE\u10D8\u10E0\u10D0\u10D3\u10D8 \u10D9\u10D0\u10D1\u10D8\u10DC\u10D4\u10E2\u10D8"), /*#__PURE__*/react__WEBPACK_IMPORTED_MODULE_0__.createElement("p", null, "\u10D9\u10D0\u10D1\u10D8\u10DC\u10D4\u10E2\u10E8\u10D8 \u10E8\u10D4\u10E1\u10D0\u10E1\u10D5\u10DA\u10D4\u10DA\u10D0\u10D3 \u10DB\u10DD\u10D8\u10D7\u10EE\u10DD\u10D5\u10D4 \u10EC\u10D5\u10D3\u10DD\u10DB\u10D0 \u10D0\u10D3\u10DB\u10D8\u10DC\u10D8\u10E1\u10E2\u10E0\u10D0\u10EA\u10D8\u10D0\u10E1\u10D7\u10D0\u10DC"), /*#__PURE__*/react__WEBPACK_IMPORTED_MODULE_0__.createElement("input", {
+  }, /*#__PURE__*/react__WEBPACK_IMPORTED_MODULE_0__.createElement("h5", null, renderHTML(__('client.login_personal_cabinet', sharedData).replace(/(?:\r\n|\r|\n)/g, '<br>'))), /*#__PURE__*/react__WEBPACK_IMPORTED_MODULE_0__.createElement("p", null, renderHTML(__('client.login_to_enter_permissiont_ask_admin', sharedData).replace(/(?:\r\n|\r|\n)/g, '<br>'))), /*#__PURE__*/react__WEBPACK_IMPORTED_MODULE_0__.createElement("input", {
     name: "email",
     type: "text",
     onChange: handleChange,
-    placeholder: "\u10DB\u10DD\u10DB\u10EE\u10DB\u10D0\u10E0\u10D4\u10D1\u10D4\u10DA\u10D8"
+    placeholder: __('client.login_user', sharedData)
   }), /*#__PURE__*/react__WEBPACK_IMPORTED_MODULE_0__.createElement("input", {
     name: "password",
     type: "password",
     onChange: handleChange,
-    placeholder: "\u10DE\u10D0\u10E0\u10DD\u10DA\u10D8"
+    placeholder: __('client.login_password', sharedData)
   }), /*#__PURE__*/react__WEBPACK_IMPORTED_MODULE_0__.createElement("button", {
     onClick: handleSubmit
-  }, "\u10D0\u10D5\u10E2\u10DD\u10E0\u10D8\u10D6\u10D0\u10EA\u10D8\u10D0", /*#__PURE__*/react__WEBPACK_IMPORTED_MODULE_0__.createElement("img", {
+  }, renderHTML(__('client.login_authorization', sharedData).replace(/(?:\r\n|\r|\n)/g, '<br>')), /*#__PURE__*/react__WEBPACK_IMPORTED_MODULE_0__.createElement("img", {
     src: "/assets/images/icons/other/arr.svg",
     alt: ""
   })))));

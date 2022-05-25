@@ -95,14 +95,14 @@
                     </div>
 
 
-                    <div class="form-group mb-0 justify-content-end">
+                    {{-- <div class="form-group mb-0 justify-content-end">
                         <div class="checkbox">
                             <div class="custom-checkbox custom-control">
                                 <input type="checkbox" data-checkboxes="mygroup" name="status" class="custom-control-input" id="checkbox-2" {{$skill->status ? 'checked' : ''}}>
                                 <label for="checkbox-2" class="custom-control-label mt-1">{{__('admin.status')}}</label>
                             </div>
                         </div>
-                    </div>
+                    </div> --}}
                     <div class="form-group mb-0 mt-3 justify-content-end">
                         <div>
                             {!! Form::submit($skill->created_at ? __('admin.update') : __('admin.create'),['class' => 'btn btn-primary']) !!}
@@ -174,7 +174,7 @@
 
     <script src="{{asset('uploader/image-uploader.js')}}"></script>
 
-    <script>
+    {{-- <script>
         let oldImages = $('#old_images').val();
         if (oldImages) {
             oldImages = JSON.parse(oldImages);
@@ -201,6 +201,6 @@
         } else {
             $('.input-images').imageUploader();
         }
-    </script>
+    </script> --}}
 
 @endsection

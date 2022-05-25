@@ -24,7 +24,10 @@ const Home = ({ page, seo, images }) => {
                 <div className="hero_section">
                     <img src='/assets/images/home/1.png' alt="" className="beach_bg" />
                     <div className="scroll_down">
-                        <p>scroll down for more</p>
+                        <p>
+                            {/* scroll down for more */}
+                            {renderHTML(__('client.home_scroll_down_for_more', sharedData).replace(/(?:\r\n|\r|\n)/g, '<br>'))}
+                        </p>
                         <img src='/assets/images/icons/other/down.png' alt="" />
                     </div>
                 </div>

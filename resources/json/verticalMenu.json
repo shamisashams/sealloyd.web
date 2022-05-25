@@ -1,42 +1,11 @@
 {
     "menu": [
         {
-            "url": "category.index",
-            "name": "პროდ. კატეგორიები",
-            "i18n": "category",
-            "icon": "language",
-            "slug": "category"
-        },
-        {
-            "url": "product.index",
-            "name": "პროდუქცია",
-            "i18n": "product",
-            "icon": "language",
-            "slug": "product",
-            "submenu": [
-
-                {
-                    "url": "category.index",
-                    "name": "კატეგორიები",
-                    "i18n": "category",
-                    "icon": "language",
-                    "slug": "category"
-                }
-            ]
-        },
-        {
             "url": "page.index",
             "name": "გვერდები",
             "i18n": "page",
             "icon": "language",
             "slug": "page"
-        },
-        {
-            "url": "slider.index",
-            "name": "სლაიდერი",
-            "i18n": "slider",
-            "icon": "language",
-            "slug": "slider"
         },
         {
             "url": "language.index",

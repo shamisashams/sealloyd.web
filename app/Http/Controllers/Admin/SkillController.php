@@ -211,10 +211,10 @@ class SkillController extends Controller
      * @param Product $product
      * @return Application|RedirectResponse|Redirector
      */
-    public function destroy(string $locale, Customer $customer)
+    public function destroy(string $locale, Skill $skill)
     {
-        if (!$this->staffRepository->delete($customer->id)) {
-            return redirect(locale_route('skill.index', $customer->id))->with('danger', __('admin.not_delete_message'));
+        if (!$this->skillRepository->delete($skill->id)) {
+            return redirect(locale_route('skill.index', $skill->id))->with('danger', __('admin.not_delete_message'));
         }
         return redirect(locale_route('skill.index'))->with('success', __('admin.delete_message'));
     }

@@ -41,7 +41,7 @@
                                 <tr>
                                     <th>@lang('admin.id')</th>
                                     <th>@lang('admin.status')</th>
-                                    <th>@lang('admin.title')</th>
+                                    {{-- <th>@lang('admin.title')</th> --}}
                                     <th>@lang('admin.actions')</th>
                                 </tr>
                                 </thead>
@@ -73,13 +73,13 @@
                                     @foreach($data as $item)
                                         <tr>
                                             <th scope="row">{{$item->id}}</th>
-                                            <td>
+                                            {{-- <td>
                                                 @if($item->status)
                                                     <span class="green-text">@lang('admin.active')</span>
                                                 @else
                                                     <span class="red-text">@lang('admin.not_active')</span>
                                                 @endif
-                                            </td>
+                                            </td> --}}
                                             <td>
                                                 <div class="panel panel-primary tabs-style-2">
                                                     <div class=" tab-menu-heading">
@@ -114,7 +114,6 @@
                                                    class="pl-3">
                                                     <i class="fa fa-edit">შეცვლა</i>
                                                 </a>
-
                                                 <a href="{{locale_route('skill.destroy',$item->id)}}"
                                                    onclick="return confirm('Are you sure?')" class="pl-3">
                                                     <i class="fa fa-edit">წაშლა</i>

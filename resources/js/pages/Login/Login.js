@@ -3,8 +3,12 @@ import { Inertia } from '@inertiajs/inertia'
 // import Arrow from "../../assets/images/icons/other/arr.svg";
 import "./Login.css";
 import Layout from "../../Layouts/Layout";
+import { Link, usePage } from "@inertiajs/inertia-react";
+
 
 const Login = ({ seo }) => {
+    const sharedData = usePage().props.localizations;
+    const renderHTML = (rawHTML) => React.createElement("div", { dangerouslySetInnerHTML: { __html: rawHTML } });
 
     const [values, setValues] = useState({
         email: "",
@@ -29,12 +33,21 @@ const Login = ({ seo }) => {
         <Layout src={seo} >
             <div className="loginPage">
                 <div className="login_box">
-                    <h5>პირადი კაბინეტი</h5>
-                    <p>კაბინეტში შესასვლელად მოითხოვე წვდომა ადმინისტრაციასთან</p>
-                    <input name="email" type="text" onChange={handleChange} placeholder="მომხმარებელი" />
-                    <input name="password" type="password" onChange={handleChange} placeholder="პაროლი" />
+                    <h5>
+                        {/* პირადი კაბინეტი */}
+                        {renderHTML(__('client.login_personal_cabinet', sharedData).replace(/(?:\r\n|\r|\n)/g, '<br>'))}
+
+                    </h5>
+                    <p>
+                        {/* კაბინეტში შესასვლელად მოითხოვე წვდომა ადმინისტრაციასთან */}
+                        {renderHTML(__('client.login_to_enter_permissiont_ask_admin', sharedData).replace(/(?:\r\n|\r|\n)/g, '<br>'))}
+
+                    </p>
+                    <input name="email" type="text" onChange={handleChange} placeholder={__('client.login_user', sharedData)} />
+                    <input name="password" type="password" onChange={handleChange} placeholder={__('client.login_password', sharedData)} />
                     <button onClick={handleSubmit}>
-                        ავტორიზაცია
+                        {/* ავტორიზაცია */}
+                        {renderHTML(__('client.login_authorization', sharedData).replace(/(?:\r\n|\r|\n)/g, '<br>'))}
                         <img src='/assets/images/icons/other/arr.svg' alt="" />
                     </button>
                 </div>

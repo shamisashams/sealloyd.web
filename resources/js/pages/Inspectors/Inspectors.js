@@ -15,7 +15,10 @@ const Inspectors = ({ seo }) => {
                 <PortsMap />
                 <div className="wrapper">
                     <div className="content">
-                        <div className="font45 title">აღიარებული ინსპექტორები</div>
+                        <div className="font45 title">
+                            {/* აღიარებული ინსპექტორები */}
+                            {renderHTML(__('client.ourteam_inspectors_accepted_inspectors', sharedData).replace(/(?:\r\n|\r|\n)/g, '<br>'))}
+                        </div>
                         <PagePath
                             location1="მთავარი"
                             location2="ჩვენი გუნდი"
@@ -23,8 +26,9 @@ const Inspectors = ({ seo }) => {
                         />
                         <div className="bottom">
                             <div className="font45">
-                                აღიარებული <br />
-                                ინსპექტორები
+                                {renderHTML(__('client.ourteam_inspectors_accepted_inspectors_main_text', sharedData).replace(/(?:\r\n|\r|\n)/g, '<br>'))}
+                                {/* აღიარებული <br />
+                                ინსპექტორები */}
                             </div>
                             {/* <p>
                                 ლორემ იპსუმ ქვეყნიური თვითიდენტიფიკაციისა მესამის რიტუალური

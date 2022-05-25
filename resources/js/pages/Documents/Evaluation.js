@@ -101,7 +101,10 @@ const Evaluation = ({ seo, success }) => {
                             {renderHTML(__('client.evaluation_text', sharedData).replace(/(?:\r\n|\r|\n)/g, '<br>'))}
                         </p>
                         <form onSubmit={handleSubmit} name='evaluation'>
-                            <input id='company_name' type="text" name='company_name' placeholder="Organization/Company name" onChange={handleChange} />
+                            <input id='company_name' type="text" name='company_name'
+                                // placeholder="Organization/Company name"
+                                placeholder={__('client.evaluation_form_organizations_company_name', sharedData)}
+                                onChange={handleChange} />
                             <input id='created_at' type="date" className="margin_bottom" value={today} readOnly />
                             <p>
                                 {renderHTML(__('client.evaluation_question_1', sharedData).replace(/(?:\r\n|\r|\n)/g, '<br>'))}

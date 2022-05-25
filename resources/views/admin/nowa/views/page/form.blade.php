@@ -240,13 +240,15 @@
                     <div>
                         <h6 class="card-title mb-1">@lang('admin.sectionimages')</h6>
                     </div>
-                    @foreach($page->sections as $item)
+                    {{-- @foreach($page->sections as $item) --}}
                         <div class="form-group">
-
-                            <input type="file" class="dropify" name="image[{{$item->id}}]" data-default-file="{{($item->file) ? asset($item->file->getFileUrlAttribute()) : ''}}" data-height="200"  />
+     {{-- @php
+         dd($page->sections)
+     @endphp --}}
+                            <input type="file" class="dropify" name="image[{{$page->sections[1]->id}}]" data-default-file="{{($page->sections[1]->file) ? asset($page->sections[1]->file->getFileUrlAttribute()) : ''}}" data-height="200"  />
 
                         </div>
-                    @endforeach
+                    {{-- @endforeach --}}
                 </div>
             </div>
         </div>
