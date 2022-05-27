@@ -17,7 +17,6 @@ const Home = ({ page, seo, images }) => {
     const renderHTML = (rawHTML) => React.createElement("div", { dangerouslySetInnerHTML: { __html: rawHTML } });
     const sharedData = usePage().props.localizations;
     // const { images } = usePage().props;
-    console.log(images[0], 'essaaa');
     return (
         <Layout seo={seo}>
             <div className="homePage">

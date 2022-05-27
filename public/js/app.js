@@ -5195,7 +5195,6 @@ var Home = function Home(_ref) {
 
   var sharedData = (0,_inertiajs_inertia_react__WEBPACK_IMPORTED_MODULE_5__.usePage)().props.localizations; // const { images } = usePage().props;
 
-  console.log(images[0], 'essaaa');
   return /*#__PURE__*/react__WEBPACK_IMPORTED_MODULE_0__.createElement(_Layouts_Layout__WEBPACK_IMPORTED_MODULE_2__["default"], {
     seo: seo
   }, /*#__PURE__*/react__WEBPACK_IMPORTED_MODULE_0__.createElement("div", {
@@ -5454,9 +5453,8 @@ var Office = function Office(_ref) {
         __html: rawHTML
       }
     });
-  };
-
-  console.log(staff); // const members = [
+  }; // console.log(staff);
+  // const members = [
   //     {
   //         img: '/assets/images/team/1.png',
   //         name: "სახელი გვარი",
@@ -5478,6 +5476,7 @@ var Office = function Office(_ref) {
   //         position: "პოზიცია",
   //     },
   // ];
+
 
   return /*#__PURE__*/react__WEBPACK_IMPORTED_MODULE_0__.createElement(_Layouts_Layout__WEBPACK_IMPORTED_MODULE_2__["default"], {
     seo: seo

@@ -14,7 +14,7 @@ const Office = ({ seo, staff, page }) => {
     const sharedData = usePage().props.localizations;
     const renderHTML = (rawHTML) => React.createElement("div", { dangerouslySetInnerHTML: { __html: rawHTML } });
 
-    console.log(staff);
+    // console.log(staff);
     // const members = [
     //     {
     //         img: '/assets/images/team/1.png',
