@@ -78,12 +78,14 @@ const Certification = ({ seo, images }) => {
                             იქადაგებს ემატებიან ბურჟუები გულგახეთქილნი.
                         </p> */}
 
-                        {renderHTML(
+                        {/* {renderHTML(
                             __(
                                 "client.services_certification_main_text",
                                 sharedData
                             ).replace(/(?:\r\n|\r|\n)/g, "<br>")
-                        )}
+                        )} */}
+                        {renderHTML(__('client.services_certification_text', sharedData).replace(/(?:\r\n|\r|\n)/g, '<br>'))}
+
                     </div>
                 </div>
             </div>

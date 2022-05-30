@@ -77,12 +77,13 @@ const CompRecognition = ({ seo, images }) => {
                             იქადაგებს ემატებიან ბურჟუები გულგახეთქილნი.
                         </p> */}
 
-                        {renderHTML(
+                        {/* {renderHTML(
                             __(
                                 "client.services_nav_comprecognition_main_text",
                                 sharedData
                             ).replace(/(?:\r\n|\r|\n)/g, "<br>")
-                        )}
+                        )} */}
+                        {renderHTML(__('client.services_comprecognition_text', sharedData).replace(/(?:\r\n|\r|\n)/g, '<br>'))}
                     </div>
                 </div>
             </div>

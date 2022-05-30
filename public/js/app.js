@@ -5566,7 +5566,7 @@ var Certification = function Certification(_ref) {
     alt: ""
   }), /*#__PURE__*/react__WEBPACK_IMPORTED_MODULE_0__.createElement("div", {
     className: "content"
-  }, renderHTML(__("client.services_certification_main_text", sharedData).replace(/(?:\r\n|\r|\n)/g, "<br>"))))));
+  }, renderHTML(__('client.services_certification_text', sharedData).replace(/(?:\r\n|\r|\n)/g, '<br>'))))));
 };
 
 /* harmony default export */ const __WEBPACK_DEFAULT_EXPORT__ = (Certification);
@@ -5604,7 +5604,7 @@ var Classification = function Classification(_ref) {
   var sharedData = (0,_inertiajs_inertia_react__WEBPACK_IMPORTED_MODULE_5__.usePage)().props.localizations;
 
   var renderHTML = function renderHTML(rawHTML) {
-    return /*#__PURE__*/react__WEBPACK_IMPORTED_MODULE_0__.createElement("p", {
+    return /*#__PURE__*/react__WEBPACK_IMPORTED_MODULE_0__.createElement("div", {
       dangerouslySetInnerHTML: {
         __html: rawHTML
       }
@@ -5629,7 +5629,7 @@ var Classification = function Classification(_ref) {
     location3: __('client.nav_clasification', sharedData)
   }), /*#__PURE__*/react__WEBPACK_IMPORTED_MODULE_0__.createElement("div", {
     className: "content"
-  }, renderHTML(__('client.services_nav_clasification_main_text', sharedData).replace(/(?:\r\n|\r|\n)/g, '<br>')))))));
+  }, renderHTML(__('client.services_clasification_main_text', sharedData).replace(/(?:\r\n|\r|\n)/g, '<br>')))))));
 };
 
 /* harmony default export */ const __WEBPACK_DEFAULT_EXPORT__ = (Classification);
@@ -5691,7 +5691,7 @@ var CompRecognition = function CompRecognition(_ref) {
     alt: ""
   }), /*#__PURE__*/react__WEBPACK_IMPORTED_MODULE_0__.createElement("div", {
     className: "content"
-  }, renderHTML(__("client.services_nav_comprecognition_main_text", sharedData).replace(/(?:\r\n|\r|\n)/g, "<br>"))))));
+  }, renderHTML(__('client.services_comprecognition_text', sharedData).replace(/(?:\r\n|\r|\n)/g, '<br>'))))));
 };
 
 /* harmony default export */ const __WEBPACK_DEFAULT_EXPORT__ = (CompRecognition);

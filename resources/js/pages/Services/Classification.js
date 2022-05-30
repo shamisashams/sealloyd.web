@@ -9,7 +9,7 @@ import { Link, usePage } from "@inertiajs/inertia-react";
 
 const Classification = ({ seo, images }) => {
     const sharedData = usePage().props.localizations;
-    const renderHTML = (rawHTML) => React.createElement("p", { dangerouslySetInnerHTML: { __html: rawHTML } });
+    const renderHTML = (rawHTML) => React.createElement("div", { dangerouslySetInnerHTML: { __html: rawHTML } });
 
     return (
         <Layout seo={seo}>
@@ -18,9 +18,9 @@ const Classification = ({ seo, images }) => {
                     <img className="ships_img" src={images[0]} alt="" />
                     <div className="container">
                         <PagePath
-                            location1={__('client.nav_home',sharedData)}
-                            location2={__('client.nav_services',sharedData)}
-                            location3={__('client.nav_clasification',sharedData)}
+                            location1={__('client.nav_home', sharedData)}
+                            location2={__('client.nav_services', sharedData)}
+                            location3={__('client.nav_clasification', sharedData)}
                         />
                         <div className="content">
                             {/* <p>
@@ -56,8 +56,8 @@ const Classification = ({ seo, images }) => {
                                 treaties concerning the safety of merchant ships.
                             </p> */}
 
-                                {renderHTML(__('client.services_nav_clasification_main_text', sharedData).replace(/(?:\r\n|\r|\n)/g, '<br>'))}
-
+                            {/* {renderHTML(__('client.services_nav_clasification_main_text', sharedData).replace(/(?:\r\n|\r|\n)/g, '<br>'))} */}
+                            {renderHTML(__('client.services_clasification_main_text', sharedData).replace(/(?:\r\n|\r|\n)/g, '<br>'))}
                         </div>
                     </div>
                 </div>
