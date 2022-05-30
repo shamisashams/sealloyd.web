@@ -43,12 +43,14 @@ const Stator3 = ({ seo }) => {
                                 operates in accordance with the approved Safety Management System.
                             </p> */}
                             <p>
-                                {renderHTML(
+                                {/* {renderHTML(
                                     __(
                                         "client.stator3_main_text",
                                         sharedData
                                     ).replace(/(?:\r\n|\r|\n)/g, "<br>")
-                                )}
+                                )} */}
+                                {renderHTML(__('client.stator3_text', sharedData).replace(/(?:\r\n|\r|\n)/g, '<br>'))}
+
                             </p>
                         </div>
                     </div>

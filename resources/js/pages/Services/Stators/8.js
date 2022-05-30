@@ -40,12 +40,14 @@ const Stator8 = ({ seo }) => {
                                 of Ships.
                             </p> */}
                             <p>
-                                {renderHTML(
+                                {/* {renderHTML(
                                     __(
                                         "client.stator8_main_text",
                                         sharedData
                                     ).replace(/(?:\r\n|\r|\n)/g, "<br>")
-                                )}
+                                )} */}
+                                {renderHTML(__('client.stator8_text', sharedData).replace(/(?:\r\n|\r|\n)/g, '<br>'))}
+
                             </p>
                         </div>
                     </div>

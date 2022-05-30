@@ -49,12 +49,14 @@ const Stator5 = ({ seo }) => {
                                 behalf.
                             </p> */}
                             <p>
-                                {renderHTML(
+                                {/* {renderHTML(
                                     __(
                                         "client.stator5_main_text",
                                         sharedData
                                     ).replace(/(?:\r\n|\r|\n)/g, "<br>")
-                                )}
+                                )} */}
+                                {renderHTML(__('client.stator5_text', sharedData).replace(/(?:\r\n|\r|\n)/g, '<br>'))}
+
                             </p>
                         </div>
                     </div>

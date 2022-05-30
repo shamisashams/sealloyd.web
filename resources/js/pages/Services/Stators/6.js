@@ -54,12 +54,14 @@ const Stator6 = ({ seo }) => {
                                 board.
                             </p> */}
                             <p>
-                                {renderHTML(
+                                {/* {renderHTML(
                                     __(
                                         "client.stator6_main_text",
                                         sharedData
                                     ).replace(/(?:\r\n|\r|\n)/g, "<br>")
-                                )}
+                                )} */}
+                                {renderHTML(__('client.stator6_text', sharedData).replace(/(?:\r\n|\r|\n)/g, '<br>'))}
+
                             </p>
                         </div>
                     </div>
