@@ -5557,7 +5557,7 @@ var Certification = function Certification(_ref) {
     className: "container"
   }, /*#__PURE__*/react__WEBPACK_IMPORTED_MODULE_0__.createElement("div", {
     className: "font45 blue"
-  }, renderHTML(__("client.services_certification_header", sharedData).replace(/(?:\r\n|\r|\n)/g, "<br>"))), /*#__PURE__*/react__WEBPACK_IMPORTED_MODULE_0__.createElement(_components_SmallComps_SmallComps__WEBPACK_IMPORTED_MODULE_1__.PagePath, {
+  }, renderHTML(__('client.services_certificationheader', sharedData).replace(/(?:\r\n|\r|\n)/g, '<br>'))), /*#__PURE__*/react__WEBPACK_IMPORTED_MODULE_0__.createElement(_components_SmallComps_SmallComps__WEBPACK_IMPORTED_MODULE_1__.PagePath, {
     location1: __("client.nav_home", sharedData),
     location2: __("client.nav_services", sharedData),
     location3: __("client.nav_certifications", sharedData)
@@ -5682,7 +5682,7 @@ var CompRecognition = function CompRecognition(_ref) {
     className: "container"
   }, /*#__PURE__*/react__WEBPACK_IMPORTED_MODULE_0__.createElement("div", {
     className: "font45 blue"
-  }, renderHTML(__("client.services_nav_comprecognition_header", sharedData).replace(/(?:\r\n|\r|\n)/g, "<br>"))), /*#__PURE__*/react__WEBPACK_IMPORTED_MODULE_0__.createElement(_components_SmallComps_SmallComps__WEBPACK_IMPORTED_MODULE_1__.PagePath, {
+  }, renderHTML(__('client.services_comprecognition_header', sharedData).replace(/(?:\r\n|\r|\n)/g, '<br>'))), /*#__PURE__*/react__WEBPACK_IMPORTED_MODULE_0__.createElement(_components_SmallComps_SmallComps__WEBPACK_IMPORTED_MODULE_1__.PagePath, {
     location1: __("client.nav_home", sharedData),
     location2: __("client.nav_services", sharedData),
     location3: __("client.nav_comprecognition", sharedData)

@@ -17,12 +17,14 @@ const CompRecognition = ({ seo, images }) => {
             <div className="aboutPage wrapper padding_top">
                 <div className="container">
                     <div className="font45 blue">
-                        {renderHTML(
+                        {/* {renderHTML(
                             __(
                                 "client.services_nav_comprecognition_header",
                                 sharedData
                             ).replace(/(?:\r\n|\r|\n)/g, "<br>")
-                        )}
+                        )} */}
+                        {renderHTML(__('client.services_comprecognition_header', sharedData).replace(/(?:\r\n|\r|\n)/g, '<br>'))}
+
                     </div>
                     <PagePath
                         location1={__("client.nav_home", sharedData)}
