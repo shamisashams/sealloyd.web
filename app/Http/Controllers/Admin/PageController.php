@@ -33,8 +33,7 @@ class PageController extends Controller
     public function __construct(
         PageRepositoryInterface  $pageRepository,
         PageSectionRepository $pageSectionRepository
-    )
-    {
+    ) {
         $this->pageRepository = $pageRepository;
         $this->pageSectionRepository = $pageSectionRepository;
     }
@@ -82,7 +81,7 @@ class PageController extends Controller
         $url = locale_route('page.update', $page->id, false);
         $method = 'PUT';
 
-        $page = $page->where('id',$page->id)->with(['sections'])->first();
+        $page = $page->where('id', $page->id)->with(['sections'])->first();
 
         /*return view('admin.pages.page.form', [
             'page' => $page,
@@ -110,7 +109,7 @@ class PageController extends Controller
         //dd($request->files);
         $saveData = Arr::except($request->except('_token'), []);
         $saveData['images'] = isset($saveData['images']) && (bool)$saveData['images'];
-        $this->pageRepository->update($page->id,$saveData);
+        $this->pageRepository->update($page->id, $saveData);
         $this->pageRepository->saveFiles($page->id, $request);
 
         $this->pageSectionRepository->saveFile($page->id, $request);
@@ -124,8 +123,9 @@ class PageController extends Controller
         return redirect(locale_route('page.index', $page->id))->with('success', __('admin.update_successfully'));
     }
 
-    public function docDelete($locale,$id){
-        $file = File::query()->where('id',$id)->firstOrFail();
+    public function docDelete($locale, $id)
+    {
+        $file = File::query()->where('id', $id)->firstOrFail();
         $id = $file->fileable_id;
         //dd($file);
         if (Storage::exists('public/Page/' . $file->fileable_id . '/files/' . $file->title)) {
@@ -133,8 +133,6 @@ class PageController extends Controller
         }
 
         $file->delete();
-        return redirect(locale_route('page.edit',$id))->with('success', __('admin.delete_message'));
-
+        return redirect(locale_route('page.edit', $id))->with('success', __('admin.delete_message'));
     }
-
 }

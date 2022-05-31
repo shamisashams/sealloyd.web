@@ -2,66 +2,84 @@
     "menu": [
         {
             "url": "page.index",
-            "name": "გვერდები",
+            "name": "Pages",
             "i18n": "page",
             "icon": "language",
             "slug": "page"
         },
         {
             "url": "language.index",
-            "name": "ენები",
+            "name": "Language Settings",
             "i18n": "language",
             "icon": "language",
-            "slug": "language"
+            "slug": "language",
+            "submenu": [
+                {
+                    "url": "language.index",
+                    "name": "Languages",
+                    "i18n": "language",
+                    "icon": "language",
+                    "slug": "language"
+                },
+                {
+                    "url": "translation.index",
+                    "name": "Translations",
+                    "i18n": "translation",
+                    "icon": "g_translate",
+                    "slug": "translation"
+                }
+            ]
         },
         {
             "url": "setting.index",
-            "name": "პარამეტრები",
+            "name": "Settings",
             "i18n": "setting",
             "icon": "language",
             "slug": "setting"
         },
         {
-            "url": "translation.index",
-            "name": "თარგმნა",
-            "i18n": "translation",
-            "icon": "g_translate",
-            "slug": "translation"
-        },
-        {
             "url": "password.index",
-            "name": "პაროლის შეცვლა",
+            "name": "Change Password",
             "i18n": "change password",
             "icon": "g_translate",
             "slug": "change_password"
         },
         {
             "url": "customer.index",
-            "name": "მომხმარებელი",
+            "name": "Costumers",
             "i18n": "customers",
             "icon": "user",
             "slug": "customers"
         },
         {
             "url": "staff.index",
-            "name": "პერსონალი",
+            "name": "Staff",
             "i18n": "staff",
             "icon": "g_translate",
             "slug": "staff"
         },
         {
             "url": "vacancy.index",
-            "name": "ვაკანსიები",
+            "name": "Vacancy",
             "i18n": "vacancy",
             "icon": "vacancy",
-            "slug": "vacancy"
-        },
-        {
-            "url": "skill.index",
-            "name": "უნარები",
-            "i18n": "skill",
-            "icon": "skill",
-            "slug": "skill"
+            "slug": "vacancy",
+            "submenu": [
+                {
+                    "url": "vacancy.index",
+                    "name": "Vacancy",
+                    "i18n": "vacancy",
+                    "icon": "vacancy",
+                    "slug": "vacancy"
+                },
+                {
+                    "url": "skill.index",
+                    "name": "Skills",
+                    "i18n": "skill",
+                    "icon": "skill",
+                    "slug": "skill"
+                }
+            ]
         }
     ],
     "_comment": [
@@ -92,6 +110,20 @@
             "i18n": "project",
             "icon": "language",
             "slug": "project"
+        },
+        {
+            "url": "language.index",
+            "name": "Languages",
+            "i18n": "language",
+            "icon": "language",
+            "slug": "language"
+        },
+        {
+            "url": "vacancy.index",
+            "name": "Vacancies",
+            "i18n": "vacancy",
+            "icon": "vacancy",
+            "slug": "vacancy"
         }
     ]
 }

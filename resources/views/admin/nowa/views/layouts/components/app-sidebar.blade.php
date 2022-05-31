@@ -37,7 +37,7 @@
                                             <li class="slide" {{(request()->is($menu->url.'*')) ? 'active' : '' }}">
                                                 <a class="{{$custom_classes}} {{ (request()->route()->getName() === $menu->url) ? 'active '.$configData['activeMenuColor'] : ''}}side-menu__item"
                                                    @if(!empty($configData['activeMenuColor'])) {{'style=background:none;box-shadow:none;'}} @endif
-                                                   href="@if(($menu->url)==='javascript:void(0)'){{$menu->url}} @else{{locale_route($menu->url)}} @endif"
+                                                    href="@if(($menu->url)==='javascript:void(0)'){{$menu->url}} @else{{locale_route($menu->url)}} @endif"
                                                     {{isset($menu->newTab) ? 'target="_blank"':''}}>
                                                     <i class="material-icons"></i>
                                                     <span class="menu-title">{{ $menu->name}}</span>
@@ -48,14 +48,19 @@
                                                 </a>
                                                 @if(isset($menu->submenu))
                                                 <ul class="slide-menu">
-                                                    <li class="side-menu__label1"><a href="javascript:void(0);">Charts</a></li>
-                                                    <li><a class="slide-item" href="{{url('chart-morris')}}">Morris Charts</a></li>
+                                                @foreach ($menu->submenu as $v)
+                                                      <li style="cursor:pointer"><a class="slide-item"  href={{locale_route($v->url)}}>{{$v->name}}</a></li>
+                                                @endforeach
+                                                </ul>
+                                                {{-- <ul class="slide-menu">
+                                                     <li class="side-menu__label1"><a href="javascript:void(0);">Charts</a></li>
+                                                     <li><a class="slide-item" href="{{url('chart-morris')}}">Morris Charts</a></li>
                                                     <li><a class="slide-item" href="{{url('chart-flot')}}">Flot Charts</a></li>
                                                     <li><a class="slide-item" href="{{url('chart-chartjs')}}">ChartJS</a></li>
                                                     <li><a class="slide-item" href="{{url('chart-echart')}}">Echart</a></li>
                                                     <li><a class="slide-item" href="{{url('chart-sparkline')}}">Sparkline</a></li>
                                                     <li><a class="slide-item" href="{{url('chart-peity')}}">Chart-peity</a></li>
-                                                </ul>
+                                                </ul> --}}
                                                 @endif
                                             </li>
                                         @endif

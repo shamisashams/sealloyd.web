@@ -9,7 +9,6 @@
 @section('content')
 
 
-
     <!-- breadcrumb -->
     <div class="breadcrumb-header justify-content-between">
         <div class="left-content">
@@ -67,7 +66,12 @@
 
                                 @if($data)
                                     @foreach($data as $item)
-                                        <tr>
+
+                                           {{-- @if ($item->key == 'home') --}}
+                                           {{-- @php
+                                           data[0] = $item;
+                                           @endphp --}}
+                                           <tr>
                                             <th scope="row">{{$item->id}}</th>
                                             <td>{{$item->key}}</td>
                                             <td>
@@ -109,6 +113,8 @@
                                                 </a>
                                             </td>
                                         </tr>
+                                           {{-- @endif --}}
+
                                     @endforeach
                                 @endif
 

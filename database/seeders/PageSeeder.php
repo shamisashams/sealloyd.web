@@ -70,7 +70,7 @@ class PageSeeder extends Seeder
                 'key' => 'career'
             ],
 
-            //contact
+            // contact
 
             [
                 'key' => 'contact'
