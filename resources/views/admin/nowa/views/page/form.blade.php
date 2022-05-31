@@ -1,4 +1,3 @@
-
 @extends('admin.nowa.views.layouts.app')
 
 @section('styles')
@@ -233,6 +232,26 @@
 
 
 
+    {{-- <div class="row">
+        <div class="col-lg-12 col-md-12">
+            <div class="card">
+                <div class="card-body">
+                    <div>
+                        <h6 class="card-title mb-1">@lang('admin.sectionimages')</h6>
+                    </div>
+                    @foreach($page->sections as $item)
+                        <div class="form-group">
+
+                            <input type="file" class="dropify" name="image[{{$item->id}}]" data-default-file="{{($item->file) ? asset($item->file->getFileUrlAttribute()) : ''}}" data-height="200"  />
+
+                        </div>
+                    @endforeach
+                </div>
+            </div>
+        </div>
+    </div> --}}
+
+    {{-- to upload only one img --}}
     <div class="row">
         <div class="col-lg-12 col-md-12">
             <div class="card">
@@ -287,28 +306,7 @@
 
 
     <!-- row closed -->
-    @if($page->key == 'circulars' || $page->key == 'management')
 
-        <div class="row">
-            <div class="col-lg-12 col-md-12">
-                <div class="card">
-                    <div class="card-body">
-                        <div>
-                            <h6 class="card-title mb-1">@lang('admin.page_files')</h6>
-                        </div>
-                        <input type="file" name="files[]" multiple>
-
-                        @foreach($page->docs as $doc)
-                            <div>
-                                {{$doc->title}} <span><a href="{{locale_route('page.delete-doc',$doc->id)}}">delete</a> </span>
-                            </div>
-                        @endforeach
-                    </div>
-                </div>
-            </div>
-        </div>
-
-    @endif
     <!-- /row -->
 
     <!-- row -->

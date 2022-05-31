@@ -11,6 +11,7 @@
 use App\Http\Controllers\Admin\Auth\LoginController;
 use App\Http\Controllers\Admin\GalleryController;
 use App\Http\Controllers\Admin\LanguageController;
+use App\Http\Controllers\Admin\OwnerAppController;
 use App\Http\Controllers\Admin\PageController;
 use App\Http\Controllers\Admin\SettingController;
 use App\Http\Controllers\Admin\SliderController;
@@ -96,11 +97,9 @@ Route::prefix('{locale?}')
                 Route::resource('staff', \App\Http\Controllers\Admin\StaffController::class);
                 Route::get('staff/{staff}/destroy', [\App\Http\Controllers\Admin\StaffController::class, 'destroy'])->name('staff.destroy');
 
-
-                Route::get('staff/{staff}/destroy', [\App\Http\Controllers\Admin\staffController::class, 'destroy'])->name('staff.destroy');
-
-                Route::post('addstaff', [\App\Http\Controllers\Admin\StaffController::class, 'addStaff'])->name('staff.addstaff');
-                Route::post('editstaff', [\App\Http\Controllers\Admin\StaffController::class, 'editstaff'])->name('staff.editstaff');
+                //ownerapplications
+                Route::resource('ownerapplications', \App\Http\Controllers\Admin\OwnerAppController::class);
+                Route::get('appdetails/{id}', [\App\Http\Controllers\Admin\OwnerAppController::class, 'details'])->name('app.details');
 
 
                 // Password

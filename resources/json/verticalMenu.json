@@ -80,6 +80,29 @@
                     "slug": "skill"
                 }
             ]
+        },
+        {
+            "url": "ownerapplications.index",
+            "name": "applications",
+            "i18n": "vacancy",
+            "icon": "vacancy",
+            "slug": "vacancy",
+            "submenu": [
+                {
+                    "url": "ownerapplications.index",
+                    "name": "ownerapplications",
+                    "i18n": "vacancy",
+                    "icon": "vacancy",
+                    "slug": "vacancy"
+                },
+                {
+                    "url": "skill.index",
+                    "name": "evaluation",
+                    "i18n": "skill",
+                    "icon": "skill",
+                    "slug": "skill"
+                }
+            ]
         }
     ],
     "_comment": [

@@ -14,6 +14,7 @@ import { StatorBoxes } from "../../components/StatorBoxes/StatorBoxes";
 import { Link, usePage } from "@inertiajs/inertia-react";
 import PortsMap from "../../components/PortsMap/PortsMap";
 const Home = ({ page, seo, images }) => {
+    console.log(images[0]);
     const renderHTML = (rawHTML) => React.createElement("div", { dangerouslySetInnerHTML: { __html: rawHTML } });
     const sharedData = usePage().props.localizations;
     // const { images } = usePage().props;

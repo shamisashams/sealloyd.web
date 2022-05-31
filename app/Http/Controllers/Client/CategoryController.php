@@ -27,7 +27,7 @@ class CategoryController extends Controller
     public function show(string $locale, string $slug)
     {
 
-        $page = Page::where('key', 'products')->firstOrFail();
+        $page = Page::where('key', 'home')->firstOrFail();
         //        return 1;
         $category = Category::where(['status' => 1, 'slug' => $slug])->firstOrFail();
         //dd($category->getAncestors());

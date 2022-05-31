@@ -5183,6 +5183,7 @@ var Home = function Home(_ref) {
   var page = _ref.page,
       seo = _ref.seo,
       images = _ref.images;
+  console.log(images[0]);
 
   var renderHTML = function renderHTML(rawHTML) {
     return /*#__PURE__*/react__WEBPACK_IMPORTED_MODULE_0__.createElement("div", {
