@@ -96,7 +96,7 @@
                     "slug": "vacancy"
                 },
                 {
-                    "url": "skill.index",
+                    "url": "evaluations.index",
                     "name": "evaluation",
                     "i18n": "skill",
                     "icon": "skill",

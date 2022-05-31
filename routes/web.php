@@ -12,6 +12,7 @@ use App\Http\Controllers\Admin\Auth\LoginController;
 use App\Http\Controllers\Admin\GalleryController;
 use App\Http\Controllers\Admin\LanguageController;
 use App\Http\Controllers\Admin\OwnerAppController;
+use App\Http\Controllers\Admin\EvaluationController;
 use App\Http\Controllers\Admin\PageController;
 use App\Http\Controllers\Admin\SettingController;
 use App\Http\Controllers\Admin\SliderController;
@@ -100,7 +101,9 @@ Route::prefix('{locale?}')
                 //ownerapplications
                 Route::resource('ownerapplications', \App\Http\Controllers\Admin\OwnerAppController::class);
                 Route::get('appdetails/{id}', [\App\Http\Controllers\Admin\OwnerAppController::class, 'details'])->name('app.details');
-
+                //evaluation
+                Route::resource('evaluations', \App\Http\Controllers\Admin\EvaluationController::class);
+                Route::get('evaldetails/{id}', [EvaluationController::class, 'details'])->name('eval.details');
 
                 // Password
                 Route::get('password', [\App\Http\Controllers\Admin\PasswordController::class, 'index'])->name('password.index');
