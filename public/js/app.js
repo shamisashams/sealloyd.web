@@ -6581,76 +6581,76 @@ var Header = function Header() {
   var sharedData = (0,_inertiajs_inertia_react__WEBPACK_IMPORTED_MODULE_1__.usePage)().props.localizations;
   var navList = [{
     // name: 'მთავარი',
-    name: __('client.nav_home', sharedData),
-    link: route('client.home.index')
+    name: __("client.nav_home", sharedData),
+    link: route("client.home.index")
   }, {
-    name: __('client.nav_aboutus', sharedData),
+    name: __("client.nav_aboutus", sharedData),
     link: "",
     dropdown: [{
-      name: __('client.nav_purpose', sharedData),
-      link: route('client.aboutus.purpose')
+      name: __("client.nav_purpose", sharedData),
+      link: route("client.aboutus.purpose")
     }, {
-      name: __('client.nav_ethics', sharedData),
-      link: route('client.aboutus.ethics')
+      name: __("client.nav_ethics", sharedData),
+      link: route("client.aboutus.ethics")
     }, {
-      name: __('client.nav_politics', sharedData),
-      link: route('client.aboutus.politics')
+      name: __("client.nav_politics", sharedData),
+      link: route("client.aboutus.politics")
     }, {
-      name: __('client.nav_managment', sharedData),
-      link: route('client.aboutus.management')
+      name: __("client.nav_managment", sharedData),
+      link: route("client.aboutus.management")
     }, {
-      name: __('client.nav_recognition', sharedData),
-      link: route('client.aboutus.recognition')
+      name: __("client.nav_recognition", sharedData),
+      link: route("client.aboutus.recognition")
     }]
   }, {
-    name: __('client.nav_services', sharedData),
+    name: __("client.nav_services", sharedData),
     link: "",
     dropdown: [{
-      name: __('client.nav_clasification', sharedData),
+      name: __("client.nav_clasification", sharedData),
       link: route("client.services.index")
     }, {
-      name: __('client.nav_stators', sharedData),
+      name: __("client.nav_stators", sharedData),
       link: route("client.services.stators")
     }, {
-      name: __('client.nav_certifications', sharedData),
+      name: __("client.nav_certifications", sharedData),
       link: route("client.services.certifications")
     }, {
-      name: __('client.nav_comprecognition', sharedData),
+      name: __("client.nav_comprecognition", sharedData),
       link: route("client.services.comprecognition")
     }]
   }, {
-    name: __('client.nav_documentation', sharedData),
+    name: __("client.nav_documentation", sharedData),
     link: "",
     dropdown: [{
-      name: __('client.nav_ownerapplication', sharedData),
-      link: route('client.services.ownerapplication')
+      name: __("client.nav_ownerapplication", sharedData),
+      link: route("client.services.ownerapplication")
     }, {
-      name: __('client.nav_evaluation', sharedData),
-      link: route('client.services.evaluation')
+      name: __("client.nav_evaluation", sharedData),
+      link: route("client.services.evaluation")
     }, {
-      name: __('client.nav_circulars', sharedData),
-      link: route('client.services.circulars')
+      name: __("client.nav_circulars", sharedData),
+      link: route("client.services.circulars")
     }]
   }, {
-    name: __('client.nav_ourteam', sharedData),
+    name: __("client.nav_ourteam", sharedData),
     link: "",
     dropdown: [{
-      name: __('client.nav_office', sharedData),
-      link: route('client.services.office')
+      name: __("client.nav_office", sharedData),
+      link: route("client.services.office")
     }, {
-      name: __('client.nav_inspectors', sharedData),
-      link: route('client.services.inspectors')
+      name: __("client.nav_inspectors", sharedData),
+      link: route("client.services.inspectors")
     }, {
-      name: __('client.nav_career', sharedData),
-      link: route('client.services.career')
+      name: __("client.nav_career", sharedData),
+      link: route("client.services.career")
     }]
   }, {
-    name: __('client.nav_contact', sharedData),
-    link: route('client.contact.index')
+    name: __("client.nav_contact", sharedData),
+    link: route("client.contact.index")
   }];
 
   var testFunction = function testFunction() {
-    alert('asd');
+    alert("asd");
   };
 
   var _usePage = (0,_inertiajs_inertia_react__WEBPACK_IMPORTED_MODULE_1__.usePage)(),
@@ -6677,19 +6677,19 @@ var Header = function Header() {
   var solid = false;
   var base_url = window.location.origin;
 
-  if (pathname == "".concat(base_url, "/").concat(currentLocale) || pathname == "".concat(base_url, "/").concat(currentLocale, "/login")) {
+  if (pathname == "".concat(base_url, "/").concat(currentLocale) || pathname == "".concat(base_url, "/").concat(currentLocale, "/login") || pathname == "".concat(base_url, "/").concat(currentLocale, "/inspectors")) {
     solid = true;
   }
 
   return /*#__PURE__*/react__WEBPACK_IMPORTED_MODULE_0__.createElement("div", {
     className: solid ? "header solid" : "header",
     style: {
-      'z-index': '999999999999999999999999'
+      "z-index": "999999999999999999999999"
     }
   }, /*#__PURE__*/react__WEBPACK_IMPORTED_MODULE_0__.createElement("div", {
     className: "wrapper flex"
   }, /*#__PURE__*/react__WEBPACK_IMPORTED_MODULE_0__.createElement(_inertiajs_inertia_react__WEBPACK_IMPORTED_MODULE_1__.Link, {
-    href: route('client.home.index')
+    href: route("client.home.index")
   }, /*#__PURE__*/react__WEBPACK_IMPORTED_MODULE_0__.createElement("img", {
     src: "/assets/images/logo/1.png",
     alt: ""
@@ -6724,12 +6724,21 @@ var Header = function Header() {
       }
     })) : "");
   })), user === null ? /*#__PURE__*/react__WEBPACK_IMPORTED_MODULE_0__.createElement(_inertiajs_inertia_react__WEBPACK_IMPORTED_MODULE_1__.Link, {
-    className: pathname === route('client.login') ? "nav_link active" : "nav_link",
-    href: route('client.login')
-  }, /*#__PURE__*/react__WEBPACK_IMPORTED_MODULE_0__.createElement("span", null, __('client.nav_cabinet', sharedData))) : /*#__PURE__*/react__WEBPACK_IMPORTED_MODULE_0__.createElement(_inertiajs_inertia_react__WEBPACK_IMPORTED_MODULE_1__.Link, {
-    className: pathname === route('client.cabinet') ? "nav_link active" : "nav_link",
-    href: route('client.cabinet')
-  }, /*#__PURE__*/react__WEBPACK_IMPORTED_MODULE_0__.createElement("span", null, __('client.nav_cabinet', sharedData))), /*#__PURE__*/react__WEBPACK_IMPORTED_MODULE_0__.createElement(_Languages_Languages__WEBPACK_IMPORTED_MODULE_4__.Languages, null))));
+    className: pathname === route("client.login") ? "nav_link active" : "nav_link",
+    href: route("client.login")
+  }, /*#__PURE__*/react__WEBPACK_IMPORTED_MODULE_0__.createElement("span", null, __("client.nav_cabinet", sharedData))) : /*#__PURE__*/react__WEBPACK_IMPORTED_MODULE_0__.createElement(_inertiajs_inertia_react__WEBPACK_IMPORTED_MODULE_1__.Link, {
+    className: pathname === route("client.cabinet") ? "nav_link active" : "nav_link",
+    href: route("client.cabinet")
+  }, /*#__PURE__*/react__WEBPACK_IMPORTED_MODULE_0__.createElement("span", null, __("client.nav_cabinet", sharedData))), /*#__PURE__*/react__WEBPACK_IMPORTED_MODULE_0__.createElement(_Languages_Languages__WEBPACK_IMPORTED_MODULE_4__.Languages, null), /*#__PURE__*/react__WEBPACK_IMPORTED_MODULE_0__.createElement("button", {
+    onClick: function onClick() {
+      return toggleMenu();
+    },
+    className: menu ? "menu_btn clicked" : "menu_btn"
+  }, /*#__PURE__*/react__WEBPACK_IMPORTED_MODULE_0__.createElement("div", {
+    className: "span"
+  }), /*#__PURE__*/react__WEBPACK_IMPORTED_MODULE_0__.createElement("div", {
+    className: "span"
+  })))));
 };
 
 /* harmony default export */ const __WEBPACK_DEFAULT_EXPORT__ = (Header);
@@ -7443,7 +7452,7 @@ __webpack_require__.r(__webpack_exports__);
 
 var ___CSS_LOADER_EXPORT___ = _node_modules_css_loader_dist_runtime_api_js__WEBPACK_IMPORTED_MODULE_0___default()(function(i){return i[1]});
 // Module
-___CSS_LOADER_EXPORT___.push([module.id, ".inspectors {\r\n  padding-top: 82px;\r\n  color: #fff;\r\n  margin-bottom: -5px;\r\n}\r\n.inspectors svg {\r\n  fill: #fff;\r\n}\r\n.inspectors .wrapper {\r\n  position: relative;\r\n}\r\n.inspectors .content {\r\n  position: absolute;\r\n  bottom: 100%;\r\n  left: 0;\r\n  padding-bottom: 100px;\r\n  max-width: 600px;\r\n}\r\n.inspectors .content .bottom {\r\n  margin-top: 100px;\r\n}\r\n\r\n@media screen and (max-width: 1600px) {\r\n  .inspectors .font45 {\r\n    font-size: 35px;\r\n    margin-bottom: 15px;\r\n  }\r\n  .inspectors .content .bottom {\r\n    margin-top: 60px;\r\n  }\r\n}\r\n@media screen and (max-width: 1300px) {\r\n  .inspectors {\r\n    color: #044168;\r\n  }\r\n  .inspectors svg {\r\n    fill: #044168;\r\n  }\r\n  .inspectors .content {\r\n    position: relative;\r\n    bottom: auto;\r\n    left: auto;\r\n    padding: 40px 0;\r\n    padding-bottom: 100px;\r\n    max-width: none;\r\n  }\r\n}\r\n", ""]);
+___CSS_LOADER_EXPORT___.push([module.id, ".inspectors {\r\n    color: #fff;\r\n    margin-bottom: -5px;\r\n}\r\n.inspectors svg {\r\n    fill: #fff;\r\n}\r\n.inspectors .wrapper {\r\n    position: relative;\r\n}\r\n.inspectors .content {\r\n    position: absolute;\r\n    bottom: 100%;\r\n    left: 0;\r\n    padding-bottom: 100px;\r\n    max-width: 600px;\r\n}\r\n.inspectors .content .bottom {\r\n    margin-top: 100px;\r\n}\r\n\r\n@media screen and (max-width: 1600px) {\r\n    .inspectors .font45 {\r\n        font-size: 35px;\r\n        margin-bottom: 15px;\r\n    }\r\n    .inspectors .content .bottom {\r\n        margin-top: 60px;\r\n    }\r\n}\r\n@media screen and (max-width: 1300px) {\r\n    .inspectors {\r\n        color: #044168;\r\n    }\r\n    .inspectors svg {\r\n        fill: #044168;\r\n    }\r\n    .inspectors .content {\r\n        position: relative;\r\n        bottom: auto;\r\n        left: auto;\r\n        padding: 40px 0;\r\n        padding-bottom: 100px;\r\n        max-width: none;\r\n    }\r\n}\r\n", ""]);
 // Exports
 /* harmony default export */ const __WEBPACK_DEFAULT_EXPORT__ = (___CSS_LOADER_EXPORT___);
 
@@ -7467,7 +7476,7 @@ __webpack_require__.r(__webpack_exports__);
 
 var ___CSS_LOADER_EXPORT___ = _node_modules_css_loader_dist_runtime_api_js__WEBPACK_IMPORTED_MODULE_0___default()(function(i){return i[1]});
 // Module
-___CSS_LOADER_EXPORT___.push([module.id, ".loginPage {\n    background: url(/assets/images/bgs/1.png) no-repeat;\n    background-position: top;\n    background-size: cover;\n    padding: 200px 0;\n}\n\n.login_box {\n    width: 536px;\n    background-color: #eef2f9;\n    border-radius: 10px;\n    box-shadow: 0 10px 15px #1e3b601f;\n    padding: 117px 100px;\n    margin: auto;\n}\n\n.login_box h5 {\n    text-align: center;\n    font-size: 20px;\n    margin-bottom: 20px;\n}\n\n.login_box input {\n    border-color: #fff;\n}\n\n.login_box p {\n    margin-bottom: 35px;\n    opacity: 0.7;\n}\n\n.login_box button {\n    background-color: #fff;\n    height: 50px;\n    margin-top: 20px;\n    margin-bottom: 40px;\n    width: 100%;\n}\n\n.login_box button img {\n    vertical-align: middle;\n    margin-left: 10px;\n}\n\n@media screen and (max-width: 1200px) {\n    .loginPage {\n        padding: 80px 0;\n    }\n\n    .login_box {\n        padding: 81px 67px;\n    }\n}\n\n@media screen and (max-width: 600px) {\n    .login_box {\n        width: 95%;\n        padding: 46px 23px;\n    }\n}\n", ""]);
+___CSS_LOADER_EXPORT___.push([module.id, ".loginPage {\r\n    background: url(/assets/images/bgs/1.png) no-repeat;\r\n    background-position: top;\r\n    background-size: cover;\r\n    padding: 200px 0;\r\n}\r\n\r\n.login_box {\r\n    width: 536px;\r\n    background-color: #eef2f9;\r\n    border-radius: 10px;\r\n    box-shadow: 0 10px 15px #1e3b601f;\r\n    padding: 117px 100px;\r\n    margin: auto;\r\n}\r\n\r\n.login_box h5 {\r\n    text-align: center;\r\n    font-size: 20px;\r\n    margin-bottom: 20px;\r\n}\r\n\r\n.login_box input {\r\n    border-color: #fff;\r\n}\r\n\r\n.login_box p {\r\n    margin-bottom: 35px;\r\n    opacity: 0.7;\r\n}\r\n\r\n.login_box button {\r\n    background-color: #fff;\r\n    height: 50px;\r\n    margin-top: 20px;\r\n    margin-bottom: 40px;\r\n    width: 100%;\r\n}\r\n\r\n.login_box button img {\r\n    vertical-align: middle;\r\n    margin-left: 10px;\r\n}\r\n\r\n@media screen and (max-width: 1200px) {\r\n    .loginPage {\r\n        padding: 80px 0;\r\n    }\r\n\r\n    .login_box {\r\n        padding: 81px 67px;\r\n    }\r\n}\r\n\r\n@media screen and (max-width: 600px) {\r\n    .login_box {\r\n        width: 95%;\r\n        padding: 46px 23px;\r\n    }\r\n}\r\n", ""]);
 // Exports
 /* harmony default export */ const __WEBPACK_DEFAULT_EXPORT__ = (___CSS_LOADER_EXPORT___);
 
@@ -7515,7 +7524,7 @@ __webpack_require__.r(__webpack_exports__);
 
 var ___CSS_LOADER_EXPORT___ = _node_modules_css_loader_dist_runtime_api_js__WEBPACK_IMPORTED_MODULE_0___default()(function(i){return i[1]});
 // Module
-___CSS_LOADER_EXPORT___.push([module.id, ".servicesPage {\n    background: url(/assets/images/bgs/3.png) no-repeat;\n    background-position: center;\n    background-size: cover;\n    background-attachment: fixed;\n    padding-top: 100px;\n}\n\n.servicesPage .ships_img {\n    margin: 50px 0;\n}\n\n.statorPage .content {\n    margin-bottom: 50px;\n}\n\n@media screen and (max-width: 600px) {\n    .servicesPage .ships_img {\n        margin: 32px 0;\n    }\n}\n", ""]);
+___CSS_LOADER_EXPORT___.push([module.id, ".servicesPage {\r\n    background: url(/assets/images/bgs/3.png) no-repeat;\r\n    background-position: center;\r\n    background-size: cover;\r\n    background-attachment: fixed;\r\n    padding-top: 100px;\r\n}\r\n\r\n.servicesPage .ships_img {\r\n    margin: 50px 0;\r\n}\r\n\r\n.statorPage .content {\r\n    margin-bottom: 50px;\r\n}\r\n\r\n@media screen and (max-width: 600px) {\r\n    .servicesPage .ships_img {\r\n        margin: 32px 0;\r\n    }\r\n}\r\n", ""]);
 // Exports
 /* harmony default export */ const __WEBPACK_DEFAULT_EXPORT__ = (___CSS_LOADER_EXPORT___);
 
@@ -7587,7 +7596,7 @@ __webpack_require__.r(__webpack_exports__);
 
 var ___CSS_LOADER_EXPORT___ = _node_modules_css_loader_dist_runtime_api_js__WEBPACK_IMPORTED_MODULE_0___default()(function(i){return i[1]});
 // Module
-___CSS_LOADER_EXPORT___.push([module.id, ".header {\r\n  background-color: transparent;\r\n  left: 0;\r\n  top: 0;\r\n  width: 100%;\r\n  position: absolute;\r\n  z-index: 1000;\r\n  border-bottom: 1px solid #03365621;\r\n}\r\n.header.solid {\r\n  position: relative;\r\n  background-color: #eef2f9;\r\n  border-bottom: none;\r\n}\r\n.navbar {\r\n  margin-right: 43px;\r\n  position: relative;\r\n}\r\n.menu_btn {\r\n  display: none;\r\n}\r\n.header .wrapper {\r\n  position: relative;\r\n}\r\n.header .wrapper::after {\r\n  height: 100%;\r\n  width: 1px;\r\n  background-color: #03365621;\r\n  top: 0;\r\n  right: 200px;\r\n}\r\n.header.solid .wrapper::after {\r\n  background-color: #033656;\r\n}\r\n.nav_link {\r\n  display: inline-block;\r\n  position: relative;\r\n  margin-right: 33px;\r\n  padding: 30px 0;\r\n}\r\n.nav_link.active {\r\n  color: #22aabe;\r\n}\r\n.nav_link:hover,\r\n.nav_link:hover a {\r\n  color: #22aabe;\r\n  transition: 0.3s;\r\n}\r\n.nav_link .dropdown {\r\n  position: absolute;\r\n  left: -20px;\r\n  top: 100%;\r\n  padding: 24px 20px;\r\n  transition: 0.4s;\r\n  background-color: #eef2f9;\r\n  width: 41px;\r\n  overflow: hidden;\r\n  visibility: hidden;\r\n  opacity: 0;\r\n}\r\n.nav_link:hover .dropdown {\r\n  width: 290px;\r\n  visibility: visible;\r\n  opacity: 1;\r\n}\r\n.nav_link .dropdown .link {\r\n  position: relative;\r\n  transition: 0.3s;\r\n  margin-bottom: 16px;\r\n\r\n  width: -webkit-fit-content;\r\n\r\n  width: -moz-fit-content;\r\n\r\n  width: fit-content;\r\n  white-space: nowrap;\r\n  transform: translateX(-100%);\r\n}\r\n.nav_link .dropdown .link a {\r\n  color: #06142c;\r\n  transition: 0.3s;\r\n}\r\n.nav_link .dropdown .link:nth-child(1) {\r\n  transition: 0.2s;\r\n}\r\n.nav_link .dropdown .link:nth-child(2) {\r\n  transition: 0.4s;\r\n}\r\n.nav_link .dropdown .link:nth-child(3) {\r\n  transition: 0.6s;\r\n}\r\n.nav_link .dropdown .link:nth-child(4) {\r\n  transition: 0.8s;\r\n}\r\n.nav_link .dropdown .link:nth-child(5) {\r\n  transition: 1s;\r\n}\r\n.nav_link:hover .dropdown .link {\r\n  transform: translateX(0);\r\n}\r\n.nav_link .dropdown .link:hover a {\r\n  color: #22aabe;\r\n}\r\n.nav_link .dropdown .link::after {\r\n  width: 100%;\r\n  height: 1px;\r\n  left: 0;\r\n  bottom: -5px;\r\n  transition: 0.3s;\r\n  background-color: #22aabe;\r\n  transform: scaleX(0);\r\n  transform-origin: left;\r\n}\r\n.nav_link .dropdown .link:hover::after {\r\n  transform: scaleX(1);\r\n}\r\n.header .languages {\r\n  position: relative;\r\n  margin-left: 33px;\r\n}\r\n.header .languages .drop {\r\n  position: absolute;\r\n  left: 0;\r\n  top: 50%;\r\n  opacity: 0;\r\n  visibility: hidden;\r\n  transition: 0.3s;\r\n}\r\n.header .languages img {\r\n  width: 22px;\r\n}\r\n.header .languages:hover .drop {\r\n  opacity: 1;\r\n  visibility: visible;\r\n  top: 100%;\r\n}\r\n\r\n@media screen and (max-width: 1200px) {\r\n  .header {\r\n    font-size: 14px;\r\n  }\r\n  .nav_link {\r\n    margin-right: 24px;\r\n  }\r\n  .header .languages {\r\n    margin-left: 7px;\r\n  }\r\n  .header .wrapper::after {\r\n    right: 140px;\r\n  }\r\n  .navbar {\r\n    margin-right: 25px;\r\n  }\r\n}\r\n@media screen and (max-width: 1000px) {\r\n  .header .navbar {\r\n    position: absolute;\r\n    left: 0;\r\n    top: 100%;\r\n    background-color: #fff;\r\n    color: #033656;\r\n    display: flex;\r\n    transform: translateX(-110%);\r\n    transition: 0.2s;\r\n    z-index: 1000;\r\n    padding: 30px 0;\r\n  }\r\n  .header .navbar::before {\r\n    height: 100%;\r\n    top: 0;\r\n    right: 100%;\r\n    background-color: #fff;\r\n    width: 60px;\r\n  }\r\n  .header .navbar.open {\r\n    transform: translateX(0);\r\n  }\r\n  .menu_btn {\r\n    display: inline-block;\r\n    margin-left: 20px;\r\n  }\r\n  .menu_btn .span {\r\n    height: 3px;\r\n    width: 30px;\r\n    background-color: #033656;\r\n    margin: 4px 0;\r\n    transition: 0.2s;\r\n  }\r\n  .menu_btn .span:first-child {\r\n    width: 24px;\r\n    margin: auto;\r\n    margin-right: 0;\r\n  }\r\n  .menu_btn.clicked .span:first-child {\r\n    transform: rotate(45deg);\r\n    margin: -3px 0;\r\n    width: 30px;\r\n  }\r\n  .menu_btn.clicked .span:last-child {\r\n    transform: rotate(-45deg);\r\n    margin: -3px 0;\r\n  }\r\n  .header .wrapper::after {\r\n    right: 84px;\r\n  }\r\n  .header .languages {\r\n    margin-left: 17px;\r\n  }\r\n  .nav_link {\r\n    margin-right: 20px;\r\n    padding: 10px 0;\r\n  }\r\n  .nav_link .dropdown {\r\n    left: -11px;\r\n    padding: 14px 11px;\r\n  }\r\n  .nav_link .dropdown .link {\r\n    margin-bottom: 11px;\r\n  }\r\n}\r\n@media screen and (max-width: 700px) {\r\n  .header .navbar {\r\n    padding: 16px 0;\r\n    flex-direction: column;\r\n    transform: translateX(-120%);\r\n  }\r\n  .header .navbar .nav_link {\r\n    padding: 0;\r\n    padding-right: 20px;\r\n    margin-bottom: 20px;\r\n  }\r\n  .nav_link .dropdown {\r\n    width: auto;\r\n    left: 100%;\r\n    top: -35px;\r\n    padding: 0 10px;\r\n  }\r\n  .nav_link:hover .dropdown {\r\n    width: -webkit-fit-content;\r\n    width: -moz-fit-content;\r\n    width: fit-content;\r\n  }\r\n  .nav_link .dropdown::after {\r\n    width: 1px;\r\n    height: 100%;\r\n    left: 0;\r\n    top: 0;\r\n    background-color: #033656;\r\n    transform: scaleY(0);\r\n    transform-origin: top;\r\n    transition: 0.6s;\r\n  }\r\n  .nav_link:hover .dropdown::after {\r\n    transform: scaleY(1);\r\n  }\r\n}\r\n", ""]);
+___CSS_LOADER_EXPORT___.push([module.id, ".header {\r\n    background-color: transparent;\r\n    left: 0;\r\n    top: 0;\r\n    width: 100%;\r\n    position: absolute;\r\n    z-index: 1000;\r\n    border-bottom: 1px solid #03365621;\r\n}\r\n.header.solid {\r\n    position: relative;\r\n    background-color: #eef2f9;\r\n    border-bottom: none;\r\n}\r\n.navbar {\r\n    margin-right: 43px;\r\n    position: relative;\r\n}\r\n.menu_btn {\r\n    display: none;\r\n}\r\n.header .wrapper {\r\n    position: relative;\r\n}\r\n.header .wrapper::after {\r\n    height: 100%;\r\n    width: 1px;\r\n    background-color: #03365621;\r\n    top: 0;\r\n    right: 200px;\r\n}\r\n.header.solid .wrapper::after {\r\n    background-color: #033656;\r\n}\r\n.nav_link {\r\n    display: inline-block;\r\n    position: relative;\r\n    margin-right: 33px;\r\n    padding: 30px 0;\r\n}\r\n.nav_link.active {\r\n    color: #22aabe;\r\n}\r\n.nav_link:hover,\r\n.nav_link:hover a {\r\n    color: #22aabe;\r\n    transition: 0.3s;\r\n}\r\n.nav_link .dropdown {\r\n    position: absolute;\r\n    left: -20px;\r\n    top: 100%;\r\n    padding: 24px 20px;\r\n    transition: 0.4s;\r\n    background-color: #eef2f9;\r\n    width: 41px;\r\n    overflow: hidden;\r\n    visibility: hidden;\r\n    opacity: 0;\r\n}\r\n.nav_link:hover .dropdown {\r\n    width: 290px;\r\n    visibility: visible;\r\n    opacity: 1;\r\n}\r\n.nav_link .dropdown .link {\r\n    position: relative;\r\n    transition: 0.3s;\r\n    margin-bottom: 16px;\r\n\r\n    width: -webkit-fit-content;\r\n\r\n    width: -moz-fit-content;\r\n\r\n    width: fit-content;\r\n    white-space: nowrap;\r\n    transform: translateX(-100%);\r\n}\r\n.nav_link .dropdown .link a {\r\n    color: #06142c;\r\n    transition: 0.3s;\r\n}\r\n.nav_link .dropdown .link:nth-child(1) {\r\n    transition: 0.2s;\r\n}\r\n.nav_link .dropdown .link:nth-child(2) {\r\n    transition: 0.4s;\r\n}\r\n.nav_link .dropdown .link:nth-child(3) {\r\n    transition: 0.6s;\r\n}\r\n.nav_link .dropdown .link:nth-child(4) {\r\n    transition: 0.8s;\r\n}\r\n.nav_link .dropdown .link:nth-child(5) {\r\n    transition: 1s;\r\n}\r\n.nav_link:hover .dropdown .link {\r\n    transform: translateX(0);\r\n}\r\n.nav_link .dropdown .link:hover a {\r\n    color: #22aabe;\r\n}\r\n.nav_link .dropdown .link::after {\r\n    width: 100%;\r\n    height: 1px;\r\n    left: 0;\r\n    bottom: -5px;\r\n    transition: 0.3s;\r\n    background-color: #22aabe;\r\n    transform: scaleX(0);\r\n    transform-origin: left;\r\n}\r\n.nav_link .dropdown .link:hover::after {\r\n    transform: scaleX(1);\r\n}\r\n.header .languages {\r\n    position: relative;\r\n    margin-left: 33px;\r\n}\r\n.header .languages .drop {\r\n    position: absolute;\r\n    left: 0;\r\n    top: 50%;\r\n    opacity: 0;\r\n    visibility: hidden;\r\n    transition: 0.3s;\r\n}\r\n.header .languages img {\r\n    width: 22px;\r\n}\r\n.header .languages:hover .drop {\r\n    opacity: 1;\r\n    visibility: visible;\r\n    top: 100%;\r\n}\r\n\r\n@media screen and (max-width: 1200px) {\r\n    .header {\r\n        font-size: 14px;\r\n    }\r\n    .nav_link {\r\n        margin-right: 24px;\r\n    }\r\n    .header .languages {\r\n        margin-left: 7px;\r\n    }\r\n    .header .wrapper::after {\r\n        right: 140px;\r\n    }\r\n    .navbar {\r\n        margin-right: 25px;\r\n    }\r\n}\r\n@media screen and (max-width: 1000px) {\r\n    .header .navbar {\r\n        position: absolute;\r\n        left: 0;\r\n        top: 100%;\r\n        background-color: #fff;\r\n        color: #033656;\r\n        display: flex;\r\n        transform: translateX(-110%);\r\n        transition: 0.2s;\r\n        z-index: 1000;\r\n        padding: 30px 0;\r\n    }\r\n    .header .navbar::before {\r\n        height: 100%;\r\n        top: 0;\r\n        right: 100%;\r\n        background-color: #fff;\r\n        width: 60px;\r\n    }\r\n    .header .navbar.open {\r\n        transform: translateX(0);\r\n    }\r\n    .menu_btn {\r\n        display: inline-block;\r\n        margin-left: 20px;\r\n    }\r\n    .menu_btn .span {\r\n        height: 3px;\r\n        width: 30px;\r\n        background-color: #033656;\r\n        margin: 4px 0;\r\n        transition: 0.2s;\r\n    }\r\n    .menu_btn .span:first-child {\r\n        width: 24px;\r\n        margin: auto;\r\n        margin-right: 0;\r\n    }\r\n    .menu_btn.clicked .span:first-child {\r\n        transform: rotate(45deg);\r\n        margin: -3px 0;\r\n        width: 30px;\r\n    }\r\n    .menu_btn.clicked .span:last-child {\r\n        transform: rotate(-45deg);\r\n        margin: -3px 0;\r\n    }\r\n    .header .wrapper::after {\r\n        display: none;\r\n    }\r\n    .header .languages {\r\n        margin-left: 17px;\r\n    }\r\n    .nav_link {\r\n        margin-right: 20px;\r\n        padding: 10px 0;\r\n    }\r\n    .nav_link .dropdown {\r\n        left: -11px;\r\n        padding: 14px 11px;\r\n    }\r\n    .nav_link .dropdown .link {\r\n        margin-bottom: 11px;\r\n    }\r\n}\r\n@media screen and (max-width: 700px) {\r\n    .header .navbar {\r\n        padding: 16px 0;\r\n        flex-direction: column;\r\n        transform: translateX(-120%);\r\n    }\r\n    .header .navbar .nav_link {\r\n        padding: 0;\r\n        padding-right: 20px;\r\n        margin-bottom: 20px;\r\n    }\r\n    .nav_link .dropdown {\r\n        width: auto;\r\n        left: 100%;\r\n        top: -35px;\r\n        padding: 0 10px;\r\n    }\r\n    .nav_link:hover .dropdown {\r\n        width: -webkit-fit-content;\r\n        width: -moz-fit-content;\r\n        width: fit-content;\r\n    }\r\n    .nav_link .dropdown::after {\r\n        width: 1px;\r\n        height: 100%;\r\n        left: 0;\r\n        top: 0;\r\n        background-color: #033656;\r\n        transform: scaleY(0);\r\n        transform-origin: top;\r\n        transition: 0.6s;\r\n    }\r\n    .nav_link:hover .dropdown::after {\r\n        transform: scaleY(1);\r\n    }\r\n}\r\n", ""]);
 // Exports
 /* harmony default export */ const __WEBPACK_DEFAULT_EXPORT__ = (___CSS_LOADER_EXPORT___);
 
@@ -45998,7 +46007,7 @@ webpackContext.id = "./resources/js/Pages sync recursive ^\\.\\/.*$";
 /***/ ((module) => {
 
 "use strict";
-module.exports = JSON.parse('{"name":"axios","version":"0.21.4","description":"Promise based HTTP client for the browser and node.js","main":"index.js","scripts":{"test":"grunt test","start":"node ./sandbox/server.js","build":"NODE_ENV=production grunt build","preversion":"npm test","version":"npm run build && grunt version && git add -A dist && git add CHANGELOG.md bower.json package.json","postversion":"git push && git push --tags","examples":"node ./examples/server.js","coveralls":"cat coverage/lcov.info | ./node_modules/coveralls/bin/coveralls.js","fix":"eslint --fix lib/**/*.js"},"repository":{"type":"git","url":"https://github.com/axios/axios.git"},"keywords":["xhr","http","ajax","promise","node"],"author":"Matt Zabriskie","license":"MIT","bugs":{"url":"https://github.com/axios/axios/issues"},"homepage":"https://axios-http.com","devDependencies":{"coveralls":"^3.0.0","es6-promise":"^4.2.4","grunt":"^1.3.0","grunt-banner":"^0.6.0","grunt-cli":"^1.2.0","grunt-contrib-clean":"^1.1.0","grunt-contrib-watch":"^1.0.0","grunt-eslint":"^23.0.0","grunt-karma":"^4.0.0","grunt-mocha-test":"^0.13.3","grunt-ts":"^6.0.0-beta.19","grunt-webpack":"^4.0.2","istanbul-instrumenter-loader":"^1.0.0","jasmine-core":"^2.4.1","karma":"^6.3.2","karma-chrome-launcher":"^3.1.0","karma-firefox-launcher":"^2.1.0","karma-jasmine":"^1.1.1","karma-jasmine-ajax":"^0.1.13","karma-safari-launcher":"^1.0.0","karma-sauce-launcher":"^4.3.6","karma-sinon":"^1.0.5","karma-sourcemap-loader":"^0.3.8","karma-webpack":"^4.0.2","load-grunt-tasks":"^3.5.2","minimist":"^1.2.0","mocha":"^8.2.1","sinon":"^4.5.0","terser-webpack-plugin":"^4.2.3","typescript":"^4.0.5","url-search-params":"^0.10.0","webpack":"^4.44.2","webpack-dev-server":"^3.11.0"},"browser":{"./lib/adapters/http.js":"./lib/adapters/xhr.js"},"jsdelivr":"dist/axios.min.js","unpkg":"dist/axios.min.js","typings":"./index.d.ts","dependencies":{"follow-redirects":"^1.14.0"},"bundlesize":[{"path":"./dist/axios.min.js","threshold":"5kB"}]}');
+module.exports = JSON.parse('{"_from":"axios@0.21.4","_id":"axios@0.21.4","_inBundle":false,"_integrity":"sha512-ut5vewkiu8jjGBdqpM44XxjuCjq9LAKeHVmoVfHVzy8eHgxxq8SbAVQNovDA8mVi05kP0Ea/n/UzcSHcTJQfNg==","_location":"/axios","_phantomChildren":{},"_requested":{"type":"version","registry":true,"raw":"axios@0.21.4","name":"axios","escapedName":"axios","rawSpec":"0.21.4","saveSpec":null,"fetchSpec":"0.21.4"},"_requiredBy":["#DEV:/","/@inertiajs/inertia"],"_resolved":"https://registry.npmjs.org/axios/-/axios-0.21.4.tgz","_shasum":"c67b90dc0568e5c1cf2b0b858c43ba28e2eda575","_spec":"axios@0.21.4","_where":"C:\\\\Users\\\\Shamisa\\\\Desktop\\\\local-projects\\\\sea-lloyd","author":{"name":"Matt Zabriskie"},"browser":{"./lib/adapters/http.js":"./lib/adapters/xhr.js"},"bugs":{"url":"https://github.com/axios/axios/issues"},"bundleDependencies":false,"bundlesize":[{"path":"./dist/axios.min.js","threshold":"5kB"}],"dependencies":{"follow-redirects":"^1.14.0"},"deprecated":false,"description":"Promise based HTTP client for the browser and node.js","devDependencies":{"coveralls":"^3.0.0","es6-promise":"^4.2.4","grunt":"^1.3.0","grunt-banner":"^0.6.0","grunt-cli":"^1.2.0","grunt-contrib-clean":"^1.1.0","grunt-contrib-watch":"^1.0.0","grunt-eslint":"^23.0.0","grunt-karma":"^4.0.0","grunt-mocha-test":"^0.13.3","grunt-ts":"^6.0.0-beta.19","grunt-webpack":"^4.0.2","istanbul-instrumenter-loader":"^1.0.0","jasmine-core":"^2.4.1","karma":"^6.3.2","karma-chrome-launcher":"^3.1.0","karma-firefox-launcher":"^2.1.0","karma-jasmine":"^1.1.1","karma-jasmine-ajax":"^0.1.13","karma-safari-launcher":"^1.0.0","karma-sauce-launcher":"^4.3.6","karma-sinon":"^1.0.5","karma-sourcemap-loader":"^0.3.8","karma-webpack":"^4.0.2","load-grunt-tasks":"^3.5.2","minimist":"^1.2.0","mocha":"^8.2.1","sinon":"^4.5.0","terser-webpack-plugin":"^4.2.3","typescript":"^4.0.5","url-search-params":"^0.10.0","webpack":"^4.44.2","webpack-dev-server":"^3.11.0"},"homepage":"https://axios-http.com","jsdelivr":"dist/axios.min.js","keywords":["xhr","http","ajax","promise","node"],"license":"MIT","main":"index.js","name":"axios","repository":{"type":"git","url":"git+https://github.com/axios/axios.git"},"scripts":{"build":"NODE_ENV=production grunt build","coveralls":"cat coverage/lcov.info | ./node_modules/coveralls/bin/coveralls.js","examples":"node ./examples/server.js","fix":"eslint --fix lib/**/*.js","postversion":"git push && git push --tags","preversion":"npm test","start":"node ./sandbox/server.js","test":"grunt test","version":"npm run build && grunt version && git add -A dist && git add CHANGELOG.md bower.json package.json"},"typings":"./index.d.ts","unpkg":"dist/axios.min.js","version":"0.21.4"}');
 
 /***/ })
 
