@@ -45,7 +45,7 @@ Route::prefix('{locale?}')
             Route::middleware('auth')->group(function () {
                 Route::get('logout', [LoginController::class, 'logout'])->name('logout');
 
-                Route::redirect('', 'adminpanel/category');
+                Route::redirect('', 'adminpanel/page');
 
                 // Language
                 Route::resource('language', LanguageController::class);
@@ -55,8 +55,8 @@ Route::prefix('{locale?}')
                 Route::resource('translation', TranslationController::class);
 
                 // Category
-                Route::resource('category', \App\Http\Controllers\Admin\CategoryController::class);
-                Route::get('category/{category}/destroy', [\App\Http\Controllers\Admin\CategoryController::class, 'destroy'])->name('category.destroy');
+                // Route::resource('category', \App\Http\Controllers\Admin\CategoryController::class);
+                // Route::get('category/{category}/destroy', [\App\Http\Controllers\Admin\CategoryController::class, 'destroy'])->name('category.destroy');
                 //
                 // Product
                 Route::resource('product', \App\Http\Controllers\Admin\ProductController::class);

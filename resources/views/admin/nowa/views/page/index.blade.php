@@ -2,12 +2,9 @@
 
 @section('styles')
 
-
-
 @endsection
 
 @section('content')
-
 
     <!-- breadcrumb -->
     <div class="breadcrumb-header justify-content-between">
