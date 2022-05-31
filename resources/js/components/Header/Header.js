@@ -136,7 +136,7 @@ const Header = () => {
     return (
         <div
             className={solid ? "header solid" : "header"}
-            style={{ "z-index": "999999999999999999999999" }}
+            style={{ "zIndex": "999999999999999999999999" }}
         >
             <div className="wrapper flex">
                 <Link href={route("client.home.index")}>
@@ -161,11 +161,11 @@ const Header = () => {
                                         onClick={
                                             drop
                                                 ? (e) => {
-                                                      e.preventDefault();
-                                                  }
+                                                    e.preventDefault();
+                                                }
                                                 : (e) => {
-                                                      return "";
-                                                  }
+                                                    return "";
+                                                }
                                         }
                                     >
                                         <span>{nav.name}</span>

@@ -446,7 +446,7 @@ const OwnerApplication = ({ info, seo, success, error }) => {
                             <img src='/assets/images/icons/contact/mail.svg' alt="" />
                             <span>
                                 {/* stat@geolloyd.com */}
-                                {info.email.value ? info.email.value : ""}
+                                {info.email ? info.email.value : ""}
                             </span>
                         </a>
                     </div>

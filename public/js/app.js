@@ -3785,7 +3785,6 @@ var Contact = function Contact(_ref) {
       page = _ref.page,
       seo = _ref.seo,
       images = _ref.images;
-  console.log(info);
   var sharedData = (0,_inertiajs_inertia_react__WEBPACK_IMPORTED_MODULE_5__.usePage)().props.localizations;
 
   var _useForm = (0,_inertiajs_inertia_react__WEBPACK_IMPORTED_MODULE_5__.useForm)({
@@ -3836,17 +3835,17 @@ var Contact = function Contact(_ref) {
   }, /*#__PURE__*/react__WEBPACK_IMPORTED_MODULE_0__.createElement("img", {
     src: "/assets/images/icons/contact/mail.svg",
     alt: ""
-  }), /*#__PURE__*/react__WEBPACK_IMPORTED_MODULE_0__.createElement("span", null, info.email.value)), /*#__PURE__*/react__WEBPACK_IMPORTED_MODULE_0__.createElement("a", {
+  }), info.email ? info.email.value : ""), /*#__PURE__*/react__WEBPACK_IMPORTED_MODULE_0__.createElement("a", {
     href: "#"
   }, /*#__PURE__*/react__WEBPACK_IMPORTED_MODULE_0__.createElement("img", {
     src: "/assets/images/icons/contact/pin.svg",
     alt: ""
-  }), /*#__PURE__*/react__WEBPACK_IMPORTED_MODULE_0__.createElement("span", null, info.address.value)), /*#__PURE__*/react__WEBPACK_IMPORTED_MODULE_0__.createElement("a", {
+  }), info.address ? info.address.value : ""), /*#__PURE__*/react__WEBPACK_IMPORTED_MODULE_0__.createElement("a", {
     href: "#"
   }, /*#__PURE__*/react__WEBPACK_IMPORTED_MODULE_0__.createElement("img", {
     src: "/assets/images/icons/contact/tel.svg",
     alt: ""
-  }), /*#__PURE__*/react__WEBPACK_IMPORTED_MODULE_0__.createElement("span", null, info.phone.value))), /*#__PURE__*/react__WEBPACK_IMPORTED_MODULE_0__.createElement("div", {
+  }), info.phone ? info.phone.value : "")), /*#__PURE__*/react__WEBPACK_IMPORTED_MODULE_0__.createElement("div", {
     className: "form"
   }, /*#__PURE__*/react__WEBPACK_IMPORTED_MODULE_0__.createElement("form", {
     onSubmit: submit
@@ -5139,7 +5138,7 @@ var OwnerApplication = function OwnerApplication(_ref) {
   }, /*#__PURE__*/react__WEBPACK_IMPORTED_MODULE_0__.createElement("img", {
     src: "/assets/images/icons/contact/mail.svg",
     alt: ""
-  }), /*#__PURE__*/react__WEBPACK_IMPORTED_MODULE_0__.createElement("span", null, info.email.value ? info.email.value : ""))))));
+  }), /*#__PURE__*/react__WEBPACK_IMPORTED_MODULE_0__.createElement("span", null, info.email ? info.email.value : ""))))));
 };
 
 /* harmony default export */ const __WEBPACK_DEFAULT_EXPORT__ = (OwnerApplication);
@@ -6684,7 +6683,7 @@ var Header = function Header() {
   return /*#__PURE__*/react__WEBPACK_IMPORTED_MODULE_0__.createElement("div", {
     className: solid ? "header solid" : "header",
     style: {
-      "z-index": "999999999999999999999999"
+      "zIndex": "999999999999999999999999"
     }
   }, /*#__PURE__*/react__WEBPACK_IMPORTED_MODULE_0__.createElement("div", {
     className: "wrapper flex"

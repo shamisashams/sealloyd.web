@@ -15,7 +15,7 @@
             <span class="main-content-title mg-b-0 mg-b-lg-1">@lang('admin.pages')</span>
         </div>
         <div class="justify-content-center mt-2">
-            @include('admin.nowa.views.layouts.components.breadcrump')
+            {{-- @include('admin.nowa.views.layouts.components.breadcrump') --}}
         </div>
     </div>
     <!-- /breadcrumb -->

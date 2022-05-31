@@ -75,11 +75,6 @@ class VacancyController extends Controller
     public function create()
     {
         $vacancy = $this->vacancyRepository->model;
-
-
-
-
-
         $url = locale_route('vacancy.store', [], false);
         $method = 'POST';
 
@@ -218,10 +213,10 @@ class VacancyController extends Controller
      * @param Product $product
      * @return Application|RedirectResponse|Redirector
      */
-    public function destroy(string $locale, Customer $customer)
+    public function destroy(string $locale, Vacancy $vacancy)
     {
-        if (!$this->vacancyRepository->delete($customer->id)) {
-            return redirect(locale_route('customer.index', $customer->id))->with('danger', __('admin.not_delete_message'));
+        if (!$this->vacancyRepository->delete($vacancy->id)) {
+            return redirect(locale_route('customer.index', $vacancy->id))->with('danger', __('admin.not_delete_message'));
         }
         return redirect(locale_route('vacancy.index'))->with('success', __('admin.delete_message'));
     }
@@ -239,7 +234,8 @@ class VacancyController extends Controller
         return redirect(locale_route('vacancy.edit', $id))->with('success', __('admin.delete_message'));
     }
 
-    public function viewResumes(string $locale, Vacancy $vacancy){
+    public function viewResumes(string $locale, Vacancy $vacancy)
+    {
         return view('admin.nowa.views.vacancy.resumes', [
             'vacancy' => $vacancy,
         ]);
