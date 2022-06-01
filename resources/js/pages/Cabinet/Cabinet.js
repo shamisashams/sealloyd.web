@@ -40,7 +40,7 @@ const Cabinet = ({ seo }) => {
                                             <div>
                                                 <div>{ele.title}</div>
                                                 {ele.docs.map((doc, index) => {
-                                                    return <DlPdf key={index} model="Customer" name={doc} />;
+                                                    return <DlPdf key={index} model="Subclass" name={doc} />;
                                                 })}
                                             </div>
                                         )
