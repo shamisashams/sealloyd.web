@@ -43,7 +43,7 @@ class PageController extends Controller
      * @param PageRequest $request
      * @return Application|Factory|View
      */
-    public function index(PageRequest $request)
+    public function index(PageRequest $request, Page $page)
     {
         /*return view('admin.pages.page.index', [
             'pages' => $this->pageRepository->getData($request, ['translations'])

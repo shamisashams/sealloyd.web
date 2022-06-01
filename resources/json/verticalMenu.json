@@ -8,7 +8,7 @@
             "slug": "page"
         },
         {
-            "url": "language.index",
+            "url": "javascript:void(0)",
             "name": "Language Settings",
             "i18n": "language",
             "icon": "language",
@@ -59,7 +59,7 @@
             "slug": "staff"
         },
         {
-            "url": "vacancy.index",
+            "url": "javascript:void(0)",
             "name": "Vacancy",
             "i18n": "vacancy",
             "icon": "vacancy",
@@ -82,7 +82,7 @@
             ]
         },
         {
-            "url": "ownerapplications.index",
+            "url": "javascript:void(0)",
             "name": "applications",
             "i18n": "vacancy",
             "icon": "vacancy",
