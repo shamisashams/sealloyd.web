@@ -3551,7 +3551,7 @@ var Cabinet = function Cabinet(_ref) {
       return /*#__PURE__*/react__WEBPACK_IMPORTED_MODULE_0__.createElement("div", null, /*#__PURE__*/react__WEBPACK_IMPORTED_MODULE_0__.createElement("div", null, ele.title), ele.docs.map(function (doc, index) {
         return /*#__PURE__*/react__WEBPACK_IMPORTED_MODULE_0__.createElement(_components_SmallComps_SmallComps__WEBPACK_IMPORTED_MODULE_1__.DlPdf, {
           key: index,
-          model: "Customer",
+          model: "Subclass",
           name: doc
         });
       }));
