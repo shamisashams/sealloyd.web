@@ -72,9 +72,9 @@ class PageSeeder extends Seeder
 
             // contact
 
-            [
-                'key' => 'contact'
-            ],
+            // [
+            //     'key' => 'contact'
+            // ],
 
 
             [

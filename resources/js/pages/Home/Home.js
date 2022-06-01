@@ -75,7 +75,7 @@ const Home = ({ page, seo, images }) => {
                 <div className="form_section ">
 
                     <div className="abs_img img">
-                        <img src={images[1]} alt="error" />
+                        <img src={images[0]} alt="error" />
                     </div>
                     {/* <img src={images[3]} alt='error'></img> */}
                     <div className="wrapper">
