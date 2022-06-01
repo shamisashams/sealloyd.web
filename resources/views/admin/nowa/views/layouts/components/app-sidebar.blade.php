@@ -1,5 +1,4 @@
-				<!-- main-sidebar -->
-				<div class="sticky">
+<div class="sticky">
 					<aside class="app-sidebar">
 						<div class="main-sidebar-header active">
 							<a class="header-logo active" href="{{url('adminpanel')}}">
@@ -21,6 +20,7 @@
 
                                 @if(!empty($menuData[0]) && isset($menuData[0]))
                                     @foreach ($menuData[0]->menu as $menu)
+
                                         @if(isset($menu->navheader))
                                             <li class="navigation-header">
                                                 <a class="navigation-header-text">{{ __('admin.'.$menu->navheader) }}</a>
@@ -34,8 +34,9 @@
                                                 $custom_classes = $menu->class;
                                                 }
                                             @endphp
-                                            <li class="slide" {{(request()->is($menu->url.'*')) ? 'active' : '' }}">
+                                            {{-- <li class="slide" {{(request()->is($menu->url.'*')) ? 'active' : '' }}">
                                                 <a class="{{$custom_classes}} {{ (request()->route()->getName() === $menu->url) ? 'active '.$configData['activeMenuColor'] : ''}}side-menu__item"
+                                                    onclick="SliderCostumFunc()"
                                                    @if(!empty($configData['activeMenuColor'])) {{'style=background:none;box-shadow:none;'}} @endif
                                                     href="@if(($menu->url)==='javascript:void(0)'){{$menu->url}} @else{{locale_route($menu->url)}} @endif"
                                                     {{isset($menu->newTab) ? 'target="_blank"':''}}>
@@ -52,25 +53,36 @@
                                                       <li style="cursor:pointer"><a class="slide-item"  href={{locale_route($v->url)}}>{{$v->name}}</a></li>
                                                 @endforeach
                                                 </ul>
-                                                {{-- <ul class="slide-menu">
-                                                     <li class="side-menu__label1"><a href="javascript:void(0);">Charts</a></li>
-                                                     <li><a class="slide-item" href="{{url('chart-morris')}}">Morris Charts</a></li>
-                                                    <li><a class="slide-item" href="{{url('chart-flot')}}">Flot Charts</a></li>
-                                                    <li><a class="slide-item" href="{{url('chart-chartjs')}}">ChartJS</a></li>
-                                                    <li><a class="slide-item" href="{{url('chart-echart')}}">Echart</a></li>
-                                                    <li><a class="slide-item" href="{{url('chart-sparkline')}}">Sparkline</a></li>
-                                                    <li><a class="slide-item" href="{{url('chart-peity')}}">Chart-peity</a></li>
-                                                </ul> --}}
                                                 @endif
-                                            </li>
+                                            </li> --}}
+<div class="slide" {{(request()->is($menu->url.'*')) ? 'active' : '' }}">
+                                            <a
+                                            @if(isset($menu->submenu)) aria-expanded="false" aria-haspopup="true" data-bs-toggle="dropdown" id="{{$menu->name}}"  @endif
+                                            @if(!empty($configData['activeMenuColor'])) {{'style=background:none;box-shadow:none;'}} @endif
+                                            href="@if(($menu->url)==='javascript:void(0)'){{$menu->url}} @else{{locale_route($menu->url)}} @endif"
+                                            class="{{$custom_classes}} {{ (request()->route()->getName() === $menu->url) ? 'active '.$configData['activeMenuColor'] : ''}}side-menu__item"
+                                              >
+                                              <i class="material-icons"></i>
+                                                    <span class="menu-title">{{ $menu->name}}</span>
+                                                    @if(isset($menu->tag))
+                                                        <span class="{{$menu->tagcustom}}">{{$menu->tag}}</span>
+                                                    @endif
+                                                    @if(isset($menu->submenu)) <i class="angle fe fe-chevron-down"></i> @else <i class="angle fe fe-chevron-right"></i> @endif
+                                            </a>
+
+                                            @if(isset($menu->submenu))
+                                            <ul class="dropdown-menu slide-menu">
+                                            @foreach ($menu->submenu as $v)
+                                                  <li style="cursor:pointer"><a class="dropdown-item"  href={{locale_route($v->url)}}>{{$v->name}}</a></li>
+                                            @endforeach
+                                            </ul>
+                                        </div>
+                                            @endif
                                         @endif
                                     @endforeach
                                 @endif
-
-
 							</ul>
 							<div class="slide-right" id="slide-right"><svg xmlns="http://www.w3.org/2000/svg" fill="#7b8191" width="24" height="24" viewBox="0 0 24 24"><path d="M10.707 17.707 16.414 12l-5.707-5.707-1.414 1.414L13.586 12l-4.293 4.293z"/></svg></div>
 						</div>
 					</aside>
 				</div>
-				<!-- main-sidebar -->
