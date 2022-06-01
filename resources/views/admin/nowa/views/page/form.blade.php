@@ -74,7 +74,7 @@
                                         if($loop->first) $active = 'active';
                                         ?>
                                         <div class="tab-pane {{$active}}" id="lang-{{$locale}}">
-                                            <div class="main-content-label mg-b-5">
+                                            {{-- <div class="main-content-label mg-b-5">
                                                 @lang('admin.page_info')
                                             </div>
                                             <div class="form-group">
@@ -128,7 +128,7 @@
                                                     </div>
                                                 </small>
                                                 @enderror
-                                            </div>
+                                            </div> --}}
 
                                             <div class="main-content-label mg-b-5 text-danger">
                                                 @lang('admin.page_seo')
@@ -259,15 +259,13 @@
                     <div>
                         <h6 class="card-title mb-1">@lang('admin.sectionimages')</h6>
                     </div>
-                    {{-- @foreach($page->sections as $item) --}}
+                    @foreach($page->sections as $item)
                         <div class="form-group">
-     {{-- @php
-         dd($page->sections)
-     @endphp --}}
-                            <input type="file" class="dropify" name="image[{{$page->sections[1]->id}}]" data-default-file="{{($page->sections[1]->file) ? asset($page->sections[1]->file->getFileUrlAttribute()) : ''}}" data-height="200"  />
 
+                            {{-- <input type="file" class="dropify" name="image[{{$page->sections->id}}]" data-default-file="{{($page->sections->file) ? asset($page->sections->file->getFileUrlAttribute()) : ''}}" data-height="200"  /> --}}
+ <input type="file" class="dropify" name="image[{{$item->id}}]" data-default-file="{{($item->file) ? asset($item->file->getFileUrlAttribute()) : ''}}" data-height="200"  />
                         </div>
-                    {{-- @endforeach --}}
+                    @endforeach
                 </div>
             </div>
         </div>

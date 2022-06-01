@@ -20,9 +20,9 @@ const Purpose = ({ page, seo, images }) => {
                         {renderHTML(__('client.aboutus_purpose_header', sharedData).replace(/(?:\r\n|\r|\n)/g, '<br>'))}
                     </div>
                     <PagePath
-                        location1={__('client.nav_home',sharedData)}
-                        location2={__('client.nav_aboutus',sharedData)}
-                        location3={__('client.nav_purpose',sharedData)}
+                        location1={__('client.nav_home', sharedData)}
+                        location2={__('client.nav_aboutus', sharedData)}
+                        location3={__('client.nav_purpose', sharedData)}
                     />
                     <img src={images[0]} alt="" />
                     <div className="content">
@@ -72,7 +72,7 @@ const Purpose = ({ page, seo, images }) => {
                             იქადაგებს ემატებიან ბურჟუები გულგახეთქილნი.
                         </p> */}
 
-                            {renderHTML(__('client.aboutus_purpose_main_text', sharedData).replace(/(?:\r\n|\r|\n)/g, '<br>'))}
+                        {renderHTML(__('client.aboutus_purpose_main_text', sharedData).replace(/(?:\r\n|\r|\n)/g, '<br>'))}
 
                     </div>
                 </div>

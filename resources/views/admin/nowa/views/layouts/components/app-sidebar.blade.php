@@ -10,7 +10,7 @@
 						</div>
 						<div class="main-sidemenu">
 							<div class="slide-left disabled" id="slide-left"><svg xmlns="http://www.w3.org/2000/svg" fill="#7b8191" width="24" height="24" viewBox="0 0 24 24"><path d="M13.293 6.293 7.586 12l5.707 5.707 1.414-1.414L10.414 12l4.293-4.293z"/></svg></div>
-							<ul class="side-menu">
+                            <ul class="side-menu">
 
 
                                 @php
@@ -55,9 +55,15 @@
                                                 </ul>
                                                 @endif
                                             </li> --}}
-<div class="slide" {{(request()->is($menu->url.'*')) ? 'active' : '' }}">
+
+
+
+                                        <div class="slide" {{(request()->is($menu->url.'*')) ? 'active' : '' }}">
                                             <a
-                                            @if(isset($menu->submenu)) aria-expanded="false" aria-haspopup="true" data-bs-toggle="dropdown" id="{{$menu->name}}"  @endif
+                                            @if(isset($menu->submenu))
+                                            {{-- aria-expanded="false" aria-haspopup="true" data-bs-toggle="dropdown" id="{{$menu->name}}" --}}
+                                            data-bs-toggle="sub-slide" href="javascript:void(0);"
+                                            @endif
                                             @if(!empty($configData['activeMenuColor'])) {{'style=background:none;box-shadow:none;'}} @endif
                                             href="@if(($menu->url)==='javascript:void(0)'){{$menu->url}} @else{{locale_route($menu->url)}} @endif"
                                             class="{{$custom_classes}} {{ (request()->route()->getName() === $menu->url) ? 'active '.$configData['activeMenuColor'] : ''}}side-menu__item"
@@ -71,14 +77,16 @@
                                             </a>
 
                                             @if(isset($menu->submenu))
-                                            <ul class="dropdown-menu slide-menu">
+                                            <ul class="sub-slide-menu">
                                             @foreach ($menu->submenu as $v)
-                                                  <li style="cursor:pointer"><a class="dropdown-item"  href={{locale_route($v->url)}}>{{$v->name}}</a></li>
+                                                  <li style="cursor:pointer"><a class="sub-side-menu__item"  href={{locale_route($v->url)}}>{{$v->name}}</a></li>
                                             @endforeach
                                             </ul>
                                         </div>
                                             @endif
-                                        @endif
+
+                                            @endif
+
                                     @endforeach
                                 @endif
 							</ul>

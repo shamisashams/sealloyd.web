@@ -19,7 +19,7 @@ class AboutUsController extends Controller
 
     public function index()
     {
-        $page = Page::where('key', 'about')->firstOrFail();
+        $page = Page::where('key', 'home')->firstOrFail();
 
         $images = [];
         foreach ($page->sections as $sections) {
