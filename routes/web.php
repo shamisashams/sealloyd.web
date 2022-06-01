@@ -85,6 +85,12 @@ Route::prefix('{locale?}')
                 Route::resource('customer', \App\Http\Controllers\Admin\CustomerController::class);
                 Route::get('customer/{customer}/destroy', [\App\Http\Controllers\Admin\CustomerController::class, 'destroy'])->name('customer.destroy');
                 Route::get('customer/doc/{doc}/destroy', [\App\Http\Controllers\Admin\CustomerController::class, 'docDelete'])->name('customer.delete-doc');
+                Route::get('customer/subclass/{customer}/create',[\App\Http\Controllers\Admin\CustomerController::class,'createSubClass'])->name('subclass.create');
+                Route::post('customer/subclass/{customer}/store',[\App\Http\Controllers\Admin\CustomerController::class,'storeSubClass'])->name('subclass.store');
+                Route::get('customer/subclass/{customer}/{subclass}/edit',[\App\Http\Controllers\Admin\CustomerController::class,'editSubClass'])->name('subclass.edit');
+                Route::put('customer/subclass/{customer}/{subclass}/edit',[\App\Http\Controllers\Admin\CustomerController::class,'updateSubClass'])->name('subclass.update');
+                Route::get('customer/subclass/{customer}/{subclass}/destroy',[\App\Http\Controllers\Admin\CustomerController::class,'destroySubClass'])->name('subclass.destroy');
+                Route::get('customer/subclass/{customer}/{subclass}/{doc}/destroy', [\App\Http\Controllers\Admin\CustomerController::class, 'subclassDocDelete'])->name('subclass.delete-doc');
 
                 Route::resource('vacancy', \App\Http\Controllers\Admin\VacancyController::class);
                 Route::get('vacancy/{vacancy}/destroy', [\App\Http\Controllers\Admin\VacancyController::class, 'destroy'])->name('vacancy.destroy');
@@ -108,6 +114,9 @@ Route::prefix('{locale?}')
                 // Password
                 Route::get('password', [\App\Http\Controllers\Admin\PasswordController::class, 'index'])->name('password.index');
                 Route::post('password', [\App\Http\Controllers\Admin\PasswordController::class, 'update'])->name('password.update');
+
+                Route::resource('classification', \App\Http\Controllers\Admin\ClassificationController::class);
+                Route::get('classification/{classification}/destroy', [\App\Http\Controllers\Admin\ClassificationController::class, 'destroy'])->name('classification.destroy');
             });
         });
         Route::middleware(['active'])->group(function () {

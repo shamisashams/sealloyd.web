@@ -46,7 +46,7 @@
         },
         {
             "url": "customer.index",
-            "name": "Costumers",
+            "name": "Customers",
             "i18n": "customers",
             "icon": "user",
             "slug": "customers"
@@ -103,6 +103,13 @@
                     "slug": "skill"
                 }
             ]
+        },
+        {
+            "url": "classification.index",
+            "name": "Classifications",
+            "i18n": "setting",
+            "icon": "language",
+            "slug": "classification"
         }
     ],
     "_comment": [

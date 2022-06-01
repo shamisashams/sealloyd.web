@@ -5,6 +5,7 @@ namespace App\Models;
 use App\Traits\ScopeFilter;
 use Illuminate\Contracts\Auth\MustVerifyEmail;
 use Illuminate\Database\Eloquent\Factories\HasFactory;
+use Illuminate\Database\Eloquent\Relations\HasMany;
 use Illuminate\Database\Eloquent\Relations\MorphMany;
 use Illuminate\Foundation\Auth\User as Authenticatable;
 use Illuminate\Notifications\Notifiable;
@@ -75,5 +76,9 @@ class Customer extends Authenticatable
 
     public function docs(){
         return $this->morphMany(File::class, 'fileable')->where('type',4);
+    }
+
+    public function subclasses():HasMany{
+        return $this->hasMany(Subclass::class);
     }
 }

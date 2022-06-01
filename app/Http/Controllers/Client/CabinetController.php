@@ -39,13 +39,24 @@ class CabinetController extends Controller
         $files = [];
         if ($page->images) $files = $page->files;
 
-        $user = Auth::user();
+        $user = Auth::guard('customer')->user();
 
-        $docs = $user->docs;
 
-        //dd($files);
+        //$docs = $user->docs;
 
-        return Inertia::render('Cabinet/Cabinet', ["page" => $page, 'docs' => $docs, "seo" => [
+        $docs = $user->subclasses()->with(['translation','docs'])->get();
+
+        $result = [];
+        $k = 0;
+        foreach ($docs as $doc){
+            $result[$doc->class_id]['title'] = $doc->class->title;
+            $result[$doc->class_id]['subclasses'][] = $doc;
+            $k++;
+        }
+        $result = array_values($result);
+        //dd($result);
+
+        return Inertia::render('Cabinet/Cabinet', ["page" => $page, 'docs' => $result, "seo" => [
             "title" => $page->meta_title,
             "description" => $page->meta_description,
             "keywords" => $page->meta_keyword,

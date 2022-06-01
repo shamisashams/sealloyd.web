@@ -157,7 +157,84 @@
 
     {{--@dd($customer->docs)--}}
 
-    <!-- /row -->
+    <div class="row">
+        <div class="col-xl-12">
+            <div class="card mg-b-20">
+                <div class="card-header pb-0">
+                    <div class="d-flex justify-content-between">
+                        <h4 class="card-title mg-b-0">@lang('admin.customer_ships')</h4>
+                    </div>
+                    <a href="{{locale_route('subclass.create',$customer->id)}}" class="btn ripple btn-primary" type="button">@lang('admin.create')</a>
+                </div>
+                <div class="card-body">
+                    <div class="table-responsive">
+                        <table class="table table-bordered mg-b-0 text-md-nowrap">
+                            <thead>
+                            <tr>
+                                <th>ID</th>
+                                <th>@lang('admin.classification')</th>
+                                <th>@lang('admin.title')</th>
+                                <th>@lang('admin.action')</th>
+                            </tr>
+                            </thead>
+                            <tbody>
+
+                            @foreach($customer->subclasses as $item)
+                            <tr>
+                                <th scope="row">{{$item->id}}</th>
+
+                                <td>
+                                    {{$item->class->title}}
+                                </td>
+
+                                <td>
+                                    <div class="panel panel-primary tabs-style-2">
+                                        <div class=" tab-menu-heading">
+                                            <div class="tabs-menu1">
+                                                <!-- Tabs -->
+                                                <ul class="nav panel-tabs main-nav-line">
+                                                    @foreach(config('translatable.locales') as $locale)
+                                                        <li><a href="#cat-{{$locale}}-{{$item->id}}" class="nav-link {{$loop->first?"active":""}}" data-bs-toggle="tab">{{$locale}}</a></li>
+                                                    @endforeach
+
+                                                </ul>
+                                            </div>
+                                        </div>
+                                        <div class="panel-body tabs-menu-body main-content-body-right border">
+                                            <div class="tab-content">
+
+                                                @foreach(config('translatable.locales') as $locale)
+                                                    <div class="tab-pane {{$loop->first?"active":""}}" id="cat-{{$locale}}-{{$item->id}}">
+                                                        {{$item->translate($locale)->title ?? ''}}
+                                                    </div>
+                                                @endforeach
+
+                                            </div>
+                                        </div>
+                                    </div>
+                                </td>
+                                <td>
+                                    <a href="{{locale_route('subclass.edit',[$customer->id,$item->id])}}"
+                                       class="pl-3">
+                                        <i class="fa fa-edit">შეცვლა</i>
+                                    </a>
+
+                                    <a href="{{locale_route('subclass.destroy',[$customer->id,$item->id])}}"
+                                       onclick="return confirm('Are you sure?')" class="pl-3">
+                                        <i class="fa fa-edit">წაშლა</i>
+                                    </a>
+                                </td>
+
+                            </tr>
+                            @endforeach
+                            </tbody>
+                        </table>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+    <!-- row closed -->
 
     <!-- row -->
 

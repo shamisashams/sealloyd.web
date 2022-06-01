@@ -29,12 +29,28 @@ const Cabinet = ({ seo }) => {
                         <div>{__('client.user_cabinet_welcome',sharedData)}</div> <br />
                         {renderHTML(__('client.user_cabinet_text', sharedData).replace(/(?:\r\n|\r|\n)/g, '<br>'))}
                     </p>
-                    <div className="blue">{__('client.circulars',sharedData)}</div>
-                    <div className="doc_grid">
-                        {docs.map((doc, index) => {
-                            return <DlPdf key={index} model="Customer" name={doc} />;
-                        })}
-                    </div>
+                    {docs.map((el,index) => {
+                        //console.log(el.subclasses[1].docs)
+                        return (
+                            <div>
+                                <div className="blue">{el.title}</div>
+                                <div className="doc_grid">
+                                    {el.subclasses.map((ele,ind) => {
+                                        return (
+                                            <div>
+                                                <div>{ele.title}</div>
+                                                {ele.docs.map((doc, index) => {
+                                                    return <DlPdf key={index} model="Customer" name={doc} />;
+                                                })}
+                                            </div>
+                                        )
+                                    })}
+
+                                </div>
+                            </div>
+                        )
+                    })}
+
                 </div>
             </div>
         </Layout>

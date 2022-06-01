@@ -13,16 +13,21 @@ use App\Http\Controllers\Controller;
 use App\Http\Requests\Admin\CustomerRequest;
 use App\Http\Requests\Admin\ProductRequest;
 use App\Models\Category;
+use App\Models\Classes;
 use App\Models\Customer;
 use App\Models\File;
 use App\Models\Product;
+use App\Models\Subclass;
 use App\Repositories\CategoryRepositoryInterface;
+use App\Repositories\Eloquent\ClassesRepository;
 use App\Repositories\Eloquent\CustomerRepository;
+use App\Repositories\Eloquent\SubclassRepository;
 use App\Repositories\ProductRepositoryInterface;
 use Illuminate\Contracts\Foundation\Application;
 use Illuminate\Contracts\View\Factory;
 use Illuminate\Contracts\View\View;
 use Illuminate\Http\RedirectResponse;
+use Illuminate\Http\Request;
 use Illuminate\Routing\Redirector;
 use Illuminate\Support\Arr;
 use Illuminate\Support\Facades\Storage;
@@ -35,15 +40,17 @@ class CustomerController extends Controller
      * @var ProductRepositoryInterface
      */
     private $customerRepository;
-
+    private $subclassRepository;
 
 
 
     public function __construct(
-        CustomerRepository $customerRepository
+        CustomerRepository $customerRepository,
+        SubclassRepository $subclassRepository
     )
     {
         $this->customerRepository = $customerRepository;
+        $this->subclassRepository = $subclassRepository;
     }
 
     /**
@@ -230,4 +237,127 @@ class CustomerController extends Controller
         return redirect(locale_route('customer.edit',$id))->with('success', __('admin.delete_message'));
 
     }
+
+    public function createSubClass($locale,Customer $customer){
+
+        //dd($customer);
+        $subclass = $this->subclassRepository->model;
+
+        $url = locale_route('subclass.store', $customer, false);
+        $method = 'POST';
+
+
+
+        return view('admin.nowa.views.customer.subclass.form', [
+
+            'customer' => $customer,
+            'subclass' => $subclass,
+            'classes' => Classes::all(),
+            'url' => $url,
+            'method' => $method,
+        ]);
+    }
+
+    public function storeSubClass(Request $request, $locale,  Customer $customer){
+        $request->validate([
+           'class_id' => 'required'
+        ]);
+
+        $saveData = Arr::except($request->except('_token'), []);
+        $saveData['status'] = isset($saveData['status']) && (bool)$saveData['status'];
+
+        $saveData['customer_id'] = $customer->id;
+
+        //dd($saveData);
+
+
+        $subclass = $this->subclassRepository->create($saveData);
+
+
+        // Save Files
+        if ($request->hasFile('images')) {
+            $subclass = $this->subclassRepository->saveFiles($subclass->id, $request);
+        }
+
+        if ($request->hasFile('files')) {
+            $subclass = $this->subclassRepository->saveFilesDocs($subclass->id, $request);
+        }
+
+        return redirect(locale_route('customer.edit', $customer->id))->with('success', __('admin.create_successfully'));
+
+    }
+
+    public function editSubClass($locale,Customer $customer, Subclass $subclass){
+        $url = locale_route('subclass.update', [$customer->id,$subclass->id], false);
+        $method = 'PUT';
+
+        /*return view('admin.pages.product.form', [
+            'product' => $product,
+            'url' => $url,
+            'method' => $method,
+            'categories' => $this->categories
+        ]);*/
+
+        return view('admin.nowa.views.customer.subclass.form', [
+            'subclass' => $subclass,
+            'classes' => Classes::all(),
+            'customer' => $customer,
+            'url' => $url,
+            'method' => $method,
+        ]);
+    }
+
+    public function updateSubClass(Request $request, string $locale, Customer $customer, Subclass $subclass){
+//dd($request->all());
+        $saveData = Arr::except($request->except('_token'), []);
+        $saveData['status'] = isset($saveData['status']) && (bool)$saveData['status'];
+
+
+        //dd($saveData);
+
+        $this->subclassRepository->update($subclass->id, $saveData);
+
+        $this->subclassRepository->saveFiles($subclass->id, $request);
+
+        if ($request->hasFile('files')) {
+            $subclass = $this->subclassRepository->saveFilesDocs($subclass->id, $request);
+        }
+
+
+
+
+        return redirect(locale_route('customer.edit', $customer->id))->with('success', __('admin.update_successfully'));
+    }
+
+    public function destroySubClass(string $locale, Customer $customer,Subclass $subclass)
+    {
+        $docs = $subclass->docs;
+
+        foreach ($docs as $doc){
+            if (Storage::exists('public/Subclass/' . $doc->fileable_id . '/files/' . $doc->title)) {
+                Storage::delete('public/Subclass/' . $doc->fileable_id . '/files/' . $doc->title);
+            }
+            $doc->delete();
+        }
+
+        if (!$this->subclassRepository->delete($subclass->id)) {
+            return redirect(locale_route('customer.edit', $customer->id))->with('danger', __('admin.not_delete_message'));
+        }
+        return redirect(locale_route('customer.edit',$customer->id))->with('success', __('admin.delete_message'));
+    }
+
+    public function subclassDocDelete($locale,Customer $customer, Subclass $subclass, $id){
+        $file = File::query()->where('id',$id)->firstOrFail();
+        $id = $file->fileable_id;
+        //dd($file);
+        if (Storage::exists('public/Subclass/' . $file->fileable_id . '/files/' . $file->title)) {
+            Storage::delete('public/Subclass/' . $file->fileable_id . '/files/' . $file->title);
+        }
+
+        $file->delete();
+        return redirect(locale_route('subclass.update',[$customer->id, $subclass->id]))->with('success', __('admin.delete_message'));
+
+    }
+
+
 }
