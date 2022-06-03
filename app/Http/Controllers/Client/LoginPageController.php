@@ -287,7 +287,7 @@ class LoginPageController extends Controller
             'password' => $request->password,
         ],$request->remember)) {
             //return back()->with('danger','Email or Password is incorrect!');
-            dd('wrong credentials');
+            return redirect()->back()->with('danger','wrong login and / or password');
         }
         $request->session()->regenerate();
         //dd('ok');

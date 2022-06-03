@@ -10,6 +10,7 @@ const Login = ({ seo }) => {
     const sharedData = usePage().props.localizations;
     const renderHTML = (rawHTML) => React.createElement("div", { dangerouslySetInnerHTML: { __html: rawHTML } });
 
+    const {flash} = usePage().props;
     const [values, setValues] = useState({
         email: "",
         password: "",
@@ -43,8 +44,10 @@ const Login = ({ seo }) => {
                         {renderHTML(__('client.login_to_enter_permissiont_ask_admin', sharedData).replace(/(?:\r\n|\r|\n)/g, '<br>'))}
 
                     </p>
+                    {flash ? <div className="danger">{flash}</div> : null}
                     <input name="email" type="text" onChange={handleChange} placeholder={__('client.login_user', sharedData)} />
                     <input name="password" type="password" onChange={handleChange} placeholder={__('client.login_password', sharedData)} />
+
                     <button onClick={handleSubmit}>
                         {/* ავტორიზაცია */}
                         {renderHTML(__('client.login_authorization', sharedData).replace(/(?:\r\n|\r|\n)/g, '<br>'))}

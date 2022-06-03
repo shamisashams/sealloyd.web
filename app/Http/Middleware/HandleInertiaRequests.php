@@ -79,7 +79,8 @@ class HandleInertiaRequests extends Middleware
             'urlPrev'	=> $urlPrev,
             //'categories' => $result,
             'info' => $_result,
-            'user' => Auth::guard('customer')->user()
+            'user' => Auth::guard('customer')->user(),
+            'flash' => session('danger')
         ]);
     }
 
