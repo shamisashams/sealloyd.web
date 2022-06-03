@@ -157,6 +157,7 @@
 
     {{--@dd($customer->docs)--}}
 
+    @if($customer->id)
     <div class="row">
         <div class="col-xl-12">
             <div class="card mg-b-20">
@@ -235,6 +236,7 @@
         </div>
     </div>
     <!-- row closed -->
+    @endif
 
     <!-- row -->
 
