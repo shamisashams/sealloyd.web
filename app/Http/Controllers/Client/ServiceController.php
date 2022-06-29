@@ -17,7 +17,7 @@ class ServiceController extends Controller
     {
 
 
-        $page = Page::where('key', 'services')->firstOrFail();
+        $page = Page::where('key', 'home')->firstOrFail();
 
         $images = [];
         foreach ($page->sections as $sections) {
@@ -59,7 +59,7 @@ class ServiceController extends Controller
     // stators page render
     public function stators()
     {
-        $page = Page::where('key', 'certification')->firstOrFail();
+        $page = Page::where('key', 'home')->firstOrFail();
         $images = [];
         foreach ($page->sections as $sections) {
             if ($sections->file) {
@@ -133,7 +133,7 @@ class ServiceController extends Controller
     //   certification page render
     public function Certification()
     {
-        $page = Page::where('key', 'certification')->firstOrFail();
+        $page = Page::where('key', 'home')->firstOrFail();
         $images = [];
         foreach ($page->sections as $sections) {
             if ($sections->file) {
@@ -168,7 +168,7 @@ class ServiceController extends Controller
     }
     public function CompRecognition()
     {
-        $page = Page::where('key', 'comprecognition')->firstOrFail();
+        $page = Page::where('key', 'home')->firstOrFail();
         $images = [];
         foreach ($page->sections as $sections) {
             if ($sections->file) {

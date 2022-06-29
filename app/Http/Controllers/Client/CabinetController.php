@@ -24,7 +24,7 @@ class CabinetController extends Controller
 
     public function index()
     {
-        $page = Page::where('key', 'about')->firstOrFail();
+        $page = Page::where('key', 'home')->firstOrFail();
 
         $images = [];
         foreach ($page->sections as $sections) {
@@ -44,11 +44,11 @@ class CabinetController extends Controller
 
         //$docs = $user->docs;
 
-        $docs = $user->subclasses()->with(['translation','docs'])->get();
+        $docs = $user->subclasses()->with(['translation', 'docs'])->get();
 
         $result = [];
         $k = 0;
-        foreach ($docs as $doc){
+        foreach ($docs as $doc) {
             $result[$doc->class_id]['title'] = $doc->class->title;
             $result[$doc->class_id]['subclasses'][] = $doc;
             $k++;

@@ -22,7 +22,7 @@ class OurTeamController extends Controller
     {
 
 
-        $page = Page::where('key', 'services')->firstOrFail();
+        $page = Page::where('key', 'home')->firstOrFail();
 
         $images = [];
         foreach ($page->sections as $sections) {
@@ -72,7 +72,7 @@ class OurTeamController extends Controller
     {
 
 
-        $page = Page::where('key', 'services')->firstOrFail();
+        $page = Page::where('key', 'home')->firstOrFail();
 
         $images = [];
         foreach ($page->sections as $sections) {
@@ -113,7 +113,7 @@ class OurTeamController extends Controller
     {
 
 
-        $page = Page::where('key', 'services')->firstOrFail();
+        $page = Page::where('key', 'home')->firstOrFail();
 
         $images = [];
         foreach ($page->sections as $sections) {
@@ -155,7 +155,7 @@ class OurTeamController extends Controller
 
     public function viewVacancy($locale, $slug)
     {
-        $page = Page::where('key', 'services')->firstOrFail();
+        $page = Page::where('key', 'home')->firstOrFail();
 
         $images = [];
         foreach ($page->sections as $sections) {

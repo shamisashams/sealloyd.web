@@ -15,7 +15,7 @@ class ContactController extends Controller
 {
     public function index()
     {
-        $page = Page::where('key', 'contact')->firstOrFail();
+        $page = Page::where('key', 'home')->firstOrFail();
 
         $images = [];
         foreach ($page->sections as $sections) {

@@ -24,7 +24,7 @@ class LoginPageController extends Controller
     {
 
 
-        $page = Page::where('key', 'services')->firstOrFail();
+        $page = Page::where('key', 'home')->firstOrFail();
 
         $images = [];
         foreach ($page->sections as $sections) {
@@ -66,7 +66,7 @@ class LoginPageController extends Controller
     {
 
 
-        $page = Page::where('key', 'purpose')->firstOrFail();
+        $page = Page::where('key', 'home')->firstOrFail();
 
         $images = [];
         foreach ($page->sections as $sections) {
@@ -107,7 +107,7 @@ class LoginPageController extends Controller
     public function ethics()
     {
 
-        $page = Page::where('key', 'ethics')->firstOrFail();
+        $page = Page::where('key', 'home')->firstOrFail();
 
         $images = [];
         foreach ($page->sections as $sections) {
@@ -148,7 +148,7 @@ class LoginPageController extends Controller
     public function politics()
     {
 
-        $page = Page::where('key', 'politics')->firstOrFail();
+        $page = Page::where('key', 'home')->firstOrFail();
 
         $images = [];
         foreach ($page->sections as $sections) {
@@ -189,7 +189,7 @@ class LoginPageController extends Controller
     public function management()
     {
 
-        $page = Page::where('key', 'management')->firstOrFail();
+        $page = Page::where('key', 'home')->firstOrFail();
 
         $images = [];
         foreach ($page->sections as $sections) {
@@ -237,7 +237,7 @@ class LoginPageController extends Controller
     public function recognition()
     {
 
-        $page = Page::where('key', 'services')->firstOrFail();
+        $page = Page::where('key', 'home')->firstOrFail();
 
         $images = [];
         foreach ($page->sections as $sections) {
@@ -275,19 +275,20 @@ class LoginPageController extends Controller
         ]);
     }
 
-    public function auth(Request $request){
+    public function auth(Request $request)
+    {
 
         $request->validate([
-            'email' => ['required','email'],
+            'email' => ['required', 'email'],
             'password' => 'required'
         ]);
 
         if (!Auth::guard('customer')->attempt([
             'email' => $request->email,
             'password' => $request->password,
-        ],$request->remember)) {
+        ], $request->remember)) {
             //return back()->with('danger','Email or Password is incorrect!');
-            return redirect()->back()->with('danger','wrong login and / or password');
+            return redirect()->back()->with('danger', 'wrong login and / or password');
         }
         $request->session()->regenerate();
         //dd('ok');

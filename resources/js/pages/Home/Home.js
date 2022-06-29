@@ -22,7 +22,8 @@ const Home = ({ page, seo, images }) => {
         <Layout seo={seo}>
             <div className="homePage">
                 <div className="hero_section">
-                    <img src='/assets/images/home/1.png' alt="" className="beach_bg" />
+                    {/* <img src='/assets/images/home/1.png' alt="" className="beach_bg" /> */}
+                    <img src={images[0]} alt="error" className="beach_bg" />
                     <div className="scroll_down">
                         <p>
                             {/* scroll down for more */}
@@ -35,7 +36,7 @@ const Home = ({ page, seo, images }) => {
                     <StatorBoxes />
                 </div>
                 <div className="port_section">
-                    <PortsMap />
+                    <PortsMap img={images} />
                     <div className="wrapper">
                         <div className="content">
                             {/* <div className="font45">აღიარებული ინსპექტორები</div> */}
@@ -75,7 +76,7 @@ const Home = ({ page, seo, images }) => {
                 <div className="form_section ">
 
                     <div className="abs_img img">
-                        <img src={images[0]} alt="error" />
+                        <img src={images[2]} alt="error" />
                     </div>
                     {/* <img src={images[3]} alt='error'></img> */}
                     <div className="wrapper">

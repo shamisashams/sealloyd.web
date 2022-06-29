@@ -9,7 +9,7 @@ import "./PortsMap.css";
 // import Flag5 from "../../assets/images/icons/flags/10.png";
 // import Flag6 from "../../assets/images/icons/flags/11.png";
 
-const PortsMap = () => {
+const PortsMap = ({ img }) => {
     const ports = [
         {
             flag: '/assets/images/icons/flags/6.png',
@@ -38,7 +38,8 @@ const PortsMap = () => {
     ];
     return (
         <div className="ports_map">
-            <img src='/assets/images/bgs/map.png' className="the_map" alt="" />
+            {/* <img src='/assets/images/bgs/map.png' className="the_map" alt="" /> */}
+            <img src={img[1]} alt="error" className="the_map" alt="" />
             <div className="ports">
                 {ports.map((port, index) => {
                     return (

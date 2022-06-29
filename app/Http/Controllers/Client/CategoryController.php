@@ -74,7 +74,7 @@ class CategoryController extends Controller
 
     public function popular()
     {
-        $page = Page::where('key', 'products')->firstOrFail();
+        $page = Page::where('key', 'home')->firstOrFail();
 
         $images = [];
         foreach ($page->sections as $sections) {

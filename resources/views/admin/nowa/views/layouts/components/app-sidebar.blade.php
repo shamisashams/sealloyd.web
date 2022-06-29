@@ -11,16 +11,12 @@
 						<div class="main-sidemenu">
 							<div class="slide-left disabled" id="slide-left"><svg xmlns="http://www.w3.org/2000/svg" fill="#7b8191" width="24" height="24" viewBox="0 0 24 24"><path d="M13.293 6.293 7.586 12l5.707 5.707 1.414-1.414L10.414 12l4.293-4.293z"/></svg></div>
                             <ul class="side-menu">
-
-
                                 @php
                                     use App\Helpers\Helper;
                                     $configData = Helper::applClasses();
                                 @endphp
-
                                 @if(!empty($menuData[0]) && isset($menuData[0]))
                                     @foreach ($menuData[0]->menu as $menu)
-
                                         @if(isset($menu->navheader))
                                             <li class="navigation-header">
                                                 <a class="navigation-header-text">{{ __('admin.'.$menu->navheader) }}</a>
@@ -75,7 +71,6 @@
                                                     @endif
                                                     @if(isset($menu->submenu)) <i class="angle fe fe-chevron-down"></i> @else <i class="angle fe fe-chevron-right"></i> @endif
                                             </a>
-
                                             @if(isset($menu->submenu))
                                             <ul class="sub-slide-menu">
                                             @foreach ($menu->submenu as $v)

@@ -21,54 +21,54 @@ class PageSeeder extends Seeder
                 'key' => 'home'
             ],
             // about us
-            [
-                'key' => 'purpose'
-            ],
-            [
-                'key' => 'ethics'
-            ],
-            [
-                'key' => 'politics'
-            ],
-            [
-                'key' => 'management'
-            ],
-            [
-                'key' => 'recognition'
-            ],
-            // servies
-            [
-                'key' => 'services'
-            ],
-            [
-                'key' => 'stators'
-            ],
-            [
-                'key' => 'certification'
-            ],
-            [
-                'key' => 'comprecognition'
-            ],
-            // documentation
-            [
-                'key' => 'owner-application'
-            ],
-            [
-                'key' => 'evaluation'
-            ],
+            // [
+            //     'key' => 'purpose'
+            // ],
+            // [
+            //     'key' => 'ethics'
+            // ],
+            // [
+            //     'key' => 'politics'
+            // ],
+            // [
+            //     'key' => 'management'
+            // ],
+            // [
+            //     'key' => 'recognition'
+            // ],
+            // // servies
+            // [
+            //     'key' => 'services'
+            // ],
+            // [
+            //     'key' => 'stators'
+            // ],
+            // [
+            //     'key' => 'certification'
+            // ],
+            // [
+            //     'key' => 'comprecognition'
+            // ],
+            // // documentation
+            // [
+            //     'key' => 'owner-application'
+            // ],
+            // [
+            //     'key' => 'evaluation'
+            // ],
             [
                 'key' => 'circulars'
             ],
             //our team
-            [
-                'key' => 'office'
-            ],
-            [
-                'key' => 'inspectors'
-            ],
-            [
-                'key' => 'career'
-            ],
+            // [
+            //     'key' => 'office'
+            // ],
+            // [
+            //     'key' => 'inspectors'
+            // ],
+            // [
+            //     'key' => 'career'
+            // ],
 
             // contact
 
@@ -77,15 +77,15 @@ class PageSeeder extends Seeder
             // ],
 
 
-            [
-                'key' => 'about'
-            ],
-            [
-                'key' => 'contact'
-            ],
-            [
-                'key' => 'products'
-            ]
+            // [
+            //     'key' => 'about'
+            // ],
+            // [
+            //     'key' => 'contact'
+            // ],
+            // [
+            //     'key' => 'products'
+            // ]
 
 
         ];
