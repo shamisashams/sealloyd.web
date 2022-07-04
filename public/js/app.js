@@ -6862,11 +6862,15 @@ var PortsMap = function PortsMap(_ref) {
   }];
   return /*#__PURE__*/react__WEBPACK_IMPORTED_MODULE_0__.createElement("div", {
     className: "ports_map"
-  }, /*#__PURE__*/react__WEBPACK_IMPORTED_MODULE_0__.createElement("img", _defineProperty({
+  }, img ? /*#__PURE__*/react__WEBPACK_IMPORTED_MODULE_0__.createElement("img", _defineProperty({
     src: img[1],
     alt: "error",
     className: "the_map"
-  }, "alt", "")), /*#__PURE__*/react__WEBPACK_IMPORTED_MODULE_0__.createElement("div", {
+  }, "alt", "")) : /*#__PURE__*/react__WEBPACK_IMPORTED_MODULE_0__.createElement("img", {
+    src: "/assets/images/bgs/map.png",
+    className: "the_map",
+    alt: ""
+  }), /*#__PURE__*/react__WEBPACK_IMPORTED_MODULE_0__.createElement("div", {
     className: "ports"
   }, ports.map(function (port, index) {
     return /*#__PURE__*/react__WEBPACK_IMPORTED_MODULE_0__.createElement("div", {

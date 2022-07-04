@@ -22,7 +22,7 @@ class OurTeamController extends Controller
     {
 
 
-        $page = Page::where('key', 'home')->firstOrFail();
+        $page = Page::where('key', 'office')->firstOrFail();
 
         $images = [];
         foreach ($page->sections as $sections) {
@@ -72,7 +72,7 @@ class OurTeamController extends Controller
     {
 
 
-        $page = Page::where('key', 'home')->firstOrFail();
+        $page = Page::where('key', 'inspectors')->firstOrFail();
 
         $images = [];
         foreach ($page->sections as $sections) {
@@ -83,7 +83,7 @@ class OurTeamController extends Controller
             }
         }
 
-        $sliders = Slider::query()->where("status", 1)->with(['file', 'translations']);
+        // $sliders = Slider::query()->where("status", 1)->with(['file', 'translations']);
         //        dd($page->file);
         //        dd(App::getLocale());
         $products = app(ProductRepository::class)->getPopularProducts();
@@ -91,7 +91,7 @@ class OurTeamController extends Controller
 
         //dd($products);
 
-        return Inertia::render('Inspectors/Inspectors', ["sliders" => $sliders->get(), "page" => $page, "seo" => [
+        return Inertia::render('Inspectors/Inspectors', ["page" => $page, "seo" => [
             "title" => $page->meta_title,
             "description" => $page->meta_description,
             "keywords" => $page->meta_keyword,
@@ -113,7 +113,7 @@ class OurTeamController extends Controller
     {
 
 
-        $page = Page::where('key', 'home')->firstOrFail();
+        $page = Page::where('key', 'career')->firstOrFail();
 
         $images = [];
         foreach ($page->sections as $sections) {

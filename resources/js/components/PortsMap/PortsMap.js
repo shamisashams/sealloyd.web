@@ -38,8 +38,10 @@ const PortsMap = ({ img }) => {
     ];
     return (
         <div className="ports_map">
-            {/* <img src='/assets/images/bgs/map.png' className="the_map" alt="" /> */}
-            <img src={img[1]} alt="error" className="the_map" alt="" />
+
+
+            {img ? <img src={img[1]} alt="error" className="the_map" alt="" /> : <img src='/assets/images/bgs/map.png' className="the_map" alt="" />}
+
             <div className="ports">
                 {ports.map((port, index) => {
                     return (

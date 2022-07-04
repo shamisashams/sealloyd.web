@@ -22,7 +22,7 @@ class DocumentationController extends Controller
     {
 
 
-        $page = Page::where('key', 'home')->firstOrFail();
+        $page = Page::where('key', 'owner-application')->firstOrFail();
 
         $images = [];
         foreach ($page->sections as $sections) {
@@ -65,7 +65,7 @@ class DocumentationController extends Controller
     {
 
 
-        $page = Page::where('key', 'home')->firstOrFail();
+        $page = Page::where('key', 'evaluation')->firstOrFail();
 
         $images = [];
         foreach ($page->sections as $sections) {
@@ -107,7 +107,7 @@ class DocumentationController extends Controller
     {
 
 
-        $page = Page::where('key', 'home')->firstOrFail();
+        $page = Page::where('key', 'circulars')->firstOrFail();
 
         $images = [];
         foreach ($page->sections as $sections) {

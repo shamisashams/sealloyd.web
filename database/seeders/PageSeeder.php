@@ -20,72 +20,78 @@ class PageSeeder extends Seeder
             [
                 'key' => 'home'
             ],
+            [
+                'key' => 'login'
+            ],
             // about us
-            // [
-            //     'key' => 'purpose'
-            // ],
-            // [
-            //     'key' => 'ethics'
-            // ],
-            // [
-            //     'key' => 'politics'
-            // ],
-            // [
-            //     'key' => 'management'
-            // ],
-            // [
-            //     'key' => 'recognition'
-            // ],
-            // // servies
-            // [
-            //     'key' => 'services'
-            // ],
-            // [
-            //     'key' => 'stators'
-            // ],
-            // [
-            //     'key' => 'certification'
-            // ],
-            // [
-            //     'key' => 'comprecognition'
-            // ],
-            // // documentation
-            // [
-            //     'key' => 'owner-application'
-            // ],
-            // [
-            //     'key' => 'evaluation'
-            // ],
+            [
+                'key' => 'purpose'
+            ],
+            [
+                'key' => 'ethics'
+            ],
+            [
+                'key' => 'politics'
+            ],
+            [
+                'key' => 'management'
+            ],
+            [
+                'key' => 'recognition'
+            ],
+            // servies
+            [
+                'key' => 'services'
+            ],
+            [
+                'key' => 'stators'
+            ],
+            [
+                'key' => 'certification'
+            ],
+            [
+                'key' => 'comprecognition'
+            ],
+            [
+                'key' => 'classification'
+            ],
+            // documentation
+            [
+                'key' => 'owner-application'
+            ],
+            [
+                'key' => 'evaluation'
+            ],
             [
                 'key' => 'circulars'
             ],
             //our team
-            // [
-            //     'key' => 'office'
-            // ],
-            // [
-            //     'key' => 'inspectors'
-            // ],
-            // [
-            //     'key' => 'career'
-            // ],
+            [
+                'key' => 'office'
+            ],
+            [
+                'key' => 'inspectors'
+            ],
+            [
+                'key' => 'career'
+            ],
 
-            // contact
+            //contact
 
-            // [
-            //     'key' => 'contact'
-            // ],
+            [
+                'key' => 'contact'
+            ],
 
 
-            // [
-            //     'key' => 'about'
-            // ],
-            // [
-            //     'key' => 'contact'
-            // ],
-            // [
-            //     'key' => 'products'
-            // ]
+            [
+                'key' => 'about'
+            ],
+            [
+                'key' => 'contact'
+            ],
+            [
+                'key' => 'products'
+            ]
 
 
         ];

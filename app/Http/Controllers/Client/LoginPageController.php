@@ -24,7 +24,7 @@ class LoginPageController extends Controller
     {
 
 
-        $page = Page::where('key', 'home')->firstOrFail();
+        $page = Page::where('key', 'login')->firstOrFail();
 
         $images = [];
         foreach ($page->sections as $sections) {
@@ -66,7 +66,7 @@ class LoginPageController extends Controller
     {
 
 
-        $page = Page::where('key', 'home')->firstOrFail();
+        $page = Page::where('key', 'purpose')->firstOrFail();
 
         $images = [];
         foreach ($page->sections as $sections) {
@@ -107,7 +107,7 @@ class LoginPageController extends Controller
     public function ethics()
     {
 
-        $page = Page::where('key', 'home')->firstOrFail();
+        $page = Page::where('key', 'ethics')->firstOrFail();
 
         $images = [];
         foreach ($page->sections as $sections) {
@@ -148,7 +148,7 @@ class LoginPageController extends Controller
     public function politics()
     {
 
-        $page = Page::where('key', 'home')->firstOrFail();
+        $page = Page::where('key', 'politics')->firstOrFail();
 
         $images = [];
         foreach ($page->sections as $sections) {
@@ -189,7 +189,7 @@ class LoginPageController extends Controller
     public function management()
     {
 
-        $page = Page::where('key', 'home')->firstOrFail();
+        $page = Page::where('key', 'management')->firstOrFail();
 
         $images = [];
         foreach ($page->sections as $sections) {
@@ -237,7 +237,7 @@ class LoginPageController extends Controller
     public function recognition()
     {
 
-        $page = Page::where('key', 'home')->firstOrFail();
+        $page = Page::where('key', 'recognition')->firstOrFail();
 
         $images = [];
         foreach ($page->sections as $sections) {
