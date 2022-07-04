@@ -86,9 +86,7 @@ class PageSeeder extends Seeder
             [
                 'key' => 'about'
             ],
-            [
-                'key' => 'contact'
-            ],
+
             [
                 'key' => 'products'
             ]

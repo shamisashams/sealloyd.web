@@ -38,6 +38,9 @@ class PageSectionSeeder extends Seeder
                 'key' => 'certification'
             ],
             [
+                'key' => 'classification'
+            ],
+            [
                 'key' => 'comprecognition'
             ],
             [
